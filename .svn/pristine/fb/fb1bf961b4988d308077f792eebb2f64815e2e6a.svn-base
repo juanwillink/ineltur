@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Menú";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div id="Menu">
+    @if (SessionData.UserProfile >= UserProfile.Operator)
+    {
+        @Html.ActionLink("Listado de Reservas", "TransactionList", "Reports")<br />
+        @*@Html.ActionLink("Transaction Errors Report", "TransactionErrorList", "Reports")<br />*@
+    }
+    @if (SessionData.UserProfile >= UserProfile.Superadmin)
+    {
+        @Html.ActionLink("Imprimir Factura", "Invoices", "Reports")<br />
+    }
+    @if (SessionData.UserProfile >= UserProfile.AdministratorClient)
+    {
+        @*@Html.ActionLink("User Management", "Users", "Management")<br />*@
+    }
+    @if (SessionData.UserProfile >= UserProfile.Operator)
+    {
+        @Html.ActionLink("Borrar Cache", "ClearCache", "Management", new { onclick = "clearCache(); return false;" })<br />
+    }
+</div>

@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "Check Argentina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.EnableUnobtrusiveJavaScript();
+    Html.EnableClientValidation();
+}
+
+@using CheckArgentina.Commons
+
+@section HeaderCSSOrScript{
+    @*<link rel="Stylesheet" type="text/css" href="http://ineltur.apteknet.com/jquery/jquery-ui-1.7.2.custom.css" />
+    <link rel="Stylesheet" type="text/css" href="http://ineltur.apteknet.com/jquery/jquery.autocomplete.css" />*@
+    
+    <script src="@Href("~/Scripts/jquery.watermark.min.js")" type="text/javascript"></script>
+    <script src="@Href("~/Scripts/jquery.nicescroll.min.js")" type="text/javascript"></script>
+
+    <script src="@Href("~/Scripts/check_functions.js")" type="text/javascript"></script>
+    <script src="@Href("~/Scripts/check_functions.min.js")" type="text/javascript"></script>
+    <script src="@Href("~/Scripts/check_functions.parent.js")" type="text/javascript"></script>
+}
+
+@*Este archivo de javascript debe ser insertado dentro del <body></body>*@  
+
+<script src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.21/jquery-ui.min.js")" type="text/javascript" ></script>
+
+<script src="@Url.Content("~/Scripts/jquery.ba-bbq.min.js")" type="text/javascript"></script>
+
+<script src="@Href("~/Scripts/jquery.smoothdivscroll-1.2-min.js")" type="text/javascript"></script>
+<script src="@Href("~/Scripts/Layout.js")" type="text/javascript"></script>
+<script src="@Href("~/Scripts/Home_Functions.js")" type="text/javascript"></script>
+
+@*<script src="@Url.Content("http://ineltur.apteknet.com/jquery/jquery.bgiframe.js")" type="text/javascript"></script>
+<script src="@Url.Content("http://ineltur.apteknet.com/code.js")" type="text/javascript"></script>
+<script src="@Url.Content("http://ineltur.apteknet.com/funciones.js")" type="text/javascript"></script>
+<script src="@Url.Content("http://ineltur.apteknet.com/wz_tooltip.js")" type="text/javascript"></script>*@
+
+@*<script src="@Url.Content("~/Scripts/check_functions.parent.js")" type="text/javascript"></script>*@
+
+<div id="Home" class="row">
+    <div class="col-md-4">
+        <div id="tab_container" class="panel">
+            <div class="panel-heading" style="padding: 10px 15px 0px 15px;">
+                <h2>Bienvenido</h2>
+            </div> 
+            <div class="panel-body">
+                @* Site key de admin *@
+                <iframe id="iframe_national" name="iframe_national" src="@Href("~/National/NationalSearch/{0A2C0A18-4F3D-4123-AA35-BEA45A756149}")" scrolling="no"></iframe>
+            </div>
+        </div>
+    </div>
+        @*<div id="extended_search_container" class="buscador-borde" style="display:none;">
+            <iframe id="iframe_extended_search" src="#" scrolling="no"></iframe>
+        </div>*@
+    <div class="col-md-8">
+        <div id="tab_container">
+            <div id="results" class="search-results" style="display:none;">
+                <iframe id="iframe_results" name="iframe_results" scrolling="no"></iframe>
+            </div>
+        </div>
+        <div id="rightColumn">
+            <div class="row banners-wrapper">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="banner_holder">
+                                <div class="add-banner-1"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="banner_holder">
+                                <div class="add-banner-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="margin: 20px 0px 20px 0px;">
+                            <div class="banner_holder">
+                                <div class="add-banner-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="banner_holder">
+                                <div class="add-banner-4"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="banner_holder">
+                                <div class="add-banner-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="register-container rounded roundedEmphaticColor" >
+            @using (Html.BeginForm("RegisterEmail", "Registration", FormMethod.Post, new {id = "register_form"}))
+            {
+                <div class="register-text">
+                    <p>Ahorrá hasta 50%</p>
+                    <p>con ofertas relámpago</p>
+                </div>
+                <div class="register-mail">
+                    @Html.TextBox("reg_email").AddClasses("register-input")*@
+        @*@Html.TextBox("reg_email").AddClasses("register-input rounded roundedAuxiliarColor")
+                @(
+                    @*Html.Button("Registrate ya!", null)
+                        .AddId("register_button")
+                        .AddClasses("rounded roundedMainColor")
+                        //.AddAttribute("onclick", "javascript:if(validateEmail($('#reg_email').val())){ showDiv('#captcha_container', 'block'); $('#register_button').val('Recargar captcha...'); reloadCaptcha('#img_Captcha'); }")
+                        .AddAttribute("onclick", "javascript:if(validateEmail($('#reg_email').val())){ showDiv('#captcha_container', 'block'); $('#register_button').val('Recargar captcha...'); reloadCaptcha('#img_Captcha'); $('.register-container').css('height','126px');}")
+                )
+            </div>
+
+            <div id="captcha_container" class="captcha-container" style="display:none;">
+                <div class="captcha-image">
+                    @(
+                        Html.Image<CheckArgentina.Controllers.RegistrationController>("img_Captcha", c => c.GetCaptcha(), "100%", "auto")
+                    )
+                </div>
+                <div class="register-sender">*@
+        @*@Html.TextBox("text_captcha").AddClasses("rounded roundedAuxiliarColor").AddInlineStyles("text-align:center;width:98%;")*@
+        @*@Html.TextBox("text_captcha").AddClasses("captcha-text")
+                            @(
+                                Html.Button("Enviar solicitud!", null)
+                                    .AddId("send_registration_button")
+                                    .AddClasses("rounded roundedMainColor")
+                                    //.AddAttribute("onclick", "javascript:showDiv('#captcha_container', null); registerEmail($('#reg_email').val()); $('#register_button').val('Registrate ya!'); ")
+                                    .AddAttribute("onclick", "javascript:showDiv('#captcha_container', null); registerEmail($('#reg_email').val()); $('#register_button').val('Registrate ya!'); $('.register-container').css('height','60px')")
+                            )
+                        </div>
+                    </div>
+                    Html.EndForm();
+                }
+            </div>
+            &nbsp;
+            <div class="table">
+                <div class="row">
+                    <div class="cell" style="width: 35%;vertical-align:middle;">
+                        <div class="rounded roundedMainColor">
+                            <div class="table">
+                                <div class="row">
+                                    <div class="cell" style="text-align: center;font-size:large;font-weight:bold;">0810 333 2705</div>
+                                </div>
+                                <div class="row">
+                                    <div class="cell" style="text-align: center;font-size:smaller;">Atención al cliente</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell" style="padding-left:10px;text-align:center;vertical-align:middle;">
+                        <img src="@Url.Content("~/Content/Images/redes_sociales.png")" alt="" style="vertical-align:top;text-align:center;display:inline;" width="100%" />
+                    </div>
+                </div>
+            </div>*@
+        <div class="clear">
+        </div>
+    </div>
+</div>

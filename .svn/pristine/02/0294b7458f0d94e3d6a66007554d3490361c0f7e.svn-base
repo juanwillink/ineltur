@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+
+<div id="top_menu">
+
+    @if (SessionData.UserProfile >= UserProfile.Operator)
+    {
+        <div class="top_menu-option">
+            @Html.ActionLink("Listado de Reservas", "Transactions", "Reports")<br />
+        </div>
+    }
+    @if (SessionData.UserProfile >= UserProfile.Superadmin)
+    {
+        <div class="top_menu-option">
+            @Html.ActionLink("Imprimir Factura", "Invoices", "Reports")<br />
+        </div>
+    }
+    @if (SessionData.UserProfile >= UserProfile.Administrator)
+    {
+        <div class="top_menu-option">
+            @Html.ActionLink("Gestión de Alojamientos", "Menu", "Lodging")<br />
+        </div>
+    }
+    
+</div>

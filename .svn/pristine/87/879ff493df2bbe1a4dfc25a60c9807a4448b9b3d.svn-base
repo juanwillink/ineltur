@@ -1,0 +1,20 @@
+﻿using System;
+
+namespace Ineltur.WebService
+{
+    public class PeticionReservarAlojamiento : PeticionBase
+    {
+        public Guid IdAlojamiento { get; set; }
+        
+        public Guid IdFormaPago { get; set; }
+
+        public InfoPasajero Titular { get; set; }
+
+        public DetalleUnidad[] Unidades { get; set; }
+
+        public string Nacionalidad { get; set; }
+
+        public string Observaciones { get; set; }
+        public EstadoReserva EstadoReserva { get; set; }
+    }
+}

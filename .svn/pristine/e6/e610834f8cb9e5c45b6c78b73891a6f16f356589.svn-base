@@ -1,0 +1,89 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+
+namespace ArgentinahtlMVC.Models
+{
+    public class SeasonTypeModel
+    {
+        [Display(Name = "ID Tipo Temporada")]
+        public Guid? SeasonTypeId { get; set; }
+
+        [Required]
+        [Display(Name = "Nombre")]
+        public string SeasonTypeName { get; set; }
+
+        [Required]
+        [Display(Name = "Descripción")]
+        public string Description { get; set; }
+    }
+
+    public class SeasonModel
+    {
+        public List<SeasonTypeModel> SeasonTypes { get; set; }
+
+        [Display(Name = "ID Temporada")]
+        public Guid? SeasonId { get; set; }
+
+        [Required]
+        [Display(Name = "Nombre")]
+        public string SeasonName { get; set; }
+
+        [Display(Name = "ID Alojamiento")]
+        public Guid? LodgingId { get; set; }
+
+        [Required]
+        [Display(Name = "Habilitada")]
+        public bool Enabled { get; set; }
+
+        [Required]
+        [Display(Name = "Fecha Inicio")]
+        [DataType(DataType.Time)]
+        [DisplayFormatAttribute(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime StartDate { get; set; }
+
+        [Required]
+        [Display(Name = "Fecha Fin")]
+        [DataType(DataType.Time)]
+        [DisplayFormatAttribute(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime EndDate { get; set; }
+
+        [Required]
+        [Display(Name = "Fecha Alta")]
+        [DataType(DataType.Time)]
+        [DisplayFormatAttribute(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime DateOfRegistration { get; set; }
+
+        [Required]
+        [Display(Name = "ID Tipo Temporada")]
+        public Guid? SeasonTypeId { get; set; }
+
+        [Required]
+        [Display(Name = "Deadline")]
+        public int Deadline { get; set; }
+    }
+
+    public class SeasonListModel
+    {
+        public SeasonListModel()
+        {
+            Lodging = new LodgingModel();
+            Seasons = new List<SeasonModel>();
+        }
+
+        public List<SeasonTypeModel> SeasonTypes { get; set; }
+        public List<SeasonModel> Seasons { get; set; }
+
+        public long Count { get { return (Seasons != null ? Seasons.Count() : 0); } }
+
+        public LodgingModel Lodging { get; set; }
+    }
+
+    public class SeasonsModel
+    {
+        public List<DestinationModel> Provinces { get; set; }
+        public List<DestinationModel> Cities { get; set; }
+    }
+}

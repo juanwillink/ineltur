@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("_HeadScripts")
+
+    @*<script src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.js")" type="text/javascript"></script>*@
+    
+    <script src="@Href("~/Scripts/jquery.nicescroll.min.js")" type="text/javascript"></script>
+    @*<script src="@Href("~/Scripts/jquery.mCustomScrollbar.min.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content("~/Scripts/check_functions.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/check_functions.child.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".result-list").each(function () {
+                $(this).niceScroll();
+            });
+
+            $(".result-list").focus();
+
+            sendResizeMessage();
+        });
+    </script>
+</head>
+<body id="results_body">
+    <div id="results_table">
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+

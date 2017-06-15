@@ -1,0 +1,27 @@
+﻿function createLoginForm() {
+    var formObject = $('<form></form>', {
+        id: 'login_attemp_form',
+        name: 'login_attemp_form',
+        action: '/Login/LoginAttemp',
+        method: 'post'
+    });
+
+    if ($('#Username').val() != null && $('#Username').val() != "")  {
+        formObject.append('<input type="hidden" id="Username" name="Username" value="' + $('#Username').val() + '"/>')
+    }
+    else {
+        formObject.append('<input type="hidden" id="Username" name="Username" value=""/>');
+    }
+    if ($('#Password').val() != null && $('#Password').val() != "") {
+        formObject.append('<input type="hidden" id="Password" name="Password" value="' + $('#Password').val() + '"/>')
+    }
+    else {
+        formObject.append('<input type="hidden" id="Password" name="Password" value=""/>');
+    }
+    return formObject.toHtmlString();
+}
+
+function attempLogin() {
+    sendLoginMessage(createLoginForm());
+    sendResizeMessage();
+}

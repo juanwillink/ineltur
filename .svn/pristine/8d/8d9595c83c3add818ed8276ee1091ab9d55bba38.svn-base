@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<div id="top_menu">
+
+    @if (SessionData.UserProfile >= UserProfile.Operator)
+    {
+        <div class="top_menu-option">
+            @Html.ActionLink("Listado de Reservas", "TransactionList", "Reports")<br />
+        </div>
+    }
+    @if (SessionData.UserProfile >= UserProfile.Superadmin)
+    {
+        <div class="top_menu-option">
+            @Html.ActionLink("Imprimir Factura", "Invoices", "Reports")<br />
+        </div>
+    }
+    @if (SessionData.UserProfile >= UserProfile.AdministratorClient)
+    {
+        @*@Html.ActionLink("User Management", "Users", "Management")<br />*@
+    }
+    
+</div>

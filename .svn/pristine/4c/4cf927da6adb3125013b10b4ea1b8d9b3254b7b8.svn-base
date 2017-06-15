@@ -1,0 +1,68 @@
+﻿/*
+* ===================================================================================================================
+    
+    Function file for Check Argentina
+
+    Support sources:
+        http://benalman.com/projects/jquery-postmessage-plugin/
+
+* ===================================================================================================================
+*/
+
+//var functions = new Array();
+//var params = new Array();
+
+//$.registerFunction = function (func, params) {
+//    functions[func] = func;
+//    params[func] = params;
+//}
+
+//$.invokeRegisteredFunction = function (func, params){
+//    if(functions[func]){
+//        
+//    }
+//}
+
+$(function () {
+    $.receiveMessage(function (e) {
+        var data = $.deparam(e.data);
+
+        if (data.callFunction) {
+            switch (data.callFunction) {
+                case "adjustIframes":
+                    adjustIframes(true);
+                    break;
+
+                case "internationalSearch":
+                    doSearch(data.callParams);
+                    break;
+
+                case "nationalSearch":
+                    doSearch(data.callParams);
+                    break;
+
+                case "goTop":
+                    goTop(data.callParams);
+                    break;
+            }
+
+            //            if (data.callParams) {
+            //                window[data.callFunction](data.callParams);
+            //            }
+            //            else
+            //                window[data.callFunction]();
+        }
+    });
+});
+
+function doSearch(searchFilters) {
+    var searchForm = $(searchFilters);
+
+    searchForm.submit();
+}
+
+function goTop(id) {
+    $('html, body').animate({
+        scrollTop: $('#' + id.replace('#', '')).offset().top
+    }, 1000);
+}

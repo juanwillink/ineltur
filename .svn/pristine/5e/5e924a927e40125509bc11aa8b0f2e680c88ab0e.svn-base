@@ -1,0 +1,274 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using System;
+
+namespace CheckArgentina.Models
+{
+    public enum DestinationType
+    {
+        City,
+        State,
+        Region,
+        Airport
+    }
+
+    public enum RoomType
+    {
+        Single,
+        Double,
+        DSU,
+        Twin,
+        Triple,
+        Quad,
+        Quintuple,
+        Sextuple,
+        Septuple,
+        Octuple,
+        Nonuple
+    }
+
+    public class DestinationModel
+    {
+        [Required]
+        [Display(Name = "ID")]
+        [DataType(DataType.Text)]
+        public string DestinationId { get; set; }
+
+        [Required]
+        [Display(Name = "Destino")]
+        [DataType(DataType.Text)]
+        public string DestinationName { get; set; }
+        
+        [Required]
+        [Display(Name = "Tipo de Destino")]
+        [DataType(DataType.Text)]
+        public DestinationType DestinationType { get; set; }
+    }
+
+    public class DestinationListModel
+    {
+        public List<DestinationModel> Destinations { get; set; }
+    }
+
+    public class LodgingModel
+    {
+        public LodgingModel()
+        {
+            Vacancies = new List<VacancyModel>();
+        }
+
+        public List<VacancyModel> Vacancies { get; set; }
+
+        /// <summary>
+        /// Get the image which corresponds to the specified lodging category
+        /// </summary>
+        /// <param name="lodgingCategory"></param>
+        /// <returns></returns>
+        public static string GetCategoryImage(int lodgingCategory)
+        {
+            // Si es menor a 1 lo deja en 1, si es mayor de 5 lo deja en 5
+            lodgingCategory = (lodgingCategory < 1 ? 1 : (lodgingCategory > 5 ? 5 : lodgingCategory));
+
+            return string.Format("~/Content/Images/Cat_S{0}_ESP.gif", lodgingCategory);
+        }
+
+        [Required]
+        [Display(Name = "ID")]
+        [DataType(DataType.Text)]
+        public string LodgingId { get; set; }
+
+        [Required]
+        [Display(Name = "Hotel")]
+        [DataType(DataType.Text)]
+        public string LodgingName { get; set; }
+
+        [Required]
+        [Display(Name = "Descripción")]
+        [DataType(DataType.Text)]
+        public string LodgingDescription { get; set; }
+
+        [Display(Name = "Foto")]
+        [DataType(DataType.ImageUrl)]
+        public string LodgingPhoto { get; set; }
+
+        [Required]
+        [Display(Name = "Precio")]
+        [DataType(DataType.Currency)]
+        public decimal LodgingPrice { get; set; }
+
+        [Required]
+        [Display(Name = "Categoría")]
+        [DataType(DataType.Text)]
+        public int LodgingCategory { get; set; }
+
+        [Required]
+        [Display(Name = "Moneda")]
+        [DataType(DataType.Text)]
+        public string LodgingCurrency { get; set; }
+
+        [Required]
+        [Display(Name = "Moneda")]
+        [DataType(DataType.Text)]
+        public string LodgingCurrencyCode { get; set; }
+
+        [Required]
+        [Display(Name = "ID Destino")]
+        [DataType(DataType.Text)]
+        public string DestinationId { get; set; }
+
+        [Required]
+        [Display(Name = "ID Proveedor")]
+        [DataType(DataType.Text)]
+        public string LodgingSupplierId { get; set; }
+    }
+
+    public class LodgingListModel
+    {
+        public bool Vacancies { get { return Lodgings.Count() > 0; } }
+
+        public List<LodgingModel> Lodgings { get; set; }
+    }
+
+    public class VacancyModel
+    {
+        public VacancyModel()
+        {
+            VacancyDates = new List<DateTime>();
+            Rooms = new List<RoomModel>();
+        }
+
+        public List<DateTime> VacancyDates { get; set; }
+        public List<RoomModel> Rooms { get; set; }
+
+        [Required]
+        [Display(Name = "ID Hotel")]
+        [DataType(DataType.Text)]
+        public string LodgingId { get; set; }
+
+        [Required]
+        [Display(Name = "Hotel")]
+        [DataType(DataType.Text)]
+        public string LodgingName { get; set; }
+
+        [Display(Name = "Moneda")]
+        [DataType(DataType.Text)]
+        public string LodgingCurrency { get; set; }
+
+        [Display(Name = "Seleccionado")]
+        [DataType(DataType.Text)]
+        public bool VacancySelected { get; set; }
+
+        [Required]
+        [Display(Name = "ID")]
+        [DataType(DataType.Text)]
+        public string VacancyId { get; set; }
+
+        [Required]
+        [Display(Name = "Descripción")]
+        [DataType(DataType.Text)]
+        public string VacancyName { get; set; }
+
+        [Required]
+        [Display(Name = "Checkin")]
+        [DataType(DataType.Text)]
+        public DateTime VacancyCheckin { get; set; }
+
+        [Required]
+        [Display(Name = "Checkout")]
+        [DataType(DataType.Text)]
+        public DateTime VacancyCheckout { get; set; }
+
+        [Required]
+        [Display(Name = "Disponibles")]
+        [DataType(DataType.Text)]
+        public int VacancyCount { get; set; }
+
+        [Required]
+        [Display(Name = "Reservadas")]
+        [DataType(DataType.Text)]
+        public int VacancyReserved { get; set; }
+
+        [Required]
+        [Display(Name = "Adultos")]
+        [DataType(DataType.Text)]
+        public int VacancyAdults { get; set; }
+
+        [Required]
+        [Display(Name = "Camas")]
+        [DataType(DataType.Text)]
+        public int VacancyBeds { get; set; }
+
+        [Required]
+        [Display(Name = "Precio por Unidad")]
+        [DataType(DataType.Currency)]
+        public decimal VacancyPrice { get; set; }
+
+        [Display(Name = "Precio por Unidad Confirmado")]
+        [DataType(DataType.Currency)]
+        public decimal ConfirmedVacancyPrice { get; set; }
+
+        [Display(Name = "Disponible")]
+        [DataType(DataType.Text)]
+        public bool Available { get; set; }
+    }
+
+    public class RoomModel
+    {
+        public RoomModel()
+        {
+            Travelers = new List<TravelerModel>();
+        }
+
+        public List<TravelerModel> Travelers { get; set; }
+
+        [Required]
+        [Display(Name = "ID")]
+        [DataType(DataType.Text)]
+        public string RoomId { get; set; }
+
+        [Required]
+        [Display(Name = "Descripción")]
+        [DataType(DataType.Text)]
+        public string RoomName { get; set; }
+
+        [Required]
+        [Display(Name = "Tipo")]
+        [DataType(DataType.Text)]
+        public RoomType RoomType { get; set; }
+
+        [Required]
+        [Display(Name = "Código Tipo")]
+        [DataType(DataType.Text)]
+        public string RoomTypeCode { get; set; }
+
+        [Required]
+        [Display(Name = "Adultos")]
+        [DataType(DataType.Text)]
+        public int RoomAdults { get; set; }
+
+        [Required]
+        [Display(Name = "Camas")]
+        [DataType(DataType.Text)]
+        public int RoomBeds { get; set; }
+
+        [Display(Name = "Edades Niños")]
+        [DataType(DataType.Text)]
+        public IEnumerable<int> ChildrenAges { get; set; }
+
+        [Required]
+        [Display(Name = "Disponibles")]
+        [DataType(DataType.Text)]
+        public int RoomCount { get; set; }
+    }
+
+    public class RoomListModel
+    {
+        public List<RoomModel> Rooms { get; set; }
+    }
+
+    public class VacancyListModel
+    {
+        public List<VacancyModel> Vacancies { get; set; }
+    }
+}

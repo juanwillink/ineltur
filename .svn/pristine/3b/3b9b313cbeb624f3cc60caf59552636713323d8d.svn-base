@@ -1,0 +1,111 @@
+﻿using Ineltur.Datos.Entidades;
+using Ineltur.WebService.Clases;
+using System;
+using System.Configuration;
+using System.Data.Linq;
+using System.Linq;
+using System.Web.Services;
+
+namespace Ineltur.WebService
+{
+    [WebService(Name = "ServiciosSoap", Namespace = "http://www.ineltur.com/")]
+    //[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1, Name = "BindingHotelesSoap", Location = "Hoteles.wsdl", Namespace = "http://www.ineltur.com/")]
+    [System.ComponentModel.ToolboxItem(false)]
+    public class Servicios : System.Web.Services.WebService
+    {
+        private static object locker = new object();
+        private static long _operationNumber = 0;
+
+        public static long GetCurrentOperationNumber()
+        {
+            lock (locker)
+            {
+                return _operationNumber;
+            }
+        }
+
+        public static long IncreaseOperationNumber()
+        {
+            lock (locker)
+            {
+                _operationNumber++;
+                return _operationNumber;
+            }
+        }
+        static Servicios() { }
+
+        private static WebServiceDataContext NuevoDataContext()
+        {
+            var dc = new WebServiceDataContext(ConfigurationManager.ConnectionStrings["TurismoConnectionString"].ConnectionString);
+            var dl = new DataLoadOptions();
+
+            dl.LoadWith<Ciudad>(c => c.Provincia);
+
+            dc.LoadOptions = dl;
+            return dc;
+        }
+
+
+        private Usuario ValidarUsuarioClave(WebServiceDataContext dc, PeticionBase peticion)
+        {
+            var dc2 = dc;
+
+            try
+            {
+                if (dc2 == null) dc2 = NuevoDataContext();
+
+                Usuario user = dc2.Usuarios.Where(u => u.NombreUsuario == peticion.Usuario &&
+                        u.Clave == peticion.Clave).SingleOrDefault();
+
+                return user;
+            }
+            finally
+            {
+                if (dc == null) dc2.Dispose();
+            }
+        }
+
+        [WebMethod]
+        public RespuestaLogin Login(PeticionLogin peticion)
+        {
+            Usuario user;
+
+            var operationNumber = IncreaseOperationNumber().ToString().PadLeft(8, '0');
+
+            try
+            {
+                using (var dc = NuevoDataContext())
+                {
+                    user = ValidarUsuarioClave(dc, peticion);
+                }
+
+                if (user != null)
+                {
+                    return new RespuestaLogin()
+                    {
+                        Nombre = user.Nombre,
+                        Apellido = user.Apellido,
+                        User = user.NombreUsuario,
+                        UID = user.IdUsuario.ToString(),
+                        Estado = EstadoRespuesta.Ok
+                    };
+                }
+                else
+                {
+                    return new RespuestaLogin()
+                    {
+                        Estado = EstadoRespuesta.NoEncontrado
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracker.WriteTrace(operationNumber, "Error en Login: " + ex.Message, traceType: Tracker.TraceType.Fatal);
+                Tracker.WriteTrace(operationNumber, "Stack Trace: " + ex.StackTrace, traceType: Tracker.TraceType.Fatal);
+                Tracker.WriteTrace(operationNumber, "Inner Exception: " + ex.InnerException.Message, traceType: Tracker.TraceType.Fatal);
+
+                return null;
+            }
+        }
+    }
+}

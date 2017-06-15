@@ -1,0 +1,85 @@
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Globalization;
+using System.Linq;
+using CheckArgentina.Models;
+using CheckArgentina.Commons;
+using CheckArgentina.Managers;
+
+
+namespace CheckArgentina.Controllers
+{
+    public class PaymentController : Controller
+    {
+
+        public ActionResult Confirmation(ReserveModel reserve)
+        {
+            var manager = new Manager(SessionData.SearchType);
+
+            reserve.Vacancies = reserve.Vacancies.Where(v => v.VacancyReserved > 0).ToList();
+
+            reserve = manager.ConfirmAvailability(reserve, SessionData.UserCredential);
+
+            reserve.Countries = SessionData.Countries;
+            reserve.PaymentMethods = SessionData.PaymentMethods;
+
+            SessionData.Reserve = reserve;
+
+            ModelState.Clear();
+
+            return View(reserve);
+        }
+
+        public ActionResult PaymentMethods(ReserveModel reserveModel)
+        {
+            if (SessionData.Reserve == null || reserveModel == null)
+                RedirectToAction("PaymentError");
+
+            SessionData.Reserve.LodgingId = reserveModel.LodgingId;
+            SessionData.Reserve.ReserveOwner = reserveModel.ReserveOwner;
+            SessionData.Reserve.PaymentMethodId = reserveModel.PaymentMethodId;
+
+            SessionData.Reserve.Vacancies = reserveModel.Vacancies;
+            
+            var manager = new Manager(SessionData.SearchType);
+            SessionData.Reserve = manager.BlockVacancies(SessionData.Reserve, SessionData.UserCredential);
+
+            //return Redirect("http://200.85.184.11/SimuladorPagos/HSBC.aspx");
+            //return RedirectToAction("InternalPaymentSimulator");
+
+            ModelState.Clear();
+
+            return View(SessionData.Reserve);
+        }
+
+        public ActionResult PaymentSuccess()
+        {
+            var manager = new Manager(SessionData.SearchType);
+
+            var reserve = manager.Reserve(SessionData.Reserve, SessionData.UserCredential);
+
+            if (reserve.ReserveStatus == ReserveStatus.Reserved)
+                return View(reserve);
+            else
+                return RedirectToAction("PaymentError");
+        }
+
+        public ActionResult PaymentError()
+        {
+            return View();
+        }
+
+        public ActionResult InternalPaymentSimulator()
+        {
+            return View();
+        }
+
+        public ActionResult ProcessPaymentSimulation(string processAction, string clave)
+        {
+            if(processAction == "Accept" && clave == "ad123ar")
+                return RedirectToAction("PaymentSuccess");
+            else
+                return RedirectToAction("PaymentError");
+        }
+    }
+}

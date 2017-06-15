@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\inetpub\ArgentinaHTL\WebService" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="PlantillasMails/CancelacionReservaParaAlojamiento.en.cshtml" publishTime="06/27/2013 18:23:42" />
+    <file relUrl="bin/PlantillasMails/ReservaParaAlojamiento.es.cshtml" publishTime="06/27/2013 18:23:42" />
+    <file relUrl="bin/it/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:50" />
+    <file relUrl="PlantillasMails/Reserva.en.cshtml" publishTime="06/27/2013 18:30:03" />
+    <file relUrl="bin/Datos.dll" publishTime="06/27/2013 15:33:52" />
+    <file relUrl="bin/ko/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:52" />
+    <file relUrl="NLog.config" publishTime="06/14/2013 14:13:55" />
+    <file relUrl="bin/ja/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:46" />
+    <file relUrl="PlantillasMails/ReservaBajoPeticion.es.cshtml" publishTime="06/27/2013 18:30:13" />
+    <file relUrl="bin/it/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:46" />
+    <file relUrl="bin/es/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:44" />
+    <file relUrl="PlantillasMails/ReservaParaAlojamiento.es.cshtml" publishTime="06/27/2013 18:23:42" />
+    <file relUrl="bin/zh-Hant/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:50" />
+    <file relUrl="bin/Ineltur.WebService.dll" publishTime="09/04/2013 12:24:54" />
+    <file relUrl="bin/es/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:48" />
+    <file relUrl="bin/de/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:44" />
+    <file relUrl="bin/RazorEngine.dll" publishTime="06/14/2013 14:13:48" />
+    <file relUrl="PlantillasMails/CancelacionReservaParaAlojamiento.es.cshtml" publishTime="06/27/2013 18:23:42" />
+    <file relUrl="bin/System.ServiceModel.DomainServices.Hosting.xml" publishTime="01/14/2011 14:08:54" />
+    <file relUrl="packages.config" publishTime="06/14/2013 14:13:55" />
+    <file relUrl="Hoteles.asmx" publishTime="06/14/2013 14:13:55" />
+    <file relUrl="bin/PlantillasMails/Reserva.es.cshtml" publishTime="06/27/2013 18:30:08" />
+    <file relUrl="bin/System.ServiceModel.DomainServices.Server.xml" publishTime="01/14/2011 14:08:52" />
+    <file relUrl="PlantillasMails/CancelacionReserva.en.cshtml" publishTime="06/27/2013 18:29:21" />
+    <file relUrl="bin/PlantillasMails/ReservaParaAlojamiento.en.cshtml" publishTime="06/27/2013 18:23:42" />
+    <file relUrl="bin/fr/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:44" />
+    <file relUrl="bin/NLog.config" publishTime="06/14/2013 14:13:55" />
+    <file relUrl="bin/PlantillasMails/ReservaBajoPeticion.es.cshtml" publishTime="06/27/2013 18:30:13" />
+    <file relUrl="bin/PlantillasMails/Reserva.en.cshtml" publishTime="06/27/2013 18:30:03" />
+    <file relUrl="bin/PlantillasMails/CancelacionReservaParaAlojamiento.en.cshtml" publishTime="06/27/2013 18:23:42" />
+    <file relUrl="bin/PlantillasMails/CancelacionReserva.es.cshtml" publishTime="06/27/2013 18:29:46" />
+    <file relUrl="bin/NLog.xml" publishTime="06/14/2013 14:13:56" />
+    <file relUrl="bin/PlantillasMails/CancelacionReserva.en.cshtml" publishTime="06/27/2013 18:29:21" />
+    <file relUrl="PlantillasMails/CancelacionReserva.es.cshtml" publishTime="06/27/2013 18:29:46" />
+    <file relUrl="bin/ja/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:52" />
+    <file relUrl="bin/ru/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:50" />
+    <file relUrl="bin/zh-Hans/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:44" />
+    <file relUrl="bin/ko/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:44" />
+    <file relUrl="PlantillasMails/ReservaParaAlojamiento.en.cshtml" publishTime="06/27/2013 18:23:42" />
+    <file relUrl="bin/System.ServiceModel.DomainServices.Hosting.dll" publishTime="01/14/2011 14:13:40" />
+    <file relUrl="bin/PlantillasMails/CancelacionReservaParaAlojamiento.es.cshtml" publishTime="06/27/2013 18:23:42" />
+    <file relUrl="bin/FluentEmail.dll" publishTime="06/14/2013 14:13:48" />
+    <file relUrl="bin/de/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:50" />
+    <file relUrl="bin/fr/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:52" />
+    <file relUrl="bin/ru/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:46" />
+    <file relUrl="bin/NLog.dll" publishTime="06/14/2013 14:13:56" />
+    <file relUrl="bin/zh-Hans/System.ServiceModel.DomainServices.Server.resources.dll" publishTime="01/14/2011 14:13:50" />
+    <file relUrl="bin/Datos.pdb" publishTime="06/27/2013 15:33:52" />
+    <file relUrl="bin/Ineltur.WebService.pdb" publishTime="09/04/2013 12:24:54" />
+    <file relUrl="bin/zh-Hant/System.ServiceModel.DomainServices.Hosting.resources.dll" publishTime="01/14/2011 14:13:46" />
+    <file relUrl="bin/System.ServiceModel.DomainServices.Server.dll" publishTime="01/14/2011 14:13:46" />
+    <file relUrl="PlantillasMails/Reserva.es.cshtml" publishTime="06/27/2013 18:30:08" />
+    <file relUrl="Web.config" publishTime="07/17/2013 11:02:06" />
+  </publishProfile>
+</publishData>

@@ -1,0 +1,27 @@
+﻿using System;
+using Ineltur.Datos;
+
+namespace Ineltur.WebService
+{
+    public class InfoUnidad
+    {
+        public Guid IdUnidad { get; set; }
+        public DateTime Fecha { get; set; }
+        public string NombreUnidad { get; set; }
+        public int Personas { get; set; }
+        public int Camas { get; set; }
+        public int Disponibles { get; set; }
+        public decimal MontoPorUnidad { get; set; }
+    }
+    public class InfoUnidadReservada
+    {
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
+        public int? Cantidad { get; set; }
+        public string NombreHabitacion { get; set; }
+        public float Monto { get; set; }
+        public float? MontoTotal { get; set; }
+        public Guid IdUnidad { get; set; }
+
+    }
+}

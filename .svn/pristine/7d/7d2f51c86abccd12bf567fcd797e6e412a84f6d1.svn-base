@@ -1,0 +1,39 @@
+﻿using System.Web.Mvc;
+using CheckArgentina.Models;
+
+namespace CheckArgentina.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Manager/
+
+        public ActionResult Home()
+        {
+            return View();
+        }
+
+        public ActionResult Lodging(LodgingModel lodging)
+        {
+            //var featured = new List<LodgingModel>() 
+            //{ 
+            //    new LodgingModel() 
+            //    { 
+            //        LodgingId = "adsgsdg",
+            //        LodgingName = "Prueba",
+            //        LodgingDescription = "Hotel de prueba",
+            //        LodgingPhoto = string.Empty,
+            //        LodgingCategory = 3,
+            //        LodgingPrice = 120
+            //    }
+            //};
+
+            //return View(new LodgingListModel()
+            //{
+            //    Lodgings = featured
+            //});
+
+            return View(lodging);
+        }
+    }
+}

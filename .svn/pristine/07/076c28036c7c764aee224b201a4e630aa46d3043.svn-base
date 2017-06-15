@@ -1,0 +1,79 @@
+﻿$(document).ready(function () {
+    var options = {
+        dateFormat: 'yy-mm-dd',
+        yearRange: '-1:+0',
+        firstDay: 1,
+        minDate: 0
+        //        changeMonth: true,
+        //        changeYear: true, 
+        //        showOtherMonths: true
+    };
+
+    $.datepicker.setDefaults({
+        dateFormat: options.dateFormat,
+        yearRange: options.yearRange,
+        firstDay: options.firstDay,
+        minDate: options.minDate,
+        //        changeMonth: options.changeMonth,
+        //        changeYear: options.changeYear,
+        showOtherMonths: options.showOtherMonths
+    });
+
+    $('#datepicker').datepicker({
+        onSelect: function () {
+            var fcheckout = addTimeToDate(1, 'd', $(this).datepicker('getDate'), false)
+
+            if (new Date($('#datepicker2').val()) < addTimeToDate(1, 'd', $(this).datepicker('getDate'))) {
+                $('#datepicker2').val(fcheckout.getUTCFullYear() + '-' + (fcheckout.getUTCMonth() + 1).toString().lpad('0', 2) + '-' + fcheckout.getUTCDate().toString().lpad('0', 2));
+            }
+
+            calculateNights(true);
+
+            $('#datepicker2').datepicker('option', { minDate: addTimeToDate(1, 'd', $(this).datepicker('getDate'), false) });
+        },
+        minDate: addTimeToDate(3, 'd', new Date(), false)
+    });
+
+    $('#datepicker2').datepicker();
+
+    $('#datepicker').change();
+    //    // Get the parent page URL as it was passed in, for browsers that don't support
+    //    // window.postMessage (this URL could be hard-coded).
+    //    var parent_url = decodeURIComponent(document.location.hash.replace(/^#/, '')),
+    //    link;
+
+    //    // The first param is serialized using $.param (if not a string) and passed to the
+    //    // parent window. If window.postMessage exists, the param is passed using that,
+    //    // otherwise it is passed in the location hash (that's why parent_url is required).
+    //    // The second param is the targetOrigin.
+    //    function setHeight() {
+    //        $.postMessage({ if_aereal_height: $('body').outerHeight(true) }, parent_url, parent);
+    //    };
+
+    //    // Bind all this good stuff to a link, for maximum clickage.
+    //    //    link = $('<a href="#">Show / hide content<\/a>')
+    //    //    .appendTo('#nav')
+    //    //    .click(function () {
+    //    //        $('#toggle').toggle();
+    //    //        setHeight();
+    //    //        return false;
+    //    //    });
+
+    //    // Now that the DOM has been set up (and the height should be set) invoke setHeight.
+    //    var height = $(this).height();
+
+    //    $(document).bind('DOMSubtreeModified', function () {
+    //        if ($(this).height() != height) {
+    //            setHeight();
+    //        }
+    //    });
+
+    //    setHeight();
+
+    //    // And for good measure, let's listen for a toggle_content message from the parent.
+    //    //    $.receiveMessage(function (e) {
+    //    //        if (e.data === 'toggle_content') {
+    //    //            link.triggerHandler('click');
+    //    //        }
+    //    //    }, 'http://benalman.com');
+});

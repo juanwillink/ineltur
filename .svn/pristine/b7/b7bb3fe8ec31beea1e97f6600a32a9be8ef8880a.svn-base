@@ -1,0 +1,169 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ArgentinahtlMVC.Models.Services
+{
+    public static partial class DbAccess
+    {
+        private static SeasonTypeModel MapSeasonType(TipoTemporada seasonType)
+        {
+            return new SeasonTypeModel()
+            {
+                SeasonTypeId = seasonType.IDTIPOTEMPORADA,
+                SeasonTypeName = seasonType.NOMBRE,
+                Description = seasonType.DESCRIPCION
+            };
+        }
+
+        private static SeasonModel MapSeason(Temporada season)
+        {
+            return new SeasonModel()
+            {
+                SeasonId = season.IDTEMPORADA,
+                SeasonName = season.NOMBRE,
+                LodgingId = season.IDALOJ,
+                StartDate = season.FECHA_INICIO,
+                EndDate = season.FECHA_FIN,
+                DateOfRegistration = season.FECHA_ALTA,
+                Enabled = season.ACTIVO,
+                Deadline = season.DEADLINE,
+                SeasonTypeId = season.TIPO_TEMPORADA
+            };
+        }
+
+        public static SeasonModel GetSeason(Guid seasonId)
+        {
+            using (var dc = new TurismoDataContext())
+            {
+                var season = dc.Temporadas.Single(s => s.IDTEMPORADA == seasonId);
+
+                return MapSeason(season);
+            }
+        }
+
+        public static List<SeasonModel> GetSeasons()
+        {
+            using (var dc = new TurismoDataContext())
+            {
+                return dc.Temporadas.Select(s => MapSeason(s)).ToList();
+            }
+        }
+
+        public static List<SeasonModel> GetSeasons(Guid lodgingId)
+        {
+            using (var dc = new TurismoDataContext())
+            {
+                return dc.Temporadas.Where(s => s.IDALOJ == lodgingId)
+                    .OrderBy(s => s.FECHA_INICIO).Select(s => MapSeason(s)).ToList();
+            }
+        }
+
+        public static List<SeasonTypeModel> GetSeasonTypes()
+        {
+            using (var dc = new TurismoDataContext())
+            {
+                return dc.TipoTemporadas.Where(st => st.ACTIVO).Select(st => MapSeasonType(st)).ToList();
+            }
+        }
+
+        public static bool CreateSeason(string name, Guid lodgingId, DateTime startDate, DateTime endDate, Guid seasonTypeId, int deadline)
+        {
+            using (var dc = new TurismoDataContext())
+            {
+                var seasons = dc.Temporadas.Where(s => s.IDALOJ == lodgingId &&
+                    ((s.FECHA_INICIO <= startDate && startDate <= s.FECHA_FIN) ||
+                    (s.FECHA_INICIO <= endDate && endDate <= s.FECHA_FIN)));
+
+                if (seasons != null && seasons.Count() > 0)
+                    return false;
+
+                dc.Temporadas.InsertOnSubmit(new Temporada
+                {
+                    IDTEMPORADA = Guid.NewGuid(),
+                    IDALOJ = lodgingId,
+                    NOMBRE = name,
+                    FECHA_INICIO = startDate,
+                    FECHA_FIN = endDate,
+                    FECHA_ALTA = DateTime.Now,
+                    ACTIVO = true,
+                    DEADLINE = deadline,
+                    TIPO_TEMPORADA = seasonTypeId
+                });
+
+                dc.SubmitChanges();
+            }
+
+            return true;
+        }
+
+        public static bool SaveSeason(Guid seasonId, string name, Guid lodgingId, DateTime startDate, DateTime endDate, Guid seasonTypeId, int deadline)
+        {
+            if (seasonId != Guid.Empty)
+            {
+                using (var dc = new TurismoDataContext())
+                {
+                    var seasons = dc.Temporadas.Where(s => s.IDALOJ == lodgingId &&
+                        s.IDTEMPORADA != seasonId &&
+                        ((s.FECHA_INICIO <= startDate && startDate <= s.FECHA_FIN) ||
+                        (s.FECHA_INICIO <= endDate && endDate <= s.FECHA_FIN)));
+
+                    if (seasons != null && seasons.Count() > 0)
+                        return false;
+
+                    var season = dc.Temporadas.Single(s => s.IDTEMPORADA == seasonId);
+
+                    season.FECHA_INICIO = startDate;
+                    season.FECHA_FIN = endDate;
+                    season.DEADLINE = deadline;
+                    season.TIPO_TEMPORADA = seasonTypeId;
+
+                    dc.SubmitChanges();
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool EnableDisableSeason(Guid seasonId, bool enable)
+        {
+            if (seasonId != Guid.Empty)
+            {
+                using (var dc = new TurismoDataContext())
+                {
+                    var season = dc.Temporadas.Single(s => s.IDTEMPORADA == seasonId);
+
+                    season.ACTIVO = enable;
+
+                    dc.SubmitChanges();
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool DeleteSeason(Guid seasonId, bool enable)
+        {
+            if (seasonId != Guid.Empty)
+            {
+                using (var dc = new TurismoDataContext())
+                {
+                    var season = dc.Temporadas.Single(s => s.IDTEMPORADA == seasonId);
+
+                    dc.Temporadas.DeleteOnSubmit(season);
+
+                    dc.SubmitChanges();
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ArgentinahtlMVC.Models.Services
+{
+    public static class Utils
+    {
+        public static DateTime ExcelSerialDateToDateTime(double nFechaExcel)
+        {
+            if (nFechaExcel == 0) return new DateTime(1900, 1, 1);
+            if (nFechaExcel == 60) return new DateTime(1900, 3, 1);
+            if (nFechaExcel < 60) nFechaExcel++;
+            nFechaExcel -= 2;
+            DateTime oFechaOrigen = new DateTime(1900, 1, 1);
+            return oFechaOrigen.AddDays(nFechaExcel);
+        }
+    }
+}

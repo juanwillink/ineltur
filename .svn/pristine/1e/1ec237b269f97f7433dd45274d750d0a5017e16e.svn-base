@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+    </configSections>
+    <connectionStrings>
+        <add name="Ineltur.Datos.Properties.Settings.TurismoProduccionServerConnectionString"
+            connectionString="Data Source=.;Server=s7orange;Initial Catalog=Turismo-Produccion;Persist Security Info=True;UID=itiers;PWD=minotauro;"
+            providerName="System.Data.SqlClient" />
+        <add name="Ineltur.Datos.Properties.Settings.TurismoTestServerConnectionString"
+            connectionString="Data Source=.;Server=s7orange;Initial Catalog=Turismo-Test;Persist Security Info=True;UID=itiers;PWD=minotauro;"
+            providerName="System.Data.SqlClient" />
+        <add name="Ineltur.Datos.Properties.Settings.Turismo1LocalConnectionString"
+            connectionString="Data Source=NEO;Initial Catalog=Turismo1;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+        <add name="Ineltur.Datos.Properties.Settings.TurismoTestRemoteConnectionString"
+            connectionString="Data Source=200.85.184.11,1433;Initial Catalog=Turismo-Test;Persist Security Info=True;UID=itiers;PWD=minotauro;"
+            providerName="System.Data.SqlClient" />
+        <add name="Ineltur.Datos.Properties.Settings.TurismoProduccionRemoteConnectionString"
+            connectionString="Data Source=200.85.184.11,1433;Initial Catalog=Turismo-Produccion;Persist Security Info=True;UID=itiers;PWD=minotauro;"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
+</configuration>

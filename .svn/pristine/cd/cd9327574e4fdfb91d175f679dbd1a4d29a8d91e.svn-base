@@ -1,0 +1,43 @@
+﻿@using CheckArgentina.Commons;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Html.Partial("_HeadScripts")
+    @RenderSection("HeaderCSSOrScript", true)
+</head>
+
+<body>
+    <div id="page_container" class="page">
+        <div id="header_container" class="header">
+            <div class="title">
+                <div id="menu_container" class="rounded roudendWhite" style="background-color:#D8D8D8;">
+                    @Html.Partial("Menu")
+                </div>
+                
+                <div id="logo_container">
+@{#if DEBUG}
+                        @* Site key de rlucero *@
+                        @Html.Hidden("site_key", "1BB43EC1-2DBE-4DD7-ABD8-17890AFC0E69")
+@{#else}                        
+                        @* Site key de admin *@
+                        @Html.Hidden("site_key", "0A2C0A18-4F3D-4123-AA35-BEA45A756149")
+@{#endif}
+                    
+                    @Html.ActionImage("Home", "Home", Url.Content("~/Content/Images/Logo.png"), "Check Argentina")
+                </div>
+            </div>
+        </div>
+        <div id="main_container" class="main">
+            <div class="cell">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</body>
+</html>

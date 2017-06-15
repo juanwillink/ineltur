@@ -1,0 +1,135 @@
+﻿$(document).ready(function () {
+    var options = {
+        dateFormat: 'yy-mm-dd',
+        yearRange: '-1:+0'
+    };
+
+    if (jQuery.ui) {
+        $("#tab_container").tabs({
+            show: function (event, ui) {
+                adjustIframes(true);
+            }
+        });
+        $("#tab_container").tabs("disable", 3);
+        $("#tab_container").tabs("disable", 4);
+
+        $('#datepicker').datepicker('option', 'minDate', +3);
+
+        $('#reg_email').watermark('Su email');
+        $('#text_captcha').watermark('Ingrese los caracteres');
+
+//        $("#scrollable_div").smoothDivScroll({
+//            mousewheelScrolling: true,
+//            manualContinuousScrolling: true,
+//            visibleHotSpotBackgrounds: "always",
+//            autoScrollingMode: "onstart"
+//        });
+
+        $("#scrollable_div").fadeSlideShow({
+            width: 450,
+            height: 300,
+            PlayPauseElement: false,
+            NextElement: false,
+            PrevElement: false,
+            ListElement: false
+        });
+    }
+
+    adjustIframes(true);
+
+    if ($.browser.msie || $.browser.mozilla) {
+        window.setInterval(function () {
+            adjustIframes(true);
+        }, 100);
+    }
+    else {
+    }
+});
+
+function adjustIframes(forceAdjust, height) {
+    adjustContainerToIframe('#tab_panel_national .buscador-borde', '#iframe_national', true, forceAdjust, height);
+    adjustContainerToIframe('#tab_panel_international .buscador-borde', '#iframe_international', true, forceAdjust, height);
+    adjustContainerToIframe('#tab_panel_aereal .buscador-borde', '#iframe_aereal', true, forceAdjust, height);
+    adjustContainerToIframe('#extended_search_container', '#iframe_extended_search', true, forceAdjust, height);
+    //<!--TODO:This line must be reviewed when we have to implement Check Argentina Box functionality-->
+    adjustContainerToIframe('#results', '#iframe_results', false, forceAdjust, height);
+}
+
+function adjustContainerToIframe(containerSelector, iframe_id, body, forceAdjust, height) {
+    if (!($.browser.msie || $.browser.mozilla)) {
+        $(iframe_id).load(function () {
+            if (body)
+                $(iframe_id).height($(iframe_id).contents().find('body').height());
+            else
+                $(iframe_id).height($(iframe_id).contents().height());
+
+            $(containerSelector).height($(iframe_id).height());
+
+            $(iframe_id).contents().resize(function (e) {
+                if (body)
+                    $(iframe_id).height($(iframe_id).contents().find('body').height());
+                else
+                    $(iframe_id).height($(iframe_id).contents().height());
+
+                $(containerSelector).height($(iframe_id).height());
+            });
+
+        });
+
+        if (forceAdjust) {
+            if (body)
+                $(iframe_id).height($(iframe_id).contents().find('body').height());
+            else
+                $(iframe_id).height($(iframe_id).contents().height());
+
+            $(containerSelector).height($(iframe_id).height());
+        }
+    }
+    else {
+        if (body)
+            $(iframe_id).height($(iframe_id).contents().find('body').height());
+        else
+            $(iframe_id).height($(iframe_id).contents().height());
+    }
+}
+
+function showWaitResults() {
+    var div_results, div_rightColumn, div_leftColumn, iframe_results, wait_results, site_key;
+
+    div_results = $('#results');
+    div_rightColumn = $('#rightColumn');
+    div_leftColumn = $('#leftColumn');
+    //site_key = $('#site_key').val();
+
+    iframe_results = div_results.find('#iframe_results');
+    wait_results = div_results.find('#wait_results');
+
+    //Show the     
+    iframe_results.hide();
+    wait_results.show();
+}
+
+function showResults() {
+    var div_results, div_rightColumn, div_leftColumn, iframe_results, wait_results, site_key;
+
+    div_results = $('#results');
+    div_rightColumn = $('#rightColumn');
+    div_leftColumn = $('#leftColumn');
+    //site_key = $('#site_key').val();
+
+    iframe_results = div_results.find('#iframe_results');
+    wait_results = div_results.find('#wait_results');
+
+    iframe_results.load(function (e) {
+        window.parent.$('#results').find('#wait_results').hide();
+        $(this).show(); 
+    });
+
+    div_rightColumn.hide('fast');
+    div_results.show('slow');
+
+    div_leftColumn.css('width', '380px');
+    div_leftColumn.find('#tab_container li').each(function (index) {
+        $(this).hide();
+    });
+}

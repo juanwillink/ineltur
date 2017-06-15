@@ -1,0 +1,199 @@
+﻿/*
+* ===================================================================================================================
+    
+Function file for Check Argentina
+
+Support sources:
+addTimeToDate():    http://www.devtics.com.mx/wp/220-addtimetodate-sumar-tiempo-a-fechas-javascript/
+loadContent():      http://www.hashbangcode.com/blog/using-jquery-load-content-page-without-iframe-536.html
+
+* ===================================================================================================================
+*/
+
+String.prototype.lpad = function (padString, length) {
+    var str = this;
+    while (str.length < length)
+        str = padString + str;
+    return str;
+}
+
+String.prototype.rpad = function (padString, length) {
+    var str = this;
+    while (str.length < length)
+        str = str + padString;
+    return str;
+}
+
+jQuery.fn.toHtmlString = function () {
+    return $('<div></div>').html($(this).clone()).html();
+};
+
+/* --------------------------------- Data Type Functions --------------------------------- */
+function addTimeToDate(time, unit, objDate, dateReference) {
+    var dateTemp = (dateReference) ? objDate : new Date(objDate);
+
+    switch (unit) {
+        case 'y': dateTemp.setFullYear(objDate.getFullYear() + time); break;
+        case 'M': dateTemp.setMonth(objDate.getMonth() + time); break;
+        case 'w': dateTemp.setTime(dateTemp.getTime() + (time * 7 * 24 * 60 * 60 * 1000)); break;
+        case 'd': dateTemp.setTime(dateTemp.getTime() + (time * 24 * 60 * 60 * 1000)); break;
+        case 'h': dateTemp.setTime(dateTemp.getTime() + (time * 60 * 60 * 1000)); break;
+        case 'm': dateTemp.setTime(dateTemp.getTime() + (time * 60 * 1000)); break;
+        case 's': dateTemp.setTime(dateTemp.getTime() + (time * 1000)); break;
+        default: dateTemp.setTime(dateTemp.getTime() + time); break;
+    }
+
+    return dateTemp;
+}
+
+function validateEmail(str) {
+
+    var at = "@"
+    var dot = "."
+    var lat = str.indexOf(at)
+    var lstr = str.length
+    var ldot = str.indexOf(dot)
+    if (str.indexOf(at) == -1) {
+        alert("Dirección de correo inválida.")
+        return false
+    }
+
+    if (str.indexOf(at) == -1 || str.indexOf(at) == 0 || str.indexOf(at) == lstr) {
+        alert("Dirección de correo inválida.")
+        return false
+    }
+
+    if (str.indexOf(dot) == -1 || str.indexOf(dot) == 0 || str.indexOf(dot) == lstr) {
+        alert("Dirección de correo inválida.")
+        return false
+    }
+
+    if (str.indexOf(at, (lat + 1)) != -1) {
+        alert("Dirección de correo inválida.")
+        return false
+    }
+
+    if (str.substring(lat - 1, lat) == dot || str.substring(lat + 1, lat + 2) == dot) {
+        alert("Dirección de correo inválida.")
+        return false
+    }
+
+    if (str.indexOf(dot, (lat + 2)) == -1) {
+        alert("Dirección de correo inválida.")
+        return false
+    }
+
+    if (str.indexOf(" ") != -1) {
+        alert("Dirección de correo inválida.")
+        return false
+    }
+
+    return true
+}
+
+/* --------------------------------- Navigation Functions --------------------------------- */
+function openPopupStandard(url) {
+    return openPopup(url, 800, 500);
+}
+
+function openPopup(url, width, height) {
+    var posx = (screen.width - width) / 2;
+    var posy = (screen.height - height) / 2;
+    window.open(url, "Popup", "scrollbars=no,resizable=yes,width=" + width + ",height=" + height + ",status=no,left=" + posx + ",top=" + posy);
+
+    return false;
+}
+
+function displayResults(url) {
+    //loadContent('#general_body_container', url);
+    $('#general_body_container').css('display', 'none');
+    $('#results_body_container').css('display', '');
+    loadContent('#results_body_container', url, '');
+
+    return false;
+}
+
+function displayInitSearch(tab) {
+    $('#general_body_container').css('display', '');
+    $('#results_body_container').css('display', 'none');
+}
+
+function loadContent(div_id, content_url, successful_function) {
+    $(div_id).load(content_url, successful_function, function (response, status, xhr) {
+        if (status == 'error') {
+            var msg = "Sorry but there was an error: ";
+            $(".content").html(msg + xhr.status + " " + xhr.statusText);
+        }
+    });
+}
+
+function showDiv(divId, show) {
+    if (show)
+        $(divId).css('display', show);
+    else
+        $(divId).css('display', 'none');
+}
+
+function decreaseVacancyReserve(parent_div, counter_id) {
+    var counter = $(parent_div).find(counter_id);
+    var countValue = parseInt(counter.val());
+
+    if (countValue > 0) {
+        counter.val(countValue - 1);
+    }
+}
+
+function increaseVacancyReserve(parent_div, counter_id, max_count) {
+    var counter = $(parent_div).find(counter_id);
+    var countValue = parseInt(counter.val());
+
+    if (countValue < max_count) {
+        counter.val(countValue + 1);
+    }
+}
+
+$('body').on('click', '.show-lodging-modal', function (e) {
+    e.preventDefault();
+    $(this).attr('data-target', '#lodging-detail-modal');
+    $(this).attr('data-toggle', 'modal');
+});
+
+$('body').on('click', '.modal-close-btn', function () {
+    $('#lodging-detail-modal').modal('hide');
+});
+
+$('#lodging-detail-modal').on('hidden.bs.modal', function () {
+    $(this).removeData('bs.modal');
+});
+
+$('#CancelModal').on('click', function () {
+    return false;
+});
+
+/* --------------------------------- Third Parts ----------------------------------------- */
+function loadContent(div_id, content_url, successful_function) {
+    $(div_id).load(content_url, successful_function, function (response, status, xhr) {
+        if (status == 'error') {
+            var msg = "Sorry but there was an error: ";
+            $(".content").html(msg + xhr.status + " " + xhr.statusText);
+        }
+    });
+}
+
+$(document).ready(function () {
+    $('.lodging-vacancy-container span').click(function () {
+        $(this).next().toggle('slow');
+        return false;
+    }).next().hide();
+
+//    div_results.find('#iframe_results').load(function () {
+//        div_results.find('#iframe_results').contents().find('.lodging-vacancy-container span').each(function () {
+//            $(this).click(function () {
+//                $(this).next().toggle('fast');
+//                return false;
+//            }).next().hide();
+//            $('html, body').animate({ scrollTop: 0 }, 0);
+//        })
+//    });
+});
+

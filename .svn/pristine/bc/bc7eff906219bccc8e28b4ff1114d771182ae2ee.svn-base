@@ -1,0 +1,29 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Login</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Usuario <br /><small>Username</small></label>
+                        <div class="col-md-12">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Contraseña <br /><small>Password</small></label>
+                        <div class="col-md-12">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group" style="float: right;">
+                        <a>Forgot Password?</a>
+                        <button type="button" class="btn btn-success">Iniciar Sesión <br /><small>Log in</small></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

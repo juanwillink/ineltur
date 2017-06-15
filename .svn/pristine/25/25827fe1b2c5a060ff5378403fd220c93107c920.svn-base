@@ -1,0 +1,91 @@
+﻿//!window.jQuery && document.write('<script type="text/javascript" src="@Href("~/Scripts/jquery-1.7.2.min.js")"><\/script>');
+/*
+function adjust(iframe_id) {
+//    document.getElementById(iframe_id).height = document.getElementById(iframe_id).contentWindow.document.body.scrollHeight;
+    $(iframe_id).height($(iframe_id).contents().height());
+}
+*/
+
+// Show the appropiate tab panel
+function showNationalHotels() {
+    displayInitSearch();
+
+    $('#tab_container').tabs('option', 'selected', 0);
+    $('#btnNational').css('cursor', 'default');
+    $('#btnInternational').css('cursor', 'pointer');
+    $('#btnFlights').css('cursor', 'pointer');
+    $('#btnPackages').css('cursor', 'pointer');
+    $('#btnCars').css('cursor', 'pointer');
+
+    adjustIframes(true);
+
+    return false;
+}
+
+function showInternationalHotels() {
+    displayInitSearch();
+
+    $('#tab_container').tabs('option', 'selected', 1);
+    $('#btnNational').css('cursor', 'pointer');
+    $('#btnInternational').css('cursor', 'default');
+    $('#btnFlights').css('cursor', 'pointer');
+    $('#btnPackages').css('cursor', 'pointer');
+    $('#btnCars').css('cursor', 'pointer');
+
+    adjustIframes(true);
+
+    return false;
+}
+
+function showFlights() {
+    displayInitSearch();
+
+    $('#tab_container').tabs('option', 'selected', 2);
+    $('#btnNational').css('cursor', 'pointer');
+    $('#btnInternational').css('cursor', 'pointer');
+    $('#btnFlights').css('cursor', 'default');
+    $('#btnPackages').css('cursor', 'pointer');
+    $('#btnCars').css('cursor', 'pointer');
+
+    adjustIframes(true);
+
+    return false;
+}
+
+//        function showPackages() {
+//            displayInitSearch(0);
+//            $('#tab_container').tabs('option', 'selected', 3);
+//            $('#btnNational').css('cursor', 'pointer');
+//            $('#btnInternational').css('cursor', 'pointer');
+//            $('#btnFlights').css('cursor', 'pointer');
+//            $('#btnPackages').css('cursor', 'default');
+//            $('#btnCars').css('cursor', 'pointer');
+
+//            return false;
+//        }
+
+//        function showCars() {
+//            displayInitSearch(0);
+//            $('#tab_container').tabs('option', 'selected', 4);
+//            $('#btnNational').css('cursor', 'pointer');
+//            $('#btnInternational').css('cursor', 'pointer');
+//            $('#btnFlights').css('cursor', 'pointer');
+//            $('#btnPackages').css('cursor', 'pointer');
+//            $('#btnCars').css('cursor', 'default');
+
+//            return false;
+//        }
+
+$(function () {
+    $('#iframe_results').load(function (e) {//.bind("show_results", function (e) {
+        $('#results').find('#wait_results').hide();
+        $(this).show();
+
+        $('#iframe_results').height($('#iframe_results').contents().height());
+        $('#results').height($('#iframe_results').contents().height());
+    });
+
+//    $.receiveMessage(function (e) {
+//        adjustIframes(true);
+//    });
+});

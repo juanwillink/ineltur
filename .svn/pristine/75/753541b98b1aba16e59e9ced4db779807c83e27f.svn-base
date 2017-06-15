@@ -1,0 +1,37 @@
+@model CheckArgentina.Models.ReserveModel
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+<title>Reserva</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+Estimad@@ @Model.TravelerFistName,
+<br /><br />
+por medio del presente mail le informamos que su reserva con c&oacute;digo @Model.ReserveId ha sido
+realizada. A continuaci&oacute;n le mostramos los datos correspondiente a su reserva. Util&iacute;celos
+como voucher para ser entregado al momento de ingresar en el hotel:
+<br /><br />
+<table border="1">
+<tr>
+<th>Descripci&oacute;n</th><th>Cantidad</th><th>Check in</th>
+<th>Check out</th><th>Subtotal</th><th>Total</th>
+</tr>
+@foreach (var vacancy in Model.Vacancies) {
+<tr>
+<td>@vacancy.VacancyName</td><td>@vacancy.VacancyReserved</td>
+<td>@vacancy.VacancyDates.Min().ToShortDateString()</td><td>@vacancy.VacancyDates.Max().ToShortDateString()</td>
+<td>@Model.LodgingCurrency @String.Format("{0:0.00}", vacancy.VacancyPrice)</td><td>@Model.LodgingCurrency @String.Format("{0:0.00}", vacancy.VacancyPrice * vacancy.VacancyReserved)</td>
+</tr>
+}
+<tr>
+<th colspan="5" align="center">Total</th>
+<td>@Model.LodgingCurrency @String.Format("{0:0.00}", Model.Vacancies.Sum(v => v.VacancyPrice * v.VacancyReserved))</td>
+</tr>
+</table>
+</body>
+</html>

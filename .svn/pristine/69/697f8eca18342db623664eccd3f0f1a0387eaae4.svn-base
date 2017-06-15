@@ -1,0 +1,203 @@
+﻿@{
+    ViewBag.Title = "Check Argentina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.EnableUnobtrusiveJavaScript();
+    Html.EnableClientValidation();
+}
+
+@using CheckArgentina.Commons
+
+@section HeaderCSSOrScript{
+    @*<link rel="Stylesheet" type="text/css" href="http://ineltur.apteknet.com/jquery/jquery-ui-1.7.2.custom.css" />
+    <link rel="Stylesheet" type="text/css" href="http://ineltur.apteknet.com/jquery/jquery.autocomplete.css" />*@
+    
+    <script src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.js")" type="text/javascript"></script>
+    
+    <script src="@Href("~/Scripts/jquery.watermark.min.js")" type="text/javascript"></script>
+
+    <script src="@Href("~/Scripts/check_functions.js")" type="text/javascript"></script>
+    <script src="@Href("~/Scripts/check_functions.min.js")" type="text/javascript"></script>
+    <script src="@Href("~/Scripts/check_functions.parent.js")" type="text/javascript"></script>
+}
+
+@*Este archivo de javascript debe ser insertado dentro del <body></body>*@  
+
+<script src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.21/jquery-ui.min.js")" type="text/javascript" ></script>
+
+<script src="@Url.Content("~/Scripts/jquery.ba-postmessage.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.ba-bbq.min.js")" type="text/javascript"></script>
+
+@*<script src="@Href("~/Scripts/jquery.ba-resize.min.js")" type="text/javascript"></script>*@
+<script src="@Href("~/Scripts/jquery.smoothdivscroll-1.2-min.js")" type="text/javascript"></script>
+<script src="@Href("~/Scripts/jquery.mousewheel.min.js")" type="text/javascript"></script>
+@*<script src="@Url.Content("~/Scripts/jquery.tinyscrollbar.min.js")" type="text/javascript"></script>*@
+@*<script src="@Href("~/Scripts/knockout-2.1.0.js")" type="text/javascript"></script>*@
+<script src="@Href("~/Scripts/Layout.js")" type="text/javascript"></script>
+<script src="@Href("~/Scripts/Home_Functions.js")" type="text/javascript"></script>
+
+@*<script src="@Url.Content("http://ineltur.apteknet.com/jquery/jquery.bgiframe.js")" type="text/javascript"></script>
+<script src="@Url.Content("http://ineltur.apteknet.com/code.js")" type="text/javascript"></script>
+<script src="@Url.Content("http://ineltur.apteknet.com/funciones.js")" type="text/javascript"></script>
+<script src="@Url.Content("http://ineltur.apteknet.com/wz_tooltip.js")" type="text/javascript"></script>*@
+
+@*<script src="@Url.Content("~/Scripts/check_functions.parent.js")" type="text/javascript"></script>*@
+
+<div id="Home">
+    <div id="leftColumn">
+        <div id="tab_container"> 
+            <h2>Realice su búsqueda</h2>
+            <ul>
+		        <li><a href="#tab_panel_national">Hoteles de Argentina</a></li>
+		        <li><a href="#tab_panel_international">Hoteles del Mundo</a></li>
+		        <li><a href="#tab_panel_aereal">Vuelos</a></li>
+                @*<li><a href="#tab_panel_packages">Paquetes</a></li>
+                <li><a href="#tab_panel_cars">Autos</a></li>*@
+	        </ul>
+	        <div id="tab_panel_national" class="buscador-borde" @*data-bind="height: nationalIframeHeight"*@>
+                <div class="buscador-borde">
+                    <iframe id="iframe_national" src="@Href("~/National/NationalSearch")" scrolling="no"></iframe>
+                </div>
+	        </div>
+	        <div id="tab_panel_international" class="buscador-borde">
+                <div class="buscador-borde">
+                    <iframe id="iframe_international" src="@Href("~/International/InternationalSearch")" scrolling="no"></iframe>
+                </div>
+	        </div>
+	        <div id="tab_panel_aereal">
+		        <div class="buscador-borde">
+                    <iframe id="iframe_aereal" src="@Href("~/Aereal/AerealSearch")" scrolling="no" style="width:100%"></iframe>
+                </div>
+	        </div>
+            @*<div id="tab_panel_packages">
+                <h2>En construcción</h2>
+	        </div>
+            <div id="tab_panel_cars">
+                <h2>En construcción</h2>
+	        </div>*@
+        </div>
+        @*<div id="extended_search_container" class="buscador-borde" style="display:none;">
+            <iframe id="iframe_extended_search" src="#" scrolling="no"></iframe>
+        </div>*@
+        <div class="rounded roundedWhite" style="border:1px solid #C6C6C6">
+           <object id="flash_movie" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="100%" height="375">
+                <param name="movie" value="http://www.cristalab.com/files/ejemplos/rompeFlash/rompecabeza_cubica.swf" />
+                <param name="quality" value="high" />
+                <embed src="http://www.cristalab.com/files/ejemplos/rompeFlash/rompecabeza_cubica.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="100%" height="375"></embed>
+            </object>
+        </div>
+        
+        <h2>Sobre Check Argentina</h2>
+        <p><a>¿Quiénes somos?</a></p>
+        <p><a>Preguntas frecuentes</a></p>
+        <p><a>Política de privacidad</a></p>
+        <p><a>Compra segura</a></p>
+        <p><a>Anuncie su hotel</a></p>
+        <p><a>Programa de afiliados</a></p>
+        <p><a>¿Viaja por negocios?</a></p>
+        <p><a>Anuncie en Check Argentina</a></p>
+        <p><a>Contacto para la prensa</a></p>
+    </div>
+    <div id="results" class="search-results" style="display:none;">
+        <div style="height:20px;">
+        </div>
+        <div id="wait_results" class="rounded roundedLightOrange">
+            @Html.Image(Url.Content("~/Content/Images/loading.gif")).AddInlineStyles("float:left;width:30px;")
+            <h4 style="float:left;margin-left:20px;">Cargando resultados...</h4>
+            <div class="clear">
+            </div>
+        </div>
+        <iframe id="iframe_results" src="about:_blank" scrolling="no"></iframe>
+    </div>
+    <div id="rightColumn">
+        <div id="scrollable_div">
+            @Html.Image(Url.Content("~/Content/Images/lago.jpg")) 
+            @Html.Image(Url.Content("~/Content/Images/puente_inca.jpg"))
+            @Html.Image(Url.Content("~/Content/Images/mendoza1.jpg"))
+            @Html.Image(Url.Content("~/Content/Images/mendoza-nieve.jpg"))
+        </div>
+
+        <h2>Destacados</h2>
+        @Html.Partial("Lodging", new CheckArgentina.Models.LodgingModel()
+           {
+               LodgingId = "adsgsdg",
+               LodgingName = "Prueba",
+               LodgingDescription = "Hotel de prueba",
+               LodgingPhoto = string.Empty,
+               LodgingCategory = 3,
+               LodgingPrice = 120
+           })
+
+        @Html.Partial("Lodging", new CheckArgentina.Models.LodgingModel()
+           {
+               LodgingId = "343534gf",
+               LodgingName = "Prueba 2",
+               LodgingDescription = "Otro Hotel de prueba",
+               LodgingPhoto = string.Empty,
+               LodgingCategory = 4,
+               LodgingPrice = 150
+           })
+
+        <div class="register-container rounded roundedBlue" >
+            @using (Html.BeginForm("RegisterEmail", "Registration", FormMethod.Post, new {id = "register_form"})) 
+            {
+                <div class="register-text">
+                    <p>Ahorrá hasta 50%</p>
+                    <p>con ofertas relámpago</p>
+                </div>
+                <div class="register-mail">
+                    @Html.TextBox("reg_email").AddClasses("register-input")
+                    @*@Html.TextBox("reg_email").AddClasses("register-input rounded roundedWhite")*@
+                    @(
+                        Html.Button("Registrate ya!", null)
+                            .AddId("register_button")
+                            .AddClasses("rounded roundedOrange")
+                            //.AddAttribute("onclick", "javascript:if(validateEmail($('#reg_email').val())){ showDiv('#captcha_container', 'block'); $('#register_button').val('Recargar captcha...'); reloadCaptcha('#img_Captcha'); }")
+                            .AddAttribute("onclick", "javascript:if(validateEmail($('#reg_email').val())){ showDiv('#captcha_container', 'block'); $('#register_button').val('Recargar captcha...'); reloadCaptcha('#img_Captcha'); $('.register-container').css('height','126px');}")
+                    )
+                </div>
+
+                <div id="captcha_container" class="captcha-container" style="display:none;">
+                    <div class="captcha-image">
+                        @(
+                            Html.Image<CheckArgentina.Controllers.RegistrationController>("img_Captcha", c => c.GetCaptcha(), "100%", "auto")
+                        )
+                    </div>
+                    <div class="register-sender">
+                        @*@Html.TextBox("text_captcha").AddClasses("rounded roundedWhite").AddInlineStyles("text-align:center;width:98%;")*@
+                        @Html.TextBox("text_captcha").AddClasses("captcha-text")
+                        @(
+                            Html.Button("Enviar solicitud!", null)
+                                .AddId("send_registration_button")
+                                .AddClasses("rounded roundedOrange")
+                                //.AddAttribute("onclick", "javascript:showDiv('#captcha_container', null); registerEmail($('#reg_email').val()); $('#register_button').val('Registrate ya!'); ")
+                                .AddAttribute("onclick", "javascript:showDiv('#captcha_container', null); registerEmail($('#reg_email').val()); $('#register_button').val('Registrate ya!'); $('.register-container').css('height','60px')")
+                        )
+                    </div>
+                </div>
+                Html.EndForm();
+            }
+                <div class="clear">
+                </div>
+        </div>
+        &nbsp;
+        <div class="table">
+            <div class="row">
+                <div class="cell" style="width: 35%;vertical-align:middle;">
+                    <div class="rounded roundedOrange">
+                        <div class="table">
+                            <div class="row">
+                                <div class="cell" style="text-align: center;font-size:large;font-weight:bold;">0810 333 2705</div>
+                            </div>
+                            <div class="row">
+                                <div class="cell" style="text-align: center;font-size:smaller;">Atención al cliente</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell" style="padding-left:10px;text-align:center;vertical-align:middle;">
+                    <img src="@Url.Content("~/Content/Images/redes_sociales.png")" alt="" style="vertical-align:top;text-align:center;display:inline;" width="100%" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

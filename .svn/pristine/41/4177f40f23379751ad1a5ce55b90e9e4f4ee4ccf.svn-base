@@ -1,0 +1,21 @@
+﻿using System.Web.Mvc;
+using CheckArgentina.Models;
+
+namespace CheckArgentina.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Manager/
+
+        public ActionResult Home()
+        {
+            return View();
+        }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
+    }
+}

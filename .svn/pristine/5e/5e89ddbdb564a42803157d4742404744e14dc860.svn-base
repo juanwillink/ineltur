@@ -1,0 +1,282 @@
+﻿@model CheckArgentina.Models.ReserveModel
+@using CheckArgentina.Commons
+
+@{
+    Layout = null;
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    
+    var countries = string.Empty;
+    Model.Countries.Select(c => new SelectListItem() { Text = c.Value, Value = c.Key }).ToList()
+        .ForEach(c => countries += string.Format("<option value=\"{0}\">{1}</option>", c.Value, c.Text));
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="@Href("~/Content/c-css.ashx")" />
+
+    <script src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.min.js")" type="text/javascript"></script>  
+    <script src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.21/jquery-ui.min.js")" type="text/javascript" ></script>
+    <script src="@Url.Content("http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js")" type="text/javascript" ></script>
+    <script src="@Href("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript" ></script>
+
+    <script src="@Url.Content("~/Scripts/jquery.ba-postmessage.min.js")" type="text/javascript"></script>
+
+    <script src="@Href("~/Scripts/check_functions.js")" type="text/javascript" ></script>
+    <script src="@Href("~/Scripts/check_functions.min.js")" type="text/javascript" ></script>
+
+    <script type="text/javascript">
+        $(function () {
+            sendGoTopMessage('iframe_results');
+
+            var options = {
+                dateFormat: 'yy-mm-dd',
+                yearRange: '-100:+0',
+                firstDay: 1,
+                minDate: null,
+                maxDate: 0,
+                changeMonth: true,
+                changeYear: true,
+                showOtherMonths: true
+            };
+
+            $.datepicker.setDefaults({
+                dateFormat: options.dateFormat,
+                yearRange: options.yearRange,
+                firstDay: options.firstDay,
+                minDate: options.minDate,
+                maxDate: options.maxDate,
+                changeMonth: options.changeMonth,
+                changeYear: options.changeYear,
+                showOtherMonths: options.showOtherMonths
+            });
+
+            $('.date-field').each(function () {
+                $(this).datepicker();
+            });
+
+            $('.room-traveler-container').each(function () {
+                addTraveler($(this).attr('id'), $(this).attr('vacancynumber'), $(this).attr('roomnumber'));
+            });
+        });
+
+        function deleteTraveler(roomTravelerId) {
+            $('#' + roomTravelerId).remove();
+        }
+
+        function addTraveler(roomTravelerContainerId, vacancyNumber, roomNumber) {
+            var travelerNumber = $('#' + roomTravelerContainerId + ' .room-traveler').length;
+
+            var htmlTraveler = '<div id="room_traveler_' + vacancyNumber + '_' + roomNumber + '_' + travelerNumber + '" class="room-traveler">';
+
+            if (travelerNumber > 0) {
+                htmlTraveler += '<a href="" onclick="javascript: deleteTraveler(\'room_traveler_' + vacancyNumber + '_' + roomNumber + '_' + travelerNumber + '\'); return false;" style="float:right;">' +
+                    '   <img src="/Content/Images/DeleteButton.gif" style="width:20px;vertical-align:middle;">' +
+                    '</a>';
+            }
+            else {
+                htmlTraveler += '<a href="" onclick="javascript: copyFromOwner(\'room_traveler_' + vacancyNumber + '_' + roomNumber + '_' + travelerNumber + '\'); return false;" style="float:right;color:#FA8E00;font-weight:bold;text-decoration:initial;">' +
+                    '   <img src="/Content/Images/CopyButton.png" style="width:15px;vertical-align:middle;">' +
+                    '   Copiar datos del Titular' +
+                    '</a>';
+            }
+            
+            htmlTraveler += '<div class="confirmation-field">' +
+                '    <label for="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerCountry">País</label>' +
+                '    <select id="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerCountry" name="Vacancies[' + vacancyNumber + '].Rooms[' + roomNumber + '].Travelers[' + travelerNumber + '].TravelerCountry">' +
+                '       ' + $('#countries').val() +
+                '    </select>' +
+                '</div>' +
+                '<div class="confirmation-field">' +
+                '    <label for="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerFistName">Nombre</label>' +
+                '    <input data-val="true" data-val-required="Debe indicar el nombre." id="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerFistName" name="Vacancies[' + vacancyNumber + '].Rooms[' + roomNumber + '].Travelers[' + travelerNumber + '].TravelerFistName" type="text" value="">' +
+                '</div>' +
+                '<div class="confirmation-field">' +
+                '    <label for="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerLastName">Apellido</label>' +
+                '    <input data-val="true" data-val-required="Debe indicar el apellido." id="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerLastName" name="Vacancies[' + vacancyNumber + '].Rooms[' + roomNumber + '].Travelers[' + travelerNumber + '].TravelerLastName" type="text" value="">' +
+                '</div>' +
+                '<div class="confirmation-field">' +
+                '    <label for="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerIdType">Tipo de identificación</label>' +
+                '    <select id="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerIdType" name="Vacancies[' + vacancyNumber + '].Rooms[' + roomNumber + '].Travelers[' + travelerNumber + '].TravelerIdType">' + 
+                '        <option value="DNI">DNI</option>' +
+                '        <option value="LE">LE</option>' +
+                '        <option value="LC">LC</option>' +
+                '        <option value="CUIT">CUIT</option>' +
+                '        <option value="Pasaporte">Pasaporte</option>' +
+                '    </select>' +
+                '</div>' +
+                '<div class="confirmation-field">' +
+                '    <label for="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerId">Nro. de identificación</label>' +
+                '    <input data-val="true" data-val-required="Debe indicar el nro. de identificaci&amp;#243;n." id="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerId" name="Vacancies[' + vacancyNumber + '].Rooms[' + roomNumber + '].Travelers[' + travelerNumber + '].TravelerId" type="text" value="">' +
+                '</div>' +
+                '<div class="confirmation-field">' +
+                '    <label for="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerBornDate">Fecha de Nac.</label>' +
+                '    <input data-val="true" data-val-required="Debe indicar la fecha de nacimiento." id="Vacancies_' + vacancyNumber + '__Rooms_' + roomNumber + '__Travelers_' + travelerNumber + '__TravelerBornDate" name="Vacancies[' + vacancyNumber + '].Rooms[' + roomNumber + '].Travelers[' + travelerNumber + '].TravelerBornDate" type="text" value="" class="date-field hasDatepicker">' +
+                '</div>' +
+                '<div class="clear">' +
+                '</div>' +
+                '</div>';
+
+            $('#' + roomTravelerContainerId).append(htmlTraveler);
+        }
+
+        function checkRoomTravelers() {
+//            $('.room-traveler-container').each(function () {
+//                if ($(this).attr('id'))
+//                addTraveler($(this).attr('id'), $(this).attr('vacancynumber'), $(this).attr('roomnumber'));
+//            });
+        }
+
+        function copyFromOwner(roomTravelerId) {
+            
+        }
+    </script>
+</head>
+<body id="confirmation_body">
+    @Html.Hidden("countries", countries)
+
+    @using (Html.BeginForm("PaymentMethods", "Payment", FormMethod.Post, new { id = "confirmation_form" }))
+    {
+        <div class="confirmation-container rounded roundedLightOrange">
+            <h3>Confirmación del pedido</h3>
+            <div class="confirmation-list rounded roundedWhite">
+                <h4>Datos de su reserva</h4>
+
+                @Html.Label("Hotel: " + Model.LodgingName).AddInlineStyles("font-weight:bold; display:block;")
+                @Html.Label("Checkin: " + Model.Vacancies.Min(v => v.VacancyCheckin).ToString("dd/MM/yyyy")).AddInlineStyles("display:block;")
+                @Html.Label("Checkout: " + Model.Vacancies.Max(v => v.VacancyCheckout).ToString("dd/MM/yyyy")).AddInlineStyles("display:block;")
+
+                @Html.HiddenFor(m => m.LodgingId)
+                @Html.HiddenFor(m => m.LodgingName)
+                @Html.HiddenFor(m => m.LodgingCurrency)
+
+                <ul>
+                @foreach (var vacancy in Model.Vacancies)
+                {
+                    <li>
+                        <div class="confirmation-field">
+                            @{
+                                var description = string.Empty;
+                                vacancy.Rooms.ForEach(r => description += r.RoomName + " / ");
+                                description = description.TrimEnd(' ', '/');
+                             }
+
+                            @Html.Label(Model.LodgingCurrency + " " + vacancy.ConfirmedVacancyPrice.ToString().PadLeft(6) + " - " + vacancy.VacancyReserved.ToString() + " -  " + description).AddInlineStyles("float:left;")
+
+                            @if (!vacancy.Available)
+                            {
+                                @Html.Label(" - No disponible!").AddInlineStyles("color:red;float:left;")
+                            }
+                            else if (vacancy.VacancyPrice != vacancy.ConfirmedVacancyPrice)
+                            {
+                                @Html.Label(" - Precio modificado! Anterior: " + Model.LodgingCurrency + " " + vacancy.VacancyPrice).AddInlineStyles("color:red;float:left;")
+                            }
+                        </div>
+                    </li>
+                }
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+            
+            <div class="confirmation-list rounded roundedWhite">
+                <h4>Datos del titular</h4>
+
+                <div class="confirmation-field">
+                    @Html.LabelFor(m => m.ReserveOwner.TravelerCountry)
+                    @Html.DropDownListFor(m => m.ReserveOwner.TravelerCountry, Model.Countries.Select(c => new SelectListItem() { Text = c.Value, Value = c.Key }))
+                </div>
+                <div class="confirmation-field">
+                    @Html.LabelFor(m => m.ReserveOwner.TravelerFistName)
+                    @Html.TextBoxFor(m => m.ReserveOwner.TravelerFistName)
+                </div>
+                <div class="confirmation-field">
+                    @Html.LabelFor(m => m.ReserveOwner.TravelerLastName)
+                    @Html.TextBoxFor(m => m.ReserveOwner.TravelerLastName)
+                </div>
+                <div class="confirmation-field">
+                    @Html.LabelFor(m => m.ReserveOwner.TravelerIdType)
+                    @Html.DropDownListFor(m => m.ReserveOwner.TravelerIdType, new List<SelectListItem> { 
+                        new SelectListItem(){Text = "DNI", Value = "DNI"},
+                        new SelectListItem(){Text = "LE", Value = "LE"},
+                        new SelectListItem(){Text = "LC", Value = "LC"},
+                        new SelectListItem(){Text = "CUIT", Value = "CUIT"},
+                        new SelectListItem(){Text = "Pasaporte", Value = "Pasaporte"}
+                    })
+                </div>
+                <div class="confirmation-field">
+                    @Html.LabelFor(m => m.ReserveOwner.TravelerId)
+                    @Html.TextBoxFor(m => m.ReserveOwner.TravelerId)
+                </div>
+                <div class="confirmation-field">
+                    @Html.LabelFor(m => m.ReserveOwner.TravelerBornDate)
+                    @Html.TextBoxFor(m => m.ReserveOwner.TravelerBornDate).AddClasses("date-field")
+                </div>
+                <div class="confirmation-field">
+                    @Html.LabelFor(m => m.PaymentMethodId)
+                    @Html.DropDownListFor(m => m.PaymentMethodId, Model.PaymentMethods.Select(pm => new SelectListItem() { Text = pm.Value, Value = pm.Key }))
+                </div>
+                
+                <div class="clear">
+                </div>
+            </div>
+
+            <div class="confirmation-list rounded roundedWhite">
+                <h4>Datos de los pasajeros</h4>
+                
+                @for (int i = 0; i < Model.Vacancies.Count; i++)
+                {
+                    <div id="@string.Format("Vacancy_{0}", Model.Vacancies[i].VacancyId)" class="lodging-vacancy-container rounded roundedOrange">
+
+                        <span id="@string.Format("span_vacancy_{0}", Model.Vacancies[i].VacancyId)">@Model.Vacancies[i].VacancyName</span>
+                    
+                        @for (int j = 0; j < Model.Vacancies[i].Rooms.Count; j++)
+                        {
+                            <div id="@string.Format("Room_{0}", Model.Vacancies[i].Rooms[j].RoomId)" class="lodging-vacancy rounded roundedWhite" style="color:black">
+                                @if (Model.Vacancies[i].Rooms.Count > 1)
+                                {
+                                    <span id="@string.Format("span_room_{0}", Model.Vacancies[i].Rooms[j].RoomId)" style="color:black;">@Model.Vacancies[i].Rooms[j].RoomName</span>
+                                }
+                                
+                                <div id="@string.Format("room_traveler_container_{0}", Model.Vacancies[i].Rooms[j].RoomId)" class="room-traveler-container" roomid="@Model.Vacancies[i].Rooms[j].RoomId" vacancynumber="@i" roomnumber="@j">
+                                </div>
+
+                                <div>
+                                    <a href="" onclick="javascript:addTraveler('@string.Format("room_traveler_container_{0}", Model.Vacancies[i].Rooms[j].RoomId)', @i, @j); return false;" style="color: #FA8E00;font-weight: bold;text-decoration: initial;">
+                                        @Html.Image(@Url.Content("~/Content/Images/Add_Button.png")).AddInlineStyles("width:15px; vertical-align: middle;")
+                                        Agregar pasajero
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                
+                    if (i < Model.Vacancies.Count - 1)
+                    {
+                        <div class="clear" style="height:20px;"></div>
+                    }
+                }
+
+                <div class="confirmation-field">
+                    @Html.Label("confirmation_validation_error", string.Empty)
+                </div>
+
+                <div class="clear">
+                    @Html.ValidationSummary()
+                </div>
+            </div>
+
+            @(Html.Button("Continuar el pedido", true).AddId("confirmation_continue_button").AddClasses("rounded roundedOrange"))
+
+            @(Html.Button("Cancelar").AddId("confirmation_cancel_button").AddClasses("rounded roundedWhite")
+                            .AddAttribute("onclick", "javascript:document.location = '" + Request.UrlReferrer.ToString() + "';"))
+            
+            <div class="clear">
+            </div>
+        </div>
+        Html.EndForm();
+    }
+</body>
+</html>

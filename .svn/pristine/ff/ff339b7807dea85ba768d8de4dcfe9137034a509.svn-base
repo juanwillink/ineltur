@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\Franco Gatica\ctacte con datos de turismo1" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Views/Shared/_NoLayout.cshtml" publishTime="02/15/2011 11:06:11" />
+    <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="01/14/2011 10:43:58" />
+    <file relUrl="Scripts/MicrosoftAjax.js" publishTime="01/14/2011 10:43:58" />
+    <file relUrl="Global.asax" publishTime="06/06/2011 13:24:22" />
+    <file relUrl="Views/_ViewStart.cshtml" publishTime="11/24/2010 11:56:16" />
+    <file relUrl="Views/Administracion/Cuentas.cshtml" publishTime="07/12/2011 10:23:06" />
+    <file relUrl="Scripts/Layout.js" publishTime="06/10/2011 11:55:07" />
+    <file relUrl="Scripts/jquery.tablesorter.min.js" publishTime="02/28/2011 14:14:36" />
+    <file relUrl="Content/logo.gif" publishTime="06/07/2011 09:48:05" />
+    <file relUrl="Content/ui/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="02/16/2011 08:31:10" />
+    <file relUrl="Scripts/jquery-ui-1.8.9.min.js" publishTime="02/16/2011 08:26:58" />
+    <file relUrl="Content/ui/images/ui-bg_highlight-soft_50_dddddd_1x100.png" publishTime="02/16/2011 08:31:10" />
+    <file relUrl="Content/ui/images/ui-bg_highlight-soft_100_f6f6f6_1x100.png" publishTime="02/16/2011 08:31:10" />
+    <file relUrl="bin/System.Web.Abstractions.dll" publishTime="03/18/2010 19:31:26" />
+    <file relUrl="Content/ui/images/ui-bg_flat_55_ffffff_40x100.png" publishTime="02/16/2011 08:31:10" />
+    <file relUrl="Views/Shared/Error.cshtml" publishTime="03/30/2011 16:06:14" />
+    <file relUrl="bin/CuentasCorrientes.pdb" publishTime="12/23/2011 18:36:03" />
+    <file relUrl="Content/ui/images/ui-icons_666666_256x240.png" publishTime="02/16/2011 08:31:12" />
+    <file relUrl="Content/btn.png" publishTime="02/21/2011 11:00:50" />
+    <file relUrl="Views/Shared/_LogInPartial.cshtml" publishTime="06/08/2011 16:19:50" />
+    <file relUrl="Content/asc.gif" publishTime="02/16/2011 12:38:28" />
+    <file relUrl="Content/ui/images/ui-icons_0073ea_256x240.png" publishTime="02/16/2011 08:31:12" />
+    <file relUrl="Scripts/jquery-1.4.4.min.js" publishTime="11/10/2011 10:18:10" />
+    <file relUrl="Content/btn-hover.png" publishTime="02/21/2011 11:01:01" />
+    <file relUrl="bin/System.Web.Mvc.xml" publishTime="01/04/2011 15:29:22" />
+    <file relUrl="Views/Administracion/DatosCuenta.cshtml" publishTime="07/12/2011 10:30:31" />
+    <file relUrl="Content/ui/images/ui-bg_highlight-soft_25_0073ea_1x100.png" publishTime="02/16/2011 08:31:10" />
+    <file relUrl="Content/ui/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="02/16/2011 08:31:10" />
+    <file relUrl="Content/ui/images/ui-icons_ffffff_256x240.png" publishTime="02/16/2011 08:31:14" />
+    <file relUrl="Content/ui/images/ui-bg_flat_0_eeeeee_40x100.png" publishTime="02/16/2011 08:31:14" />
+    <file relUrl="bin/Datos.dll" publishTime="12/23/2011 18:36:03" />
+    <file relUrl="bin/CuentasCorrientes.dll" publishTime="12/23/2011 18:36:03" />
+    <file relUrl="Content/ui/ui.css" publishTime="02/16/2011 08:31:14" />
+    <file relUrl="Content/Site.css" publishTime="06/08/2011 16:23:31" />
+    <file relUrl="Views/Shared/_Layout.cshtml" publishTime="02/16/2011 11:50:44" />
+    <file relUrl="Views/Administracion/Menu.cshtml" publishTime="06/09/2011 16:00:28" />
+    <file relUrl="Content/ui/images/ui-icons_454545_256x240.png" publishTime="02/16/2011 08:31:14" />
+    <file relUrl="Views/Administracion/DetallesCuenta.cshtml" publishTime="11/18/2011 13:25:59" />
+    <file relUrl="Content/ui/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="02/16/2011 08:31:14" />
+    <file relUrl="Views/Usuarios/Login.cshtml" publishTime="07/12/2011 09:43:23" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="01/14/2011 10:43:58" />
+    <file relUrl="bin/System.Web.Routing.dll" publishTime="03/18/2010 19:31:26" />
+    <file relUrl="Views/Administracion/Pago.cshtml" publishTime="07/12/2011 10:31:39" />
+    <file relUrl="Content/ui/images/ui-icons_ff0084_256x240.png" publishTime="02/16/2011 08:31:12" />
+    <file relUrl="Views/Shared/EditorTemplates/Date.cshtml" publishTime="06/10/2011 11:41:17" />
+    <file relUrl="bin/Datos.pdb" publishTime="12/23/2011 18:36:03" />
+    <file relUrl="Content/bg.gif" publishTime="02/16/2011 12:38:41" />
+    <file relUrl="Scripts/jquery.validate.min.js" publishTime="01/14/2011 10:43:58" />
+    <file relUrl="Scripts/jquery.unobtrusive-ajax.min.js" publishTime="01/14/2011 10:43:58" />
+    <file relUrl="Content/desc.gif" publishTime="02/16/2011 12:38:46" />
+    <file relUrl="Scripts/jquery.validate.unobtrusive.min.js" publishTime="01/14/2011 10:43:58" />
+    <file relUrl="Views/Shared/_HeadScripts.cshtml" publishTime="02/16/2011 13:32:46" />
+    <file relUrl="Views/Web.config" publishTime="06/06/2011 16:42:44" />
+    <file relUrl="bin/System.Web.Mvc.dll" publishTime="01/05/2011 17:42:16" />
+    <file relUrl="Web.config" publishTime="11/18/2011 10:46:02" />
+  </publishProfile>
+</publishData>

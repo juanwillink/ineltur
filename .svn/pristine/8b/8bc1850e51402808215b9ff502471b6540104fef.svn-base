@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_ResultLayout.cshtml";
+}
+
+@model CheckArgentina.Models.LodgingListModel
+@using CheckArgentina.Commons
+
+@*<script src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.2.min.js")" type="text/javascript"></script>*@
+
+@*<script src="@Url.Content("~/Scripts/jquery.ba-postmessage.min.js")" type="text/javascript"></script>*@
+
+@*<script src="@Url.Content("~/Scripts/check_functions.min.js")" type="text/javascript"></script>*@
+        
+@*<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.tinyscrollbar.min.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.lodging-description').tinyscrollbar();
+    });
+</script>*@
+
+<div class="rounded roundedLightOrange" style="padding: 5px;width: auto;">
+    @*<div class="result-filter rounded roundedWhite">
+        <h3>Filtrar la búsqueda</h3>
+        <div class="element-filter">
+            <label>Precio</label>
+            
+        </div>
+    </div>*@
+
+    <div class="result-list">
+        <h2>Resultados de la búsqueda</h2>
+    @if (Model.Lodgings.Count() == 0)
+    {
+        <div class="no-results">
+            No se encontraron resultados.
+        </div>
+    }
+    else
+    {
+        foreach (var lodging in Model.Lodgings)
+        {
+            Html.RenderPartial("Lodging", lodging);
+        }
+    }
+    </div>
+</div>

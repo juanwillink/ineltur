@@ -1,0 +1,307 @@
+var multiples=0;
+var multipleorigen="";
+var multipledestino="";
+var multiplefecha="";
+var mfecha="";var mfecha2="";var mfecha3="";var mfecha4="";var mfecha5="";
+var multipleorigen2="";
+var multipledestino2="";
+var multipleorigen3="";
+var multipledestino3="";
+var multipleorigen4="";
+var multipledestino4="";
+var multipleorigen5="";
+var multipledestino5="";
+
+function greybox()
+{
+	multiples=1;
+	document.myform.radio[2].checked=true;
+	document.getElementById("airline").value="all";
+	document.getElementById("alliance").value="";
+	document.getElementById("fechapartida").style.visibility="hidden";
+	document.getElementById("fecharetorno").style.visibility="hidden";
+	document.getElementById("datepicker").style.visibility="hidden";
+	document.getElementById("datepicker2").style.visibility="hidden";
+	GB_showCenter('Múltiples Destinos','../multiples.php',245,580);
+}
+
+var locals='.COC.GHU.PRA.ROS.SFN.AEP.COR.LPG.MDZ.LGS.AFA.CTC.SDE.IRJ.TUC.UAQ.RCU.VDR.LUQ.CNQ.RES.FMA.IGR.AOL.PSS.SLA.JUJ.ORA.EHL.CRD.EQS.REL.VDM.PMY.PUD.RGA.RGL.USH.ULA.PMQ.RZA.BHI.MDQ.NQN.RSA.BRC.TDL.VLG.CPC.EZE.FTE.ECA.SST.GGS.OES.LHS.TTG.NEC.ING.BUE.';
+var resvis=0;
+function city()
+{
+	city1=document.getElementById("origen").value.toUpperCase();
+	city2=document.getElementById("destino").value.toUpperCase();
+	//si es largo, sacar el codigo de () en cada uno
+	x=city1.indexOf("(");
+	if (x>0) 
+	{
+		city1=city1.substr(x+1,3);
+	}
+	x=city2.indexOf("(");
+	if (x>0) 
+	{
+		city2=city2.substr(x+1,3);
+	}
+	city1="."+city1+".";
+	city2="."+city2+".";
+	x1=locals.indexOf(city1);
+	x2=locals.indexOf(city2);
+	
+	if ((x1>0) && (x2>0))
+	{
+		document.getElementById("residente").innerHTML='Tarifa: <input type="radio" name="resid" id="resid" value="yes" checked />Residente &nbsp;<input type="radio" name="resid" id="resid" value="no" />No residente';
+		resvis=1;
+	}
+	else
+	{
+		document.getElementById("residente").innerHTML="";
+		resvis=0;
+	}
+}
+
+var voneway=false;
+function oneway()
+{
+	voneway=true;
+	multiples=0;
+	document.getElementById("datepicker").style.backgroundColor = "#FFFFFF"; 
+	document.getElementById("datepicker").style.visibility='visible';	
+	document.getElementById("fecharetorno").style.visibility='hidden';
+	document.getElementById("ahora2x").style.visibility='hidden';
+	document.getElementById("datepicker2").style.visibility='hidden';
+	document.getElementById("fechapartida").style.visibility="visible";
+	document.getElementById("fecharetorno").style.visibility="hidden";
+	document.getElementById("ahora1x").style.visibility="visible";
+	document.getElementById("ahora2x").style.visibility="hidden";
+	document.getElementById('origen').value='';
+	document.getElementById('origen').disabled=false;
+	document.getElementById('destino').value='';
+	document.getElementById('destino').disabled=false;
+}
+
+function twoway()
+{
+	voneway=false;
+	document.getElementById("datepicker").style.backgroundColor = "#FFFFFF"; 
+	document.getElementById("datepicker2").style.backgroundColor = "#FFFFFF"; 
+	multiples=0;
+	document.getElementById("fecharetorno").style.visibility='visible';
+    document.getElementById("ahora2x").style.visibility='visible';
+	document.getElementById("datepicker").style.visibility='visible';
+	document.getElementById("datepicker2").style.visibility='visible';
+	document.getElementById("fechapartida").style.visibility="visible";
+	document.getElementById("fecharetorno").style.visibility="visible";
+	document.getElementById("ahora1x").style.visibility="visible";
+	document.getElementById("ahora2x").style.visibility="visible";
+	document.getElementById('origen').value='';
+	document.getElementById('destino').value='';
+	document.getElementById('origen').disabled=false;
+	document.getElementById('destino').disabled=false;
+	document.getElementById('origen').style.visibility="visible";
+	document.getElementById('destino').style.visibility="visible";
+}
+
+function buscadorx() //como POPUP 
+{
+	width=835;
+    height=560;
+    var left = Math.floor( (screen.width - width) / 2);
+    var top = Math.floor( (screen.height - height) / 2)-20;
+    var winParms = "top=" + top + ",left=" + left + ",height=" + height + ",width=" + width+", resizable=yes, scrollbars=yes, status=yes";
+	o=document.getElementById("origen").value;
+	d=document.getElementById("destino").value;
+	d1=document.getElementById("datepicker").value;
+	d2=document.getElementById("datepicker2").value;
+	pa=document.getElementById("adultos").value;
+	pn=document.getElementById("ninos").value;
+	pi=document.getElementById("infantes").value;		
+
+	//air=document.getElementById("airline").value;
+	//cls=document.getElementById("class").value;
+	//stops=document.getElementById("stops").checked;//true si es NONSTOP, false si NO
+	
+	if (document.getElementById("radio").checked==true) {rad=true;}
+			else {rad=false;}
+	
+	//alert(rad);
+			
+	if (resvis==1)
+	{
+		 if (document.getElementById("resid").checked==true) {res=true;}
+			else {res=false;}
+	}
+	else
+	{
+		res=false;
+	}
+	//nonstop=document.getElementById("ns").checked;if (nonstop==true) {nonstop="true";} else {nonstop="false";}
+	flag=0;
+	
+	x=document.getElementById("datepicker").value;
+	document.getElementById("infantes").style.backgroundColor = "#FFFFFF"; 
+	if (pi>pa)
+	{
+		flag=1;
+		document.getElementById("infantes").style.backgroundColor = "#FFCC00"; 
+	}
+	
+	x=document.getElementById("datepicker").value;
+	document.getElementById("datepicker").style.backgroundColor = "#FFFFFF"; 
+	
+    if (x.length < 3) 
+	{
+		flag=4;
+		document.getElementById("datepicker").style.backgroundColor = "#FFCC00"; 
+	}
+	if (voneway==false)
+	{
+	x=document.getElementById("datepicker2").value;
+	document.getElementById("datepicker2").style.backgroundColor = "#FFFFFF"; 
+	if (x.length < 3) 
+	{
+		flag=4;
+		document.getElementById("datepicker2").style.backgroundColor = "#FFCC00"; 
+	}
+	}
+	x=document.getElementById("origen").value;
+	document.getElementById("origen").style.backgroundColor = "#FFFFFF"; 
+	if (x.length < 3) 
+	{
+		flag=4;
+		document.getElementById("origen").style.backgroundColor = "#FFCC00"; 
+	}
+	
+	if (voneway==false)
+	{
+		x=document.getElementById("destino").value;
+		document.getElementById("destino").style.backgroundColor = "#FFFFFF"; 
+		if (x.length < 3) 
+		{
+			flag=4;
+			document.getElementById("destino").style.backgroundColor = "#FFCC00"; 
+		}
+	}
+	
+	hora1="";
+	hora2="";
+	
+	vcou="";//document.getElementById("cou").checked;
+	//if (vcou==true) {vcou="true";} else {vcou="";}	
+	ali="";
+	air="all";
+	cls="Y";
+	stops=false;
+	
+	if (flag==0)
+	{
+		window.open("http://www.apteknet.com/ineltur/resultados.php?especial=1&cou="+vcou+"&resvis="+resvis+"&paso=1&hora1="+hora1+"&hora2="+hora2+"&o="+o+"&d="+d+"&d1="+d1+"&d2="+d2+"&pn="+pn+"&pi="+pi+"&pa="+pa+"&al="+ali+"&air="+air+"&cls="+cls+"&stops="+stops+"&resid="+res+"&iv="+rad, "editwin", winParms);
+	}
+	else
+	{
+		alert("Por favor revise los campos indicados para poder continuar!");
+	}
+}
+
+function setdate2()
+	{
+		var startDate = $('#datepicker').datepicker('getDate');
+		$('#datepicker2').datepicker('option', 'minDate', startDate);
+	}
+
+	$(function() {
+		$("#tabs").tabs({disabled:[1,2]
+		});
+	});
+	
+	
+	try{
+      if(dias)blah=1/0;
+	}catch(e){
+      dias=2;
+	}
+
+//	$(function() {
+//		$("#datepicker").datepicker({showOn: "both", duration: "", buttonImage: "http://www.apteknet.com/ineltur/images/calendar.gif", buttonImageOnly: true,minDate: +2, maxDate: "+365D", numberOfMonths: 2,
+//			showButtonPanel: false, onSelect: function(dateText, inst) { setdate2(); }});
+//	});
+//	$(function() {
+//		$("#datepicker2").datepicker({showOn: "both", duration: "", buttonImage: "http://www.apteknet.com/ineltur/images/calendar.gif", buttonImageOnly: true,minDate: +1, maxDate: "+365D", numberOfMonths: 2,
+//			showButtonPanel: false});
+//	});	
+		$(function() {
+		$("#datepicker3").datepicker({showOn: "both", duration: "", buttonImage: "http://www.apteknet.com/ineltur/images/calendar.gif", buttonImageOnly: true,minDate: +2, maxDate: "+365D", numberOfMonths: 2,
+			showButtonPanel: false, onSelect: function(dateText, inst) { alert("ok"); }});
+	});	
+		$(function() {
+		$("#datepicker4").datepicker({showOn: "both", duration: "", buttonImage: "http://www.apteknet.com/ineltur/images/calendar.gif", buttonImageOnly: true,minDate: +1, maxDate: "+365D", numberOfMonths: 2,
+			showButtonPanel: false});
+	});	
+		$(function() {
+		$("#datepicker5").datepicker({showOn: "both", duration: "", buttonImage: "http://www.apteknet.com/ineltur/images/calendar.gif", buttonImageOnly: true,minDate: +2, maxDate: "+365D", numberOfMonths: 2,
+			showButtonPanel: false, onSelect: function(dateText, inst) { alert("ok"); }});
+	});	
+		$(function() {
+		$("#datepicker6").datepicker({showOn: "both", duration: "", buttonImage: "http://www.apteknet.com/ineltur/images/calendar.gif", buttonImageOnly: true,minDate: +1, maxDate: "+365D", numberOfMonths: 2,
+			showButtonPanel: false});
+	});	
+	
+	
+		$('.fix-z-index').bgiframe();
+	
+	
+		function findValueCallback(event, data, formatted) {
+		$("<li>").html( !data ? "No match!" : "Seleccion&oacute;: " + formatted).appendTo("#result");
+	}
+	
+	function formatItem(row) {
+		return row[0];
+	}
+	function formatResult(row) {
+		return row[0].replace(/(<.+?>)/gi, '');
+	}
+
+	$().ready(function () {
+    //$("#origen").autocomplete('searchA.asp', {
+    // Modificada para funcionar en MVC
+	$("#origen").autocomplete('searchA', {
+		width: 400,
+		multiple: false,
+		matchContains: true,
+		formatItem: formatItem,
+		formatResult: formatResult,
+        filtro: 1
+	});
+
+    //$("#destino").autocomplete('search2A.asp', {
+    // Modificada para funcionar en MVC
+	$("#destino").autocomplete('search2A', {
+		width: 400,
+		multiple: false,
+		matchContains: true,
+		formatItem: formatItem,
+		formatResult: formatResult
+    });
+
+	//$("#recogida").autocomplete('searchA.asp', {
+    // Modificada para funcionar en MVC
+    $("#recogida").autocomplete('searchA', {
+		width: 400,
+		multiple: false,
+		matchContains: true,
+		formatItem: formatItem,
+		formatResult: formatResult
+	});
+	//$("#hospedaje").autocomplete('searchA.asp', {
+    // Modificada para funcionar en MVC
+    $("#hospedaje").autocomplete('searchA', {
+		width: 400,
+		multiple: false,
+		matchContains: true,
+		formatItem: formatItem,
+		formatResult: formatResult
+	});
+	});
+function listo()
+{
+	document.getElementById("tabs").style.visibility="visible";
+}

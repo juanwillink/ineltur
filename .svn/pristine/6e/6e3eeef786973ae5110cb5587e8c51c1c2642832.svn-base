@@ -1,0 +1,57 @@
+﻿    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ui/ui.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ui/jquery.multiselect.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ui/jquery.contextMenu.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ui/colorbox.css")" rel="stylesheet" type="text/css" />
+    
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.9.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tablesorter.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.multiselect.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.contextMenu.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.colorbox-min.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/Layout.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function showNotification(message, type) {
+            $('#header #messages').html(message);
+
+            if (type == 'failed' || type == 'error')
+                $('#header #messages').css('color', 'red');
+            else if (type == 'success' || type == 'ok')
+                $('#header #messages').css('color', 'green');
+
+            setTimeout(function () { 
+                $('#header #messages').html(''); 
+                $('#header #messages').css('color', 'initial');
+                }, 3000);
+        }
+
+        function clearCache() {
+            $.get('@Url.Content("~/Management/ClearCache/")', function (data) {
+                showNotification(data);
+            }); 
+
+            return false;
+        }
+
+        function padLeft(text, character, length) {
+            return (text + "").length >= length ? (text + "") : padLeft(character + (text + ""), character, length);
+        }
+
+        function padRight(text, character, length) {
+            return (text + "").length >= length ? (text + "") : padRight((text + "") + character, character, length);
+        }
+    </script>
+
+    <!--[if gte IE 9]>
+      <style type="text/css">
+        .gradient {
+           filter: none;
+        }
+      </style>
+    <![endif]-->

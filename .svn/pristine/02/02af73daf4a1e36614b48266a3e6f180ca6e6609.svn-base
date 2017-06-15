@@ -1,0 +1,83 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+
+namespace CheckArgentina.Models
+{
+    public class RegistrationModel
+    {
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Nombre de la empresa")]
+        [DataType(DataType.Text)]
+        public string BuissnessName { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Razon Social")]
+        [DataType(DataType.Text)]
+        public string RazonSocial { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Fecha de inicio de actividades")]
+        [DataType(DataType.Text)]
+        public string ActivityStartDate { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Tipo de factura")]
+        [DataType(DataType.Text)]
+        public string BillType { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "CUIT")]
+        [DataType(DataType.Text)]
+        public string Cuit { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Direccion")]
+        [DataType(DataType.Text)]
+        public string Adress { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Codigo Postal")]
+        [DataType(DataType.Text)]
+        public string ZipCode { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Telefono")]
+        [DataType(DataType.Text)]
+        public string Phone { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "FAX")]
+        [DataType(DataType.Text)]
+        public string Fax { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Email de Recepcion de Confirmacion de Reservas")]
+        [DataType(DataType.Text)]
+        public string ReservationConfirmationEmail { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Nombre del encargado de administracion")]
+        [DataType(DataType.Text)]
+        public string PersonInChargeName { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Mail del encargado de administacion")]
+        [DataType(DataType.Text)]
+        public string PersonInChargeEmail { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Quiere recibir Newsletter?")]
+        [DataType(DataType.Text)]
+        public bool Newsletter { get; set; }
+
+        [Required(ErrorMessage = "Campo Requerido")]
+        [Display(Name = "Como llego a ArgentinaHTL")]
+        [DataType(DataType.Text)]
+        public string HowDidYouFindUs { get; set; }
+
+
+    }
+}

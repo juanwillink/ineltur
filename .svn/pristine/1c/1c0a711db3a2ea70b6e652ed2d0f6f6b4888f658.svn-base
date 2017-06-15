@@ -1,0 +1,17 @@
+﻿    <ul id="menu_list" class="nav navbar-nav navbar-right">
+        <li style="text-align: center">
+            <a href="">EMPRESA <br /> <small>Company</small></a>
+        </li>
+        <li style="text-align: center">
+            <a href="">SERVICIOS <br /> <small>Services</small></a>
+        </li>
+        <li style="text-align: center">
+            <a href="">PREGUNTAS FRECUENTES <br /> <small>FAQs</small></a>
+        </li>
+        <li style="text-align: center">
+            <a href="">REGISTRESE <br /> <small>Sign In</small></a>
+        </li>
+        <li style="text-align: center">
+            <a href="">NEWSLETTER <br /> <small>Newsletter</small></a>
+        </li>
+    </ul>

@@ -1,0 +1,11 @@
+﻿@model CheckArgentina.Models.ReservationModel
+
+@using CheckArgentina.Commons;
+
+@{
+    Layout = null;
+}
+
+<div>
+    Deposito
+</div>

@@ -1,0 +1,2 @@
+﻿    <link href="@Url.Content("~/Content/c-css.ashx")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />*@

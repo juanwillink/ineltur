@@ -1,0 +1,78 @@
+﻿using CheckArgentina.Models;
+using CheckArgentina.LocalService;
+using System;
+using System.Linq;
+
+namespace CheckArgentina.Managers
+{
+    //public partial class Manager
+    //{
+        public class LocalManager
+        {
+            private ServiciosSoapSoap _service;
+            private Manager _globalManager;
+
+            public LocalManager()
+            {
+                _service = new LocalService.ServiciosSoapSoapClient();
+            }
+
+            public RespuestaLogin LoginAttemp(LoginModel loginModel)
+            {
+                var peticion = new PeticionLogin() { Usuario = loginModel.Username, Clave = loginModel.Password };
+
+                try
+                {
+                    var rptaLogin = _service.Login(peticion);
+
+                    return rptaLogin;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+
+            }
+
+
+            #region Credentials
+
+            public Credential GetCredential(string userKey)
+            {
+                var credential = new Credential();
+                using (var dc = new TurismoDataContext())
+                {
+                    Guid idUsuario;
+
+                    if (Guid.TryParse(userKey, out idUsuario))
+                    {
+                        var users = dc.Usuarios.Where(u => u.IDUSUARIO == idUsuario);
+
+                        if (users.Count() == 1)
+                        {
+                            credential.Username = users.First().NOMBREUSUARIO;
+                            credential.Password = users.First().CLAVE;
+                            credential.Language = "es";
+                        }
+                        else
+                        {
+                            credential.Username = string.Empty;
+                            credential.Password = string.Empty;
+                            credential.Language = string.Empty;
+                        }
+                    }
+                }
+
+                return credential;
+            }
+            #endregion
+
+            private void CompletePetition(PeticionBase petition, Credential credential)
+            {
+                petition.Usuario = credential.Username;
+                petition.Clave = credential.Password;
+                petition.IdiomaDeseado = credential.Language;
+            }
+        }
+    //}
+}

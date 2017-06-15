@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Shared/_ResultLayout.cshtml";
+}
+
+@model CheckArgentina.Models.LodgingListModel
+@using CheckArgentina.Commons
+
+<div class="panel results-panel">
+    @*<div class="result-filter rounded roundedAuxiliarColor">
+        <h3>Filtrar la búsqueda</h3>
+        <div class="element-filter">
+            <label>Precio</label>
+            
+        </div>
+    </div>*@
+    <div class="panel-heading">
+        <h2>Resultados de la búsqueda</h2>
+    </div>
+    <div class="panel-body">
+        <div class="result-list">
+            @if (Model.Lodgings.Count() == 0)
+            {
+                <div class="no-results">
+                    No se encontraron resultados.
+                </div>
+            }
+            else
+            {
+                foreach (var lodging in Model.Lodgings)
+                {
+                    Html.RenderPartial("Lodging", lodging);
+                }
+            }
+        </div>
+    </div>
+</div>

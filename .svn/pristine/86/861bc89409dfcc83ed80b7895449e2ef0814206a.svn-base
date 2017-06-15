@@ -1,0 +1,17 @@
+﻿    <ul id="menu_list" class="nav navbar-nav navbar-right">
+        <li style="text-align: center">
+            <a href="" style="padding: 5px;">EMPRESA <br /> <small>Company</small></a>
+        </li>
+        <li style="text-align: center">
+            <a href="" style="padding: 5px;">SERVICIOS <br /> <small>Services</small></a>
+        </li>
+        <li style="text-align: center">
+            <a href="" style="padding: 5px;">PREGUNTAS FRECUENTES <br /> <small>FAQs</small></a>
+        </li>
+        <li style="text-align: center">
+            <a href="~/Shared/Registration.cshtml" target="_blank" style="padding: 5px;">REGISTRESE <br /> <small>Register</small></a>
+        </li>
+        <li style="text-align: center">
+            <a href="" style="padding: 5px;">NEWSLETTER <br /> <small>Newsletter</small></a>
+        </li>
+    </ul>

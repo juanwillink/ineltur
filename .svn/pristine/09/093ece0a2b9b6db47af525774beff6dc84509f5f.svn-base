@@ -1,0 +1,13 @@
+﻿@model CheckArgentina.Models.ReservationModel
+
+@using CheckArgentina.Commons;
+
+@{
+    Layout = null;
+}
+
+<div>
+    <h5>Confirme para realizar el pago mediante cuenta corriente</h5>
+</div>
+
+

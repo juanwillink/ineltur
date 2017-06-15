@@ -1,0 +1,36 @@
+﻿@model CheckArgentina.Models.RegistrationModel
+
+@using CheckArgentina.Commons;
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registracion</title>
+        <link rel="stylesheet" type="text/css" href="@Href("~/Content/bootstrap.min.css")" />
+        <link rel="stylesheet" type="text/css" href="@Href("~/Content/custom.css")" />
+        <script src="@Url.Content("~/Scripts/jquery-2.0.3.min.js")"></script>
+    </head>
+    <body>
+        <form action="/Login/Registration" method="post">
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.BuissnessName).AddClasses("form-control").AddAttribute("Placeholder", Model.BuissnessName)
+                @Html.TextBoxFor(m => m.RazonSocial).AddClasses("form-control").AddAttribute("Placeholder", Model.RazonSocial)
+                @Html.TextBoxFor(m => m.ActivityStartDate).AddClasses("form-control").AddAttribute("Placeholder", Model.ActivityStartDate)
+                @Html.TextBoxFor(m => m.BillType).AddClasses("form-control").AddAttribute("Placeholder", Model.BillType)
+                @Html.TextBoxFor(m => m.Cuit).AddClasses("form-control").AddAttribute("Placeholder", Model.Cuit)
+                @Html.TextBoxFor(m => m.Adress).AddClasses("form-control").AddAttribute("Placeholder", Model.Adress)
+                @Html.TextBoxFor(m => m.ZipCode).AddClasses("form-control").AddAttribute("Placeholder", Model.ZipCode)
+                @Html.TextBoxFor(m => m.Phone).AddClasses("form-control").AddAttribute("Placeholder", Model.Phone)
+                @Html.TextBoxFor(m => m.ReservationConfirmationEmail).AddClasses("form-control").AddAttribute("Placeholder", Model.ReservationConfirmationEmail)
+                @Html.TextBoxFor(m => m.PersonInChargeName).AddClasses("form-control").AddAttribute("Placeholder", Model.PersonInChargeName)
+                @Html.TextBoxFor(m => m.PersonInChargeEmail).AddClasses("form-control").AddAttribute("Placeholder", Model.PersonInChargeEmail)
+                @Html.TextBoxFor(m => m.Newsletter).AddClasses("form-control").AddAttribute("Placeholder", "Quiere recibir nuestro newsletter?")
+                @Html.TextBoxFor(m => m.HowDidYouFindUs).AddClasses("form-control").AddAttribute("Placeholder", Model.HowDidYouFindUs)
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Enviar solicitud de alta</button>
+                <button type="button" class="btn btn-primary">Cancelar</button>
+            </div>
+        </form>
+    </body>
+</html>

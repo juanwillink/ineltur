@@ -1,0 +1,72 @@
+﻿String.prototype.lpad = function (padString, length) {
+    var str = this;
+    while (str.length < length)
+        str = padString + str;
+    return str;
+}
+
+String.prototype.rpad = function (padString, length) {
+    var str = this;
+    while (str.length < length)
+        str = str + padString;
+    return str;
+}
+
+function openPopupStandard(url) {
+    return openPopup(url, 800, 500);
+}
+
+function openPopup(url, width, height) {
+    var posx = (screen.width - 800) / 2;
+    var posy = (screen.height - 500) / 2;
+    window.open(url, "Popup", "scrollbars=no,resizable=yes,width=" + width + ",height=" + height + ",status=no,left=" + posx + ",top=" + posy);
+
+    return false;
+}
+
+function loadContent(div_id, content_url, successful_function) {
+    $(div_id).load(content_url, successful_function, function (response, status, xhr) {
+        if (status == 'error') {
+            var msg = "Sorry but there was an error: ";
+            $(".content").html(msg + xhr.status + " " + xhr.statusText);
+        }
+    });
+}
+
+function performReserve() {
+}
+
+function decreaseVacancyReserve(parent_div, counter_id) {
+    var counter = $(parent_div).find(counter_id);
+    var countValue = parseInt(counter.val());
+
+    if (countValue > 0) {
+        counter.val(countValue - 1);
+    }
+}
+
+function increaseVacancyReserve(parent_div, counter_id, max_count) {
+    var counter = $(parent_div).find(counter_id);
+    var countValue = parseInt(counter.val());
+
+    if (countValue < max_count) {
+        counter.val(countValue + 1);
+    }
+}
+
+$(document).ready(function () {
+    $('.lodging-vacancy-container span').click(function () {
+        $(this).next().toggle('fast');
+        return false;
+    }).next().hide();
+
+//    div_results.find('#iframe_results').load(function () {
+//        div_results.find('#iframe_results').contents().find('.lodging-vacancy-container span').each(function () {
+//            $(this).click(function () {
+//                $(this).next().toggle('fast');
+//                return false;
+//            }).next().hide();
+//            $('html, body').animate({ scrollTop: 0 }, 0);
+//        })
+//    });
+});

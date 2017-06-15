@@ -1,0 +1,249 @@
+﻿lodging-heading-color{
+    background-color:aliceblue;
+}
+
+.navbar{
+    border-radius: 0px !important;
+    border: none;
+    background-color: #FFFFFF;
+    margin-bottom: 0px;
+    /*background-color: rgba(255, 255, 255, 0.89);*/
+}
+
+.navbar-collapse{
+    position: relative;
+}
+
+.navbar-collapse .nav{
+    position: absolute; 
+    bottom: 0; 
+    right: 0;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #003882;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: #003882;
+    color: aliceblue;
+    transition-duration: 0.5s;
+}
+
+img.logo-image{
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-main{
+    background-color: #00125A;
+    color: white;
+}
+
+.btn-main:hover,
+.btn-main:active{
+    background-color: #011c41;
+    color: white;
+}
+
+/*Web transitions*/
+
+/*Search transitions*/
+#tab_container, .roomContainer, .navbar {
+    -webkit-animation: fadeinDown 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeinDown 1s; /* Firefox < 16 */
+        -ms-animation: fadeinDown 1s; /* Internet Explorer */
+         -o-animation: fadeinDown 1s; /* Opera < 12.1 */
+            animation: fadeinDown 1s;
+}
+
+#iframe_national{
+    -webkit-animation: fadeinDown 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeinDown 2s; /* Firefox < 16 */
+        -ms-animation: fadeinDown 2s; /* Internet Explorer */
+         -o-animation: fadeinDown 2s; /* Opera < 12.1 */
+            animation: fadeinDown 2s;
+}
+
+@keyframes fadeinDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadeinDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeinDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadeinDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadeinDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+#iframe_national{
+    -webkit-transition: height 1s; /* Safari */
+    -moz-transition: height 1s; /*Mozilla*/
+    -o-transition: height 1s; /*Opera*/
+    transition: height 1s;
+}
+
+/*Results transitions*/
+
+#iframe_results, #rightColumn {
+    -webkit-animation: fadeinRight 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeinRight 1s; /* Firefox < 16 */
+        -ms-animation: fadeinRight 1s; /* Internet Explorer */
+         -o-animation: fadeinRight 1s; /* Opera < 12.1 */
+            animation: fadeinRight 1s;
+}
+
+@keyframes fadeinRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-200px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadeinRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-200px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeinRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-200px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadeinRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-200px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadeinRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*Banners*/
+
+.banner_holder{
+    width: 100%;
+    height: 150px;
+    min-height: 50px;
+    position: relative;
+    
+}
+
+.add-banner-1{
+    background:   url("Images/habitacion_hotel.jpg")no-repeat;
+}
+
+.add-banner-2{
+    background:   url("Images/assistcard.jpg")no-repeat;
+}
+
+.add-banner-3{
+    background:   url("Images/ciudad_Buenos_Aires.png")no-repeat;
+}
+
+.add-banner-4{
+    background:   url("Images/hotel.jpg")no-repeat;
+}
+
+.add-banner-5{
+    background:   url("Images/habitacion_hotel_2.jpg")no-repeat;
+}
+
+div[class^="add-banner-"], div[class*=" add-banner-"] {
+    height: 100%;
+    position:relative;
+    background-size: cover;
+    background-position: center; 
+    border-radius: 4px;
+    box-shadow: 0px 0px 9px 1px #888888;
+}
+
+.banners-wrapper{
+    /*background: rgba(247, 247, 247, 0.94);*/
+    border-radius: 4px;
+    height: 100%;
+}

@@ -1,0 +1,16 @@
+<%
+
+Dim q
+q = Replace(Request("q")," ","^")
+
+Dim httpObject
+Set httpObject = Server.CreateObject("WinHttp.WinHttpRequest.5.1")
+
+httpObject.Open "GET", "http://apteknet.com/ineltur/searchA.php?q=" & q
+httpObject.Send
+
+response.write (httpObject.ResponseText) 
+
+Set httpObject = Nothing
+
+%>

@@ -1,0 +1,9 @@
+﻿using System;
+
+namespace Ineltur.WebService
+{
+    public class RespuestaInfoAlojamiento : RespuestaBase
+    {
+        public InfoAlojamiento Alojamiento { get; set; }
+    }
+}

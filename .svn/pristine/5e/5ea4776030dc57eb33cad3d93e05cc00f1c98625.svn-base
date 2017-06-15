@@ -1,0 +1,53 @@
+﻿
+
+<div style="height:40px;width: 97%;">
+    <ul id="menu_list">
+        <li>
+            <div>
+                <input id="btnNational" type="button" value="Hoteles de Argentina" 
+                    class="menuButton rounded"
+                    onclick="showNationalHotels()" />
+            </div>
+        </li>
+        <li>
+            <div>
+                <input id="btnInternational" type="button" value="Hoteles del Mundo" 
+                    class="menuButton rounded"
+                    onclick="showInternationalHotels()" />
+            </div>
+        </li>
+        <li>
+            <div>
+                <input id="btnFlights" type="button" value="Vuelos" 
+                    class="menuButton rounded"
+                    onclick="showFlights()" />
+            </div>
+        </li>
+    </ul>
+        @*<div class="cell" style="width: 90%;">&nbsp;&nbsp;</div>
+        <div class="cell" style="vertical-align:middle;">
+            <input id="btnNational" type="button" value="Hoteles de Argentina" 
+                class="menuButton"
+                onclick="showNationalHotels()" />
+        </div>
+        <div class="cell" style="vertical-align:middle;">
+            <input id="btnInternational" type="button" value="Hoteles del Mundo" 
+                class="menuButton"
+                onclick="showInternationalHotels()" />
+        </div>
+        <div class="cell" style="vertical-align:middle;">
+            <input id="btnFlights" type="button" value="Vuelos" 
+                class="menuButton"
+                onclick="showFlights()" />
+        </div>*@
+        @*<div class="cell" style="vertical-align:middle;">
+            <input id="btnPackages" type="button" value="Paquetes" 
+                class="menuButton"
+                onclick="showPackages()" />
+        </div>
+        <div class="cell" style="vertical-align:middle;">
+            <input id="btnCars" type="button" value="Autos" 
+                class="menuButton"
+                onclick="showCars()" />
+        </div>*@
+</div>

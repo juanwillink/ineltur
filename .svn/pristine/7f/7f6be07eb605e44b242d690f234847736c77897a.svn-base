@@ -1,0 +1,184 @@
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Globalization;
+using System.Linq;
+using CheckArgentina.Models;
+using CheckArgentina.Commons;
+using CheckArgentina.Managers;
+using System;
+using NPSWSClientCOM;
+
+
+namespace CheckArgentina.Controllers
+{
+    public class PaymentController : Controller
+    {
+        public ActionResult Confirmation(ReservationModel reservation)
+        {
+            var manager = new Manager(SessionData.SearchType);
+
+            reservation.Vacancies = reservation.Vacancies.Where(v => v.VacancyReserved > 0).ToList();
+
+            reservation = manager.ConfirmAvailability(reservation, SessionData.UserCredential);
+
+            reservation.Countries = SessionData.Countries;
+            reservation.PaymentMethods = SessionData.PaymentMethods;
+
+            SessionData.Reservation = reservation;
+
+            ModelState.Clear();
+
+            return View(reservation);
+        }
+
+        public ActionResult PaymentMethods(ReservationModel reservationModel)
+        {
+            if (SessionData.Reservation == null || reservationModel == null)
+                RedirectToAction("PaymentError");
+
+            SessionData.Reservation.LodgingId = reservationModel.LodgingId;
+            SessionData.Reservation.ReservationOwner = reservationModel.ReservationOwner;
+            SessionData.Reservation.PaymentMethodId = reservationModel.PaymentMethodId;
+            SessionData.Reservation.Observations = reservationModel.Observations;
+            SessionData.Reservation.Vacancies = reservationModel.Vacancies;
+            
+            var manager = new Manager(SessionData.SearchType);
+            SessionData.Reservation = manager.BlockVacancies(SessionData.Reservation, SessionData.UserCredential);
+
+            //return Redirect("http://200.85.184.11/SimuladorPagos/HSBC.aspx");
+            //return RedirectToAction("InternalPaymentSimulator");
+
+            ModelState.Clear();
+
+            if (!SessionData.User.UsesPaymentInterface)
+            {
+                // Se utiliza la forma de pago por defecto del Web Service
+                SessionData.Reservation.PaymentMethodId = Guid.Empty.ToString();
+                return RedirectToAction("PaymentSuccess");
+            }
+
+            return View(SessionData.Reservation);
+        }
+
+        public ActionResult PaymentSuccess()
+        {
+            return View(SessionData.Reservation);
+        }
+
+        public ActionResult PaymentError()
+        {
+            return View();
+        }
+
+        public ActionResult InternalPaymentSimulator()
+        {
+            return View();
+        }
+
+        public ActionResult ProcessPaymentSimulation(string processAction, string clave)
+        {
+            if(processAction == "Accept" && clave == "ad123ar")
+                return RedirectToAction("PaymentSuccess");
+            else
+                return RedirectToAction("PaymentError");
+        }
+
+        public ActionResult ProcessPaymentNPS(ReservationModel reservation)
+        {
+            var client = new NPSWSClient();
+            
+            using(var dc = new TurismoDataContext())
+            {
+                int? attemptNumber = -1, error = 1;
+                Guid? npsTransactionId = null;
+
+                //var reservationDb = dc.Transaccions.Single(t => t.IDTRANSACCION == Guid.Parse(reservation.ReservationId));
+
+                dc.addTransaccionNPS(null, SessionData.Reservation.ReservationId, "", "", ref npsTransactionId, ref attemptNumber);
+                var npsTransaction = dc.TransaccionNPS.SingleOrDefault(tn => tn.IDTRANSACCION_NPS == npsTransactionId);
+
+                var paymentMethod = dc.FormaPagos.SingleOrDefault(fp => fp.IDFORMAPAGO == Guid.Parse(reservation.PaymentMethodId));
+                var currencyDb = dc.MonedaDBs.SingleOrDefault(m => m.DESCRIPCION == MapCurrencyFromNPS(SessionData.Reservation.LodgingCurrencyCode));
+
+                var response = client.Authorize_3p(
+                        "2.2", "ineltur", "WEB", npsTransaction.REF_INELTUR + "-" + attemptNumber, npsTransaction.REF_INELTUR,
+                        Url.Action("BridgeProcessResultPaymentNPS", "Payment", null, Request.Url.Scheme), "es_AR", Request.UrlReferrer.AbsoluteUri,
+                        (float)SessionData.Reservation.TotalAmount * currencyDb.COTIZACION, 1, 0, null,
+                        "032", "ARG", paymentMethod.DESCRIPCION, SessionData.Reservation.ReservationOwner.TravelerEmail, Config.LeerSetting("MailReservation"),
+                        "Reserva en " + SessionData.Reservation.LodgingName, 3, "", DateTime.Now
+                    );
+
+                dc.updateTransaccionNPS(npsTransactionId, npsTransaction.IDTRANSACCION, npsTransaction.NROINTENTO, response.MerchTxRef,
+                    response.TransactionId.ToString(), string.Format("{0}: {1} / {2}", response.ResponseCod, response.ResponseMsg, response.ResponseExtended), ref error);
+
+                if (response.ResponseCod == 1)
+                {
+                    SessionData.Reservation.PaymentMethodId = reservation.PaymentMethodId;
+                    return View(new NPSRedirectionModel { FrontPSP_URL = response.FrontPSP_URL });
+                }
+                else
+                    return Redirect(Request.UrlReferrer.AbsoluteUri);
+            }
+        }
+
+        public ActionResult BridgeProcessResultPaymentNPS(NPSPaymentModel model)
+        {
+            return View(model);
+        }
+
+        public ActionResult ProcessResultPaymentNPS(NPSPaymentModel model)
+        {
+            var client = new NPSWSClient();
+
+            if(new ServiceController().CompleteReservation())
+            {
+                using (var dc = new TurismoDataContext())
+                {
+                    int? attemptNumber = -1;
+                    Guid? npsTransactionId = null;
+                    var npsTransaction = dc.TransaccionNPS.SingleOrDefault(tn => tn.REF_INELTUR == model.psp_MerchTxRef);
+                    npsTransaction.IDTRANSACCION = Guid.Parse(SessionData.Reservation.ReservationId);
+
+                    dc.SubmitChanges();
+
+                    var response = client.Capture_3p("2.2", "ineltur", "WEB", SessionData.Reservation.ReservationCode + "-" + (npsTransaction.NROINTENTO + 1), Convert.ToInt64(model.psp_TransactionId),
+                    (float)SessionData.Reservation.TotalAmount, "ineltur", DateTime.Now);
+
+                    dc.addTransaccionNPS(npsTransaction.IDTRANSACCION, model.psp_MerchTxRef,
+                        model.psp_TransactionId, string.Format("{0}: {1} / {2}", response.ResponseCod, response.ResponseMsg, response.ResponseExtended), ref npsTransactionId, ref attemptNumber);
+                
+                    if (response.ResponseCod == 0)
+                        return RedirectToAction("PaymentSuccess");
+                    else
+                        return RedirectToAction("PaymentError");
+                }
+            }
+            else
+                return RedirectToAction("PaymentError");
+        }
+
+        public ActionResult ProcessPaymentCtaCte()
+        {
+            if (new ServiceController().CompleteReservation())
+                return RedirectToAction("PaymentSuccess");
+            else
+                return RedirectToAction("PaymentError");
+
+        }
+
+        private string MapCurrencyFromNPS(string code)
+        {
+            string currency = "ARS";
+
+            switch (code)
+            {
+                case "032": currency = "ARS"; break;
+                case "978": currency = "EUR"; break;
+                case "840": currency = "USD"; break;
+            }
+
+            return currency;
+        }
+
+    }
+}

@@ -1,0 +1,67 @@
+﻿/*
+* ===================================================================================================================
+    
+    Function file for Check Argentina
+
+    Support sources:
+        http://benalman.com/projects/jquery-postmessage-plugin/
+
+* ===================================================================================================================
+*/
+
+$(function () {
+    $.receiveMessage(function (e) {
+        var data = $.deparam(e.data);
+
+        if (data.callFunction) {
+            switch (data.callFunction) {
+                case "adjustIframes":
+                    adjustIframes(true);
+                    break;
+            }
+        }
+    });
+});
+
+function sendMessage(cfunction, cParams, parentObject) {
+    var parent_url = document.referrer; //decodeURIComponent(document.location.hash.replace(/^#/, ''));
+
+    if (parent_url == "") {
+        if (document.location.origin)
+            parent_url = decodeURIComponent(document.location.origin.replace(/^#/, ''));
+        else
+            parent_url = decodeURIComponent((document.location.protocol + '//' + document.location.host).replace(/^#/, ''));
+    }
+
+    if (parentObject === undefined)
+        parentObject = parent;
+
+    $.postMessage({ callFunction: cfunction, callParams: cParams }, parent_url, parentObject);
+}
+
+function sendResizeMessage(parentObject) {
+    sendMessage('adjustIframes', { forceAdjust: true, height: $('body').height() }, parentObject);
+}
+
+function sendInternationalSearchMessage(filter) {
+    sendMessage('internationalSearch', { searchFilters: filter });
+}
+
+function sendNationalSearchMessage(filter) {
+    //debugger;
+    sendMessage('nationalSearch', { searchFilters: filter });
+}
+
+function sendGoTopMessage(id) {
+    sendMessage('goTop', { elementId: id });
+}
+
+function sendReservationResultMessage(resultData, parentObject) {
+    sendMessage('reservationResult', { data: resultData }, parentObject);
+}
+
+function goTop(id) {
+    $('html, body').animate({
+        scrollTop: $('#' + id.replace('#', '')).offset().top
+    }, 1000);
+}

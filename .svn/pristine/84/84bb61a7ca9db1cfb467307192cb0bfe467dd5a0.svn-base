@@ -1,0 +1,394 @@
+﻿$(document).ready(function () {
+    var options = {
+        dateFormat: 'yy-mm-dd',
+        yearRange: '-1:+0',
+        firstDay: 1,
+        minDate: 0
+        //        changeMonth: true,
+        //        changeYear: true, 
+        //        showOtherMonths: true
+    };
+
+    $.datepicker.setDefaults({
+        dateFormat: options.dateFormat,
+        yearRange: options.yearRange,
+        firstDay: options.firstDay,
+        minDate: options.minDate,
+        //        changeMonth: options.changeMonth,
+        //        changeYear: options.changeYear,
+        showOtherMonths: options.showOtherMonths
+    });
+
+    $('#Checkin').datepicker({
+        onSelect: function () {
+            var fcheckout = addTimeToDate(1, 'd', $(this).datepicker('getDate'), false)
+
+            if (new Date($('#Checkout').val()) < addTimeToDate(1, 'd', $(this).datepicker('getDate'))) {
+                $('#Checkout').val(fcheckout.getUTCFullYear() + '-' + (fcheckout.getUTCMonth() + 1).toString().lpad('0', 2) + '-' + fcheckout.getUTCDate().toString().lpad('0', 2));
+            }
+
+            calculateNights(true);
+
+            $('#Checkout').datepicker('option', { minDate: addTimeToDate(1, 'd', $(this).datepicker('getDate'), false) });
+        },
+        minDate: addTimeToDate(3, 'd', new Date(), false)
+    });
+
+    $('#Checkout').datepicker({ onSelect: function () {
+        calculateNights(true);
+    }
+    });
+
+    $('#Checkin').change();
+
+    $('#Children').change(function () {
+        enableDisableAges();
+    });
+
+    $('#NightsCount').change(function (event) {
+        calculateNights(false);
+    });
+
+    enableDisableAges();
+
+    $('#SearchModelDestinationName').focusout(function (event) {
+        $('#DestinationId').val($('#SearchModelDestinationId').val());
+        $('#DestinationName').val($('#SearchModelDestinationName').val());
+    });
+
+//    // Get the parent page URL as it was passed in, for browsers that don't support
+//    // window.postMessage (this URL could be hard-coded).
+//    var parent_url = decodeURIComponent(document.location.hash.replace(/^#/, '')),
+//    link;
+
+//    // The first param is serialized using $.param (if not a string) and passed to the
+//    // parent window. If window.postMessage exists, the param is passed using that,
+//    // otherwise it is passed in the location hash (that's why parent_url is required).
+//    // The second param is the targetOrigin.
+//    function setHeight() {
+//        $.postMessage({ if_national_height: $('body').outerHeight(true) }, parent_url, parent);
+//    };
+
+//    // Bind all this good stuff to a link, for maximum clickage.
+//    //    link = $('<a href="#">Show / hide content<\/a>')
+//    //    .appendTo('#nav')
+//    //    .click(function () {
+//    //        $('#toggle').toggle();
+//    //        setHeight();
+//    //        return false;
+//    //    });
+
+//    // Now that the DOM has been set up (and the height should be set) invoke setHeight.
+//    var height = $(this).height();
+
+//    $(document).bind('DOMSubtreeModified', function () {
+//        if ($(this).height() != height) {
+//            setHeight();
+//        }
+//    });
+
+//    setHeight();
+
+//    // And for good measure, let's listen for a toggle_content message from the parent.
+//    //    $.receiveMessage(function (e) {
+//    //        if (e.data === 'toggle_content') {
+//    //            link.triggerHandler('click');
+//    //        }
+//    //    }, 'http://benalman.com');
+});
+
+function calculateNights(fromPicker) {
+    var checkin = $('#Checkin').val();
+    var fcheckin = new Date(checkin);
+    var fcheckout;
+
+    if (fromPicker) {
+        var checkout = $('#Checkout').val();
+
+        fcheckout = new Date(checkout);
+
+        if (fcheckin != null && fcheckout != null)
+            $('#NightsCount').val(Math.ceil((fcheckout - fcheckin) / 86400000));
+    }
+    else {
+        var num = new Number($('#NightsCount').val());
+        fcheckout = addTimeToDate(num, 'd', fcheckin, false);
+
+        $('#Checkout').val(fcheckout.getUTCFullYear() + '-' + (fcheckout.getUTCMonth() + 1).toString().lpad('0', 2) + '-' + fcheckout.getUTCDate().toString().lpad('0', 2));
+    }
+}
+
+function enableDisableAges() {
+    var selected = $('#Children option:selected').val();
+    var age1 = $('#Age1');
+    var age2 = $('#Age2');
+
+    if (selected <= 0) {
+        age1.attr('disabled', 'disabled');
+        age2.attr('disabled', 'disabled');
+    }
+    else if (selected == 1) {
+        age1.removeAttr('disabled');
+        age2.attr('disabled', 'disabled');
+    }
+    else if (selected == 2) {
+        age1.removeAttr('disabled');
+        age2.removeAttr('disabled');
+    }
+}
+
+function addRoom() {
+    var roomNumber = 0;
+    var rooms = $('#sf_Rooms .roomContainer');
+
+    if (rooms != null && rooms.length > 0) {
+        var lastRoom = rooms[rooms.length - 1];
+        roomNumber = parseInt($(lastRoom).attr('room')) + 1;
+    }
+
+    var htmlContainer = '<div class="roomContainer" room="' + roomNumber + '">' +
+        '<div class="search-field" style="padding-top: 10px;"><a href="" onclick="javascript: deleteRoom(' + roomNumber + '); return false;"><img src="/Content/Images/DeleteButton.gif" style="width:15px;vertical-align:middle;"/></a></div>' +
+        '<div class="search-field">' +
+        '<select class="room" id="Rooms_' + roomNumber + '__RoomTypeCode" name="Rooms[' + roomNumber + '].RoomTypeCode" style="width: 135px;">' + $('#roomTypes').val() +
+        '</select></div>' +
+        '<div class="search-field">' +
+        '<input type="button" value="-" class="roundedOrange count-button-left" style="width:18px" onclick="javascript:if(parseInt($(\'#Rooms_' + roomNumber + '__Count\').val()) &gt; 1) { $(\'#Rooms_' + roomNumber + '__Count\').val(parseInt($(\'#Rooms_' + roomNumber + '__Count\').val()) - 1); $(\'#Rooms_' + roomNumber + '__Count\').change(); }">' +
+        '<input id="Rooms_' + roomNumber + '__Count" name="Rooms[' + roomNumber + '].Count" type="text" value="1" class="count-textbox valid" style="width:20px;">' +
+        '<input type="button" value="+" class="roundedOrange count-button-right" style="width:18px" onclick="javascript:$(\'#Rooms_' + roomNumber + '__Count\').val(parseInt($(\'#Rooms_' + roomNumber + '__Count\').val()) + 1); $(\'#Rooms_' + roomNumber + '__Count\').change();">' +
+        '</div>' +
+        //'<div class="search-field">' +
+        //'<input type="button" value="-" class="roundedOrange count-button-left" style="width:18px" onclick="javascript:if(parseInt($(\'#Rooms_' + roomNumber + '__Children\').val()) &gt; 0) { $(\'#Rooms_' + roomNumber + '__Children\').val(parseInt($(\'#Rooms_' + roomNumber + '__Children\').val()) - 1); $(\'#Rooms_' + roomNumber + '__Children\').change(); addEraseChildAge(' + roomNumber + ');}">' +
+        //'<input id="Rooms_' + roomNumber + '__Children" name="Rooms[' + roomNumber + '].Children" type="text" value="0" class="count-textbox valid" style="width:20px;" onchange="addEraseChildAge(' + roomNumber + ');">' +
+        //'<input type="button" value="+" class="roundedOrange count-button-right" style="width:18px" onclick="javascript:$(\'#Rooms_' + roomNumber + '__Children\').val(parseInt($(\'#Rooms_' + roomNumber + '__Children\').val()) + 1); $(\'#Rooms_' + roomNumber + '__Children\').change(); addEraseChildAge(' + roomNumber + ');">' +
+        //'</div>
+        '</div>';
+
+    if (roomNumber == 0) {
+        htmlContainer = '<div class="roomHeader">' +
+            '<div class="search-field"><label>Quitar</label></div>' +
+            '<div class="search-field" style="width:145px;"><label>Tipo</label></div>' +
+            '<div class="search-field" style="width:60px;"><label>Cantidad</label></div>' +
+            //'<div class="search-field" style="width:80px;"><label>Niños</label></div>' +
+            '</div>' +
+            htmlContainer;
+    }
+
+    $('#sf_Rooms').append($(htmlContainer));
+
+    sendResizeMessage();
+}
+
+function addEraseChildAge(roomNumber) {
+    var rooms = $('#sf_Rooms .roomContainer[room="' + roomNumber + '"]');
+
+    if (rooms != null && rooms.length > 0) {
+        var room = $(rooms[0]);
+        var childrenCount = parseInt(room.find('#Rooms_' + roomNumber + '__Children').val());
+        var ages = room.find('.roomChildAge');
+        var lastAge = 0;
+
+        if (ages != null && ages.length > 0)
+            lastAge = ages.length;
+
+        if (lastAge < childrenCount) {
+            var htmlContainer = '';
+
+            if (lastAge == 0 && room.find('.childAgesHeader').length == 0) {
+                htmlContainer += '<div class="childAgesHeader"><label>Edades Niños</label></div>';
+            }
+
+            for (i = lastAge; i < childrenCount; i++) {
+                htmlContainer += '<div class="roomChildAge" age="' + i + '">' +
+                    '<select id="Rooms_' + roomNumber + '__ChildrenAges_'+ i +'_" name="Rooms[' + roomNumber + '].ChildrenAges['+ i +']">' +
+                    '<option value="0">0</option>' +
+                    '<option value="1">1</option>' +
+                    '<option value="2">2</option>' +
+                    '<option value="3">3</option>' +
+                    '<option value="4">4</option>' +
+                    '<option value="5">5</option>' +
+                    '<option value="6">6</option>' +
+                    '<option value="7">7</option>' +
+                    '<option value="8">8</option>' +
+                    '<option value="9">9</option>' +
+                    '<option value="10">10</option>' +
+                    '<option value="11">11</option>' +
+                    '<option value="12">12</option>' + 
+                    '</select></div>';
+            }
+
+            $(room).append($(htmlContainer));
+        }
+        else if (lastAge > childrenCount) {
+            for (i = childrenCount - 1; i < lastAge; i++) {
+                var age = $(room).find('.roomChildAge[age="' + i + '"]');
+                if (age != null && age.length > 0) {
+                    $(age).remove();
+                }
+            }
+        }
+
+        if (childrenCount == 0)
+            $(room.find('.childAgesHeader')[0]).remove();
+
+        sendResizeMessage();
+    }
+}
+
+function deleteRoom(roomNumber) {
+    var rooms = $('#sf_Rooms .roomContainer[room="' + roomNumber + '"]');
+
+    if (rooms != null && rooms.length > 0) {
+        $(rooms[0]).remove();
+        sendResizeMessage();
+    }
+
+    if ($('#sf_Rooms .roomContainer').length == 0) {
+        $($('#sf_Rooms .roomHeader')[0]).remove();
+    }
+}
+
+function selectedValue(source, eventArgs) {
+    $('#txtTo').attr("id_destino", eventArgs.get_value());
+}
+
+function getSearchFilters() {
+    var formObject = $('<form></form>', {
+        id: 'national_search_filters',
+        action: '/National/NationalSearchResults',
+        target: 'iframe_results',
+        method: 'post'
+    });
+
+    if ($('#DestinationName').val() != null && $('#DestinationId').val() != null) {
+        formObject.append('<input type="hidden" id="DestinationId" name="DestinationId" value="' + $('#DestinationId').val() + '"/>');
+    }
+    else {
+        return false;
+    }
+
+    if ($('#Lodging').val() != null && $('#Lodging').val() != "") {
+        formObject.append('<input type="hidden" id="Lodging" name="Lodging" value="' + $('#Lodging').val() + '"/>');
+    }
+    else {
+        formObject.append('<input type="hidden" id="Lodging" name="Lodging" value="{}"/>');
+    }
+
+    if ($('#Checkin').val() != null && $('#Checkin').val() != "") {
+        formObject.append('<input type="hidden" id="Checkin" name="Checkin" value="' + $('#Checkin').val() + '"/>');
+    }
+    else {
+        formObject.append('<input type="hidden" id="Checkin" name="Checkin" value="' + new Date() + '"/>');
+    }
+
+    if ($('#Checkout').val() != null && $('#Checkout').val() != "") {
+        formObject.append('<input type="hidden" id="Checkout" name="Checkout" value="' + $('#Checkout').val() + '"/>');
+    }
+    else {
+        formObject.append('<input type="hidden" id="Checkout" name="Checkout" value="' + new Date() + '"/>');
+    }
+
+    var filterRooms = "";
+
+    var rooms = $('#sf_Rooms .roomContainer');
+
+    if (rooms != null && rooms.length > 0) {
+        for (var i = 0; i < rooms.length; i++) {
+            var room = rooms[i];
+            roomNumber = parseInt($(room).attr('room'));
+
+            formObject.append('<input type="hidden" id="Rooms_' + i + '__RoomTypeCode" name="Rooms[' + i + '].RoomTypeCode" value="' + $('#Rooms_' + i + '__RoomTypeCode').val() + '"/>');
+            formObject.append('<input type="hidden" id="Rooms_' + i + '__Count" name="Rooms[' + i + '].Count" value="' + $('#Rooms_' + i + '__Count').val() + '"/>');
+
+            var childAges = $(room).find('.roomChildAge');
+
+            for (var j = 0; j < childAges.length; j++) {
+                var age = $($(childAges[j]).find('select')[0]).val();
+                
+                formObject.append('<input type="hidden" id="Rooms_' + i + '__ChildrenAges_'+ i +'_" name="Rooms[' + i + '].ChildrenAges['+ j +']" value="' + age + '"/>');
+            }
+        }
+    }
+
+    return formObject.toHtmlString();
+}
+
+function search() {
+    var div_results, div_rightColumn, div_leftColumn, iframe_results, wait_results, site_key;
+
+    if ($('#national_search_form').valid()) {
+        if (window == window.parent) {
+            div_results = $('#results');
+            div_rightColumn = $('#rightColumn');
+            div_leftColumn = $('#leftColumn');
+            site_key = $('#site_key').val();
+        }
+        else {
+            div_results = window.parent.$('#results');
+            div_rightColumn = window.parent.$('#rightColumn');
+            div_leftColumn = window.parent.$('#leftColumn');
+            site_key = window.parent.$('#site_key').val();
+        }
+
+        iframe_results = div_results.find('#iframe_results');
+        wait_results = div_results.find('#wait_results');
+
+        //Show the     
+        iframe_results.hide();
+        wait_results.show();
+
+        sendNationalSearchMessage(getSearchFilters());
+
+        iframe_results.attr('src', encodeURIComponent('National/NationalSearchResults'));
+        iframe_results.load(function (e) { window.parent.$('#results').find('#wait_results').hide(); $(this).show(); });
+        
+        div_rightColumn.hide('fast');
+        div_results.show('slow');
+
+        div_leftColumn.css('width', '380px');
+        div_leftColumn.find('#tab_container li').each(function (index) {
+            $(this).hide();
+        });
+
+        //    $('#national_search_form #ExtendedSearch').val("true");
+        //    $('#national_search_form').submit();
+    }
+
+    sendResizeMessage();
+
+    return false;
+}
+
+//function validate() {
+//    return true;
+
+//    var mensaje = "Debe corregir los siguientes errores:<br><br><ul>";
+//    var hayerror = false;
+
+//    if ($('#DestinationId').val() == null || $('#DestinationId').val() == '') {
+//        mensaje += '<li>Debe indicar el destino.</li>';
+//        hayerror = true;
+//    }
+
+//    if ($('#Checkin').val() == null || $('#Checkin').val() == '' ||
+//        $('#Checkout').val() == null || $('#Checkout').val() == '') {
+//        mensaje += '<li>Debe indicar tanto la fecha de checkin como la de checkout.</li>';
+//        hayerror = true;
+//    }
+//    else if ($('#Checkout').val() <= $('#Checkin').val()) {
+//        mensaje += '<li>La fecha de checkout debe ser posterior a la fecha de checkin.</li>';
+//        hayerror = true;
+//    }
+
+//    if ($('#Adults').val() == null || $('#Adults').val() == 0) {
+//        mensaje += '<li>Debe indicar la cantidad de ocupantes.</li>';
+//        hayerror = true;
+//    }
+
+//    if (hayerror) {
+//        mensaje += '</ul>';
+//        var dialog = $('<div title="Se encontraron algunos errores"><p>' + mensaje + '</p></div>');
+//        dialog.dialog({modal:true});
+//    }
+
+//    return !hayerror;
+//}

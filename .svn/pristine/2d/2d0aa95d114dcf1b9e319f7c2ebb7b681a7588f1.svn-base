@@ -1,0 +1,3080 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+NemoTypes
+</name>
+</assembly>
+<members>
+<member name="T:NemoTypes.CEV_COMMON_ComplexTypes.DateRangeWithDateType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_ComplexTypes.DateRangeWithDateType.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_ComplexTypes.DateRangeWithDateType.DateTo">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.CEV_COMMON_ComplexTypes.DateRangeWithDays">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_ComplexTypes.DateRangeWithDays.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_ComplexTypes.DateRangeWithDays.DateTo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_ComplexTypes.DateRangeWithDays.DateToSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.CEV_COMMON_SimpleTypes.DateRangeWithDateType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_SimpleTypes.DateRangeWithDateType.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_SimpleTypes.DateRangeWithDateType.DateTo">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.CEV_COMMON_SimpleTypes.DateRangeWithDays">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_SimpleTypes.DateRangeWithDays.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_SimpleTypes.DateRangeWithDays.DateTo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.CEV_COMMON_SimpleTypes.DateRangeWithDays.DateToSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:NemoTypes.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:NemoTypes.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:NemoTypes.WSHCEV_ComplexTypes_1_0_1.DateRangeWithDateType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_ComplexTypes_1_0_1.DateRangeWithDateType.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_ComplexTypes_1_0_1.DateRangeWithDateType.DateTo">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_ComplexTypes_1_0_1.OperationDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_ComplexTypes_1_0_1.OperationDate.OperationDateType">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_ComplexTypes_1_0_1.OperationDateType">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_ComplexTypes_1_0_1.OperationDateType.FIRST_SERVICE_CHECK_IN">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_ComplexTypes_1_0_1.OperationDateType.CREATION">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_ComplexTypes_1_0_1.DateRangeWithDays">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_ComplexTypes_1_0_1.DateRangeWithDays.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_ComplexTypes_1_0_1.DateRangeWithDays.DateTo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_ComplexTypes_1_0_1.DateRangeWithDays.DateToSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DateRangeWithDateType.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DateRangeWithDateType.DateTo">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.VoucherRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.VoucherRSDetails.URLVoucher">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.VoucherRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.VoucherRQDetails.BookingReferences">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.VoucherRQDetails.NoLogin">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.VoucherRQDetails.NoLoginSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingReferences">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingReferences.BookingReference">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingReferences.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingReferences.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingReference">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingReference.ReferenceDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingReference.ReferenceDetailedDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingReference.ReferenceID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingReference.Sequence">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ReferenceDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ReferenceDescription.BookingReferenceType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ReferenceDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ReferenceDetailedDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ReferenceDetailedDescription.ReferenceDetailedCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ReferenceDetailedDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BooleanEnum">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.BooleanEnum.False">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.BooleanEnum.True">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.NewsRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRSDetails.News">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.News">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.News.Title">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.News.Description">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.News.NewsType">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.NewsRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRQDetailsCriterion.ContractId">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRQDetailsCriterion.Date">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRQDetailsCriterion.DateSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRQDetailsCriterion.NewsType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRQDetailsCriterion.NewsSection">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.NewsRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.GenericListRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GenericListRSDetails.List">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ListReponse">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ListReponse.RequestedType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ListReponse.TypeList">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Type">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Type.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Type.TypeCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Type.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.GenericListRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GenericListRQDetails.RequestedTypeList">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RateBreakdownRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RateBreakdownRSDetails.BookingServiceItem">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceItemBreakdown">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemBreakdown.BookingReferences">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemBreakdown.RateBreakdown">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemBreakdown.Notifications">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemBreakdown.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemBreakdown.SupplierID">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RateBreakdown">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RateBreakdown.BreakdownRange">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RateBreakdown.RateID">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BreakdownRange">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BreakdownRange.DateRange">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BreakdownRange.Rooms">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BreakdownRangeRoom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BreakdownRangeRoom.Item">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BreakdownRangeRoom.Boards">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BreakdownRangeRoom.RatePrices">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BreakdownRangeRoom.Availability">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BreakdownRangeRoom.Offer">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Guests">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Guests.Guest">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Guests.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Guests.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Guest">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Person">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.PersonNames">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.BirthDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.BirthDateSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.Gender">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.Age">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.AgeSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.Identifiers">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.CountryOfResidence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.Nationality">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.Emails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.Addresses">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.ExtraInfoDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Person.AgeType">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.PersonNames">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PersonNames.PersonName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PersonNames.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PersonNames.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.PersonName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PersonName.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PersonName.NameType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PersonName.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Identifiers">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifiers.Identifier">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifiers.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifiers.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Identifier">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifier.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifier.Type">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifier.CountryCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifier.ExpirationDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifier.ExpirationDateSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Identifier.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Country">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Country.CountryCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Country.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Emails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Emails.Email">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Emails.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Emails.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Email">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Email.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Email.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Email.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Addresses">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Addresses.Address">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Addresses.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Addresses.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Address">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Address.AddressLines">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Address.TelephoneNumbers">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Address.PostalCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Address.Item">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Address.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Address.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Address.AddressType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Address.AddressTypeSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AddressLines">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AddressLines.AddressLine">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AddressLines.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AddressLines.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AddressLine">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AddressLine.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AddressLine.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AddressLine.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TelephoneNumbers">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumbers.TelephoneNumber">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumbers.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumbers.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TelephoneNumber">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumber.TelephoneNumberType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumber.TelephoneNumberValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumber.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumber.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TelephoneNumberType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumberType.TelephoneNumberType1">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TelephoneNumberType.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.PostalCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PostalCode.CountryCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PostalCode.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.DestinationDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationDetails.Destination">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationDetails.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationDetails.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Destination">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Destination.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Destination.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Destination.DestinationType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Destination.DestinationCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Destination.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AddressType">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.AddressType.Billing">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.AddressType.Shipping">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.AddressType.Other">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ExtraInfoDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ExtraInfoDetails.ExtraInfoDetail">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ExtraInfoDetails.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ExtraInfoDetail">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ExtraInfoDetail.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ExtraInfoDetail.Type">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ExtraInfoDetail.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Client">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.GuestAgeRangeDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GuestAgeRangeDescription.MinimunValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GuestAgeRangeDescription.MaximunValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GuestAgeRangeDescription.GuestDescription">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RoomDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RoomDescription.RoomType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RoomDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRoomTypeDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomTypeDescription.RoomsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomTypeDescription.RoomsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Boards">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BoardList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BoardList.Board">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Board">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Board.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Board.GuestAgeType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Board.BoardType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Board.BoardCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Board.AppliableDays">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Board.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BoardType">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.BoardType.Basis">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.BoardType.CheckIn">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.BoardType.CheckOut">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.BoardType.BreakfastDescription">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RatePrice">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RatePrice.RatePriceType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RatePrice.CurrencyCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RatePrice.UnitOfTimeCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RatePrice.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Availability">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Availability.AvailabilityCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Availability.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Offer">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Offer.OfferCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Offer.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Notifications">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notifications.Notification">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notifications.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notifications.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Notification">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notification.NotificationId">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notification.NotificationType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notification.NotificationMessage">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notification.NotificationDetailedMessage">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notification.NotificationTime">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notification.NotificationTimeSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Notification.Sequence">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.NotificationType">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.NotificationType.WARNING">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.NotificationType.ERROR">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.NotificationType.INFO">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RateBreakdownRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RateBreakdownRQDetails.BookingService">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingService">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingService.BookingReferences">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingService.BookingStatusList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingService.BookingServiceAgent">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingService.Client">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingService.BookingServiceItems">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingStatusList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatusList.BookingStatus">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatusList.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatusList.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingStatus">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatus.BookingStatusDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatus.BookingStatusActor">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatus.BookingStatusTime">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatus.BookingStatusTimeSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatus.RulesInfo">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingStatusDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatusDescription.BookingStatusCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatusDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingStatusActor">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatusActor.BookingStatusActorType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingStatusActor.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RuleInfo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RuleInfo.RuleType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RuleInfo.Permit">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RuleInfo.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceAgent">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceAgent.PersonNames">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceAgent.Identifiers">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceItems">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItems.BookingServiceItem">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItems.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceItem">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.Hotel">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.PreferedCurrency">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.DestinationDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.CheckIn">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.CheckOut">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.Rate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.Remarks">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.ApplicationSettings">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.Notifications1">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItem.HotelCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Hotel">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.AccomodationType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelDescriptions">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.Amenities">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.Address">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.Position">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelRating">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.ImageLinks">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelChain">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.GuestAgeRangeDescriptions">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelLicense">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.AreaDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelRoomTypeDescriptions">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelContracts">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.LocationDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.Emails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.URLs">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelIssues">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.Copyright">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.SupplierID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotel.HotelCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelName.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AccomodationType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AccomodationType.AccomodationType1">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AccomodationType.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelDescriptions">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDescriptions.HotelDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDescriptions.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDescription.HotelDescriptionType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDescription.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelDescriptionType">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.HotelDescriptionType.General">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.HotelDescriptionType.Location">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.HotelDescriptionType.Exterior">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.HotelDescriptionType.Lobby">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.HotelDescriptionType.Rooms">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.HotelDescriptionType.Restaurant">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.HotelDescriptionType.Direction">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.HotelDescriptionType.Category">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AvailResponseAmenities">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenities.Amenity">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenities.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AvailResponseAmenity">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.AmenityGroup">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.Description">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.ImageLink">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.AgeRange">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.Value">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.DistanceList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.TransferDurationList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailResponseAmenity.Fee">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AmenityGroup">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityGroup.AmenityGroupCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityGroup.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AmenityDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityDescription.AmenityCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ImageLink">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.ImageDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.DisplayOrder">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.DisplayOrderSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.ImageHeight">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.ImageWidth">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.ImageURL">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.ThumbnailURL">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLink.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ImageDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageDescription.ImageDisplayType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ImageHeight">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageHeight.UnitOfMeasureCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageHeight.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ImageWidth">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageWidth.UnitOfMeasureCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageWidth.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RangeType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RangeType.MinimunValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RangeType.MinimunValueSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RangeType.MaximunValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RangeType.MaximunValueSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.DistanceList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DistanceList.Distance">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DistanceList.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AmenityDistance">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityDistance.DistanceValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityDistance.UnitOfMeasure">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.UnitOfMeasure">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.UnitOfMeasure.UnitOfMeasureCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.UnitOfMeasure.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AmenityTransferDurationList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityTransferDurationList.TransferDuration">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityTransferDurationList.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AmenityTransferDuration">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityTransferDuration.TransportationMeans">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityTransferDuration.TransferTime">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AmenityTransportationMeans">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityTransportationMeans.TransportationMeansType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityTransportationMeans.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AmenityTransferTime">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityTransferTime.TransferTimeValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AmenityTransferTime.UnitOfTime">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.UnitOfTime">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.UnitOfTime.UnitOfTimeCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.UnitOfTime.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AmenityFee">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.AmenityFee.Yes">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.AmenityFee.No">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Position">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Position.Latitude">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Position.LatitudeSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Position.Longitude">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Position.LongitudeSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Position.Altitude">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Altitude">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Altitude.AltitudeUnitOfMeasureCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Altitude.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRating">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRating.RatingDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRating.RatingValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRating.HotelRatingType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRating.HotelRatingCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ImageLinks">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLinks.ImageLink">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLinks.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ImageLinks.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.GuestAgeRangeDescriptions">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GuestAgeRangeDescriptions.GuestAgeRangeDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GuestAgeRangeDescriptions.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRoomTypeDescriptions">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomTypeDescriptions.HotelRoomTypeDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomTypeDescriptions.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomTypeDescriptions.TotalRooms">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelContracts">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContracts.HotelContract">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContracts.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelContract">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContract.ContractName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContract.IncomingOffice">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContract.ClassificationCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContract.HotelContractExtraInfo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContract.Comments">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContract.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContract.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.IncomingOffice">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.IncomingOffice.IncomingOfficeCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.IncomingOffice.IncomingOfficeDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.IncomingOffice.IncomingOfficeFiscalNumber">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelContractExtraInfo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContractExtraInfo.HotelContractExtraInfoKey">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelContractExtraInfo.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Comment">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Comment.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Comment.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Comment.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LocationDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationDetails.Location">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationDetails.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationDetails.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Location">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Location.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Location.SequenceSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Location.LocationCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Location.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.URLs">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.URLs.URL">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.URLs.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.URLs.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.URL">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.URL.URLType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.URL.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.URL.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelIssues">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelIssues.HotelIssue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelIssues.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelIssue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelIssue.IssueDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelIssue.IssueFromDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelIssue.IssueToDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelIssue.Sequence">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.PreferedCurrency">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PreferedCurrency.CurrencyCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceRate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.Rooms">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.Boards">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.RatePrices">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.ChargeConditions">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.Deadline">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.ApplicationSettings">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.RateID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.Available">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRate.AvailableSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceRooms">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRooms.Room">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRooms.AllRoomsID">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceRoom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.RoomDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.Occupancy">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.Availability">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.SharingBedding">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.SharingBeddingSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.NumberOfCots">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.NumberOfCotsSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.NumberOfExtraBeds">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.NumberOfExtraBedsSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.Text">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceRoom.RoomID">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceOccupancy">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceOccupancy.Guests">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceGuests">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuests.Guest">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuests.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuests.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceGuest">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.PersonNames">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.BirthDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.BirthDateSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.Age">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.AgeSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.Identifiers">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.CountryOfResidence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.Nationality">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceGuest.AgeType">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Occupancy">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Occupancy.AdultsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Occupancy.ChildrenCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Occupancy.ChildrenCountSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Occupancy.InfantCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Occupancy.InfantCountSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Occupancy.RoomsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ChargeCondition">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ChargeCondition.ChargeDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ChargeCondition.RoomDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ChargeCondition.Item">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ChargeCondition.RatePrices">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ChargeCondition.Remarks">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ChargeDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ChargeDescription.ChargeType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ChargeDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.DateRangeWithDays">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DateRangeWithDays.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DateRangeWithDays.DateTo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DateRangeWithDays.DateToSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Remarks">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Remarks.Remark">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Remarks.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Remarks.ItemsCountSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Remark">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Remark.RemarkDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Remark.RemarkTime">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Remark.RemarkTimeSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Remark.RemarkDeliveryPoint">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Remark.Sequence">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RemarkDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RemarkDescription.RemarkCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RemarkDescription.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Deadline">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Deadline.Date">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Deadline.Description">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ApplicationSettings">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ApplicationSettings.ApplicationSetting">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ApplicationSettings.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ApplicationSetting">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ApplicationSetting.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ApplicationSetting.ApplicationSettingCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ApplicationSetting.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BaseBookingServiceItem">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BaseBookingServiceItem.BookingReferences">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BaseBookingServiceItem.BookingStatusList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BaseBookingServiceItem.Notifications">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BaseBookingServiceItem.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BaseBookingServiceItem.SupplierID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BaseBookingServiceItem.LogID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BaseBookingServiceItem.LogIDSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Parameter">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Parameter.ParameterName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Parameter.ParameterValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Parameter.Sequence">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ContractType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ContractType.ContractTypeCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ContractType.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Contract">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.ContractId">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.Description">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.ContractType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.ChatDepartment">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.ChatDepartmentSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.SkinId">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.SkinIdSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.ImageLinks">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.Parameters">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contract.Sequence">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Contracts">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contracts.Contract">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Contracts.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AccountType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AccountType.AccountTypeCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AccountType.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Account">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.AccountID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.CompanyName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.AccountType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.BrandName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.BrandQuote">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.Identifiers">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.Addresses">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.Emails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.ImageLinks">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Account.Contracts">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Credential">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Credential.User">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Credential.Account">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Credential.SessionKey">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LogInRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogInRSDetails.Credential">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LogInRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogInRQDetailsCriterion.UserId">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogInRQDetailsCriterion.Password">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LogInRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogInRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Operation">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Operation.BookingReferences">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Operation.BookingCreationDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Operation.Client">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Operation.BookingStatus">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Operation.RatePrice">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Operation.Sequence">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.OperationsList">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.OperationsList.Operation">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.OperationsList.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.OperationsList.OperationType">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.OperationType">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.OperationType.BOOKING">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.OperationType.BUDGET">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.QueryOperationsRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRSDetails.Operations">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.QueryOperationsRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQDetailsCriterion.OperationType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQDetailsCriterion.BookingReference">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQDetailsCriterion.BookingServiceItems">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQDetailsCriterion.BookingServiceStatus">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQDetailsCriterion.OperationDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQDetailsCriterion.GuestName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQDetailsCriterion.ClientName">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceItemReference">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemReference.BookingReference">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemReference.BookingServiceItemStatus">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemReference.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemReference.ItemsCount">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceItemReference.SupplierID">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.OperationDate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.OperationDate.OperationDateType">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.OperationDateType">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.OperationDateType.FIRST_SERVICE_CHECK_IN">
+<comentarios/>
+</member>
+<member name="F:NemoTypes.WSHCEV_main.OperationDateType.CREATION">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.QueryOperationsRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RatePriceDescription">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RatePriceDescription.RatePrice">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RatePriceDescription.RateDescription">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.CancellationState">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.CancellationState.CancelStateCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.CancellationState.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRSDetails.BookingReference">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRSDetails.BookingServiceItems">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRSDetails.CancellationState">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRSDetails.ExtraCharges">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LocationListRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationListRSDetails.Locations">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LocationListRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationListRQDetailsCriterion.DestinationCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LocationListRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationListRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.DestinationListRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationListRSDetails.Destinations">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.DestinationListRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationListRQDetailsCriterion.DestinationType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationListRQDetailsCriterion.DestinationFilter">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.DestinationListRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationListRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceUpdateNotifDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceUpdateNotifDetails.BookingService">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LogRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogRSDetails.Log">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ResponseLog">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseLog.LogTimeStamp">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseLog.Any">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RequestLog">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RequestLog.LogID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RequestLog.SupplierID">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ValidateBookingServiceRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ValidateBookingServiceRSDetails.BookingService">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceChargeConditionsRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceChargeConditionsRSDetails.BookingService">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBoardsListRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBoardsListRSDetails.Boards">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBoardsListRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBoardsListRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelAmenitiesListRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelAmenitiesListRSDetails.Amenities">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelAmenitiesListRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelAmenitiesListRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceDetailRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceDetailRSDetails.BookingService">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceRQDetailsCriterion.BookingReference">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceRQDetailsCriterion.BookingServiceItems">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceDetailRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookServiceRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookServiceRSDetails.BookingService">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Hotels">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotels.Hotel">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Hotels.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelDetailsSearchRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDetailsSearchRSDetails.Hotels">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelDetailsSearchRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDetailsSearchRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelDetailsSearchRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDetailsSearchRQDetailsCriterion.Destination">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterionRestriction">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.Availability">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.Stay">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.HotelRatings">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.LocationDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.Amenities">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.HotelNames">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.HotelCodes">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.Boards">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.PriceRange">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.RateID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.OffersFilter">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetailsCriterion.OffersFilterSpecified">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Stay">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Stay.DestinationDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Stay.AreaBoundary">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Stay.CheckIn">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Stay.CheckOut">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Stay.Rooms">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Distance">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Distance.DistanceType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Distance.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AvailRequestRooms">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRooms.TotalRooms">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRooms.TotalRoomsSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRooms.Room">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AvailRequestRoom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRoom.Guests">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRoom.Boards">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRoom.NumberOfCots">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRoom.NumberOfCotsSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRoom.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestRoom.RoomType">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRatings">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRatings.MinimunValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRatings.MinimunValueSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRatings.MaximunValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRatings.MaximunValueSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRatings.OrderBy">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRatings.HotelRatingType">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AvailRequestAmenities">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestAmenities.Amenity">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestAmenities.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.AvailRequestAmenity">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestAmenity.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestAmenity.AmenityGroupCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestAmenity.AmenityCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.AvailRequestAmenity.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelNames">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelNames.HotelName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelNames.OrderBy">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelNames.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelCodes">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelCodes.HotelCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelCodes.OrderBy">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelCodes.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelCode">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelCode.SupplierID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelCode.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.PriceRange">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PriceRange.MinimunValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PriceRange.MinimunValueSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PriceRange.MaximunValue">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PriceRange.MaximunValueSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PriceRange.OrderBy">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PriceRange.CurrencyCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRates">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.Amenities">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.DestinationDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.LocationDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.Rates">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.Rating">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.SupplierID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.Name">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.Longitude">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.Latitude">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRates.Code">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRatesAmenity">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesAmenity.Code">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesAmenity.GroupCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRatesDestination">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesDestination.Type">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesDestination.Code">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRatesLocation">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesLocation.Code">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRatesRate">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRate.Rooms">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRate.Boards">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRate.RatePrices">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRate.Offer">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRate.OfferDesc">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRate.RateID">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRatesRateRoom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateRoom.RoomID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateRoom.Type">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateRoom.Availability">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateRoom.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRatesRateBoard">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateBoard.Type">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateBoard.Code">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateBoard.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRatesRateRatePrice">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateRatePrice.Type">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateRatePrice.Currency">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRateRatePrice.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.TinyHotelRatesRating">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRating.Value">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRating.Description">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRating.Type">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.TinyHotelRatesRating.Code">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRSDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRSDetails.ResponseSet">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRSDetails.TinyHotels">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRSDetails.LanguageCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ResponseSet">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseSet.FirstItem">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseSet.ItemsPerPage">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseSet.TotalItems">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseSet.TotalItemsSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseSet.TotalRates">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseSet.TotalRatesSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseSet.SortingCriteria">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ResponseSet.PriceRange">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.SortingCriteria">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SortingCriteria.SortField">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SortingCriteria.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.SortField">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SortField.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SortField.OrderBy">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SortField.SortFieldName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SortField.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQDetails.Criterion">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.PricingSurferConfiguration">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PricingSurferConfiguration.ContractId">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PricingSurferConfiguration.PreferedLanguage">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PricingSurferConfiguration.PreferedCurrency">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PricingSurferConfiguration.ResponseSet">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.PreferedLanguage">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.PreferedLanguage.LanguageCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Source.PricingSurferConfiguration">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RequestorDetail">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RequestorDetail.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RequestorDetail.RequestorDetailType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RequestorDetail.Value">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RequestorDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RequestorDetails.RequestorDetail">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RequestorDetails.ItemsCount">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.CountryOfSale">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.CountryOfSale.CountryCode">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.Requestor">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.SupplierClassName">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.RequestorUserID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.RequestorHost">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.RequestorEmailAddress">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.RequestorPassword">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.PreferedLanguage">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.PreferedCurrency">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.CountryOfSale">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.PersistLogs">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.PersistLogsSpecified">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.RequestorDetails">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.Enabled">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.Sequence">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.Requestor.SupplierID">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.SuppliersProductGroup">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SuppliersProductGroup.SupplierConfiguration">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SuppliersProductGroup.ProductType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SuppliersProductGroup.Sequence">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HCEVTransaction">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HCEVTransaction.Notifications">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HCEVTransaction.TransactionID">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HCEVTransaction.Version">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.NewsRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.NewsRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.NewsRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.GenericListRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GenericListRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GenericListRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.GenericListRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GenericListRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.GenericListRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LogInRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogInRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogInRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LogInRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogInRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogInRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceUpdateNotif">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceUpdateNotif.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceUpdateNotif.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LogRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LogRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LogRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.SupplierConfigurations">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.SupplierConfigurations.SuppliersProductGroup">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelRoomPricedInventorySearchRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelDetailsSearchRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDetailsSearchRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDetailsSearchRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelDetailsSearchRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelDetailsSearchRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookServiceRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookServiceRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookServiceRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookServiceRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookServiceRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceDetailRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceDetailRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceDetailRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceDetailRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceDetailRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelAmenitiesListRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelAmenitiesListRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelAmenitiesListRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelAmenitiesListRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelAmenitiesListRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelAmenitiesListRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBoardsListRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBoardsListRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBoardsListRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBoardsListRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBoardsListRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBoardsListRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceChargeConditionsRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceChargeConditionsRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceChargeConditionsRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.BookingServiceChargeConditionsRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.BookingServiceChargeConditionsRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ValidateBookingServiceRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ValidateBookingServiceRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ValidateBookingServiceRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.ValidateBookingServiceRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ValidateBookingServiceRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.ValidateBookingServiceRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.DestinationListRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationListRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationListRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.DestinationListRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationListRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.DestinationListRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LocationListRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationListRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationListRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.LocationListRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationListRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.LocationListRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.HotelBookingServiceCancelRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.QueryOperationsRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.QueryOperationsRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRS.Echo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.QueryOperationsRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RateBreakdownRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RateBreakdownRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RateBreakdownRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.RateBreakdownRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.RateBreakdownRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.VoucherRQ">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.VoucherRQ.Source">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.VoucherRQ.Details">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_main.VoucherRS">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_main.VoucherRS.Item">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_SimpleTypes_1_0_1.DateRangeWithDateType">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_SimpleTypes_1_0_1.DateRangeWithDateType.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_SimpleTypes_1_0_1.DateRangeWithDateType.DateTo">
+<comentarios/>
+</member>
+<member name="T:NemoTypes.WSHCEV_SimpleTypes_1_0_1.DateRangeWithDays">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_SimpleTypes_1_0_1.DateRangeWithDays.DateFrom">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_SimpleTypes_1_0_1.DateRangeWithDays.DateTo">
+<comentarios/>
+</member>
+<member name="P:NemoTypes.WSHCEV_SimpleTypes_1_0_1.DateRangeWithDays.DateToSpecified">
+<comentarios/>
+</member>
+</members>
+</doc>

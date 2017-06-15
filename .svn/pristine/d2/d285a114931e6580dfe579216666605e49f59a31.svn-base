@@ -1,0 +1,73 @@
+﻿/*
+* ===================================================================================================================
+    
+    Function file for Check Argentina
+
+    Support sources:
+        http://benalman.com/projects/jquery-postmessage-plugin/
+
+* ===================================================================================================================
+*/
+
+$(function () {
+    $.receiveMessage(function (e) {
+        var data = $.deparam(e.data);
+
+        if (data.callFunction) {
+            switch (data.callFunction) {
+                case "adjustIframes":
+                    adjustIframes(data.callParams.forceAdjust, data.callParams.height);
+                    break;
+
+                case "internationalSearch":
+                    doSearch(data.callParams.searchFilters);
+                    break;
+
+                case "nationalSearch":
+                    doSearch(data.callParams.searchFilters);
+                    break;
+
+                case "goTop":
+                    goTop(data.callParams.elementId);
+                    break;
+
+                case "reservationResult":
+                    showReservationResult(data.callParams.data);
+                    break;
+            }
+        }
+    });
+});
+
+function doSearch(searchFilters) {
+    showWaitResults();
+
+    var searchForm = $(searchFilters);
+
+    $(searchForm).attr('target', 'iframe_results');
+    $(searchForm).appendTo("body").submit(); 
+//    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+//        $(searchForm).attr('target', 'iframe_results');
+//        $(searchForm).appendTo("body").submit(); // FF only
+//    } else {
+//        $(searchForm).attr('target', 'iframe_results').submit(); // works under IE and Chrome, but not FF  
+//    }
+
+    showResults();
+
+    $(searchForm).remove();
+}
+
+function goTop(id) {
+    $('html, body').animate({
+        scrollTop: $('#' + id.replace('#', '')).offset().top
+    }, 1000);
+}
+
+function showReservationResult(data) {
+    var resultForm = $(data);
+    $(resultForm).attr('target', 'iframe_results');
+    $(resultForm).appendTo("body").submit();
+
+    $(resultForm).remove();
+}

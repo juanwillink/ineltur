@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CheckArgentina.Models;
+using CheckArgentina.Managers;
+using System.Text;
+using CheckArgentina.Commons;
+using System.IO;
+using CheckArgentina.NationalService;
+
+namespace CheckArgentina.Controllers
+{
+    public class LoginController : Controller
+    {
+        private LocalManager Manager { get { return new LocalManager(); } }
+
+        public ActionResult LoginAttemp(LoginModel loginModel)
+        {
+            var petitionResults = Manager.LoginAttemp(loginModel);
+
+            if (petitionResults.Estado == (int)EstadoRespuesta.Ok)
+            {
+                loginModel.Apellido = petitionResults.Apellido;
+                loginModel.Nombre = petitionResults.Nombre;
+                loginModel.UID = petitionResults.UID;
+            }
+            else
+            {
+                loginModel.UID = null;
+            }
+                
+              
+
+            return RedirectToAction("NationalSearch", "National", new { userKey = loginModel.UID, userName = loginModel.Nombre });
+
+        }
+
+        //public ActionResult openForgot
+    }
+}

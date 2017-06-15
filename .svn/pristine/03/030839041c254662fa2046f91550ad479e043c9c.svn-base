@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Turismo1" Class="TurismoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=NEO;Initial Catalog=Turismo1;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Turismo1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.USUARIOS" Member="USUARIOs">
+    <Type Name="USUARIO">
+      <Column Name="IDUSUARIO" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDTIPOUSUARIO" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="IDCIUDAD" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="OTRACIUDAD" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IDPAIS" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="IDOCUPACION" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="APELLIDO" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_NACIMIENTO" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DIRECCION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TELEFONO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBREUSUARIO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="CLAVE" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_ALTA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_BAJA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SEXO" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IDTIPODOCUMENTO" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DESEAPROPAGANDA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NRODOCUMENTO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="IDPROVINCIA" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ULTIMOACCESO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CANTIDADACCESOS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FECHAMAILPUBLICIDAD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HABILITARCUENTACORRIENTE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TIPO_FORMAS_PAGO" Member="TIPO_FORMAS_PAGOs">
+    <Type Name="TIPO_FORMAS_PAGO">
+      <Column Name="IDTIPOFORMAPAGO" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="FECHA_ALTA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_BAJA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="TIPO_FORMAS_PAGO_FORMAS_PAGO" Member="FORMAS_PAGOs" ThisKey="IDTIPOFORMAPAGO" OtherKey="IDTIPOFORMAPAGO" Type="FORMAS_PAGO" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FORMAS_PAGO" Member="FORMAS_PAGOs">
+    <Type Name="FORMAS_PAGO">
+      <Column Name="IDFORMAPAGO" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="ACTIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_ALTA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_BAJA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IDTIPOFORMAPAGO" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="TIPO_FORMAS_PAGO_FORMAS_PAGO" Member="TIPO_FORMAS_PAGO" ThisKey="IDTIPOFORMAPAGO" OtherKey="IDTIPOFORMAPAGO" Type="TIPO_FORMAS_PAGO" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

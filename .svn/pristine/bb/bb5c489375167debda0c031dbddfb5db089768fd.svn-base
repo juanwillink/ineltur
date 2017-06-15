@@ -1,0 +1,13 @@
+﻿@model CheckArgentina.Models.ReservationModel
+
+@using CheckArgentina.Commons;
+
+@{
+    Layout = null;
+}
+
+<div>
+    Cuenta Corriente
+</div>
+
+

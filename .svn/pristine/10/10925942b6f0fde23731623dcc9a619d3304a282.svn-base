@@ -1,0 +1,68 @@
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+<title>Reserva</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+Dear @Model.Traveler,
+<br /><br />
+through this email you are being notified that your reservation with code @Model.ReservationCode
+has been completed. The Confirmation Code is @Model.ReservationId.
+<br /><br />
+Below we provide you with the detailed data of your reservation. Please this as a voucher
+at the hotel on your arrival:
+<br /><br />
+<table border="1">
+<tr>
+    <td><b>Traveler:</b></td>
+    <td colspan="3">@Model.Traveler</td>
+</tr>
+<tr>
+    <td><b>Hotel:</b></td>
+    <td colspan="3">@Model.Lodging</td>
+</tr>
+<tr>
+    <td><b>Reservation Code:</b></td>
+    <td>@Model.ReservationCode</td>
+    <td><b>Confirmation Code:</b></td>
+    <td>@Model.ConfirmationCode</td>
+</tr>
+<tr>
+    <td><b>Agency:</b></td>
+    <td colspan="3">@Model.Agency</td>
+</tr>
+<tr>
+    <td><b>Observations:</b></td>
+    <td colspan="3">@Model.Observations</td>
+</tr>
+</table>
+<table border="1">
+<tr>
+<th>Description</th><th># of units</th><th>Check in</th>
+<th>Check out</th><th>Amount</th><th>Total</th>
+</tr>
+@foreach (var vacancy in Model.Vacancies) {
+<tr>
+<td>@vacancy.VacancyName</td><td>@vacancy.VacancyReserved</td>
+<td>@vacancy.VacancyCheckin.ToShortDateString()</td><td>@vacancy.VacancyCheckout.ToShortDateString()</td>
+<td>@Model.Currency @String.Format("{0:0.00}", vacancy.VacancyPrice)</td><td>@Model.Currency @String.Format("{0:0.00}", vacancy.VacancyPrice * vacancy.VacancyReserved)</td>
+</tr>
+}
+<tr>
+<th colspan="5" align="center">Total</th>
+<td>@Model.Currency @String.Format("{0:0.00}", Model.TotalAmount)</td>
+</tr>
+</table>
+<br /><br />
+Forward to your visit again.
+<br />
+Yours sincerely,
+<br /><br />
+@*<a href=http://200.85.184.11:8090"><img src="http://200.85.184.11:8090/Content/Images/Logo.png" alt="@Model.Agency" style="width:200px"/></a>*@
+<a href=http://200.85.184.11:8090"><img src="@Model.AgencyLogo" alt="@Model.Agency" style="width:200px"/></a>
+</body>
+</html>

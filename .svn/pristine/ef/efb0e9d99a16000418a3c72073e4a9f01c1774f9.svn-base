@@ -1,0 +1,164 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ArgentinahtlMVC.Models.Services;
+using ArgentinahtlMVC.Models;
+
+namespace ArgentinahtlMVC.Controllers
+{
+    public class LodgingController : Controller
+    {
+        public ActionResult Menu()
+        {
+            return View();
+        }
+
+        #region Season management
+
+        [UserProfile(UserProfile.Administrator)]
+        public ActionResult Seasons()
+        {
+            return View(new SeasonsModel()
+            {
+                Provinces = DbAccess.GetProvinces()
+            });
+        }
+
+        // **************************************
+        // URL: /Management/Users
+        // **************************************
+        
+        [UserProfile(UserProfile.Administrator)]
+        public ActionResult SeasonList(Guid? lodgingId)
+        {
+            return View(new SeasonListModel()
+            {
+                SeasonTypes = DbAccess.GetSeasonTypes(),
+                Seasons = DbAccess.GetSeasons(lodgingId.GetValueOrDefault()),
+                Lodging = DbAccess.GetLodging(lodgingId.GetValueOrDefault())
+            });
+        }
+
+        // **************************************
+        // URL: /Management/NewUser
+        // **************************************
+
+        [UserProfile(UserProfile.Administrator)]
+        public ActionResult CreateSeason(Guid lodgingId)
+        {
+            return PartialView("CreateEditSeason", new SeasonModel
+            {
+                LodgingId = lodgingId,                
+                StartDate = DateTime.Today,
+                EndDate = DateTime.Today,
+                DateOfRegistration = DateTime.Today,
+                SeasonTypes = DbAccess.GetSeasonTypes()
+            });
+        }
+
+        [HttpPost]
+        [UserProfile(UserProfile.Administrator)]
+        public ActionResult CreateSeason(SeasonModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (DbAccess.CreateSeason(model.SeasonName, model.LodgingId.GetValueOrDefault(),
+                        model.StartDate, model.EndDate, model.SeasonTypeId.GetValueOrDefault(), model.Deadline))
+                    return Json(new { success = true }, JsonRequestBehavior.DenyGet);
+            }
+
+            return Json(new { success = false }, JsonRequestBehavior.DenyGet); ;
+        }
+
+        [HttpGet]
+        [UserProfile(UserProfile.Administrator)]
+        public ActionResult EditSeason(Guid seasonId)
+        {
+            var model = DbAccess.GetSeason(seasonId);
+            model.SeasonTypes = DbAccess.GetSeasonTypes();
+
+            return PartialView("CreateEditSeason", model);
+        }
+
+        [HttpPost]
+        [UserProfile(UserProfile.Administrator)]
+        public ActionResult EditSeason(SeasonModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (DbAccess.SaveSeason(model.SeasonId.GetValueOrDefault(), model.SeasonName, model.LodgingId.GetValueOrDefault(),
+                        model.StartDate, model.EndDate, model.SeasonTypeId.GetValueOrDefault(), model.Deadline))
+                    return Json(new { success = true }, JsonRequestBehavior.DenyGet);
+            }
+
+            return Json(new { success = false }, JsonRequestBehavior.DenyGet); ;
+        }
+
+        // **************************************
+        // URL: /Management/EnableUser
+        // **************************************
+        [HttpPost]
+        [UserProfile(UserProfile.Administrator)]
+        public ActionResult EnableSeason(Guid seasonId)
+        {
+            if (DbAccess.EnableDisableSeason(seasonId, true))
+            {
+                return Json(new { success = true }, JsonRequestBehavior.DenyGet);
+            }
+
+            return Json(new { success = false }, JsonRequestBehavior.DenyGet);
+        }
+
+        // **************************************
+        // URL: /Management/DisableUser
+        // **************************************
+        [HttpPost]
+        [UserProfile(UserProfile.Administrator)]
+        public ActionResult DisableSeason(Guid seasonId)
+        {
+            if (DbAccess.EnableDisableSeason(seasonId, false))
+            {
+                return Json(new { success = true }, JsonRequestBehavior.DenyGet);
+            }
+
+            return Json(new { success = false }, JsonRequestBehavior.DenyGet);
+        }
+
+        // **************************************
+        // URL: /Management/DeleteUser
+        // **************************************
+        [HttpPost]
+        [UserProfile(UserProfile.Superadmin)]
+        public ActionResult DeleteSeason(Guid seasonId)
+        {
+            if (DbAccess.DeleteSeason(seasonId, true))
+            {
+                return Json(new { success = true }, JsonRequestBehavior.DenyGet);
+            }
+
+            return Json(new { success = false }, JsonRequestBehavior.DenyGet);
+        }
+
+        #endregion
+
+        [HttpGet]
+        public ActionResult GetCities(string provinceId)
+        {
+            return Json(DbAccess.GetCities(Guid.Parse(provinceId)), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult GetLodgings(string cityId)
+        {
+            return Json(DbAccess.GetLodgings(Guid.Parse(cityId)), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult SearchLodgings(string lodgingName)
+        {
+            return Json(DbAccess.SearchLodgings(lodgingName), JsonRequestBehavior.AllowGet);
+        }
+    }
+}

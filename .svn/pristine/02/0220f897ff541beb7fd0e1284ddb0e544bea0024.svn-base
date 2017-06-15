@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_ResultLayout.cshtml";
+}
+
+@model CheckArgentina.Models.LodgingListModel
+@using CheckArgentina.Commons
+
+<div class="panel results-panel">
+    @*<div class="result-filter rounded roundedAuxiliarColor">
+        <h3>Filtrar la búsqueda</h3>
+        <div class="element-filter">
+            <label>Precio</label>
+            
+        </div>
+    </div>*@
+    <div class="panel-heading">
+        <h2>Resultados de la búsqueda</h2>
+    </div>
+    <div class="panel-body">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6jXu_lQ2FS99u2_BVbgAS6QpKgV-QsqY&callback=initMap" async defer></script>
+        <script>
+            function initMap(){
+                var mapProp = {   
+                    zoom: 8,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    center: {lat: -32.8892617, lng: -68.8500943},                    
+                };
+                @foreach (var lodgingMap in Model.Lodgings)
+                {
+                    <text>
+                    @string.Format("map_{0}", lodgingMap.LodgingId.Replace('-', '_')) = new google.maps.Map(document.getElementById("@string.Format("googleMap_{0}", lodgingMap.LodgingId.Replace('-', '_'))"), mapProp);
+                    </text>
+
+                }
+                
+            }
+        </script>
+        <div class="result-list">
+            @if (Model.Lodgings.Count() == 0)
+            {
+                <div class="no-results">
+                    No se encontraron resultados.
+                </div>
+            }
+            else
+            {
+                foreach (var lodging in Model.Lodgings)
+                {
+                    Html.RenderPartial("Lodging", lodging);
+                }
+            }
+        </div>
+    </div>
+</div>

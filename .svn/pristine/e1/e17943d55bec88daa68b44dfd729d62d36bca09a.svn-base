@@ -1,0 +1,180 @@
+﻿using CheckArgentina.Models;
+using CheckArgentina.LocalService;
+using System;
+using System.Linq;
+
+using System.Collections.Generic;
+using System.IO;
+
+using CheckArgentina.Commons;
+
+namespace CheckArgentina.Managers
+{
+    //public partial class Manager
+    //{
+    public class LocalManager
+    {
+        private ServiciosSoapSoap _service;
+        private Manager _globalManager;
+
+        public LocalManager()
+        {
+            _service = new LocalService.ServiciosSoapSoapClient();
+        }
+
+        public RespuestaLogin LoginAttemp(LoginModel loginModel)
+        {
+            var peticion = new PeticionLogin() { Usuario = loginModel.Username, Clave = loginModel.Password };
+
+            try
+            {
+                var rptaLogin = _service.Login(peticion);
+
+                return rptaLogin;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }    
+            
+        public MyReservationListModel SearchMyReservations(Guid userKey, int reservationCode, string searchParameter)
+        {
+            var myReservations = new List<MyReservationModel>();
+            var results = new MyReservationListModel();
+            var peticion = new PeticionBuscarMisReservas()
+            {
+                SearchParameter = searchParameter,
+                UserId = userKey,
+                ReservationCode = reservationCode
+            };
+
+            try
+            {
+                var petitionResults = _service.BuscarMisReservas(peticion);
+                if (petitionResults.Estado == EstadoRespuesta.Ok)
+                {
+                    foreach (var reserva in petitionResults.MisReservas)
+                    {
+                        var reserveModel = new MyReservationModel()
+                        {
+                            CodigoReserva = reserva.CodigoReserva,
+                            Descripcion = reserva.Descripcion,
+                            EstadoPago = reserva.EstadoPago,
+                            EstadoReserva = GetEstadoReserva(reserva.EstadoReserva),
+                            FechaAlta = reserva.FechaAlta,
+                            FechaVencimiento = reserva.FechaVencimiento,
+                            IdAlojamiento = reserva.IdAlojamiento,
+                            IdFormaDePago = reserva.IdFormaDePago,
+                            IdMoneda = reserva.IdMoneda,
+                            IdPu = reserva.IdPu,
+                            IdSitioOrigen = reserva.IdSitioOrigen,
+                            IdTipoFormaDePago = reserva.IdTipoFormaDePago,
+                            IdTransaccion = reserva.IdTransaccion,
+                            IdUsuario = reserva.IdUsuario,
+                            MontoTotalConDescuento = reserva.MontoTotalConDescuento,
+                            MontoTotalSinDescuento = reserva.MontoTotalSinDescuento,
+                            NombreAlojamiento = reserva.NombreAlojamiento,
+                            NombreFormaDePago = reserva.NombreFormaDePago,
+                            NombrePasajero = reserva.NombrePasajero,
+                            TipoTransaccion = reserva.TipoTransaccion
+                        };
+
+                        var vacancies = new List<VacancyModel>();
+                        var vacancyGroups = reserva.Unidades.GroupBy(u => u.IdUnidad);
+
+                        foreach (var group in vacancyGroups)
+                        {
+                            var vacancy = group.Select(v => new VacancyModel()
+                            {
+                                VacancyCheckin = v.FechaInicio,
+                                VacancyCheckout = v.FechaFin,
+                                VacancyCount = int.Parse(v.Cantidad.ToString()),
+                                VacancyDescription = v.NombreHabitacion,
+                                VacancyPrice = Decimal.Round(Decimal.Parse(v.Monto.ToString()), 2),
+                                ConfirmedVacancyPrice = Decimal.Round(Decimal.Parse(v.MontoTotal.ToString()), 2)
+                            }).First();
+                            vacancies.Add(vacancy);
+                        }
+                        var unidades = new VacancyListModel()
+                        {
+                            Vacancies = vacancies
+                        };
+                        reserveModel.Unidades = unidades;
+                        myReservations.Add(reserveModel);
+                    }
+                }
+                results.MyReservations = myReservations;
+                return results;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        private string GetEstadoReserva(int estadoReserva)
+        {
+            switch (estadoReserva)
+            {
+                case -3:
+                    return "A Cancelar";
+                case -2:
+                    return "En Proceso";
+                case -1:
+                    return "Sin Terminar";
+                case 0:
+                    return "A Constatar";
+                case 1:
+                    return "Efectiva";
+                case 2:
+                    return "Cancelada";
+                case 3:
+                    return "Rechazada"; 
+                default:
+                    return "Error";
+            }
+        }
+
+        #region Credentials
+
+        public Credential GetCredential(string userKey)
+        {
+            var credential = new Credential();
+            using (var dc = new TurismoDataContext())
+            {
+                Guid idUsuario;
+
+                if (Guid.TryParse(userKey, out idUsuario))
+                {
+                    var users = dc.Usuarios.Where(u => u.IDUSUARIO == idUsuario);
+
+                    if (users.Count() == 1)
+                    {
+                        credential.Username = users.First().NOMBREUSUARIO;
+                        credential.Password = users.First().CLAVE;
+                        credential.Language = "es";
+                    }
+                    else
+                    {
+                        credential.Username = string.Empty;
+                        credential.Password = string.Empty;
+                        credential.Language = string.Empty;
+                    }
+                }
+            }
+
+            return credential;
+        }
+        #endregion
+
+        private void CompletePetition(PeticionBase petition, Credential credential)
+        {
+            petition.Usuario = credential.Username;
+            petition.Clave = credential.Password;
+            petition.IdiomaDeseado = credential.Language;
+        }
+    }
+    //}
+}

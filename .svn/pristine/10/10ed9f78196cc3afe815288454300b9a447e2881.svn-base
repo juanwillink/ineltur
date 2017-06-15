@@ -1,0 +1,209 @@
+﻿@model CheckArgentina.Models.RegistrationModel
+
+@{ 
+    Layout = null;
+    Html.EnableUnobtrusiveJavaScript();
+    Html.EnableClientValidation();
+}
+
+@using CheckArgentina.Commons;
+
+<html>
+<head>
+    <title>Argentina HTL</title>
+    @Html.Partial("_HeadScripts")
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar" aria-expanded="true">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <img src="~/Content/Images/logo.jpg" class="logo-image" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="collapse-navbar">
+                @Html.Partial("Menu")
+                @Html.Hidden("site_key", "0A2C0A18-4F3D-4123-AA35-BEA45A756149")
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="panel" style="margin-top: 20px;">
+                <div class="panel-heading">
+                    <h4>Complete con sus datos para solicitar registrarse</h4>
+                </div>
+                <div class="panel-body">
+                    <form action="/Login/Registration" method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Nombre de la Empresa</label>
+                                        @Html.TextBoxFor(m => m.BuissnessName).AddClasses("form-control")
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Razon Social</label>
+                                        @Html.TextBoxFor(m => m.RazonSocial).AddClasses("form-control")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Dia de comienzo de actividad</label>
+                                        @Html.TextBoxFor(m => m.ActivityStartDate).AddClasses("form-control")
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Tipo de Factura</label>
+                                        @Html.TextBoxFor(m => m.BillType).AddClasses("form-control")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>CUIT</label>
+                                        @Html.TextBoxFor(m => m.Cuit).AddClasses("form-control")
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Direccion</label>
+                                        @Html.TextBoxFor(m => m.Adress).AddClasses("form-control")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Codigo Postal</label>
+                                        @Html.TextBoxFor(m => m.ZipCode).AddClasses("form-control")
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Telefono</label>
+                                        @Html.TextBoxFor(m => m.Phone).AddClasses("form-control")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Mail de confirmacion de reserva</label>
+                                        @Html.TextBoxFor(m => m.ReservationConfirmationEmail).AddClasses("form-control")
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Persona a cargo</label>
+                                        @Html.TextBoxFor(m => m.PersonInChargeName).AddClasses("form-control")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Email de persona a cargo</label>
+                                        @Html.TextBoxFor(m => m.PersonInChargeEmail).AddClasses("form-control")
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Desea recibir nuestro newsletter?</label>
+                                        @Html.TextBoxFor(m => m.Newsletter).AddClasses("form-control")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label>Como llego a nosotros?</label>
+                                        @Html.TextBoxFor(m => m.HowDidYouFindUs).AddClasses("form-control")
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-success">Enviar solicitud de alta</button>
+                                        <button type="button" class="btn btn-primary">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    $(document).on('click', 'form button[type=submit]', function (e) {
+        if ($("#BuissnessName").val() === "" || $("#BuissnessName").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#BuissnessName").val("Debe llenar este campo");
+        }
+        if ($("#RazonSocial").val() === "" || $("#RazonSocial").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#RazonSocial").val("Debe llenar este campo");
+        }
+        if ($("#ActivityStartDate").val() === "" || $("#ActivityStartDate").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#ActivityStartDate").val("Debe llenar este campo");
+        }
+        if ($("#BillType").val() === "" || $("#BillType").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#BillType").val("Debe llenar este campo");
+        }
+        if ($("#Cuit").val() === "" || $("#Cuit").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#Cuit").val("Debe llenar este campo");
+        }
+        if ($("#Adress").val() === "" || $("#Adress").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#Adress").val("Debe llenar este campo");
+        }
+        if ($("#ZipCode").val() === "" || $("#ZipCode").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#ZipCode").val("Debe llenar este campo");
+        }
+        if ($("#Phone").val() === "" || $("#Phone").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#Phone").val("Debe llenar este campo");
+        }
+        if ($("#ReservationConfirmationEmail").val() === "" || $("#ReservationConfirmationEmail").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#ReservationConfirmationEmail").val("Debe llenar este campo");
+        }
+        if ($("#PersonInChargeName").val() === "" || $("#PersonInChargeName").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#PersonInChargeName").val("Debe llenar este campo");
+        }
+        if ($("#PersonInChargeEmail").val() === "" || $("#PersonInChargeEmail").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#PersonInChargeEmail").val("Debe llenar este campo");
+        }
+        if ($("#Newsletter").val() === "" || $("#Newsletter").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#Newsletter").val("Debe llenar este campo");
+        }
+        if ($("#HowDidYouFindUs").val() === "" || $("#HowDidYouFindUs").val() === "Debe llenar este campo") {
+            e.preventDefault();
+            $("#HowDidYouFindUs").val("Debe llenar este campo");
+        }
+    })
+</script>
+
+    
+
+

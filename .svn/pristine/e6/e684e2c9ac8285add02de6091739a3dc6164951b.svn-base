@@ -1,0 +1,133 @@
+﻿@model ArgentinahtlMVC.Models.TransactionListModel
+
+@{
+    ViewBag.Title = "Listado de Reservas";
+    Html.EnableUnobtrusiveJavaScript();
+    Html.EnableClientValidation();
+}
+
+<h2>@ViewBag.Title <span>@Html.ActionLink("Atrás", "Menu", "Management")</span></h2>
+
+@Html.ValidationSummary(false, "Búsqueda incorrecta. Por favor, corrija los siguientes errores:")
+
+<script type="text/javascript">
+    $(function () {
+//        $("tr[reservationCode]").contextMenu({
+//            menu: 'context_menu'
+//        },
+//            function (action, row, pos) {
+//                var reservationCode = $(row).attr('reservationCode').split();
+
+//                switch (action) {
+//                    case 'seeDetails':
+//                        showDetails(reservationCode, row, pos);
+//                        break;
+//                }
+//            });
+
+//        $("tr[reservationCode]").dblclick(function () {
+//            showDetails($(this).attr('reservationCode').split());
+//        });
+
+        $('.link_options').colorbox();
+    });
+
+//    function showDetails(reservationCode, row, pos) {
+//        $('.link_options')[row[0].rowIndex - 1].click();
+//    }
+</script>
+
+<ul id="context_menu" class="contextMenu">
+    <li class="edit">
+        <a href="#seeDetails">Ver datalles</a>
+    </li>
+</ul>
+@*
+@using (Html.BeginForm())
+{
+    <b>@Html.LabelFor(m => m.TimeZone): @Html.DropDownListFor(m => m.TimeZoneId, Model.TimeZones.Select(t => new SelectListItem() { Text = t.Name, Value = t.TimeZoneId }))</b><br /><br />
+    <script type="text/javascript">        $(document).ready(function () { $('#TimeZoneId').val('UTC'); });</script>
+
+    <table class="borderless">
+    <tr>
+        <td>@Html.LabelFor(m => m.StartDate):</td><td>@Html.EditorFor(m => m.StartDate)</td>
+        <td>@Html.LabelFor(m => m.TitanTransactionRef):</td><td>@Html.TextBoxFor(m => m.TitanTransactionRef)</td>
+        <td>@Html.LabelFor(m => m.Country):</td><td>@Html.DropDownListFor(m => m.Country, Model.Countries.Select(c => new SelectListItem() { Text = c.Name, Value = c.CountryCode }))</td>
+        <td>@Html.LabelFor(m => m.PhoneNumber):</td><td>@Html.TextBoxFor(m => m.PhoneNumber)</td>
+    </tr><tr>
+        <td>@Html.LabelFor(m => m.EndDate):</td><td>@Html.TextBoxFor(m => m.EndDate)</td>
+        <td>@Html.LabelFor(m => m.ClientTransactionRef):</td><td>@Html.TextBoxFor(m => m.ClientTransactionRef)</td>
+        
+        <td>@Html.LabelFor(m => m.Status):</td><td>@Html.EnumDropDownListFor(m => m.Status)</td>
+    </tr><tr>
+        @if (SessionData.UserClient.Type == NodeType.ADM && (SessionData.UserClient.WholesalerType == WholesalerType.PADRE || SessionData.UserClient.WholesalerType == WholesalerType.CASIPADRE))
+        {
+            <td>@Html.LabelFor(m => m.Supplier):</td><td>@Html.DropDownListFor(m => m.Supplier, Model.Suppliers.Select(s => new SelectListItem() { Text = s.Name, Value = s.SupplierCode }))</td>
+        }
+        
+        <td>@Html.LabelFor(m => m.Carrier):</td><td>@Html.DropDownListFor(m => m.Carrier, Model.Carriers)</td>
+        
+        @if (SessionData.UserPermissions.CanUser(3, Permission.READ) ||
+            SessionData.UserPermissions.CanUser(4, Permission.READ))
+        {
+            <td>@Html.LabelFor(m => m.ShowPrices):</td><td>@Html.CheckBoxFor(m => m.ShowPrices)</td>
+        }
+    </tr><tr>
+        <td>@Html.LabelFor(m => m.Wholesaler):</td><td>@Html.DropDownListFor(m => m.Wholesaler, Model.Wholesalers.Select(w => new SelectListItem() { Text = w.Name, Value = w.ClientCode.ToString() }))</td>
+        <td colspan="2">
+            <input type="submit" value="Search" onclick="$('form').attr('action', '/Reports/TransactionList')" />
+            <input type="submit" value="To Excel" onclick="$('form').attr('action', '/Reports/ExportTransactionList')" />
+            <input type="submit" value="Send by e-mail" onclick="$('form').attr('action', '/Reports/ExportTransactionListMail')" />
+        </td>
+    </tr>
+    </table>
+        Html.EndForm();
+}
+*@
+
+<br /><b>@Html.Label("Cantidad"): @Model.Count</b><br />
+
+<table id="Transactions">
+<thead>
+<tr>
+    <th class="narrow"><span>Cód. Reserva</span></th>
+    <th><span>Titular</span></th>
+    <th><span>Estado</span></th>
+    <th><span>Agencia</span></th>
+    <th><span>Alojamiento</span></th>
+    <th><span>Monto</span></th>
+    <th><span>Forma de Pago</span></th>
+    <th class="narrow"><span>Fecha de Alta</span></th>
+    <th class="narrow"><span>Checkin</span></th>
+    <th class="narrow"><span>Checkout</span></th>
+    <th class="narrow"><span>Acciones</span></th>
+</tr>
+</thead>
+<tbody>
+@foreach (var t in Model.Transactions)
+{
+<tr reservationCode="@t.ReservationCode">
+    <td>@(t.ReservationCode)</td>
+    <td>@(t.Owner.FirstName + " " + t.Owner.LastName)</td>
+    <td>@(t.StatusDescription)</td>
+    <td>@(t.Agency.FirstName + " " + t.Agency.LastName)</td>
+    <td>@(t.Lodging.FirstName + " " + t.Lodging.LastName)</td>
+    <td>@(t.Currency.CurrencySymbol + " " + t.Amount.ToString("######.00"))</td>
+    <td>@(t.PaymentMethod)</td>
+    <td>@(t.StartDate != null ? t.StartDate.ToString("dd/MM/yyyy") : "-")</td>
+    <td>@(t.Checkin != null ? t.Checkin.Value.ToString("dd/MM/yyyy") : "-")</td>
+    <td>@(t.Checkout != null ? t.Checkout.Value.ToString("dd/MM/yyyy") : "-")</td>
+    <td>
+        @*<a class="link_options" href="@Url.Content("~/Reports/TransactionDetails/"+t.ReservationCode)">Detalles</a><br />*@
+        <a class="link_options" href="@Url.Content("~/Reports/TransactionDetails/"+t.ReservationCode)"><img src="@Url.Content("~/Content/edit.png")" title="Ver detalles" /></a>
+        <a class="link_options" href="@Url.Content("~/Transaction/CancelTransaction/"+t.ReservationCode)"><img src="@Url.Content("~/Content/delete.png")" title="Cancelar reserva" /></a>
+    </td>
+</tr>
+}
+</tbody>
+</table>
+
+<div id="details_div">
+</div>
+
+<div id="aux_div" style="display:none;"><a id="link_details" href="TransactionDetails"></a></div>

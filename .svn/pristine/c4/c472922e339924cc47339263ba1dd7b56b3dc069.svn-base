@@ -1,0 +1,32 @@
+﻿/* --------------------------------- Registration ----------------------------------------- */
+
+
+function reloadCaptcha(img) {
+    $(img).attr("src", "/Registration/GetCaptcha");
+}
+
+function registerEmail(email) {
+    var params = '{reg_email:"' + email + '", text_captcha:"' + $('#text_captcha').val() + '"}';
+    $.ajax({
+        type: "POST",
+        url: "Registration/RegisterEmail",
+        data: params,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+            //xhr.setRequestHeader("Content-length", params.length);
+        },
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            var mensaje;
+            
+            if (msg.Result == "Success")
+                mensaje = "La dirección de email ha sido registrado. Recibirá un email de confirmación para validar la suscripción.";
+            else
+                mensaje = "Hubo un error al realizar el registro, intente más tarde.";
+
+            var dialog = $('<div title="Registro de usuario"><p>' + mensaje + '</p></div>');
+            dialog.dialog({modal:true});
+        }
+    });
+}

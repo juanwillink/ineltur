@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CheckArgentina.Models;
+using CheckArgentina.Managers;
+using CheckArgentina.Commons;
+
+namespace CheckArgentina.Controllers
+{
+    public class ServiceController : Controller
+    {
+        //
+        // GET: /Service/
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Lodging(LodgingModel lodging)
+        {
+            return View(lodging);
+        }
+
+        public bool CompleteReservation()
+        {
+            //try
+            //{
+            var manager = new Manager(SessionData.SearchType);
+
+            var reservation = new ReservationModel();
+                
+            SessionData.Reservation.PaymentMethodId = "7D5192CA-FE10-455E-B051-D1023A07BA75";
+
+            if (!string.IsNullOrEmpty(SessionData.Reservation.SecondaryUserName) || !string.IsNullOrEmpty(SessionData.Reservation.SecondaryUserPass))
+            {
+                Credential secondaryUserCredential = new Credential()
+                {
+                    Username = SessionData.Reservation.SecondaryUserName,
+                    Password = SessionData.Reservation.SecondaryUserPass,
+                    Language = "es"
+                };
+                reservation = manager.Reserve(SessionData.Reservation, secondaryUserCredential);
+            }
+            else
+            {
+                reservation = manager.Reserve(SessionData.Reservation, SessionData.UserCredential);
+            }
+
+            if (reservation.ReservationStatus == ReservationStatus.Reserved)
+            {
+                //Se debe enviar un mail al Titular
+                //using (var smtp = ServiceManager.GetSmtpClient())
+                //{
+                //    var reservationId = reservation.ReservationId.Trim('{', '}').ToUpper();
+
+                //    var model = new
+                //    {
+                //        Traveler = string.Format("{0} {1}", reservation.ReservationOwner.TravelerFirstName, reservation.ReservationOwner.TravelerLastName),
+                //        ReservationCode = reservation.ReservationCode,
+                //        ReservationId = reservationId,
+                //        ConfirmationCode = reservationId.Substring(reservationId.Length - 4, 4),
+                //        Agency = string.Format("{0} {1}", SessionData.User.UserFirstName, SessionData.User.UserLastName),
+                //        Lodging = reservation.LodgingName,
+                //        AgencyLogo = SessionData.User.UserLogo,
+                //        Observations = reservation.Observations,
+
+                //        Currency = reservation.LodgingCurrency,
+                //        TotalAmount = reservation.Vacancies.Sum(v => v.VacancyPrice * v.VacancyReserved),
+                //        Vacancies = reservation.Vacancies
+                //    };
+
+                //    FluentEmail.Email
+                //        .From(Config.LeerSetting("MailAccountFrom"), SessionData.User.UserFirstName)
+                //        .Subject(string.Format("Reserva en {0}", reservation.LodgingName))
+                //        .To(reservation.ReservationOwner.TravelerEmail)
+                //        .UsingTemplateFromFile("~/Views/MailTemplates/Reservation.es.cshtml", model)
+                //        .UsingClient(smtp)
+                //        .Send();
+                //}
+
+                return true;
+            }
+            else
+                return false;
+            //}
+            //catch (Exception ex)
+            //{
+            //    return false;
+            //}
+        }
+    }
+}
