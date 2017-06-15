@@ -33,7 +33,17 @@ namespace CheckArgentina.Controllers
             {
                 if (vacancy.TienePromocionNxM)
                 {
-                    SessionData.Reservation.PromotionPrice = SessionData.Reservation.TotalAmount - vacancy.VacancyPrice;
+                    using (var dc = new TurismoDataContext())
+                    {
+                        var promocion = dc.Promociones_Alojamientos.SingleOrDefault(p => p.IDUNIDADPROMO.ToString() == vacancy.VacancyId);
+                        var nochesARestar = promocion.DIASRESERVADOS - promocion.DIASACOBRAR;
+                        SessionData.Reservation.PromotionPrice = SessionData.Reservation.TotalAmount;
+                        for (int i = 0; i < nochesARestar; i++)
+                        {
+                            SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice - vacancy.VacancyPrice;
+                        }
+                    }
+                    
                 }
             }
 

@@ -102,6 +102,9 @@ namespace ArgentinahtlBackend.Models
     partial void InsertTarifas_Alojamiento(Tarifas_Alojamiento instance);
     partial void UpdateTarifas_Alojamiento(Tarifas_Alojamiento instance);
     partial void DeleteTarifas_Alojamiento(Tarifas_Alojamiento instance);
+    partial void InsertPromociones_Alojamiento(Promociones_Alojamiento instance);
+    partial void UpdatePromociones_Alojamiento(Promociones_Alojamiento instance);
+    partial void DeletePromociones_Alojamiento(Promociones_Alojamiento instance);
     #endregion
 		
 		public TurismoDataContext() : 
@@ -339,6 +342,14 @@ namespace ArgentinahtlBackend.Models
 			get
 			{
 				return this.GetTable<Tipo_Promociones_Alojamiento>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Promociones_Alojamiento> Promociones_Alojamientos
+		{
+			get
+			{
+				return this.GetTable<Promociones_Alojamiento>();
 			}
 		}
 		
@@ -10699,6 +10710,548 @@ namespace ArgentinahtlBackend.Models
 				{
 					this._CODIGO = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PROMOCIONES_ALOJAMIENTO")]
+	public partial class Promociones_Alojamiento : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _IDPROMOCION;
+		
+		private System.Guid _IDALOJ;
+		
+		private string _NOMBRE;
+		
+		private string _DESCRIPCION;
+		
+		private string _DESCRIPCION2;
+		
+		private System.Nullable<System.DateTime> _FECHAINICIO;
+		
+		private System.Nullable<System.DateTime> _FECHAFIN;
+		
+		private System.Nullable<int> _DIASACOBRAR;
+		
+		private System.Nullable<int> _DIASRESERVADOS;
+		
+		private bool _ACTIVO;
+		
+		private System.DateTime _FECHAALTA;
+		
+		private System.Nullable<System.DateTime> _FECHAPUBLICACION;
+		
+		private System.Nullable<System.DateTime> _FECHABAJAPUBLICACION;
+		
+		private System.Nullable<System.Guid> _IDUNIDADPROMO;
+		
+		private System.Nullable<bool> _FINVIGENCIAINDEFINIDO;
+		
+		private System.Nullable<System.DateTime> _FECHAFINPUBLICACION;
+		
+		private bool _BLOQUEACUPOS;
+		
+		private string _SLOGAN;
+		
+		private System.Nullable<int> _MINIMONOCHES;
+		
+		private System.Nullable<float> _DESCUENTO;
+		
+		private int _IDTIPOPUBLICACIONPROMO;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDPROMOCIONChanging(System.Guid value);
+    partial void OnIDPROMOCIONChanged();
+    partial void OnIDALOJChanging(System.Guid value);
+    partial void OnIDALOJChanged();
+    partial void OnNOMBREChanging(string value);
+    partial void OnNOMBREChanged();
+    partial void OnDESCRIPCIONChanging(string value);
+    partial void OnDESCRIPCIONChanged();
+    partial void OnDESCRIPCION2Changing(string value);
+    partial void OnDESCRIPCION2Changed();
+    partial void OnFECHAINICIOChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHAINICIOChanged();
+    partial void OnFECHAFINChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHAFINChanged();
+    partial void OnDIASACOBRARChanging(System.Nullable<int> value);
+    partial void OnDIASACOBRARChanged();
+    partial void OnDIASRESERVADOSChanging(System.Nullable<int> value);
+    partial void OnDIASRESERVADOSChanged();
+    partial void OnACTIVOChanging(bool value);
+    partial void OnACTIVOChanged();
+    partial void OnFECHAALTAChanging(System.DateTime value);
+    partial void OnFECHAALTAChanged();
+    partial void OnFECHAPUBLICACIONChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHAPUBLICACIONChanged();
+    partial void OnFECHABAJAPUBLICACIONChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHABAJAPUBLICACIONChanged();
+    partial void OnIDUNIDADPROMOChanging(System.Nullable<System.Guid> value);
+    partial void OnIDUNIDADPROMOChanged();
+    partial void OnFINVIGENCIAINDEFINIDOChanging(System.Nullable<bool> value);
+    partial void OnFINVIGENCIAINDEFINIDOChanged();
+    partial void OnFECHAFINPUBLICACIONChanging(System.Nullable<System.DateTime> value);
+    partial void OnFECHAFINPUBLICACIONChanged();
+    partial void OnBLOQUEACUPOSChanging(bool value);
+    partial void OnBLOQUEACUPOSChanged();
+    partial void OnSLOGANChanging(string value);
+    partial void OnSLOGANChanged();
+    partial void OnMINIMONOCHESChanging(System.Nullable<int> value);
+    partial void OnMINIMONOCHESChanged();
+    partial void OnDESCUENTOChanging(System.Nullable<float> value);
+    partial void OnDESCUENTOChanged();
+    partial void OnIDTIPOPUBLICACIONPROMOChanging(int value);
+    partial void OnIDTIPOPUBLICACIONPROMOChanged();
+    #endregion
+		
+		public Promociones_Alojamiento()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPROMOCION", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid IDPROMOCION
+		{
+			get
+			{
+				return this._IDPROMOCION;
+			}
+			set
+			{
+				if ((this._IDPROMOCION != value))
+				{
+					this.OnIDPROMOCIONChanging(value);
+					this.SendPropertyChanging();
+					this._IDPROMOCION = value;
+					this.SendPropertyChanged("IDPROMOCION");
+					this.OnIDPROMOCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDALOJ
+		{
+			get
+			{
+				return this._IDALOJ;
+			}
+			set
+			{
+				if ((this._IDALOJ != value))
+				{
+					this.OnIDALOJChanging(value);
+					this.SendPropertyChanging();
+					this._IDALOJ = value;
+					this.SendPropertyChanged("IDALOJ");
+					this.OnIDALOJChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string NOMBRE
+		{
+			get
+			{
+				return this._NOMBRE;
+			}
+			set
+			{
+				if ((this._NOMBRE != value))
+				{
+					this.OnNOMBREChanging(value);
+					this.SendPropertyChanging();
+					this._NOMBRE = value;
+					this.SendPropertyChanged("NOMBRE");
+					this.OnNOMBREChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this.OnDESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._DESCRIPCION = value;
+					this.SendPropertyChanged("DESCRIPCION");
+					this.OnDESCRIPCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION2", DbType="VarChar(4000)")]
+		public string DESCRIPCION2
+		{
+			get
+			{
+				return this._DESCRIPCION2;
+			}
+			set
+			{
+				if ((this._DESCRIPCION2 != value))
+				{
+					this.OnDESCRIPCION2Changing(value);
+					this.SendPropertyChanging();
+					this._DESCRIPCION2 = value;
+					this.SendPropertyChanged("DESCRIPCION2");
+					this.OnDESCRIPCION2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAINICIO", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHAINICIO
+		{
+			get
+			{
+				return this._FECHAINICIO;
+			}
+			set
+			{
+				if ((this._FECHAINICIO != value))
+				{
+					this.OnFECHAINICIOChanging(value);
+					this.SendPropertyChanging();
+					this._FECHAINICIO = value;
+					this.SendPropertyChanged("FECHAINICIO");
+					this.OnFECHAINICIOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAFIN", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHAFIN
+		{
+			get
+			{
+				return this._FECHAFIN;
+			}
+			set
+			{
+				if ((this._FECHAFIN != value))
+				{
+					this.OnFECHAFINChanging(value);
+					this.SendPropertyChanging();
+					this._FECHAFIN = value;
+					this.SendPropertyChanged("FECHAFIN");
+					this.OnFECHAFINChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIASACOBRAR", DbType="Int")]
+		public System.Nullable<int> DIASACOBRAR
+		{
+			get
+			{
+				return this._DIASACOBRAR;
+			}
+			set
+			{
+				if ((this._DIASACOBRAR != value))
+				{
+					this.OnDIASACOBRARChanging(value);
+					this.SendPropertyChanging();
+					this._DIASACOBRAR = value;
+					this.SendPropertyChanged("DIASACOBRAR");
+					this.OnDIASACOBRARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIASRESERVADOS", DbType="Int")]
+		public System.Nullable<int> DIASRESERVADOS
+		{
+			get
+			{
+				return this._DIASRESERVADOS;
+			}
+			set
+			{
+				if ((this._DIASRESERVADOS != value))
+				{
+					this.OnDIASRESERVADOSChanging(value);
+					this.SendPropertyChanging();
+					this._DIASRESERVADOS = value;
+					this.SendPropertyChanged("DIASRESERVADOS");
+					this.OnDIASRESERVADOSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+		public bool ACTIVO
+		{
+			get
+			{
+				return this._ACTIVO;
+			}
+			set
+			{
+				if ((this._ACTIVO != value))
+				{
+					this.OnACTIVOChanging(value);
+					this.SendPropertyChanging();
+					this._ACTIVO = value;
+					this.SendPropertyChanged("ACTIVO");
+					this.OnACTIVOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAALTA", DbType="DateTime NOT NULL")]
+		public System.DateTime FECHAALTA
+		{
+			get
+			{
+				return this._FECHAALTA;
+			}
+			set
+			{
+				if ((this._FECHAALTA != value))
+				{
+					this.OnFECHAALTAChanging(value);
+					this.SendPropertyChanging();
+					this._FECHAALTA = value;
+					this.SendPropertyChanged("FECHAALTA");
+					this.OnFECHAALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAPUBLICACION", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHAPUBLICACION
+		{
+			get
+			{
+				return this._FECHAPUBLICACION;
+			}
+			set
+			{
+				if ((this._FECHAPUBLICACION != value))
+				{
+					this.OnFECHAPUBLICACIONChanging(value);
+					this.SendPropertyChanging();
+					this._FECHAPUBLICACION = value;
+					this.SendPropertyChanged("FECHAPUBLICACION");
+					this.OnFECHAPUBLICACIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHABAJAPUBLICACION", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHABAJAPUBLICACION
+		{
+			get
+			{
+				return this._FECHABAJAPUBLICACION;
+			}
+			set
+			{
+				if ((this._FECHABAJAPUBLICACION != value))
+				{
+					this.OnFECHABAJAPUBLICACIONChanging(value);
+					this.SendPropertyChanging();
+					this._FECHABAJAPUBLICACION = value;
+					this.SendPropertyChanged("FECHABAJAPUBLICACION");
+					this.OnFECHABAJAPUBLICACIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUNIDADPROMO", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDUNIDADPROMO
+		{
+			get
+			{
+				return this._IDUNIDADPROMO;
+			}
+			set
+			{
+				if ((this._IDUNIDADPROMO != value))
+				{
+					this.OnIDUNIDADPROMOChanging(value);
+					this.SendPropertyChanging();
+					this._IDUNIDADPROMO = value;
+					this.SendPropertyChanged("IDUNIDADPROMO");
+					this.OnIDUNIDADPROMOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINVIGENCIAINDEFINIDO", DbType="Bit")]
+		public System.Nullable<bool> FINVIGENCIAINDEFINIDO
+		{
+			get
+			{
+				return this._FINVIGENCIAINDEFINIDO;
+			}
+			set
+			{
+				if ((this._FINVIGENCIAINDEFINIDO != value))
+				{
+					this.OnFINVIGENCIAINDEFINIDOChanging(value);
+					this.SendPropertyChanging();
+					this._FINVIGENCIAINDEFINIDO = value;
+					this.SendPropertyChanged("FINVIGENCIAINDEFINIDO");
+					this.OnFINVIGENCIAINDEFINIDOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAFINPUBLICACION", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHAFINPUBLICACION
+		{
+			get
+			{
+				return this._FECHAFINPUBLICACION;
+			}
+			set
+			{
+				if ((this._FECHAFINPUBLICACION != value))
+				{
+					this.OnFECHAFINPUBLICACIONChanging(value);
+					this.SendPropertyChanging();
+					this._FECHAFINPUBLICACION = value;
+					this.SendPropertyChanged("FECHAFINPUBLICACION");
+					this.OnFECHAFINPUBLICACIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOQUEACUPOS", DbType="Bit NOT NULL")]
+		public bool BLOQUEACUPOS
+		{
+			get
+			{
+				return this._BLOQUEACUPOS;
+			}
+			set
+			{
+				if ((this._BLOQUEACUPOS != value))
+				{
+					this.OnBLOQUEACUPOSChanging(value);
+					this.SendPropertyChanging();
+					this._BLOQUEACUPOS = value;
+					this.SendPropertyChanged("BLOQUEACUPOS");
+					this.OnBLOQUEACUPOSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLOGAN", DbType="VarChar(100)")]
+		public string SLOGAN
+		{
+			get
+			{
+				return this._SLOGAN;
+			}
+			set
+			{
+				if ((this._SLOGAN != value))
+				{
+					this.OnSLOGANChanging(value);
+					this.SendPropertyChanging();
+					this._SLOGAN = value;
+					this.SendPropertyChanged("SLOGAN");
+					this.OnSLOGANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MINIMONOCHES", DbType="Int")]
+		public System.Nullable<int> MINIMONOCHES
+		{
+			get
+			{
+				return this._MINIMONOCHES;
+			}
+			set
+			{
+				if ((this._MINIMONOCHES != value))
+				{
+					this.OnMINIMONOCHESChanging(value);
+					this.SendPropertyChanging();
+					this._MINIMONOCHES = value;
+					this.SendPropertyChanged("MINIMONOCHES");
+					this.OnMINIMONOCHESChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCUENTO", DbType="Real")]
+		public System.Nullable<float> DESCUENTO
+		{
+			get
+			{
+				return this._DESCUENTO;
+			}
+			set
+			{
+				if ((this._DESCUENTO != value))
+				{
+					this.OnDESCUENTOChanging(value);
+					this.SendPropertyChanging();
+					this._DESCUENTO = value;
+					this.SendPropertyChanged("DESCUENTO");
+					this.OnDESCUENTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOPUBLICACIONPROMO", DbType="Int NOT NULL")]
+		public int IDTIPOPUBLICACIONPROMO
+		{
+			get
+			{
+				return this._IDTIPOPUBLICACIONPROMO;
+			}
+			set
+			{
+				if ((this._IDTIPOPUBLICACIONPROMO != value))
+				{
+					this.OnIDTIPOPUBLICACIONPROMOChanging(value);
+					this.SendPropertyChanging();
+					this._IDTIPOPUBLICACIONPROMO = value;
+					this.SendPropertyChanged("IDTIPOPUBLICACIONPROMO");
+					this.OnIDTIPOPUBLICACIONPROMOChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

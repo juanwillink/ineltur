@@ -84,7 +84,8 @@ namespace ArgentinahtlMVC.Models.Services
                 Activo = promocion.ACTIVO,
                 StartDate = promocion.FECHAINICIO,
                 EndDate = promocion.FECHAFIN,
-                Duracion = promocion.DURACION,
+                DiasReservados = promocion.DIASRESERVADOS,
+                DiasACobrar = promocion.DIASACOBRAR,
                 Descuento = promocion.DESCUENTO,
                 MinimoNoches = promocion.MINIMONOCHES,
                 Slogan = promocion.SLOGAN
@@ -271,7 +272,8 @@ namespace ArgentinahtlMVC.Models.Services
                     NOMBRE = model.Nombre,
                     BLOQUEACUPOS = false,
                     DESCUENTO = model.Descuento,
-                    DURACION = model.Duracion,
+                    DIASRESERVADOS = model.DiasReservados,
+                    DIASACOBRAR = model.DiasACobrar,
                     FECHABAJAPUBLICACION = null,
                     FECHAFINPUBLICACION = null,
                     FECHAPUBLICACION = DateTime.Today.Date,
@@ -368,7 +370,8 @@ namespace ArgentinahtlMVC.Models.Services
                     promocion.ACTIVO = model.Activo;
                     promocion.BLOQUEACUPOS = false;
                     promocion.DESCUENTO = model.Descuento;
-                    promocion.DURACION = model.Duracion;
+                    promocion.DIASRESERVADOS = model.DiasReservados;
+                    promocion.DIASACOBRAR = model.DiasACobrar;
                     promocion.FECHAFIN = model.EndDate;
                     promocion.FECHAINICIO = model.StartDate;
                     promocion.IDTIPOPUBLICACIONPROMO = model.PromocionTypeId;

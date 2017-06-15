@@ -662,9 +662,10 @@ namespace Ineltur.WebService
                                         {
                                             case 1:
                                                 var noches = (petition.FechaFin - petition.FechaInicio).TotalDays;
-                                                if (noches == promocion.DURACION)
+                                                if (noches == promocion.DIASRESERVADOS)
                                                 {
                                                     unidad.TienePromocionNxM = true;
+                                                    unidad.DiasACobrar = promocion.DIASACOBRAR;
                                                     alojamientoDisponible.Alojamiento.TienePromocion = true;
                                                 }
                                                 break;

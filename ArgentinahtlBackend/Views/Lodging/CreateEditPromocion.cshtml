@@ -61,7 +61,8 @@
                 Slogan: $('#Slogan').val(),
                 MinimoNoches: $('#MinimoNoches').val(),
                 Descuento: $('#Descuento').val(),
-                Duracion: $("#Duracion").val()
+                DiasReservados: $("#DiasReservados").val(),
+                DiasACobrar: $("#DiasACobrar").val()
             },
             dataType: "json",
             traditional: true,
@@ -105,7 +106,8 @@
         <tr><td>@Html.LabelFor(m => m.Descripcion2):</td><td>@Html.TextAreaFor(m => m.Descripcion2)</td></tr>
         <tr><td>@Html.LabelFor(m => m.StartDate):</td><td>@Html.TextBoxFor(m => m.StartDate, "{0:dd/MM/yyyy}")</td></tr>
         <tr><td>@Html.LabelFor(m => m.EndDate):</td><td>@Html.TextBoxFor(m => m.EndDate, "{0:dd/MM/yyyy}")</td></tr>
-        <tr><td>@Html.LabelFor(m => m.Duracion):</td><td>@Html.TextBoxFor(m => m.Duracion)</td></tr>
+        <tr><td>@Html.LabelFor(m => m.DiasReservados):</td><td>@Html.TextBoxFor(m => m.DiasReservados)</td></tr>
+        <tr><td>@Html.LabelFor(m => m.DiasACobrar):</td><td>@Html.TextBoxFor(m => m.DiasACobrar)</td></tr>
         <tr>
             <td>@Html.LabelFor(m => m.PromocionTypeId):</td>
             <td>
@@ -117,7 +119,7 @@
             <td>@Html.LabelFor(m => m.IdUnidadPromo):</td>
             <td>
                 @Html.DropDownListFor(m => m.IdUnidadPromo,
-            @Model.Lodging.Rooms.Select(st => new SelectListItem { Text = st.RoomName, Value = st.RoomId.ToString() }))
+            @Model.Lodging.Rooms.Select(st => new SelectListItem { Text = st.RoomName, Value = st.RoomId.ToString() })))
             </td>
         </tr>
         <tr><td>@Html.LabelFor(m => m.Activo)</td><td> <input type="radio" name="Activo" value="true" checked/> Si <input type="radio" name="Activo" value="False" /> No</td></tr>

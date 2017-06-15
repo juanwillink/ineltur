@@ -164,8 +164,11 @@ namespace ArgentinahtlMVC.Models
         [DisplayFormatAttribute(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? EndDate { get; set; }
 
-        [Display(Name = "Duracion")]
-        public int? Duracion { get; set; }
+        [Display(Name = "Dias Reservados")]
+        public int? DiasReservados { get; set; }
+
+        [Display(Name = "Dias A Cobrar")]
+        public int? DiasACobrar { get; set; }
 
         [Display(Name = "Activo")]
         public bool Activo { get; set; }

@@ -84,7 +84,8 @@
             <th><span>Descripcion 2</span></th>
             <th><span>Fecha Inicio</span></th>
             <th><span>Fecha Fin</span></th>
-            <th><span>Duracion</span></th>
+            <th><span>Dias Reservados</span></th>
+            <th><span>Dias A Cobrar</span></th>
             <th><span>Activo</span></th>
             <th><span>Nombre Unidad Promo</span></th>
             <th><span>Nombre Tipo Promo</span></th>
@@ -102,7 +103,8 @@
                 <td>@(s.Descripcion2)</td>
                 <td>@(s.StartDate)</td>
                 <td>@(s.EndDate)</td>
-                <td>@(s.Duracion)</td>
+                <td>@(s.DiasReservados)</td>
+                <td>@(s.DiasACobrar)</td>
                 <td>@(s.Activo)</td>
                 <td>@(Model.Lodging.Rooms.Single(rm => rm.RoomId == s.IdUnidadPromo).RoomName)</td>
                 <td>@(Model.PromocionesType.Single(pt => pt.PromocionTypeId == s.PromocionTypeId).Nombre)</td>

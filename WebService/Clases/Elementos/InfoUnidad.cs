@@ -16,6 +16,7 @@ namespace Ineltur.WebService
         public int Desayuno { get; set; }
         public int Tarifa { get; set; }
         public bool TienePromocionNxM { get; set; }
+        public int? DiasACobrar { get; set; }
     }
     public class InfoUnidadReservada
     {

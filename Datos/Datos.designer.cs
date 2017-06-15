@@ -108,12 +108,12 @@ namespace Ineltur.Datos.Entidades
     partial void InsertTarifas_Alojamientos(Tarifas_Alojamientos instance);
     partial void UpdateTarifas_Alojamientos(Tarifas_Alojamientos instance);
     partial void DeleteTarifas_Alojamientos(Tarifas_Alojamientos instance);
-    partial void InsertPromociones_Alojamiento(Promociones_Alojamiento instance);
-    partial void UpdatePromociones_Alojamiento(Promociones_Alojamiento instance);
-    partial void DeletePromociones_Alojamiento(Promociones_Alojamiento instance);
     partial void InsertTipo_Promociones_Alojamiento(Tipo_Promociones_Alojamiento instance);
     partial void UpdateTipo_Promociones_Alojamiento(Tipo_Promociones_Alojamiento instance);
     partial void DeleteTipo_Promociones_Alojamiento(Tipo_Promociones_Alojamiento instance);
+    partial void InsertPromociones_Alojamiento(Promociones_Alojamiento instance);
+    partial void UpdatePromociones_Alojamiento(Promociones_Alojamiento instance);
+    partial void DeletePromociones_Alojamiento(Promociones_Alojamiento instance);
     #endregion
 		
 		public WebServiceDataContext() : 
@@ -354,19 +354,19 @@ namespace Ineltur.Datos.Entidades
 			}
 		}
 		
-		public System.Data.Linq.Table<Promociones_Alojamiento> Promociones_Alojamientos
-		{
-			get
-			{
-				return this.GetTable<Promociones_Alojamiento>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Tipo_Promociones_Alojamiento> Tipo_Promociones_Alojamientos
 		{
 			get
 			{
 				return this.GetTable<Tipo_Promociones_Alojamiento>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Promociones_Alojamiento> Promociones_Alojamientos
+		{
+			get
+			{
+				return this.GetTable<Promociones_Alojamiento>();
 			}
 		}
 		
@@ -10480,6 +10480,236 @@ namespace Ineltur.Datos.Entidades
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TIPO_PROMOCIONES_ALOJAMIENTO")]
+	public partial class Tipo_Promociones_Alojamiento : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDTIPOPROMOCION;
+		
+		private string _NOMBRE;
+		
+		private System.DateTime _FECHAALTA;
+		
+		private bool _ACTIVO;
+		
+		private string _DESCRIPCION;
+		
+		private System.Nullable<int> _TOPEDIASMAX;
+		
+		private System.Nullable<int> _TOPEDIASMIN;
+		
+		private System.Nullable<int> _CODIGO;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDTIPOPROMOCIONChanging(int value);
+    partial void OnIDTIPOPROMOCIONChanged();
+    partial void OnNOMBREChanging(string value);
+    partial void OnNOMBREChanged();
+    partial void OnFECHAALTAChanging(System.DateTime value);
+    partial void OnFECHAALTAChanged();
+    partial void OnACTIVOChanging(bool value);
+    partial void OnACTIVOChanged();
+    partial void OnDESCRIPCIONChanging(string value);
+    partial void OnDESCRIPCIONChanged();
+    partial void OnTOPEDIASMAXChanging(System.Nullable<int> value);
+    partial void OnTOPEDIASMAXChanged();
+    partial void OnTOPEDIASMINChanging(System.Nullable<int> value);
+    partial void OnTOPEDIASMINChanged();
+    partial void OnCODIGOChanging(System.Nullable<int> value);
+    partial void OnCODIGOChanged();
+    #endregion
+		
+		public Tipo_Promociones_Alojamiento()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOPROMOCION", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDTIPOPROMOCION
+		{
+			get
+			{
+				return this._IDTIPOPROMOCION;
+			}
+			set
+			{
+				if ((this._IDTIPOPROMOCION != value))
+				{
+					this.OnIDTIPOPROMOCIONChanging(value);
+					this.SendPropertyChanging();
+					this._IDTIPOPROMOCION = value;
+					this.SendPropertyChanged("IDTIPOPROMOCION");
+					this.OnIDTIPOPROMOCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100)")]
+		public string NOMBRE
+		{
+			get
+			{
+				return this._NOMBRE;
+			}
+			set
+			{
+				if ((this._NOMBRE != value))
+				{
+					this.OnNOMBREChanging(value);
+					this.SendPropertyChanging();
+					this._NOMBRE = value;
+					this.SendPropertyChanged("NOMBRE");
+					this.OnNOMBREChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAALTA", DbType="DateTime NOT NULL")]
+		public System.DateTime FECHAALTA
+		{
+			get
+			{
+				return this._FECHAALTA;
+			}
+			set
+			{
+				if ((this._FECHAALTA != value))
+				{
+					this.OnFECHAALTAChanging(value);
+					this.SendPropertyChanging();
+					this._FECHAALTA = value;
+					this.SendPropertyChanged("FECHAALTA");
+					this.OnFECHAALTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+		public bool ACTIVO
+		{
+			get
+			{
+				return this._ACTIVO;
+			}
+			set
+			{
+				if ((this._ACTIVO != value))
+				{
+					this.OnACTIVOChanging(value);
+					this.SendPropertyChanging();
+					this._ACTIVO = value;
+					this.SendPropertyChanged("ACTIVO");
+					this.OnACTIVOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this.OnDESCRIPCIONChanging(value);
+					this.SendPropertyChanging();
+					this._DESCRIPCION = value;
+					this.SendPropertyChanged("DESCRIPCION");
+					this.OnDESCRIPCIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOPEDIASMAX", DbType="Int")]
+		public System.Nullable<int> TOPEDIASMAX
+		{
+			get
+			{
+				return this._TOPEDIASMAX;
+			}
+			set
+			{
+				if ((this._TOPEDIASMAX != value))
+				{
+					this.OnTOPEDIASMAXChanging(value);
+					this.SendPropertyChanging();
+					this._TOPEDIASMAX = value;
+					this.SendPropertyChanged("TOPEDIASMAX");
+					this.OnTOPEDIASMAXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOPEDIASMIN", DbType="Int")]
+		public System.Nullable<int> TOPEDIASMIN
+		{
+			get
+			{
+				return this._TOPEDIASMIN;
+			}
+			set
+			{
+				if ((this._TOPEDIASMIN != value))
+				{
+					this.OnTOPEDIASMINChanging(value);
+					this.SendPropertyChanging();
+					this._TOPEDIASMIN = value;
+					this.SendPropertyChanged("TOPEDIASMIN");
+					this.OnTOPEDIASMINChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO", DbType="Int")]
+		public System.Nullable<int> CODIGO
+		{
+			get
+			{
+				return this._CODIGO;
+			}
+			set
+			{
+				if ((this._CODIGO != value))
+				{
+					this.OnCODIGOChanging(value);
+					this.SendPropertyChanging();
+					this._CODIGO = value;
+					this.SendPropertyChanged("CODIGO");
+					this.OnCODIGOChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PROMOCIONES_ALOJAMIENTO")]
 	public partial class Promociones_Alojamiento : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -10500,7 +10730,9 @@ namespace Ineltur.Datos.Entidades
 		
 		private System.Nullable<System.DateTime> _FECHAFIN;
 		
-		private System.Nullable<int> _DURACION;
+		private System.Nullable<int> _DIASACOBRAR;
+		
+		private System.Nullable<int> _DIASRESERVADOS;
 		
 		private bool _ACTIVO;
 		
@@ -10544,8 +10776,10 @@ namespace Ineltur.Datos.Entidades
     partial void OnFECHAINICIOChanged();
     partial void OnFECHAFINChanging(System.Nullable<System.DateTime> value);
     partial void OnFECHAFINChanged();
-    partial void OnDURACIONChanging(System.Nullable<int> value);
-    partial void OnDURACIONChanged();
+    partial void OnDIASACOBRARChanging(System.Nullable<int> value);
+    partial void OnDIASACOBRARChanged();
+    partial void OnDIASRESERVADOSChanging(System.Nullable<int> value);
+    partial void OnDIASRESERVADOSChanged();
     partial void OnACTIVOChanging(bool value);
     partial void OnACTIVOChanged();
     partial void OnFECHAALTAChanging(System.DateTime value);
@@ -10717,22 +10951,42 @@ namespace Ineltur.Datos.Entidades
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DURACION", DbType="Int")]
-		public System.Nullable<int> DURACION
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIASACOBRAR", DbType="Int")]
+		public System.Nullable<int> DIASACOBRAR
 		{
 			get
 			{
-				return this._DURACION;
+				return this._DIASACOBRAR;
 			}
 			set
 			{
-				if ((this._DURACION != value))
+				if ((this._DIASACOBRAR != value))
 				{
-					this.OnDURACIONChanging(value);
+					this.OnDIASACOBRARChanging(value);
 					this.SendPropertyChanging();
-					this._DURACION = value;
-					this.SendPropertyChanged("DURACION");
-					this.OnDURACIONChanged();
+					this._DIASACOBRAR = value;
+					this.SendPropertyChanged("DIASACOBRAR");
+					this.OnDIASACOBRARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIASRESERVADOS", DbType="Int")]
+		public System.Nullable<int> DIASRESERVADOS
+		{
+			get
+			{
+				return this._DIASRESERVADOS;
+			}
+			set
+			{
+				if ((this._DIASRESERVADOS != value))
+				{
+					this.OnDIASRESERVADOSChanging(value);
+					this.SendPropertyChanging();
+					this._DIASRESERVADOS = value;
+					this.SendPropertyChanged("DIASRESERVADOS");
+					this.OnDIASRESERVADOSChanged();
 				}
 			}
 		}
@@ -10973,236 +11227,6 @@ namespace Ineltur.Datos.Entidades
 					this._IDTIPOPUBLICACIONPROMO = value;
 					this.SendPropertyChanged("IDTIPOPUBLICACIONPROMO");
 					this.OnIDTIPOPUBLICACIONPROMOChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TIPO_PROMOCIONES_ALOJAMIENTO")]
-	public partial class Tipo_Promociones_Alojamiento : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IDTIPOPROMOCION;
-		
-		private string _NOMBRE;
-		
-		private System.DateTime _FECHAALTA;
-		
-		private bool _ACTIVO;
-		
-		private string _DESCRIPCION;
-		
-		private System.Nullable<int> _TOPEDIASMAX;
-		
-		private System.Nullable<int> _TOPEDIASMIN;
-		
-		private System.Nullable<int> _CODIGO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDTIPOPROMOCIONChanging(int value);
-    partial void OnIDTIPOPROMOCIONChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnFECHAALTAChanging(System.DateTime value);
-    partial void OnFECHAALTAChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnTOPEDIASMAXChanging(System.Nullable<int> value);
-    partial void OnTOPEDIASMAXChanged();
-    partial void OnTOPEDIASMINChanging(System.Nullable<int> value);
-    partial void OnTOPEDIASMINChanged();
-    partial void OnCODIGOChanging(System.Nullable<int> value);
-    partial void OnCODIGOChanged();
-    #endregion
-		
-		public Tipo_Promociones_Alojamiento()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOPROMOCION", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IDTIPOPROMOCION
-		{
-			get
-			{
-				return this._IDTIPOPROMOCION;
-			}
-			set
-			{
-				if ((this._IDTIPOPROMOCION != value))
-				{
-					this.OnIDTIPOPROMOCIONChanging(value);
-					this.SendPropertyChanging();
-					this._IDTIPOPROMOCION = value;
-					this.SendPropertyChanged("IDTIPOPROMOCION");
-					this.OnIDTIPOPROMOCIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100)")]
-		public string NOMBRE
-		{
-			get
-			{
-				return this._NOMBRE;
-			}
-			set
-			{
-				if ((this._NOMBRE != value))
-				{
-					this.OnNOMBREChanging(value);
-					this.SendPropertyChanging();
-					this._NOMBRE = value;
-					this.SendPropertyChanged("NOMBRE");
-					this.OnNOMBREChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAALTA", DbType="DateTime NOT NULL")]
-		public System.DateTime FECHAALTA
-		{
-			get
-			{
-				return this._FECHAALTA;
-			}
-			set
-			{
-				if ((this._FECHAALTA != value))
-				{
-					this.OnFECHAALTAChanging(value);
-					this.SendPropertyChanging();
-					this._FECHAALTA = value;
-					this.SendPropertyChanged("FECHAALTA");
-					this.OnFECHAALTAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
-		public bool ACTIVO
-		{
-			get
-			{
-				return this._ACTIVO;
-			}
-			set
-			{
-				if ((this._ACTIVO != value))
-				{
-					this.OnACTIVOChanging(value);
-					this.SendPropertyChanging();
-					this._ACTIVO = value;
-					this.SendPropertyChanged("ACTIVO");
-					this.OnACTIVOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
-		public string DESCRIPCION
-		{
-			get
-			{
-				return this._DESCRIPCION;
-			}
-			set
-			{
-				if ((this._DESCRIPCION != value))
-				{
-					this.OnDESCRIPCIONChanging(value);
-					this.SendPropertyChanging();
-					this._DESCRIPCION = value;
-					this.SendPropertyChanged("DESCRIPCION");
-					this.OnDESCRIPCIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOPEDIASMAX", DbType="Int")]
-		public System.Nullable<int> TOPEDIASMAX
-		{
-			get
-			{
-				return this._TOPEDIASMAX;
-			}
-			set
-			{
-				if ((this._TOPEDIASMAX != value))
-				{
-					this.OnTOPEDIASMAXChanging(value);
-					this.SendPropertyChanging();
-					this._TOPEDIASMAX = value;
-					this.SendPropertyChanged("TOPEDIASMAX");
-					this.OnTOPEDIASMAXChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOPEDIASMIN", DbType="Int")]
-		public System.Nullable<int> TOPEDIASMIN
-		{
-			get
-			{
-				return this._TOPEDIASMIN;
-			}
-			set
-			{
-				if ((this._TOPEDIASMIN != value))
-				{
-					this.OnTOPEDIASMINChanging(value);
-					this.SendPropertyChanging();
-					this._TOPEDIASMIN = value;
-					this.SendPropertyChanged("TOPEDIASMIN");
-					this.OnTOPEDIASMINChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO", DbType="Int")]
-		public System.Nullable<int> CODIGO
-		{
-			get
-			{
-				return this._CODIGO;
-			}
-			set
-			{
-				if ((this._CODIGO != value))
-				{
-					this.OnCODIGOChanging(value);
-					this.SendPropertyChanging();
-					this._CODIGO = value;
-					this.SendPropertyChanged("CODIGO");
-					this.OnCODIGOChanged();
 				}
 			}
 		}

@@ -476,14 +476,15 @@
       <Column Name="DESCRIPCION2" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
       <Column Name="FECHAINICIO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="FECHAFIN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DURACION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIASACOBRAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIASRESERVADOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ACTIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="FECHAALTA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="FECHAPUBLICACION" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="FECHABAJAPUBLICACION" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="IDUNIDADPROMO" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="FINVIGENCIAINDEFINIDO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="true" />
-      <Column Name="FECHAFINPUBLICACION" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="true" />
+      <Column Name="FINVIGENCIAINDEFINIDO" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FECHAFINPUBLICACION" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="BLOQUEACUPOS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="SLOGAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="MINIMONOCHES" Type="System.Int32" DbType="Int" CanBeNull="true" />
