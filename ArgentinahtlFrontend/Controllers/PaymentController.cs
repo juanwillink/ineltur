@@ -35,7 +35,8 @@ namespace CheckArgentina.Controllers
                 {
                     using (var dc = new TurismoDataContext())
                     {
-                        var promocion = dc.Promociones_Alojamientos.SingleOrDefault(p => p.IDUNIDADPROMO.ToString() == vacancy.VacancyId);
+                        var promocion = dc.Promociones_Alojamientos.SingleOrDefault(p => p.IDUNIDADPROMO.ToString() == vacancy.VacancyId && 
+                                        p.DIASRESERVADOS == (reservation.Vacancies.FirstOrDefault().VacancyCheckout - reservation.Vacancies.FirstOrDefault().VacancyCheckin).TotalDays);
                         var nochesARestar = promocion.DIASRESERVADOS - promocion.DIASACOBRAR;
                         SessionData.Reservation.PromotionPrice = SessionData.Reservation.TotalAmount;
                         for (int i = 0; i < nochesARestar; i++)

@@ -655,7 +655,7 @@ namespace Ineltur.WebService
 
                                 foreach (var unidad in alojamientoDisponible.Alojamiento.Unidades)
                                 {
-                                    var promocion = dc.Promociones_Alojamientos.SingleOrDefault(p => p.IDUNIDADPROMO == unidad.IdUnidad);
+                                    var promocion = dc.Promociones_Alojamientos.SingleOrDefault(p => p.IDUNIDADPROMO == unidad.IdUnidad && p.DIASRESERVADOS == (petition.FechaFin - petition.FechaInicio).TotalDays);
                                     if (promocion != null)
                                     {
                                         switch (promocion.IDTIPOPUBLICACIONPROMO)
