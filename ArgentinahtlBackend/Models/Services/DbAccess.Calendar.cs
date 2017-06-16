@@ -222,7 +222,7 @@ namespace ArgentinahtlMVC.Models.Services
         {
             using (var dc = new TurismoDataContext())
             {
-                var tarifas = dc.Tarifas_Alojamientos.Where(s => s.IdAloj == lodgingId &&
+                var tarifas = dc.Tarifas_Alojamientos.Where(s => s.IdAloj == lodgingId && s.IdNacionalidad == nacionalidad &&
                     ((s.FechaDesde <= startDate && startDate <= s.FechaHasta) ||
                     (s.FechaDesde <= endDate && endDate <= s.FechaHasta)));
 
