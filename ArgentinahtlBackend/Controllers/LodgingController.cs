@@ -173,7 +173,7 @@ namespace ArgentinahtlMVC.Controllers
         [UserProfile(UserProfile.Administrator)]
         public ActionResult CreateSeason(SeasonModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 if (DbAccess.CreateSeason(model.SeasonName, model.LodgingId.GetValueOrDefault(),
                         model.StartDate, model.EndDate, model.SeasonTypeId.GetValueOrDefault(), model.Deadline))
@@ -290,7 +290,7 @@ namespace ArgentinahtlMVC.Controllers
         // URL: /Management/DeleteUser
         // **************************************
         [HttpPost]
-        [UserProfile(UserProfile.Superadmin)]
+        [UserProfile(UserProfile.Administrator)]
         public ActionResult DeleteSeason(Guid seasonId)
         {
             if (DbAccess.DeleteSeason(seasonId, true))
