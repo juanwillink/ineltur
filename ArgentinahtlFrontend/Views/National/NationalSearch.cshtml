@@ -47,6 +47,28 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nacionalidad</label>
+                    <select class="form-control" id="nationalityFilter">
+                        <option value="arg">Argentina</option>
+                        <option value="mer">Mercosur</option>
+                        <option value="ext">Exterior</option>
+                    </select>
+                </div>        
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Tipo de Habitacion</label>
+                    <select class="form-control" id="roomTypeFilter">
+                        <option selected value="">Todas</option>
+                        <option value="single">Single</option>
+                        <option value="doble">Doble</option>
+                        <option value="triple">Triple</option>
+                        <option value="cuadruple">Cuadruple</option>
+                    </select>
+                </div>     
+            </div>
         </form>   
         <button class="btn btn-default" id="searchHotelsButton" onclick="searchHotels();">
             <span class="glyphicon glyphicon-search"></span> Buscar

@@ -749,13 +749,17 @@ namespace Ineltur.WebService
             {
                 if (array[i] != null)
                 {
-                    if (array[i] < array[i + 1])
+                    if (array[i + 1] != null)
                     {
-                        montoMenor = array[i];
-                    }
-                    else
-                    {
-                        montoMenor = array[i];
+                        if (array[i] < array[i + 1])
+                        {
+
+                            if (array[i] < montoMenor || montoMenor == 0)
+                            {
+                                montoMenor = array[i];
+                            }
+
+                        }
                     }
                 }
             }
