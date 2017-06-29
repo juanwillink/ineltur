@@ -144,8 +144,10 @@ namespace CheckArgentina.Controllers
         public ActionResult SearchHotels(SearchLodgingRequestModel searchLodgingRequestModel)
         {
             SessionData.UserCredential = Manager.GetCredential(Session["userkey"].ToString());
-            if (SessionData.User.UserId == Guid.Empty)
+            if (SessionData.UserCredential.Username == null)
+            {
                 return View("Home");
+            }
             searchLodgingRequestModel.DestinationType = string.IsNullOrEmpty(searchLodgingRequestModel.DestinationId) ? "NoEspecificado" : "Ciudad";
             if (searchLodgingRequestModel.Rooms != null)
             {
