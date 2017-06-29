@@ -761,6 +761,10 @@ namespace Ineltur.WebService
 
                         }
                     }
+                    else
+                    {
+                        montoMenor = array[i];
+                    }
                 }
             }
             return montoMenor;
