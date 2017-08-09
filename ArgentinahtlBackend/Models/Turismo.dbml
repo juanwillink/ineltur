@@ -488,6 +488,7 @@
       <Column Name="BLOQUEACUPOS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="SLOGAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="MINIMONOCHES" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MAXIMONOCHES" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DESCUENTO" Type="System.Single" DbType="Real" CanBeNull="true" />
       <Column Name="IDTIPOPUBLICACIONPROMO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>

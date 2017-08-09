@@ -335,7 +335,9 @@ namespace CheckArgentina.Managers
                                     Available = true,
                                     ConfirmedVacancyPrice = v.MontoPorUnidad,
                                     TienePromocionNxM = v.TienePromocionNxM,
-
+                                    TienePromocionMinimoMaximo = v.TienePromocionMinimoMaximo,
+                                    MinimoNoches = v.MinimoDias,
+                                    MaximoNoches = v.MaximoDias,
                                     Rooms = new List<RoomModel>{
                                         new RoomModel{
                                             RoomId = v.IdUnidad.ToString(),

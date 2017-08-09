@@ -67,7 +67,7 @@ function buildAvailableRooms(vacancies) {
                         "<td>" + vacancy["VacancyAdults"] + "</td>" +
                         "<td>$" + vacancy["VacancyPrice"] + "</td>" +
                         '<td>' +
-                            '<button class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ')">Reservar</button>' +
+                            '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ')">Reservar</button>' +
                             '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
                         '</td>' +
                     "</tr>" +
@@ -76,10 +76,25 @@ function buildAvailableRooms(vacancies) {
     }
     $("#AvailableRoomsDiv").append(body);
     for (var key in vacancies) {
-        debugger;
         var vacancy = vacancies[key];
+        var dateParts = $("#checkinDate").val().split("-");
+        var checkinDate = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]);
+        dateParts = $("#checkoutDate").val().split("-");
+        var checkoutDate = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]);
+        var oneDay = 24 * 60 * 60 * 1000;
+        var diffDays = Math.round(Math.abs((checkoutDate.getTime() - checkinDate.getTime()) / (oneDay)));
+        debugger;
         if (vacancy["TienePromocionNxM"] == true) {
             $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Noches Free</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
+        } else if (vacancy["TienePromocionMinimoMaximo"]) {
+            if (diffDays < vacancy["MinimoNoches"]) {
+                $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + vacancy["MinimoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
+                $("#vacancy_" + key + "_reservarBtn").hide();
+            }
+            if (diffDays > vacancy["MaximoNoches"]) {
+                $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + vacancy["MaximoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
+                $("#vacancy_" + key + "_reservarBtn").hide();
+            }
         }
     }
     $("#spinner2").fadeOut('slow', function () {
@@ -120,7 +135,6 @@ function checkHotelAvailability() {
 }
 
 function checkHotelAvailabilityForReservation(lodgingName, destinationId, vacancycheckinDate, vacancycheckoutDate) {
-    debugger;
     var from1 = vacancycheckinDate.split("/");
     var from1Year = from1[2].split(" ");
     var from2 = vacancycheckoutDate.split("/");
@@ -128,7 +142,6 @@ function checkHotelAvailabilityForReservation(lodgingName, destinationId, vacanc
     var checkinDate = new Date(from1Year[0], from1[1] - 1, from1[0]);
     var checkoutDate = new Date(from2Year[0], from2[1] - 1, from2[0]);
     $("#hotelName2").val(lodgingName);
-    debugger;
     var oldVacanciesCount = $("[id^=vacancyDiv]").length;
     var singleRoom = {
         "RoomTypeCode": "single"
@@ -143,7 +156,6 @@ function checkHotelAvailabilityForReservation(lodgingName, destinationId, vacanc
         "RoomTypeCode": "cuadruple"
     };
     var rooms = [singleRoom, dobleRoom, tripleRoom, cuadrupleRoom]
-    debugger;
     for (var i = 0; i < oldVacanciesCount; i++) {
         var vacancyTypeCount = $("#reserved_vacancy_vacancyReserved_" + i).val();
         for (var j = 0; j < vacancyTypeCount; j++) {
@@ -241,7 +253,6 @@ function noRoomsFound() {
 }
 
 function empezarReservaHabitacion(vacancyNumber) {
-    debugger;
     var roomsElements = $("[id^=vacancy_" + vacancyNumber + "_Room_]");
     var checkinDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckin").val().substr(6)));
     var checkoutDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckout").val().substr(6)));
@@ -250,7 +261,6 @@ function empezarReservaHabitacion(vacancyNumber) {
     var desayuno = $("#vacancy_" + vacancyNumber + "_Breakfast").val();
     var tarifa = $("#vacancy_" + vacancyNumber + "_Tarifa").val();
     var tienePromocion = false;
-    debugger;
     if (result) {
         tienePromocionNxM = true;
         tienePromocion = true;
@@ -300,7 +310,6 @@ function empezarReservaHabitacion(vacancyNumber) {
 
         },
         success: function (data) {
-            debugger;
             window.location.href = "/Payment/OpenConfirmation";
         },
         error: function () {
@@ -350,11 +359,9 @@ function eliminarPasajero(nombre, apellido) {
 
         },
         success: function (data) {
-            debugger;
             window.location.href = "/Payment/OpenConfirmation";
         },
         error: function (data) {
-            debugger;
         }
     });
 }
@@ -464,7 +471,6 @@ function borrarHabitacion(vacancyId) {
     var values = {
         vacancyId: vacancyId
     };
-    debugger;
     $.ajax({
         url: "../Payment/BorrarHabitacion",
         dataType: "json",

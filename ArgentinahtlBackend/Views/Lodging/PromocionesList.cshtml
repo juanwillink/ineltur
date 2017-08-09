@@ -91,6 +91,7 @@
             <th><span>Nombre Tipo Promo</span></th>
             <th><span>Slogan</span></th>
             <th><span>Minimo Noches</span></th>
+            <th><span>Maximo Noches</span></th>
             <th><span>Descuento</span></th>
         </tr>
     </thead>
@@ -110,6 +111,7 @@
                 <td>@(Model.PromocionesType.Single(pt => pt.PromocionTypeId == s.PromocionTypeId).Nombre)</td>
                 <td>@(s.Slogan)</td>
                 <td>@(s.MinimoNoches)</td>
+                <td>@(s.MaximoNoches)</td>
                 <td>@(s.Descuento)</td>
                 <td>
                     <a class="link_options" href="@Url.Content("~/Lodging/EditPromocion?promocionId="+s.PromocionId)"><img src="@Url.Content("~/Content/edit.png")" title="Editar" /></a>

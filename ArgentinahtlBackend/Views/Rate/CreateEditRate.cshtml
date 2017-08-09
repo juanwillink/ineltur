@@ -122,6 +122,18 @@
             montoRACDTR = $('#UnidadAlojamiento_RoomCost').val();
         }
 
+        var MontoEXTCDTR= $('#MontoEXTCDTR').val();
+        var MontoMERCDTR= $('#MontoMERCDTR').val();
+        var MontoRASDTR= $('#MontoRASDTR').val();
+        var MontoEXTSDTR= $('#MontoEXTSDTR').val();
+        var MontoMERSDTR= $('#MontoMERSDTR').val();
+        var MontoRACDTNR= $('#MontoRACDTNR').val();
+        var MontoEXTCDTNR= $('#MontoEXTCDTNR').val();
+        var MontoMERCDTNR= $('#MontoMERCDTNR').val();
+        var MontoRASDTNR= $('#MontoRASDTNR').val();
+        var MontoEXTSDTNR= $('#MontoEXTSDTNR').val();
+        var MontoMERSDTNR= $('#MontoMERSDTNR').val();
+
         $.ajax({
             type: "POST",
             url: '@(Model.Id != default(Guid) ? Url.Action("EditRate", "Rate") : Url.Action("CreateOrUpdateRates", "Rate"))',
@@ -132,18 +144,18 @@
                 StartDate: startDate.toDateString(),
                 EndDate: endDate.toDateString(),
                 FechaAlta: dateOfRegistration.toDateString(),
-                MontoRACDTR: montoRACDTR,
-                MontoEXTCDTR: $('#MontoEXTCDTR').val(),
-                MontoMERCDTR: $('#MontoMERCDTR').val(),
-                MontoRASDTR: $('#MontoRASDTR').val(),
-                MontoEXTSDTR: $('#MontoEXTSDTR').val(),
-                MontoMERSDTR: $('#MontoMERSDTR').val(),
-                MontoRACDTNR: $('#MontoRACDTNR').val(),
-                MontoEXTCDTNR: $('#MontoEXTCDTNR').val(),
-                MontoMERCDTNR: $('#MontoMERCDTNR').val(),
-                MontoRASDTNR: $('#MontoRASDTNR').val(),
-                MontoEXTSDTNR: $('#MontoEXTSDTNR').val(),
-                MontoMERSDTNR: $('#MontoMERSDTNR').val(),
+                MontoRACDTR: montoRACDTR.replace(".",","),
+                MontoEXTCDTR: MontoEXTCDTR.replace(".",","),
+                MontoMERCDTR: MontoMERCDTR.replace(".",","),
+                MontoRASDTR: MontoRASDTR.replace(".",","),
+                MontoEXTSDTR: MontoEXTSDTR.replace(".",","),
+                MontoMERSDTR: MontoMERSDTR.replace(".",","),
+                MontoRACDTNR: MontoRACDTNR.replace(".",","),
+                MontoEXTCDTNR: MontoEXTCDTNR.replace(".",","),
+                MontoMERCDTNR: MontoMERCDTNR.replace(".",","),
+                MontoRASDTNR: MontoRASDTNR.replace(".",","),
+                MontoEXTSDTNR: MontoEXTSDTNR.replace(".",","),
+                MontoMERSDTNR: MontoMERSDTNR.replace(".",","),
                 Lun: $('input[name="Lun"]').is(':checked') ? true : false,
                 Mar: $('input[name="Mar"]').is(':checked') ? true : false,
                 Mie: $('input[name="Mie"]').is(':checked') ? true : false,

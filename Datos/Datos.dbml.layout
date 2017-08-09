@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 20.25, 27.875" name="DataModel">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17.375, 27.875" name="DataModel">
   <DataContextMoniker Name="/WebServiceDataContext" />
   <nestedChildShapes>
     <classShape Id="44c5fd61-dfdc-41e7-bb6d-d5c63b137a65" absoluteBounds="0.75, 19.125, 2, 2.3478011067708344">
@@ -62,7 +62,7 @@
         <elementListCompartment Id="23b62b70-ad51-4ef2-9fee-394e2cd7a3ca" absoluteBounds="12.015000000596046, 13.08500000089407, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.25 : 9.68350341796875); (9 : 9.68350341796875); (9 : 13.2419254557292); (11.5416666666667 : 13.2419254557292 : JumpStart); (11.7083333333333 : 13.2419254557292 : JumpEnd); (11.75 : 13.2419254557292); (11.75 : 10.9728011067708); (13 : 10.9728011067708); (13 : 12.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.25 : 9.68350341796875); (9 : 9.68350341796875); (9 : 13.2419254557292); (11.75 : 13.2419254557292); (11.75 : 10.9728011067708); (13 : 10.9728011067708); (13 : 12.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WebServiceDataContext/UnidadAlojamiento/UnidadAlojamiento_UnidadTemporada" />
       <nodes>
         <classShapeMoniker Id="acda6f7c-b4c8-44b4-9c46-0279582fdb1f" />
@@ -182,7 +182,7 @@
         <classShapeMoniker Id="8b857290-e486-4ef1-b0ec-b66cc5bb99d8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 17.7911185706034); (11.5416666666667 : 17.7911185706034 : JumpStart); (11.7083333333333 : 17.7911185706034 : JumpEnd); (13 : 17.7911185706034); (13 : 14.3785424809903)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.25 : 17.7911185706034); (13 : 17.7911185706034); (13 : 14.3785424809903)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WebServiceDataContext/Temporada/Temporada_UnidadTemporada" />
       <nodes>
         <classShapeMoniker Id="8b857290-e486-4ef1-b0ec-b66cc5bb99d8" />
@@ -291,7 +291,7 @@
         <classShapeMoniker Id="0264d9dd-8c6a-418e-bd18-3bb894c220e1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(0.75 : 19.125); (0.375 : 18.75); (0.375 : 9.08957294330929); (0.50357443490112 : 8.96099850840817 : JumpStart); (0.621425565098879 : 8.84314737821041 : JumpEnd); (0.751537461538462 : 8.71303548177083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(0.75 : 19.125); (0.375 : 18.75); (0.375 : 9.08957294330929); (0.751537461538462 : 8.71303548177083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WebServiceDataContext/Ciudad/Ciudad_Usuario" />
       <nodes>
         <classShapeMoniker Id="44c5fd61-dfdc-41e7-bb6d-d5c63b137a65" />
@@ -430,10 +430,10 @@
         <elementListCompartment Id="7be8898d-2c1d-4bc6-927d-2280d64eff0d" absoluteBounds="15.015, 8.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="73a48f07-bcf6-4756-8aa3-2634f2569890" absoluteBounds="18, 5.25, 2, 4.8477197265625">
+    <classShape Id="f998b397-8026-4456-a3a3-88cb34d991a0" absoluteBounds="15.125, 11.25, 2, 5.0400211588541657">
       <DataClassMoniker Name="/WebServiceDataContext/Promociones_Alojamiento" />
       <nestedChildShapes>
-        <elementListCompartment Id="9adb3d61-e18a-4f72-b06b-1b2e383a9c79" absoluteBounds="18.015, 5.71, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="da8a04ff-00a5-413b-a9cf-ffc42bb64d20" absoluteBounds="15.14, 11.71, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

@@ -88,6 +88,7 @@ namespace ArgentinahtlMVC.Models.Services
                 DiasACobrar = promocion.DIASACOBRAR,
                 Descuento = promocion.DESCUENTO,
                 MinimoNoches = promocion.MINIMONOCHES,
+                MaximoNoches = promocion.MAXIMONOCHES,
                 Slogan = promocion.SLOGAN
             };
         }
@@ -277,6 +278,7 @@ namespace ArgentinahtlMVC.Models.Services
                     FECHAFINPUBLICACION = null,
                     FECHAPUBLICACION = DateTime.Today.Date,
                     MINIMONOCHES = model.MinimoNoches,
+                    MAXIMONOCHES = model.MaximoNoches,
                     FINVIGENCIAINDEFINIDO = null,
                     IDTIPOPUBLICACIONPROMO = model.PromocionTypeId,
                     IDUNIDADPROMO = model.IdUnidadPromo,
@@ -376,6 +378,7 @@ namespace ArgentinahtlMVC.Models.Services
                     promocion.IDTIPOPUBLICACIONPROMO = model.PromocionTypeId;
                     promocion.IDUNIDADPROMO = model.IdUnidadPromo;
                     promocion.MINIMONOCHES = model.MinimoNoches;
+                    promocion.MAXIMONOCHES = model.MaximoNoches;
                     promocion.SLOGAN = model.Slogan;
 
                     dc.SubmitChanges();

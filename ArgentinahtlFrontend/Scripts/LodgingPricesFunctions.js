@@ -2,9 +2,19 @@
     debugger;
     $("#lodgingId").val(lodgingId);
     $("#lodging-prices-modalLabel").text("Tarifas para el hotel " + lodgingName)
-    var values = {
-        "LodgingId": lodgingId
-    };
+    if ($("#checkinDate").val() != undefined) {
+        var date = $("#checkinDate").val().split("-");
+        var newDate = date[2] + "/" + date[1] + "/" + date[0];
+        var values = {
+            "LodgingId": lodgingId,
+            "dateString": newDate
+        }
+    } else {
+        var values = {
+            "LodgingId": lodgingId
+        };
+    }
+    
     $.ajax({
         url: '../Login/SearchLodgingWeeklyPrices',
         dataType: "json",

@@ -46,6 +46,10 @@ namespace CheckArgentina.Controllers
                     }
                     
                 }
+                if (vacancy.TienePromocionMinimoMaximo)
+                {
+
+                }
             }
 
             ModelState.Clear();

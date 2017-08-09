@@ -185,6 +185,9 @@ namespace ArgentinahtlMVC.Models
         [Display(Name = "Minimo Noches")]
         public int? MinimoNoches { get; set; }
 
+        [Display(Name = "Maximo Noches")]
+        public int? MaximoNoches { get; set; }
+
         [Display(Name = "Descuento")]
         public float? Descuento { get; set; }
     }

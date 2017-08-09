@@ -10758,6 +10758,8 @@ namespace ArgentinahtlBackend.Models
 		
 		private System.Nullable<int> _MINIMONOCHES;
 		
+		private System.Nullable<int> _MAXIMONOCHES;
+		
 		private System.Nullable<float> _DESCUENTO;
 		
 		private int _IDTIPOPUBLICACIONPROMO;
@@ -10804,6 +10806,8 @@ namespace ArgentinahtlBackend.Models
     partial void OnSLOGANChanged();
     partial void OnMINIMONOCHESChanging(System.Nullable<int> value);
     partial void OnMINIMONOCHESChanged();
+    partial void OnMAXIMONOCHESChanging(System.Nullable<int> value);
+    partial void OnMAXIMONOCHESChanged();
     partial void OnDESCUENTOChanging(System.Nullable<float> value);
     partial void OnDESCUENTOChanged();
     partial void OnIDTIPOPUBLICACIONPROMOChanging(int value);
@@ -11191,6 +11195,26 @@ namespace ArgentinahtlBackend.Models
 					this._MINIMONOCHES = value;
 					this.SendPropertyChanged("MINIMONOCHES");
 					this.OnMINIMONOCHESChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAXIMONOCHES", DbType="Int")]
+		public System.Nullable<int> MAXIMONOCHES
+		{
+			get
+			{
+				return this._MAXIMONOCHES;
+			}
+			set
+			{
+				if ((this._MAXIMONOCHES != value))
+				{
+					this.OnMAXIMONOCHESChanging(value);
+					this.SendPropertyChanging();
+					this._MAXIMONOCHES = value;
+					this.SendPropertyChanged("MAXIMONOCHES");
+					this.OnMAXIMONOCHESChanged();
 				}
 			}
 		}

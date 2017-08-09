@@ -655,29 +655,45 @@ namespace Ineltur.WebService
 
                                 foreach (var unidad in alojamientoDisponible.Alojamiento.Unidades)
                                 {
-                                    var promocion = dc.Promociones_Alojamientos.SingleOrDefault(p => p.IDUNIDADPROMO == unidad.IdUnidad && p.DIASRESERVADOS == (petition.FechaFin - petition.FechaInicio).TotalDays);
-                                    if (promocion != null)
+                                    var promociones = dc.Promociones_Alojamientos.Where(p => p.IDUNIDADPROMO == unidad.IdUnidad &&
+                                        p.FECHAINICIO < petition.FechaInicio && p.FECHAFIN > petition.FechaFin &&
+                                        p.FECHAINICIO < petition.FechaFin && p.FECHAFIN > petition.FechaFin &&
+                                        p.ACTIVO == true).ToArray();
+
+                                    if (promociones != null)
                                     {
-                                        switch (promocion.IDTIPOPUBLICACIONPROMO)
+                                        foreach (var promocion in promociones)
                                         {
-                                            case 1:
-                                                var noches = (petition.FechaFin - petition.FechaInicio).TotalDays;
-                                                if (noches == promocion.DIASRESERVADOS)
-                                                {
-                                                    unidad.TienePromocionNxM = true;
-                                                    unidad.DiasACobrar = promocion.DIASACOBRAR;
-                                                    alojamientoDisponible.Alojamiento.TienePromocion = true;
-                                                }
-                                                break;
-                                            case 2:
-                                                break;
-                                            case 3:
-                                                break;
-                                            case 4:
-                                                break;
-                                            default:
-                                                break;
-                                        }
+                                            switch (promocion.IDTIPOPUBLICACIONPROMO)
+                                            {
+                                                case 1:
+                                                    var noches = (petition.FechaFin - petition.FechaInicio).TotalDays;
+                                                    if (noches == promocion.DIASRESERVADOS)
+                                                    {
+                                                        unidad.TienePromocionNxM = true;
+                                                        unidad.DiasACobrar = promocion.DIASACOBRAR;
+                                                        alojamientoDisponible.Alojamiento.TienePromocion = true;
+                                                    }
+                                                    break;
+                                                case 2:
+                                                    unidad.TienePromocionMinimoMaximo = true;
+                                                    if (promocion.MINIMONOCHES != null)
+                                                    {
+                                                        unidad.MinimoDias = promocion.MINIMONOCHES;
+                                                    }
+                                                    if (promocion.MAXIMONOCHES != null)
+                                                    {
+                                                        unidad.MaximoDias = promocion.MAXIMONOCHES;
+                                                    }
+                                                    break;
+                                                case 3:
+                                                    break;
+                                                case 4:
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                        }   
                                     }
                                 }
                             }

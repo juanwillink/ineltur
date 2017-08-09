@@ -60,6 +60,7 @@
                 PromocionTypeId: $('#PromocionTypeId').val(),
                 Slogan: $('#Slogan').val(),
                 MinimoNoches: $('#MinimoNoches').val(),
+                MaximoNoches: $('#MaximoNoches').val(),
                 Descuento: $('#Descuento').val(),
                 DiasReservados: $("#DiasReservados").val(),
                 DiasACobrar: $("#DiasACobrar").val()
@@ -125,6 +126,7 @@
         <tr><td>@Html.LabelFor(m => m.Activo)</td><td> <input type="radio" name="Activo" value="true" checked/> Si <input type="radio" name="Activo" value="False" /> No</td></tr>
         <tr><td>@Html.LabelFor(m => m.Slogan):</td><td>@Html.TextBoxFor(m => m.Slogan)</td></tr>
         <tr><td>@Html.LabelFor(m => m.MinimoNoches):</td><td>@Html.TextBoxFor(m => m.MinimoNoches)</td></tr>
+        <tr><td>@Html.LabelFor(m => m.MaximoNoches):</td><td>@Html.TextBoxFor(m => m.MaximoNoches)</td></tr>
         <tr><td>@Html.LabelFor(m => m.Descuento):</td><td>@Html.TextBoxFor(m => m.Descuento)</td></tr>
 
         <tr><td colspan="2"><a href="#" onclick="createEditPromocion()" class="link-button">Guardar</a></td></tr>

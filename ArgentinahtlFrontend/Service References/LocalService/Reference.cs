@@ -181,6 +181,14 @@ namespace CheckArgentina.LocalService {
         
         private bool tienePromocionNxMField;
         
+        private System.Nullable<int> diasACobrarField;
+        
+        private bool tienePromocionMinimoMaximoField;
+        
+        private System.Nullable<int> minimoDiasField;
+        
+        private System.Nullable<int> maximoDiasField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public System.Guid IdUnidad {
@@ -298,6 +306,54 @@ namespace CheckArgentina.LocalService {
             set {
                 this.tienePromocionNxMField = value;
                 this.RaisePropertyChanged("TienePromocionNxM");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        public System.Nullable<int> DiasACobrar {
+            get {
+                return this.diasACobrarField;
+            }
+            set {
+                this.diasACobrarField = value;
+                this.RaisePropertyChanged("DiasACobrar");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public bool TienePromocionMinimoMaximo {
+            get {
+                return this.tienePromocionMinimoMaximoField;
+            }
+            set {
+                this.tienePromocionMinimoMaximoField = value;
+                this.RaisePropertyChanged("TienePromocionMinimoMaximo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=12)]
+        public System.Nullable<int> MinimoDias {
+            get {
+                return this.minimoDiasField;
+            }
+            set {
+                this.minimoDiasField = value;
+                this.RaisePropertyChanged("MinimoDias");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
+        public System.Nullable<int> MaximoDias {
+            get {
+                return this.maximoDiasField;
+            }
+            set {
+                this.maximoDiasField = value;
+                this.RaisePropertyChanged("MaximoDias");
             }
         }
         
