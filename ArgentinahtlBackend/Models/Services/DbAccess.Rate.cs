@@ -180,6 +180,7 @@ namespace ArgentinahtlMVC.Models.Services
 
                             if (cupounidad != null)
                             {
+								//esta parte cambió
                                 if (model.CupoMaximo < cupounidad.CUPORESERVADO)
                                     cupounidad.CUPOMAXIMO = cupounidad.CUPORESERVADO;
                                 else
