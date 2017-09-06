@@ -181,7 +181,7 @@ namespace ArgentinahtlMVC.Models.Services
         {
             using (var dc = new TurismoDataContext())
             {
-                return dc.UnidadAlojamientos.Select(ua => MapRoom(ua)).ToList();
+                return dc.UnidadAlojamientos.Where(ua => ua.ACTIVO == true).Select(ua => MapRoom(ua)).ToList();
             }
         }
 
@@ -189,7 +189,7 @@ namespace ArgentinahtlMVC.Models.Services
         {
             using (var dc = new TurismoDataContext())
             {
-                return dc.UnidadAlojamientos.Where(ua => ua.IDALOJ == lodgingId).Select(ua => MapRoom(ua)).ToList();
+                return dc.UnidadAlojamientos.Where(ua => ua.IDALOJ == lodgingId  && ua.ACTIVO == true).Select(ua => MapRoom(ua)).ToList();
             }
         }
     }

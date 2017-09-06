@@ -32,19 +32,32 @@
     });
 
     function createEditPromocion() {
+
+        var rangosDeInicios = [];
+        var rangosDeFines = [];
+
+        $("[id^=StartDate]").each(function () {
+            var dateParts = $(this).val().split('/');
+            var startDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+            rangosDeInicios.push(startDate);
+        });
+
+        $("[id^=EndDate]").each(function () {
+            var dateParts = $(this).val().split('/');
+            var endDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+            rangosDeFines.push(endDate);
+        });
+
         debugger;
+
         var message = 'Error al guardar la Promocion.';
         var messageType = 'error';
 
         var Activo = $('input[name=Activo]:checked').val();
 
-        var dateParts = $('#StartDate').val().split('/');
-        var startDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+        for (var i = 0; i < rangosDeInicios.length; i++) {
 
-        dateParts = $('#EndDate').val().split('/');
-        var endDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
-
-        $.ajax({
+            $.ajax({
             type: "POST",
             url: '@(Model.PromocionId.ToString() == "00000000-0000-0000-0000-000000000000" ? Url.Action("CreatePromocion", "Lodging") : Url.Action("EditPromocion", "Lodging"))',
             data: {
@@ -53,8 +66,8 @@
                 Nombre: $('#Nombre').val(),
                 Descripcion1: $('#Descripcion1').val(),
                 Descripcion2: $('#Descripcion2').val(),
-                StartDate: startDate.toDateString(),
-                EndDate: endDate.toDateString(),
+                StartDate: rangosDeInicios[i].toDateString(),
+                EndDate: rangosDeFines[i].toDateString(),
                 Activo: Activo,
                 IdUnidadPromo: $('#IdUnidadPromo').val(),
                 PromocionTypeId: $('#PromocionTypeId').val(),
@@ -73,7 +86,7 @@
                     debugger;
                     message = 'Promocion guardada con éxito';
                     messageType = 'success';
-                    $.colorbox.close();
+                    //$.colorbox.close();
                 }
 
                 //$.colorbox.close();
@@ -84,13 +97,39 @@
                 debugger;
                 showNotification(message, messageType);
             }
-        });
+            });
 
-
+        }
+        $.colorbox.close();
         refreshPromocionesList();
 
         return false;
     }
+
+    $("#addRangoBtn").click(function (data) {
+        var target = $("#addRangoBtn").closest("tr");
+        var count = target.attr('name');
+        target.attr('name', (parseInt(count) + 1));
+        target.before("<tr><td><label>Fecha Inicio</label></td><td><input type='text' id='StartDate_" + (parseInt(count) + 1) + "'></td><td><label>Fecha Fin</label></td><td><input type='text' id='EndDate_" + (parseInt(count) + 1) + "'></td></tr>");
+
+        var options = {
+            dateFormat: 'dd/mm/yy',
+            yearRange: '-1:+0'
+        };
+
+        $.datepicker.setDefaults({
+            dateFormat: options.dateFormat,
+            yearRange: options.yearRange
+        });
+
+        $('#StartDate_' + (parseInt(count) + 1) + ', #EndDate_' + (parseInt(count) + 1)).datepicker();
+
+        $('#StartDate_' + (parseInt(count) + 1)).change(function () {
+            $('#EndDate_' + (parseInt(count) + 1)).datepicker('option', { minDate: addTimeToDate(1, 'd', $(this).datepicker('getDate'), false) });
+        });
+
+        $('#StartDate_' + (parseInt(count) + 1)).change();
+    })
 </script>
 
 <h2>@ViewBag.Title</h2>
@@ -105,8 +144,8 @@
         <tr><td>@Html.LabelFor(m => m.Nombre):</td><td>@Html.TextBoxFor(m => m.Nombre)</td></tr>
         <tr><td>@Html.LabelFor(m => m.Descripcion1):</td><td>@Html.TextAreaFor(m => m.Descripcion1)</td></tr>
         <tr><td>@Html.LabelFor(m => m.Descripcion2):</td><td>@Html.TextAreaFor(m => m.Descripcion2)</td></tr>
-        <tr><td>@Html.LabelFor(m => m.StartDate):</td><td>@Html.TextBoxFor(m => m.StartDate, "{0:dd/MM/yyyy}")</td></tr>
-        <tr><td>@Html.LabelFor(m => m.EndDate):</td><td>@Html.TextBoxFor(m => m.EndDate, "{0:dd/MM/yyyy}")</td></tr>
+        <tr><td>@Html.LabelFor(m => m.StartDate):</td><td>@Html.TextBoxFor(m => m.StartDate, "{0:dd/MM/yyyy}")</td><td>@Html.LabelFor(m => m.EndDate):</td><td>@Html.TextBoxFor(m => m.EndDate, "{0:dd/MM/yyyy}")</td></tr>
+        <tr name="0"><td><button id="addRangoBtn" type="button">Agregar Rango</button></td></tr>
         <tr><td>@Html.LabelFor(m => m.DiasReservados):</td><td>@Html.TextBoxFor(m => m.DiasReservados)</td></tr>
         <tr><td>@Html.LabelFor(m => m.DiasACobrar):</td><td>@Html.TextBoxFor(m => m.DiasACobrar)</td></tr>
         <tr>
@@ -118,7 +157,7 @@
         </tr>
         <tr>
             <td>@Html.LabelFor(m => m.IdUnidadPromo):</td>
-            <td>
+            <td colspan="2">
                 @Html.DropDownListFor(m => m.IdUnidadPromo,
             @Model.Lodging.Rooms.Select(st => new SelectListItem { Text = st.RoomName, Value = st.RoomId.ToString() })))
             </td>

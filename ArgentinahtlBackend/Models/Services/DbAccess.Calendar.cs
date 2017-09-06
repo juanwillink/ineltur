@@ -252,7 +252,9 @@ namespace ArgentinahtlMVC.Models.Services
             using (var dc = new TurismoDataContext())
             {
                 var promociones = dc.Promociones_Alojamientos.Where(p => p.IDALOJ == model.LodgingId &&
-                    ((p.DIASRESERVADOS == model.DiasReservados)));
+                    ((p.DIASRESERVADOS == model.DiasReservados)) &&
+                    ((p.FECHAINICIO <= model.StartDate && model.StartDate <= p.FECHAFIN) ||
+                    (p.FECHAINICIO <= model.EndDate && model.EndDate <= p.FECHAFIN)));
 
                 if (promociones != null && promociones.Count() > 0)
                 {
