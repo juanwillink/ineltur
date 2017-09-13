@@ -30,6 +30,12 @@
     }
 </script>
 
+<script>
+    $('table.tablesorter').floatThead({
+        position: 'fixed'
+    })
+</script>
+
 <form id="frmTarifas" action="">
 
 @Html.LabelFor(m => m.Rates[0].UnidadAlojamiento.RoomName): @Html.TextBoxFor(m => m.Rates[0].UnidadAlojamiento.RoomName, new { style = "width:20%", disabled = "disabled" })

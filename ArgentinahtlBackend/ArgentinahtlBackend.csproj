@@ -318,6 +318,7 @@
     <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.colorbox-min.js" />
     <Content Include="Scripts\jquery.contextMenu.js" />
+    <Content Include="Scripts\jquery.floatThead.js" />
     <Content Include="Scripts\jquery.multiselect.min.js" />
     <Content Include="Scripts\jquery.noty.js" />
     <Content Include="Scripts\jquery.sexy-combo.min.js" />
@@ -420,7 +421,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51569</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

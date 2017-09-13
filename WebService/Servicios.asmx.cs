@@ -180,7 +180,7 @@ namespace Ineltur.WebService
                 if (dc2 == null) dc2 = NuevoDataContext();
 
                 Usuario user = dc2.Usuarios.Where(u => u.NombreUsuario == peticion.Usuario &&
-                        u.Clave == peticion.Clave).SingleOrDefault();
+                        u.Clave == peticion.Clave && u.Activo == true).SingleOrDefault();
 
                 return user;
             }
