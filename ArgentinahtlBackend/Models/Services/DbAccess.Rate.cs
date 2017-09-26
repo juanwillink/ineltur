@@ -180,14 +180,12 @@ namespace ArgentinahtlMVC.Models.Services
 
                             if (cupounidad != null)
                             {
-								//esta parte cambió
-                                if (model.CupoMaximo < cupounidad.CUPORESERVADO)
-                                    cupounidad.CUPOMAXIMO = cupounidad.CUPORESERVADO;
-                                else
-                                    cupounidad.CUPOMAXIMO = model.CupoMaximo;
 
-                                //cupounidad.CUPORESERVADO = model.CupoReservado;
-                                cupounidad.MONTO = model.MontoRACDTR;
+								if (cupounidad.CUPOMAXIMO > cupounidad.CUPORESERVADO && model.CupoMaximo > cupounidad.CUPORESERVADO)
+								    cupounidad.CUPOMAXIMO = model.CupoMaximo;
+
+								//cupounidad.CUPORESERVADO = model.CupoReservado;
+								cupounidad.MONTO = model.MontoRACDTR;
                                 cupounidad.MONTO_EXT_CD_TR = model.MontoEXTCDTR;
                                 cupounidad.MONTO_MER_CD_TR = model.MontoMERCDTR;
                                 cupounidad.MONTO_RA_SD_TR = model.MontoRASDTR;
