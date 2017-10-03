@@ -397,7 +397,7 @@ namespace CheckArgentina.Managers
                     petition.IncurreGastos = false;
                 }
                 petition.TienePromocion = reservationModel.TienePromocion;
-                petition.PrecioPromocional = reservationModel.PromotionPrice;
+                petition.PrecioPromocional = reservationModel.TotalAmount;
                 //var response = _service.ReservarAlojamientoConObservaciones(petition);
                 var response = _service.ReservarAlojamiento(petition);
 

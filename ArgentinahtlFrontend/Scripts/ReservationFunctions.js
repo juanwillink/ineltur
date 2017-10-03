@@ -19,6 +19,7 @@ function openReservationModalSimple(lodging) {
     $("#hotelName2").val(lodging["LodgingName"]);
     $("#changeReservationDatesForm").show();
     $("#AvailableRoomsRow").hide();
+    $("#ReservationModal").modal('show');
 }
 
 function agregarHabitacion(lodgingName, destinationId, checkinDate, checkoutDate) {
@@ -91,7 +92,7 @@ function buildAvailableRooms(vacancies) {
                 $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + vacancy["MinimoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
                 $("#vacancy_" + key + "_reservarBtn").hide();
             }
-            if (diffDays > vacancy["MaximoNoches"]) {
+            if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
                 $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + vacancy["MaximoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
                 $("#vacancy_" + key + "_reservarBtn").hide();
             }
