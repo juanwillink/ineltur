@@ -95,12 +95,12 @@
                     <br />
                     @if (Model.TienePromocion)
                     {
-                        <h2 class="text-center"><strong>Precio Promocional: $@Decimal.Round(Model.PromotionPrice)</strong></h2>
-                        <h3 class="text-center"><small>Precio Regular: $@Decimal.Round(Model.TotalAmount)</small></h3>
+                        <h2 class="text-center"><strong>Precio Promocional: @Model.LodgingCurrency @Decimal.Round(Model.PromotionPrice)</strong></h2>
+                        <h3 class="text-center"><small>Precio Regular: @Model.LodgingCurrency @Decimal.Round(Model.TotalAmount)</small></h3>
                     }
                     else
                     {
-                        <h2 class="text-center">Precio Total: $@Decimal.Round(Model.TotalAmount, 0)</h2>
+                        <h2 class="text-center">Precio Total: @Model.LodgingCurrency @Decimal.Round(Model.TotalAmount, 0)</h2>
                     }
                     
                 </div>
@@ -163,8 +163,8 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>@Model.Vacancies[i].VacancyCheckin.ToShortDateString()</td>
-                                                        <td>@Model.Vacancies[i].VacancyCheckout.ToShortDateString()</td>
+                                                        <td>@Model.Vacancies[i].VacancyCheckin.ToString("dd/MM/yyyy")</td>
+                                                        <td>@Model.Vacancies[i].VacancyCheckout.ToString("dd/MM/yyyy")</td>
                                                         <td>@Model.Vacancies[i].VacancyReserved.ToString()</td>
                                                         <td>@Model.LodgingCurrency @Model.Vacancies[i].ConfirmedVacancyPrice</td>
                                                         <td>@Model.LodgingCurrency @decimal.Round((Model.Vacancies[i].ConfirmedVacancyPrice * (int)(Model.Vacancies[i].VacancyCheckout - Model.Vacancies[i].VacancyCheckin).TotalDays), 0)</td>
@@ -183,14 +183,16 @@
             </div>
         </div>
         <div class="panel-footer">
-                @if (Model.ReservationOwner == null)
-                {
-                    <button class="btn btn-main" onclick="alert('Debe agregar al menos un pasajero');">Continuar reserva</button>
-                }
-                else
-                {
-                    <a href="PaymentMethods"><button type="button" class="btn btn-main">Continuar Pedido</button></a>
-                }  
+            
+            @if (Model.ReservationOwner == null)
+            {
+                <button class="btn btn-main" onclick="alert('Debe agregar al menos un pasajero');">Continuar reserva</button>
+            }
+            else
+            {
+                <a href="PaymentMethods"><button type="button" class="btn btn-main">Continuar Pedido</button></a>
+            }
+                   
         </div>
     </div>
 </div>

@@ -91,6 +91,7 @@ namespace ArgentinahtlMVC.Models.Services
                 tempCell.Controls.Add(new CheckBox() { ID = rate.Id.ToString() });
                 tempCell.Controls.Add(new Label() { Text = "<br>D " + (rate.CupoMaximo - rate.CupoReservado).ToString() });
                 tempCell.Controls.Add(new Label() { Text = "<br>R " + rate.CupoReservado.ToString() });
+                tempCell.Controls.Add(new Label() { Text = "<br>" + CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedDayName(rate.Fecha.DayOfWeek) });
 
                 if (rate.CupoMaximo > rate.CupoReservado)
                 {
