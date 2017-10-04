@@ -30,6 +30,14 @@
     }
 </script>
 
+<script>
+
+    $('table.tablesorter').floatThead({
+        position: 'fixed'
+    })
+
+</script>
+
 <form id="frmCierres" action="">
 <input id="roomid" name="roomid" type="hidden" value="@Model.Rates[0].RoomId" />
 <input id="anio" name="anio" type="hidden" value="@Model.Rates[0].Fecha.Year" />

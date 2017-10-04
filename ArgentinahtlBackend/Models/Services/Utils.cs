@@ -119,6 +119,7 @@ namespace ArgentinahtlMVC.Models.Services
             TableRow headerRow = new TableRow();
             TableHeaderCell tempCell = new TableHeaderCell();
 
+            headerRow.TableSection = TableRowSection.TableHeader;
             tempCell.BackColor = Color.Gray;
             tempCell.Controls.Add(new Label() { Text = "" });
             headerRow.Cells.Add(tempCell);
