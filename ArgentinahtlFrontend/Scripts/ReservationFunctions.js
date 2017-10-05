@@ -66,7 +66,7 @@ function buildAvailableRooms(vacancies) {
                     "<tr>" +
                         "<td>" + vacancy["VacancyBeds"] + "</td>" +
                         "<td>" + vacancy["VacancyAdults"] + "</td>" +
-                        "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPrice"] + "</td>" +
+                        "<td>$" + vacancy["VacancyPrice"] + "</td>" +
                         '<td>' +
                             '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ')">Reservar</button>' +
                             '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +

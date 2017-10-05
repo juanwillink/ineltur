@@ -192,42 +192,7 @@
             {
                 <a href="PaymentMethods"><button type="button" class="btn btn-main">Continuar Pedido</button></a>
             }
-
-            <button class="btn btn-default" id="btnVolverBusqueda">Volver</button>
                    
         </div>
     </div>
 </div>
-
-@*<script>
-    $("#btnVolverBusqueda").click(function() {
-
-
-        var values = {
-            "destinationId": @Model.DestinationId.ToString(),
-            "LodgingName": @Model.LodgingName.ToString(),
-            "CheckIn": @Model.Vacancies.FirstOrDefault().VacancyCheckin.ToString(),
-            "CheckOut": @Model.Vacancies.FirstOrDefault().VacancyCheckout.ToString(),
-        }
-
-
-
-        $.ajax({
-            url: "../Login/SearchHotels",
-            datatype: "json",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            cache: false,
-            data: JSON.stringify(values),
-            beforeSend: function () {
-                $("#spinner2").fadeIn('slow');
-            },
-            success: function (data) {
-                getVacancies(data);
-            },
-            error: function () {
-
-            }
-        });
-    })
-</script>*@
