@@ -1,0 +1,2817 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://implementacion.nps.com.ar/ws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="https://implementacion.nps.com.ar/ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://implementacion.nps.com.ar/ws">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="TaxesRequestStruct">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="TypeId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Amount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Rate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="BaseAmount" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_TaxesRequestStruct">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:TaxesRequestStruct[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="AmountAdditionalDetailsRequestStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Tip" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Discount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Taxes" type="tns:ArrayOf_TaxesRequestStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="AddressStruct">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Street" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="HouseNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AdditionalInfo" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="City" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="StateProvince" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ZipCode" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SellerDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="IDNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="IDType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Invoice" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MCC" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ChannelCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="GeoCode" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="MerchantAdditionalDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SellerDetails" type="tns:SellerDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SdkInfo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ShoppingCartInfo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ShoppingCartPluginInfo" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerAdditionalDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AlternativeEmailAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="IPAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AccountID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AccountCreatedAt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AccountPreviousActivity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AccountHasCredentials" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="DeviceType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="DeviceFingerPrint" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="BrowserLanguage" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="HttpUserAgent" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PersonStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="FirstName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="LastName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MiddleName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PhoneNumber1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PhoneNumber2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Gender" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Nationality" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="IDNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="IDType" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="BillingDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Invoice" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceCurrency" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Person" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ShippingDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Method" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Carrier" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="DeliveryDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="FreightAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="GiftMessage" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="GiftWrapping" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="PrimaryRecipient" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SecondaryRecipient" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="OrderItemStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Quantity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="UnitPrice" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SkuCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ManufacturerPartNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Risk" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_OrderItemStruct">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:OrderItemStruct[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="OrderDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="OrderItems" type="tns:ArrayOf_OrderItemStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="LegStruct">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="DepartureAirport" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DepartureDatetime" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="DepartureAirportTimezone" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ArrivalAirport" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="CarrierCode" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="FlightNumber" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="FareBasisCode" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="FareClassCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="BaseFare" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="BaseFareCurrency" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_LegStruct">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:LegStruct[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="PassengerStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="FirstName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="LastName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MiddleName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Nationality" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="IDNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="IDType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="IDCountry" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="LoyaltyNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="LoyaltyTier" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_PassengerStruct">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:PassengerStruct[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="AirlineTicketIssueStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="CarrierPrefixCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TravelAgentCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TravelAgentName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Date" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="City" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="AirlineTicketStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="TicketNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Eticket" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Restricted" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Issue" type="tns:AirlineTicketIssueStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TotalFareAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TotalTaxAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TotalFeeAmount" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="AirlineDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="PNR" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Legs" type="tns:ArrayOf_LegStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Passengers" type="tns:ArrayOf_PassengerStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Ticket" type="tns:AirlineTicketStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="VaultReference2pStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="PaymentMethodToken" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PaymentMethodId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CustomerId" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_PayOnLine_2p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Recurrent" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_XID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_CAVV" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_ECI" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_Secured" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DoorNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_Address" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_PostCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_AdditionalsQtty" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BranchEntity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="TaxesResponseStruct">
+        <xsd:all>
+          <xsd:element name="TypeId" type="xsd:string" />
+          <xsd:element name="TypeDescription" type="xsd:string" />
+          <xsd:element name="Amount" type="xsd:string" />
+          <xsd:element name="Rate" type="xsd:string" />
+          <xsd:element name="BaseAmount" type="xsd:string" />
+          <xsd:element name="AppliedAmount" type="xsd:string" />
+          <xsd:element name="Remarks" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_TaxesResponseStruct">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:TaxesResponseStruct[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="AmountAdditionalDetailsResponseStruct">
+        <xsd:all>
+          <xsd:element name="Tip" type="xsd:string" />
+          <xsd:element name="Discount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Taxes" type="tns:ArrayOf_TaxesResponseStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FraudScreeningResultStruct">
+        <xsd:all>
+          <xsd:element name="ResultCode" type="xsd:string" />
+          <xsd:element name="ResultDescription" type="xsd:string" />
+          <xsd:element name="AdditionalInfo" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="VerificationServicesResultStruct">
+        <xsd:all>
+          <xsd:element name="ResultCodeCardSecurityCode" type="xsd:string" />
+          <xsd:element name="ResultCodeBillingAddress" type="xsd:string" />
+          <xsd:element name="ResultCodeBillingAddressZipCode" type="xsd:string" />
+          <xsd:element name="ResultCodeBillingPersonIDType" type="xsd:string" />
+          <xsd:element name="ResultCodeBillingPersonIDNumber" type="xsd:string" />
+          <xsd:element name="ResultCodeBillingPersonDateOfBirth" type="xsd:string" />
+          <xsd:element name="ResultCodeBillingPersonName" type="xsd:string" />
+          <xsd:element name="ResultCodeBillingPersonPhoneNumber1" type="xsd:string" />
+          <xsd:element name="ResultCodeCustomerEmailAddress" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_PayOnLine_2p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_PaymentAmount" type="xsd:string" />
+          <xsd:element name="psp_Recurrent" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CardNumber" type="xsd:string" />
+          <xsd:element name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element name="psp_AuthorizationCode" type="xsd:string" />
+          <xsd:element name="psp_BatchNro" type="xsd:string" />
+          <xsd:element name="psp_TicketNumber" type="xsd:string" />
+          <xsd:element name="psp_SequenceNumber" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_ClTrnId" type="xsd:string" />
+          <xsd:element name="psp_ClExternalMerchant" type="xsd:string" />
+          <xsd:element name="psp_ClExternalTerminal" type="xsd:string" />
+          <xsd:element name="psp_ClResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element name="psp_VisaArg_DA_Result" type="xsd:string" />
+          <xsd:element name="psp_AmexArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_MasterArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
+          <xsd:element name="psp_FraudScreeningResult" type="tns:FraudScreeningResultStruct" />
+          <xsd:element name="psp_VerificationServicesResult" type="tns:VerificationServicesResultStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_Authorize_2p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Recurrent" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_XID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_CAVV" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_ECI" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_Secured" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DoorNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_Address" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_PostCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_AdditionalsQtty" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BranchEntity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_Authorize_2p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_PaymentAmount" type="xsd:string" />
+          <xsd:element name="psp_Recurrent" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CardNumber" type="xsd:string" />
+          <xsd:element name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element name="psp_AuthorizationCode" type="xsd:string" />
+          <xsd:element name="psp_BatchNro" type="xsd:string" />
+          <xsd:element name="psp_TicketNumber" type="xsd:string" />
+          <xsd:element name="psp_SequenceNumber" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_ClTrnId" type="xsd:string" />
+          <xsd:element name="psp_ClExternalMerchant" type="xsd:string" />
+          <xsd:element name="psp_ClExternalTerminal" type="xsd:string" />
+          <xsd:element name="psp_ClResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_VisaArg_DA_Result" type="xsd:string" />
+          <xsd:element name="psp_AmexArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_MasterArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
+          <xsd:element name="psp_FraudScreeningResult" type="tns:FraudScreeningResultStruct" />
+          <xsd:element name="psp_VerificationServicesResult" type="tns:VerificationServicesResultStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_BankPayment_2p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ScreenDescription" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TicketDescription" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpDate1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Amount2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpDate2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Amount3" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpDate3" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MinAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpMark" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CustomerBankId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_BankPayment_2p_BillingDetails">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Invoice" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceCurrency" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Person" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_BankPayment_2p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_ScreenDescription" type="xsd:string" />
+          <xsd:element name="psp_TicketDescription" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_Amount1" type="xsd:string" />
+          <xsd:element name="psp_ExpDate1" type="xsd:string" />
+          <xsd:element name="psp_Amount2" type="xsd:string" />
+          <xsd:element name="psp_ExpDate2" type="xsd:string" />
+          <xsd:element name="psp_Amount3" type="xsd:string" />
+          <xsd:element name="psp_ExpDate3" type="xsd:string" />
+          <xsd:element name="psp_MinAmount" type="xsd:string" />
+          <xsd:element name="psp_ExpTime" type="xsd:string" />
+          <xsd:element name="psp_ExpMark" type="xsd:string" />
+          <xsd:element name="psp_CustomerBankId" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
+          <xsd:element name="psp_BillingDetails" type="tns:RespuestaStruct_BankPayment_2p_BillingDetails" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="VaultReference3pStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="CustomerId" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SplitPayOnLine_2p_Transactions">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_RequerimientoStruct_SplitPayOnLine_2p_Transactions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RequerimientoStruct_SplitPayOnLine_2p_Transactions[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SplitPayOnLine_2p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Recurrent" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_UseMultipleProducts" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_XID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_CAVV" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_ECI" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_Secured" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference3pStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Transactions" type="tns:ArrayOf_RequerimientoStruct_SplitPayOnLine_2p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SplitPayOnLine_2p_Transactions">
+        <xsd:all>
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_PaymentAmount" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CardNumber" type="xsd:string" />
+          <xsd:element name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element name="psp_AuthorizationCode" type="xsd:string" />
+          <xsd:element name="psp_BatchNro" type="xsd:string" />
+          <xsd:element name="psp_TicketNumber" type="xsd:string" />
+          <xsd:element name="psp_SequenceNumber" type="xsd:string" />
+          <xsd:element name="psp_ClTrnId" type="xsd:string" />
+          <xsd:element name="psp_ClExternalMerchant" type="xsd:string" />
+          <xsd:element name="psp_ClExternalTerminal" type="xsd:string" />
+          <xsd:element name="psp_ClResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
+          <xsd:element name="psp_FraudScreeningResult" type="tns:FraudScreeningResultStruct" />
+          <xsd:element name="psp_VerificationServicesResult" type="tns:VerificationServicesResultStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_RespuestaStruct_SplitPayOnLine_2p_Transactions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RespuestaStruct_SplitPayOnLine_2p_Transactions[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SplitPayOnLine_2p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_UseMultipleProducts" type="xsd:string" />
+          <xsd:element name="psp_Transactions" type="tns:ArrayOf_RespuestaStruct_SplitPayOnLine_2p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SplitAuthorize_2p_Transactions">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_RequerimientoStruct_SplitAuthorize_2p_Transactions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RequerimientoStruct_SplitAuthorize_2p_Transactions[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SplitAuthorize_2p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Recurrent" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_UseMultipleProducts" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_XID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_CAVV" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_ECI" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_Secured" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Transactions" type="tns:ArrayOf_RequerimientoStruct_SplitAuthorize_2p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SplitAuthorize_2p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_UseMultipleProducts" type="xsd:string" />
+          <xsd:element name="psp_Transactions" type="tns:ArrayOf_RespuestaStruct_SplitPayOnLine_2p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_PayOnLine_3p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ReturnURL" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_FrmLanguage" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmBackButtonURL" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmTimeout" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecureAction" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DoorNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_Address" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_PostCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_AdditionalsQtty" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BranchEntity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference3pStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_PayOnLine_3p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_Session3p" type="xsd:string" />
+          <xsd:element name="psp_FrontPSP_URL" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_PaymentAmount" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SplitPayOnLine_3p_Transactions">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_RequerimientoStruct_SplitPayOnLine_3p_Transactions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RequerimientoStruct_SplitPayOnLine_3p_Transactions[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SplitPayOnLine_3p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ReturnURL" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_FrmLanguage" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmBackButtonURL" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmTimeout" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_UseMultipleProducts" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecureAction" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DoorNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_Address" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_PostCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_AdditionalsQtty" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BranchEntity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference3pStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Transactions" type="tns:ArrayOf_RequerimientoStruct_SplitPayOnLine_3p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SplitPayOnLine_3p_Transactions">
+        <xsd:all>
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_RespuestaStruct_SplitPayOnLine_3p_Transactions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RespuestaStruct_SplitPayOnLine_3p_Transactions[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SplitPayOnLine_3p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_Session3p" type="xsd:string" />
+          <xsd:element name="psp_FrontPSP_URL" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_UseMultipleProducts" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_Transactions" type="tns:ArrayOf_RespuestaStruct_SplitPayOnLine_3p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_Authorize_3p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ReturnURL" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_FrmLanguage" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmBackButtonURL" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmTimeout" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecureAction" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DoorNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_Address" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_PostCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_AdditionalsQtty" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BranchEntity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference3pStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_Authorize_3p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_Session3p" type="xsd:string" />
+          <xsd:element name="psp_FrontPSP_URL" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_PaymentAmount" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SplitAuthorize_3p_Transactions">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_RequerimientoStruct_SplitAuthorize_3p_Transactions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RequerimientoStruct_SplitAuthorize_3p_Transactions[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SplitAuthorize_3p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ReturnURL" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_FrmLanguage" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmBackButtonURL" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmTimeout" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_UseMultipleProducts" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecureAction" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocType" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DocNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_DoorNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VisaArg_DA_Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_Address" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmexArg_AVS_PostCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BirthDay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_AdditionalsQtty" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_PostalCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BranchEntity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference3pStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Transactions" type="tns:ArrayOf_RequerimientoStruct_SplitAuthorize_3p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SplitAuthorize_3p_Transactions">
+        <xsd:all>
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_RespuestaStruct_SplitAuthorize_3p_Transactions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RespuestaStruct_SplitAuthorize_3p_Transactions[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SplitAuthorize_3p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_Session3p" type="xsd:string" />
+          <xsd:element name="psp_FrontPSP_URL" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_PromotionCode" type="xsd:string" />
+          <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
+          <xsd:element name="psp_UseMultipleProducts" type="xsd:string" />
+          <xsd:element name="psp_Transactions" type="tns:ArrayOf_RespuestaStruct_SplitAuthorize_3p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_BankPayment_3p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ReturnURL" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_FrmLanguage" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmBackButtonURL" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmTimeout" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ScreenDescription" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TicketDescription" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpDate1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Amount2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpDate2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Amount3" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpDate3" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MinAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ExpMark" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_BankPayment_3p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_Session3p" type="xsd:string" />
+          <xsd:element name="psp_FrontPSP_URL" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_ScreenDescription" type="xsd:string" />
+          <xsd:element name="psp_TicketDescription" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_Amount1" type="xsd:string" />
+          <xsd:element name="psp_ExpDate1" type="xsd:string" />
+          <xsd:element name="psp_Amount2" type="xsd:string" />
+          <xsd:element name="psp_ExpDate2" type="xsd:string" />
+          <xsd:element name="psp_Amount3" type="xsd:string" />
+          <xsd:element name="psp_ExpDate3" type="xsd:string" />
+          <xsd:element name="psp_MinAmount" type="xsd:string" />
+          <xsd:element name="psp_ExpTime" type="xsd:string" />
+          <xsd:element name="psp_ExpMark" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_CashPayment_3p">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ReturnURL" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_FrmLanguage" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FrmBackButtonURL" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FirstExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_DaysUntilSecondExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SurchargeAmount" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_DaysAvailableToPay" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerDocNum" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ForceProcessingMethod" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_CashPayment_3p">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_Session3p" type="xsd:string" />
+          <xsd:element name="psp_FrontPSP_URL" type="xsd:string" />
+          <xsd:element name="psp_BarCode" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_FirstExpDate" type="xsd:string" />
+          <xsd:element name="psp_DaysUntilSecondExpDate" type="xsd:string" />
+          <xsd:element name="psp_SurchargeAmount" type="xsd:string" />
+          <xsd:element name="psp_DaysAvailableToPay" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_Capture">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TransactionId_Orig" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_AmountToCapture" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_UserId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_Capture">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_TransactionId_Orig" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_CapturedAmount" type="xsd:string" />
+          <xsd:element name="psp_AuthorizedAmount_Orig" type="xsd:string" />
+          <xsd:element name="psp_AuthorizationCode" type="xsd:string" />
+          <xsd:element name="psp_BatchNro" type="xsd:string" />
+          <xsd:element name="psp_TicketNumber" type="xsd:string" />
+          <xsd:element name="psp_SequenceNumber" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_ClTrnId" type="xsd:string" />
+          <xsd:element name="psp_ClExternalMerchant" type="xsd:string" />
+          <xsd:element name="psp_ClExternalTerminal" type="xsd:string" />
+          <xsd:element name="psp_ClResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_Refund">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TransactionId_Orig" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_AmountToRefund" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_UserId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_Refund">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_TransactionId_Orig" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_RefundedAmount" type="xsd:string" />
+          <xsd:element name="psp_CapturedAmount_Orig" type="xsd:string" />
+          <xsd:element name="psp_AuthorizationCode" type="xsd:string" />
+          <xsd:element name="psp_BatchNro" type="xsd:string" />
+          <xsd:element name="psp_TicketNumber" type="xsd:string" />
+          <xsd:element name="psp_SequenceNumber" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_ClTrnId" type="xsd:string" />
+          <xsd:element name="psp_ClExternalMerchant" type="xsd:string" />
+          <xsd:element name="psp_ClExternalTerminal" type="xsd:string" />
+          <xsd:element name="psp_ClResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_GetInstallmentsOptions">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PaymentMethodToken" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ClientSession" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InstallmentsOptionsStruct">
+        <xsd:all>
+          <xsd:element name="NumPayments" type="xsd:string" />
+          <xsd:element name="InstallmentAmount" type="xsd:string" />
+          <xsd:element name="InterestRate" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_InstallmentsOptionsStruct">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:InstallmentsOptionsStruct[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_GetInstallmentsOptions">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_InstallmentsOptions" type="tns:ArrayOf_InstallmentsOptionsStruct" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CardInputDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="Number" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ExpirationDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="HolderName" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_CreatePaymentMethodToken">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardInputDetails" type="tns:CardInputDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ClientSession" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CardOutputDetailsStruct">
+        <xsd:all>
+          <xsd:element name="Number" type="xsd:string" />
+          <xsd:element name="ExpirationDate" type="xsd:string" />
+          <xsd:element name="ExpirationYear" type="xsd:string" />
+          <xsd:element name="ExpirationMonth" type="xsd:string" />
+          <xsd:element name="HolderName" type="xsd:string" />
+          <xsd:element name="IIN" type="xsd:string" />
+          <xsd:element name="Last4" type="xsd:string" />
+          <xsd:element name="NumberLength" type="xsd:string" />
+          <xsd:element name="MaskedNumber" type="xsd:string" />
+          <xsd:element name="MaskedNumberAlternative" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_CreatePaymentMethodToken">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethodToken" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CardOutputDetails" type="tns:CardOutputDetailsStruct" />
+          <xsd:element name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element name="psp_AlreadyUsed" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_UpdatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_RetrievePaymentMethodToken">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PaymentMethodToken" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ClientSession" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_RetrievePaymentMethodToken">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethodToken" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CardOutputDetails" type="tns:CardOutputDetailsStruct" />
+          <xsd:element name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element name="psp_AlreadyUsed" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_UpdatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_RecachePaymentMethodToken">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PaymentMethodId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ClientSession" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_RecachePaymentMethodToken">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethodToken" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CardOutputDetails" type="tns:CardOutputDetailsStruct" />
+          <xsd:element name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element name="psp_AlreadyUsed" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_UpdatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_CreateClientSession">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_CreateClientSession">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_ClientSession" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PaymentMethodInputDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="PaymentMethodToken" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PaymentMethodTag" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CardInputDetails" type="tns:CardInputDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Person" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_CreatePaymentMethod">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PaymentMethod" type="tns:PaymentMethodInputDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SetAsCustomerDefault" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PaymentMethodOutputDetailsStruct">
+        <xsd:all>
+          <xsd:element name="PaymentMethodId" type="xsd:string" />
+          <xsd:element name="PaymentMethodTag" type="xsd:string" />
+          <xsd:element name="Product" type="xsd:string" />
+          <xsd:element name="CardOutputDetails" type="tns:CardOutputDetailsStruct" />
+          <xsd:element name="FingerPrint" type="xsd:string" />
+          <xsd:element name="Person" type="tns:PersonStruct" />
+          <xsd:element name="Address" type="tns:AddressStruct" />
+          <xsd:element name="CreatedAt" type="xsd:string" />
+          <xsd:element name="UpdatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_CreatePaymentMethod">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethod" type="tns:PaymentMethodOutputDetailsStruct" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_CreatePaymentMethodFromPayment">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TransactionId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PaymentMethodTag" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SetAsCustomerDefault" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_CreatePaymentMethodFromPayment">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethod" type="tns:PaymentMethodOutputDetailsStruct" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_RetrievePaymentMethod">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PaymentMethodId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_RetrievePaymentMethod">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethod" type="tns:PaymentMethodOutputDetailsStruct" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CardInputUpdateDetailsStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="HolderName" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_UpdatePaymentMethod">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PaymentMethodId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PaymentMethodTag" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardInputDetails" type="tns:CardInputUpdateDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_UpdatePaymentMethod">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethod" type="tns:PaymentMethodOutputDetailsStruct" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_DeletePaymentMethod">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PaymentMethodId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_DeletePaymentMethod">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethod" type="tns:PaymentMethodOutputDetailsStruct" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_CreateCustomer">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_EmailAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AlternativeEmailAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AccountID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AccountCreatedAt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PaymentMethod" type="tns:PaymentMethodInputDetailsStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PaymentMethodsOutputDetailsStruct">
+        <xsd:all>
+          <xsd:element name="PaymentMethodId" type="xsd:string" />
+          <xsd:element name="PaymentMethodTag" type="xsd:string" />
+          <xsd:element name="Product" type="xsd:string" />
+          <xsd:element name="CardOutputDetails" type="tns:CardOutputDetailsStruct" />
+          <xsd:element name="FingerPrint" type="xsd:string" />
+          <xsd:element name="Person" type="tns:PersonStruct" />
+          <xsd:element name="Address" type="tns:AddressStruct" />
+          <xsd:element name="CreatedAt" type="xsd:string" />
+          <xsd:element name="UpdatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_PaymentMethodsOutputDetailsStruct">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:PaymentMethodsOutputDetailsStruct[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_CreateCustomer">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_EmailAddress" type="xsd:string" />
+          <xsd:element name="psp_AlternativeEmailAddress" type="xsd:string" />
+          <xsd:element name="psp_AccountID" type="xsd:string" />
+          <xsd:element name="psp_AccountCreatedAt" type="xsd:string" />
+          <xsd:element name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element name="psp_DefaultPaymentMethodId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethods" type="tns:ArrayOf_PaymentMethodsOutputDetailsStruct" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_RetrieveCustomer">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_RetrieveCustomer">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_EmailAddress" type="xsd:string" />
+          <xsd:element name="psp_AlternativeEmailAddress" type="xsd:string" />
+          <xsd:element name="psp_AccountID" type="xsd:string" />
+          <xsd:element name="psp_AccountCreatedAt" type="xsd:string" />
+          <xsd:element name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element name="psp_DefaultPaymentMethodId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethods" type="tns:ArrayOf_PaymentMethodsOutputDetailsStruct" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_UpdateCustomer">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_EmailAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AlternativeEmailAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AccountID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AccountCreatedAt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_DefaultPaymentMethodId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PaymentMethod" type="tns:PaymentMethodInputDetailsStruct" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_UpdateCustomer">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_EmailAddress" type="xsd:string" />
+          <xsd:element name="psp_AlternativeEmailAddress" type="xsd:string" />
+          <xsd:element name="psp_AccountID" type="xsd:string" />
+          <xsd:element name="psp_AccountCreatedAt" type="xsd:string" />
+          <xsd:element name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element name="psp_DefaultPaymentMethodId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethods" type="tns:ArrayOf_PaymentMethodsOutputDetailsStruct" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_DeleteCustomer">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_DeleteCustomer">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_EmailAddress" type="xsd:string" />
+          <xsd:element name="psp_AlternativeEmailAddress" type="xsd:string" />
+          <xsd:element name="psp_AccountID" type="xsd:string" />
+          <xsd:element name="psp_AccountCreatedAt" type="xsd:string" />
+          <xsd:element name="psp_Person" type="tns:PersonStruct" />
+          <xsd:element name="psp_Address" type="tns:AddressStruct" />
+          <xsd:element name="psp_DefaultPaymentMethodId" type="xsd:string" />
+          <xsd:element name="psp_PaymentMethods" type="tns:ArrayOf_PaymentMethodsOutputDetailsStruct" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_SimpleQueryTx">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_QueryCriteria" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_QueryCriteriaId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SimpleQueryTx_Transactions">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_TxSource" type="xsd:string" />
+          <xsd:element name="psp_Operation" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_PaymentAmount" type="xsd:string" />
+          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_AuthorizationCode" type="xsd:string" />
+          <xsd:element name="psp_BatchNro" type="xsd:string" />
+          <xsd:element name="psp_SequenceNumber" type="xsd:string" />
+          <xsd:element name="psp_TicketNumber" type="xsd:string" />
+          <xsd:element name="psp_CardNumber_FSD" type="xsd:string" />
+          <xsd:element name="psp_CardNumber_LFD" type="xsd:string" />
+          <xsd:element name="psp_CardMask" type="xsd:string" />
+          <xsd:element name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_CustomerIpAddress" type="xsd:string" />
+          <xsd:element name="psp_CustomerHttpUserAgent" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_ClTrnId" type="xsd:string" />
+          <xsd:element name="psp_ClExternalMerchant" type="xsd:string" />
+          <xsd:element name="psp_ClExternalTerminal" type="xsd:string" />
+          <xsd:element name="psp_ClResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_VisaArg_VBV_Secured" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_XID" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_CAVV" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_Eci" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_EciMsg" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_Secured" type="xsd:string" />
+          <xsd:element name="psp_VisaArg_DA_Result" type="xsd:string" />
+          <xsd:element name="psp_AmexArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_MasterArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
+          <xsd:element name="psp_FraudScreeningResult" type="tns:FraudScreeningResultStruct" />
+          <xsd:element name="psp_VerificationServicesResult" type="tns:VerificationServicesResultStruct" />
+          <xsd:element name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_SimpleQueryTx">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_QueryCriteria" type="xsd:string" />
+          <xsd:element name="psp_QueryCriteriaId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_Transaction" type="tns:RespuestaStruct_SimpleQueryTx_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_QueryCardNumber">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_QueryCriteria" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_QueryCriteriaId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_QueryCardNumber">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_QueryCriteria" type="xsd:string" />
+          <xsd:element name="psp_QueryCriteriaId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CardNumber" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_QueryCardDetails">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_QueryCriteria" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_QueryCriteriaId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_QueryCardDetails">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_QueryCriteria" type="xsd:string" />
+          <xsd:element name="psp_QueryCriteriaId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CardOutputDetails" type="tns:CardOutputDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_QueryTxs">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_QueryCriteria" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_QueryCriteriaId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_QueryTxs_Transactions">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_TransactionId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_TxSource" type="xsd:string" />
+          <xsd:element name="psp_Operation" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_PaymentAmount" type="xsd:string" />
+          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_AuthorizationCode" type="xsd:string" />
+          <xsd:element name="psp_BatchNro" type="xsd:string" />
+          <xsd:element name="psp_SequenceNumber" type="xsd:string" />
+          <xsd:element name="psp_TicketNumber" type="xsd:string" />
+          <xsd:element name="psp_CardNumber_FSD" type="xsd:string" />
+          <xsd:element name="psp_CardNumber_LFD" type="xsd:string" />
+          <xsd:element name="psp_CardMask" type="xsd:string" />
+          <xsd:element name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_CustomerHttpUserAgent" type="xsd:string" />
+          <xsd:element name="psp_CustomerIpAddress" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
+          <xsd:element name="psp_ClTrnId" type="xsd:string" />
+          <xsd:element name="psp_ClExternalMerchant" type="xsd:string" />
+          <xsd:element name="psp_ClExternalTerminal" type="xsd:string" />
+          <xsd:element name="psp_ClResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element name="psp_Plan" type="xsd:string" />
+          <xsd:element name="psp_VisaArg_VBV_Secured" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_XID" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_CAVV" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_Eci" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_EciMsg" type="xsd:string" />
+          <xsd:element name="psp_3dSecure_Secured" type="xsd:string" />
+          <xsd:element name="psp_VisaArg_DA_Result" type="xsd:string" />
+          <xsd:element name="psp_AmexArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_MasterArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+          <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
+          <xsd:element name="psp_FraudScreeningResult" type="tns:FraudScreeningResultStruct" />
+          <xsd:element name="psp_VerificationServicesResult" type="tns:VerificationServicesResultStruct" />
+          <xsd:element name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_RespuestaStruct_QueryTxs_Transactions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RespuestaStruct_QueryTxs_Transactions[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_QueryTxs">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_QueryCriteria" type="xsd:string" />
+          <xsd:element name="psp_QueryCriteriaId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_Transactions" type="tns:ArrayOf_RespuestaStruct_QueryTxs_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_GetIINDetails">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_IIN" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ClientSession" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_GetIINDetails">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_FinancialInstitution" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_ChangeSecretKey">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NewSecretKey" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_ChangeSecretKey">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_FraudScreening">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_TxSource" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Recurrent" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Currency" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_FraudScreening">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_Result" type="tns:FraudScreeningResultStruct" />
+          <xsd:element name="psp_OrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
+          <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
+          <xsd:element name="psp_Amount" type="xsd:string" />
+          <xsd:element name="psp_NumPayments" type="xsd:string" />
+          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
+          <xsd:element name="psp_Recurrent" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_Product" type="xsd:string" />
+          <xsd:element name="psp_CardNumber" type="xsd:string" />
+          <xsd:element name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequerimientoStruct_NotifyFraudScreeningReview">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_Criteria" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CriteriaId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_ReviewResult" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_UserId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RespuestaStruct_NotifyFraudScreeningReview">
+        <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
+          <xsd:element name="psp_MerchantId" type="xsd:string" />
+          <xsd:element name="psp_Criteria" type="xsd:string" />
+          <xsd:element name="psp_CriteriaId" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PayOnLine_2pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_PayOnLine_2p" />
+  </wsdl:message>
+  <wsdl:message name="PayOnLine_2pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_PayOnLine_2p" />
+  </wsdl:message>
+  <wsdl:message name="Authorize_2pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_Authorize_2p" />
+  </wsdl:message>
+  <wsdl:message name="Authorize_2pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_Authorize_2p" />
+  </wsdl:message>
+  <wsdl:message name="BankPayment_2pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_BankPayment_2p" />
+  </wsdl:message>
+  <wsdl:message name="BankPayment_2pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_BankPayment_2p" />
+  </wsdl:message>
+  <wsdl:message name="SplitPayOnLine_2pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_SplitPayOnLine_2p" />
+  </wsdl:message>
+  <wsdl:message name="SplitPayOnLine_2pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_SplitPayOnLine_2p" />
+  </wsdl:message>
+  <wsdl:message name="SplitAuthorize_2pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_SplitAuthorize_2p" />
+  </wsdl:message>
+  <wsdl:message name="SplitAuthorize_2pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_SplitAuthorize_2p" />
+  </wsdl:message>
+  <wsdl:message name="PayOnLine_3pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_PayOnLine_3p" />
+  </wsdl:message>
+  <wsdl:message name="PayOnLine_3pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_PayOnLine_3p" />
+  </wsdl:message>
+  <wsdl:message name="SplitPayOnLine_3pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_SplitPayOnLine_3p" />
+  </wsdl:message>
+  <wsdl:message name="SplitPayOnLine_3pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_SplitPayOnLine_3p" />
+  </wsdl:message>
+  <wsdl:message name="Authorize_3pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_Authorize_3p" />
+  </wsdl:message>
+  <wsdl:message name="Authorize_3pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_Authorize_3p" />
+  </wsdl:message>
+  <wsdl:message name="SplitAuthorize_3pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_SplitAuthorize_3p" />
+  </wsdl:message>
+  <wsdl:message name="SplitAuthorize_3pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_SplitAuthorize_3p" />
+  </wsdl:message>
+  <wsdl:message name="BankPayment_3pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_BankPayment_3p" />
+  </wsdl:message>
+  <wsdl:message name="BankPayment_3pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_BankPayment_3p" />
+  </wsdl:message>
+  <wsdl:message name="CashPayment_3pRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_CashPayment_3p" />
+  </wsdl:message>
+  <wsdl:message name="CashPayment_3pResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_CashPayment_3p" />
+  </wsdl:message>
+  <wsdl:message name="CaptureRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_Capture" />
+  </wsdl:message>
+  <wsdl:message name="CaptureResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_Capture" />
+  </wsdl:message>
+  <wsdl:message name="RefundRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_Refund" />
+  </wsdl:message>
+  <wsdl:message name="RefundResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_Refund" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallmentsOptionsRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_GetInstallmentsOptions" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallmentsOptionsResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_GetInstallmentsOptions" />
+  </wsdl:message>
+  <wsdl:message name="CreatePaymentMethodTokenRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_CreatePaymentMethodToken" />
+  </wsdl:message>
+  <wsdl:message name="CreatePaymentMethodTokenResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_CreatePaymentMethodToken" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePaymentMethodTokenRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_RetrievePaymentMethodToken" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePaymentMethodTokenResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_RetrievePaymentMethodToken" />
+  </wsdl:message>
+  <wsdl:message name="RecachePaymentMethodTokenRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_RecachePaymentMethodToken" />
+  </wsdl:message>
+  <wsdl:message name="RecachePaymentMethodTokenResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_RecachePaymentMethodToken" />
+  </wsdl:message>
+  <wsdl:message name="CreateClientSessionRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_CreateClientSession" />
+  </wsdl:message>
+  <wsdl:message name="CreateClientSessionResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_CreateClientSession" />
+  </wsdl:message>
+  <wsdl:message name="CreatePaymentMethodRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_CreatePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="CreatePaymentMethodResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_CreatePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="CreatePaymentMethodFromPaymentRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_CreatePaymentMethodFromPayment" />
+  </wsdl:message>
+  <wsdl:message name="CreatePaymentMethodFromPaymentResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_CreatePaymentMethodFromPayment" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePaymentMethodRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_RetrievePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePaymentMethodResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_RetrievePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentMethodRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_UpdatePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentMethodResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_UpdatePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="DeletePaymentMethodRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_DeletePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="DeletePaymentMethodResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_DeletePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_CreateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_CreateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCustomerRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_RetrieveCustomer" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCustomerResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_RetrieveCustomer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="SimpleQueryTxRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_SimpleQueryTx" />
+  </wsdl:message>
+  <wsdl:message name="SimpleQueryTxResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_SimpleQueryTx" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardNumberRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_QueryCardNumber" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardNumberResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_QueryCardNumber" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardDetailsRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_QueryCardDetails" />
+  </wsdl:message>
+  <wsdl:message name="QueryCardDetailsResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_QueryCardDetails" />
+  </wsdl:message>
+  <wsdl:message name="QueryTxsRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_QueryTxs" />
+  </wsdl:message>
+  <wsdl:message name="QueryTxsResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_QueryTxs" />
+  </wsdl:message>
+  <wsdl:message name="GetIINDetailsRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_GetIINDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetIINDetailsResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_GetIINDetails" />
+  </wsdl:message>
+  <wsdl:message name="ChangeSecretKeyRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_ChangeSecretKey" />
+  </wsdl:message>
+  <wsdl:message name="ChangeSecretKeyResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_ChangeSecretKey" />
+  </wsdl:message>
+  <wsdl:message name="FraudScreeningRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_FraudScreening" />
+  </wsdl:message>
+  <wsdl:message name="FraudScreeningResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_FraudScreening" />
+  </wsdl:message>
+  <wsdl:message name="NotifyFraudScreeningReviewRequest">
+    <wsdl:part name="Requerimiento" type="tns:RequerimientoStruct_NotifyFraudScreeningReview" />
+  </wsdl:message>
+  <wsdl:message name="NotifyFraudScreeningReviewResponse">
+    <wsdl:part name="Respuesta" type="tns:RespuestaStruct_NotifyFraudScreeningReview" />
+  </wsdl:message>
+  <wsdl:portType name="PaymentServicePlatformPortType">
+    <wsdl:operation name="PayOnLine_2p">
+      <wsdl:input message="tns:PayOnLine_2pRequest" />
+      <wsdl:output message="tns:PayOnLine_2pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Authorize_2p">
+      <wsdl:input message="tns:Authorize_2pRequest" />
+      <wsdl:output message="tns:Authorize_2pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPayment_2p">
+      <wsdl:input message="tns:BankPayment_2pRequest" />
+      <wsdl:output message="tns:BankPayment_2pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SplitPayOnLine_2p">
+      <wsdl:input message="tns:SplitPayOnLine_2pRequest" />
+      <wsdl:output message="tns:SplitPayOnLine_2pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SplitAuthorize_2p">
+      <wsdl:input message="tns:SplitAuthorize_2pRequest" />
+      <wsdl:output message="tns:SplitAuthorize_2pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PayOnLine_3p">
+      <wsdl:input message="tns:PayOnLine_3pRequest" />
+      <wsdl:output message="tns:PayOnLine_3pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SplitPayOnLine_3p">
+      <wsdl:input message="tns:SplitPayOnLine_3pRequest" />
+      <wsdl:output message="tns:SplitPayOnLine_3pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Authorize_3p">
+      <wsdl:input message="tns:Authorize_3pRequest" />
+      <wsdl:output message="tns:Authorize_3pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SplitAuthorize_3p">
+      <wsdl:input message="tns:SplitAuthorize_3pRequest" />
+      <wsdl:output message="tns:SplitAuthorize_3pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="BankPayment_3p">
+      <wsdl:input message="tns:BankPayment_3pRequest" />
+      <wsdl:output message="tns:BankPayment_3pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CashPayment_3p">
+      <wsdl:input message="tns:CashPayment_3pRequest" />
+      <wsdl:output message="tns:CashPayment_3pResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Capture">
+      <wsdl:input message="tns:CaptureRequest" />
+      <wsdl:output message="tns:CaptureResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <wsdl:input message="tns:RefundRequest" />
+      <wsdl:output message="tns:RefundResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallmentsOptions">
+      <wsdl:input message="tns:GetInstallmentsOptionsRequest" />
+      <wsdl:output message="tns:GetInstallmentsOptionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePaymentMethodToken">
+      <wsdl:input message="tns:CreatePaymentMethodTokenRequest" />
+      <wsdl:output message="tns:CreatePaymentMethodTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePaymentMethodToken">
+      <wsdl:input message="tns:RetrievePaymentMethodTokenRequest" />
+      <wsdl:output message="tns:RetrievePaymentMethodTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RecachePaymentMethodToken">
+      <wsdl:input message="tns:RecachePaymentMethodTokenRequest" />
+      <wsdl:output message="tns:RecachePaymentMethodTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateClientSession">
+      <wsdl:input message="tns:CreateClientSessionRequest" />
+      <wsdl:output message="tns:CreateClientSessionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePaymentMethod">
+      <wsdl:input message="tns:CreatePaymentMethodRequest" />
+      <wsdl:output message="tns:CreatePaymentMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePaymentMethodFromPayment">
+      <wsdl:input message="tns:CreatePaymentMethodFromPaymentRequest" />
+      <wsdl:output message="tns:CreatePaymentMethodFromPaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePaymentMethod">
+      <wsdl:input message="tns:RetrievePaymentMethodRequest" />
+      <wsdl:output message="tns:RetrievePaymentMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentMethod">
+      <wsdl:input message="tns:UpdatePaymentMethodRequest" />
+      <wsdl:output message="tns:UpdatePaymentMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaymentMethod">
+      <wsdl:input message="tns:DeletePaymentMethodRequest" />
+      <wsdl:output message="tns:DeletePaymentMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input message="tns:CreateCustomerRequest" />
+      <wsdl:output message="tns:CreateCustomerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomer">
+      <wsdl:input message="tns:RetrieveCustomerRequest" />
+      <wsdl:output message="tns:RetrieveCustomerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input message="tns:UpdateCustomerRequest" />
+      <wsdl:output message="tns:UpdateCustomerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input message="tns:DeleteCustomerRequest" />
+      <wsdl:output message="tns:DeleteCustomerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SimpleQueryTx">
+      <wsdl:input message="tns:SimpleQueryTxRequest" />
+      <wsdl:output message="tns:SimpleQueryTxResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCardNumber">
+      <wsdl:input message="tns:QueryCardNumberRequest" />
+      <wsdl:output message="tns:QueryCardNumberResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCardDetails">
+      <wsdl:input message="tns:QueryCardDetailsRequest" />
+      <wsdl:output message="tns:QueryCardDetailsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryTxs">
+      <wsdl:input message="tns:QueryTxsRequest" />
+      <wsdl:output message="tns:QueryTxsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIINDetails">
+      <wsdl:input message="tns:GetIINDetailsRequest" />
+      <wsdl:output message="tns:GetIINDetailsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSecretKey">
+      <wsdl:input message="tns:ChangeSecretKeyRequest" />
+      <wsdl:output message="tns:ChangeSecretKeyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="FraudScreening">
+      <wsdl:input message="tns:FraudScreeningRequest" />
+      <wsdl:output message="tns:FraudScreeningResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyFraudScreeningReview">
+      <wsdl:input message="tns:NotifyFraudScreeningReviewRequest" />
+      <wsdl:output message="tns:NotifyFraudScreeningReviewResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentServicePlatformBinding" type="tns:PaymentServicePlatformPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="PayOnLine_2p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/PayOnLine_2p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authorize_2p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/Authorize_2p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPayment_2p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/BankPayment_2p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SplitPayOnLine_2p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/SplitPayOnLine_2p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SplitAuthorize_2p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/SplitAuthorize_2p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayOnLine_3p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/PayOnLine_3p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SplitPayOnLine_3p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/SplitPayOnLine_3p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authorize_3p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/Authorize_3p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SplitAuthorize_3p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/SplitAuthorize_3p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BankPayment_3p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/BankPayment_3p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CashPayment_3p">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/CashPayment_3p" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Capture">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/Capture" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Refund">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/Refund" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallmentsOptions">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/GetInstallmentsOptions" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePaymentMethodToken">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/CreatePaymentMethodToken" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePaymentMethodToken">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/RetrievePaymentMethodToken" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecachePaymentMethodToken">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/RecachePaymentMethodToken" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateClientSession">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/CreateClientSession" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePaymentMethod">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/CreatePaymentMethod" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePaymentMethodFromPayment">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/CreatePaymentMethodFromPayment" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePaymentMethod">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/RetrievePaymentMethod" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentMethod">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/UpdatePaymentMethod" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaymentMethod">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/DeletePaymentMethod" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/CreateCustomer" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomer">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/RetrieveCustomer" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/UpdateCustomer" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/DeleteCustomer" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimpleQueryTx">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/SimpleQueryTx" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCardNumber">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/QueryCardNumber" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCardDetails">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/QueryCardDetails" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryTxs">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/QueryTxs" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIINDetails">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/GetIINDetails" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSecretKey">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/ChangeSecretKey" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FraudScreening">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/FraudScreening" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyFraudScreeningReview">
+      <soap:operation soapAction="https://implementacion.nps.com.ar/ws.php/NotifyFraudScreeningReview" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://implementacion.nps.com.ar/ws" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentServicePlatform">
+    <wsdl:port name="PaymentServicePlatformPort" binding="tns:PaymentServicePlatformBinding">
+      <soap:address location="https://implementacion.nps.com.ar:443/ws.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
