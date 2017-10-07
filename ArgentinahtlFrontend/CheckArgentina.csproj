@@ -375,6 +375,7 @@
     <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\250px-Tricolour_Cockade.png" />
     <Content Include="Content\Images\assistcard-red.jpg" />
     <Content Include="Content\Images\Banners\banner1.jpg" />
     <Content Include="Content\Images\Banners\banner3.jpg" />
@@ -2164,7 +2165,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52233</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
