@@ -41,7 +41,6 @@ namespace Ineltur.WebService
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public InfoUnidadConCupos[] Unidades { get; set; }
-
     }
 
 }

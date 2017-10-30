@@ -70,7 +70,7 @@ function buildDatesTable(data) {
         body = body + "</tr><tr>";
         for (var key2 in unit.Quota) {
             var quota = unit.Quota[key2];
-            body = body + "<td>$" + quota["Monto"] + "</td>";
+            body = body + "<td>" + unit["Moneda"] + quota["Monto"] + "</td>";
         }
         body = body + "</tr>";
     }

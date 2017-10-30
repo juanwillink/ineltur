@@ -4,6 +4,7 @@
     $("#hotelName2").val(lodging["LodgingName"]);
     if (lodging.Vacancies.length != 0) {
         $("#changeReservationDatesForm").hide();
+        debugger;
         fillHiddenFields(lodging);
         buildAvailableRooms(lodging.Vacancies);
     } else {
@@ -88,11 +89,12 @@ function buildAvailableRooms(vacancies) {
         if (vacancy["TienePromocionNxM"] == true) {
             $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Noches Free</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
         } else if (vacancy["TienePromocionMinimoMaximo"]) {
+            debugger;
             if (diffDays < vacancy["MinimoNoches"]) {
                 $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + vacancy["MinimoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
                 $("#vacancy_" + key + "_reservarBtn").hide();
             }
-            if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
+            else if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
                 $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + vacancy["MaximoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
                 $("#vacancy_" + key + "_reservarBtn").hide();
             }
@@ -233,12 +235,15 @@ function getVacancies(data) {
 }
 
 function fillHiddenFields(lodging) {
-    
+    if ($("#destinationIdSearch" == undefined)) {
+        $("#destinationIdSearch").val(lodging["DestinationId"])
+    }
     $("#hotelId").val(lodging["LodgingId"]);
     $("#hotelCategory").val(lodging["LodgingCategory"]);
     $("#hotelCurrency").val(lodging["LodgingCurrency"]);
     $("#hotelCurrencyCode").val(lodging["LodgingCurrencyCode"]);
     $("#hotelPrice").val(lodging["LodgingPrice"]);
+    debugger;
     $("#destinationId").val(lodging["DestinationId"]);
     $("#hotelSupplierId").val(lodging["LodgingSupplierId"]);
 }
@@ -254,6 +259,7 @@ function noRoomsFound() {
 }
 
 function empezarReservaHabitacion(vacancyNumber) {
+    
     var roomsElements = $("[id^=vacancy_" + vacancyNumber + "_Room_]");
     var checkinDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckin").val().substr(6)));
     var checkoutDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckout").val().substr(6)));
@@ -290,6 +296,7 @@ function empezarReservaHabitacion(vacancyNumber) {
         "Tarifa": tarifa,
     };
     var vacancies = [vacancy];
+    debugger;
     var values = {
         "LodgingId": $("#hotelId").val(),
         "LodgingName": $("#hotelName2").val(),

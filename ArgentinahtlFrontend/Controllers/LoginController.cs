@@ -127,7 +127,7 @@ namespace CheckArgentina.Controllers
             if (!string.IsNullOrEmpty(dateString))
             {
                 var values = dateString.Split('/');
-                date = new DateTime(int.Parse(values[2]), int.Parse(values[1]), int.Parse(values[0]));
+                date = new DateTime(int.Parse(values[0]), int.Parse(values[1]), int.Parse(values[2]));
             }
 
             SessionData.UserCredential = Manager.GetCredential(Session["userkey"].ToString());

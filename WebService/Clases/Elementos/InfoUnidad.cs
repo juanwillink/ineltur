@@ -44,6 +44,7 @@ namespace Ineltur.WebService
         public decimal MontoPorUnidad { get; set; }
         public string Descripcion { get; set; }
         public CupoUnidades[] Cupos { get; set; }
+        public Ineltur.Datos.Moneda? Moneda { get; set; }
     }
 
     public class CupoUnidades
