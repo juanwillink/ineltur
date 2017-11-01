@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-using Reca.Common.DTO.NPS;
-using Reca.Common.Utils;
+using ArgentinahtlCommon;
 
-
-namespace Reca.BLL.NPS
+namespace ArgentinahtlBLL.NPS
 {
     public class ServiciosNPS
     {
@@ -60,68 +58,14 @@ namespace Reca.BLL.NPS
                 }
                 catch (Exception ex)
                 {
-                    Globals.Logger.Error(string.Format("Error en metodo ServiciosNPS.PayOnLine_3p: {0}. Datos Enviados: {1}", ex.Message, Utiles.SerializarObjeto(dto)), ex);
+                    Tracker.WriteTrace(string.Format($"Error en metodo ServiciosNPS.PayOnLine_3p: {ex.Message}. Datos Enviados: {Utiles.SerializarObjeto(dto)}"), Tracker.TraceType.Error);
                     var response = new DTOGenerador().ObtenerRespuestaPayOnline3pDTO(null);
-                    response.ErrorMessage = ex.Message + "\nIFREPOL3P Inner Exception: " + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
+                    response.ErrorMessage = ex.Message + "\nINELPOL3P Inner Exception: " + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
 
                     return response;
                 }
             }
         }
-
-        public RespuestaCashPayment3pDTO CashPayment_3p(RequerimientoCashPayment3pDTO dto)
-        {
-            //using (var service = new PaymentServicePlatform())
-            using (var service = NPSWSServiceWrapper.GetService(_UrlNPS))
-            {
-                try
-                {
-                    string secureHash = HashNPS.ObtenerHashCashPayment3p(dto);
-
-                    var response = service.CashPayment_3p(new RequerimientoStruct_CashPayment_3p
-                    {
-                        psp_Amount = (dto.Amount == 0 ? null : Math.Truncate(dto.Amount * 100).ToString()),
-                        //psp_BillingDetails = new BillingDetailsStruct() { Address = new AddressStruct() { Street = " ", HouseNumber = " ", City = " ", Country = dto.Country } },
-                        psp_Country = dto.Country,
-                        psp_Currency = dto.Currency,
-                        //psp_CustomerDocNum = dto.CustomerDocNum == 0 ? null : dto.CustomerDocNum.ToString(),
-                        //psp_CustomerId = dto.CustomerId,
-                        psp_CustomerMail = dto.CustomerMail,
-                        psp_DaysAvailableToPay = dto.DaysAvailableToPay == 0 ? null : dto.DaysAvailableToPay.ToString(),
-                        psp_DaysUntilSecondExpDate = dto.DaysUntilSecondExpDate.ToString(),
-                        psp_FirstExpDate = dto.FirstExpDate.ToString("yyyy-MM-dd"),
-                        //psp_ForceProcessingMethod = dto.ForceProcessingMethod,
-                        psp_FrmBackButtonURL = dto.FrmBackButtonURL,
-                        psp_FrmLanguage = dto.FrmLanguage,
-                        //psp_MerchantMail = dto.MerchantMail,
-                        psp_MerchOrderId = dto.MerchOrderId,
-                        psp_MerchTxRef = dto.MerchTxRef,
-                        psp_MerchantId = dto.MerchantId,
-                        psp_PosDateTime = dto.PosDateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                        psp_Product = dto.Product.ToString(),
-                        //psp_PurchaseDescription = dto.PurchaseDescription,
-                        psp_ReturnURL = dto.ReturnURL,
-                        psp_SurchargeAmount = dto.SurchargeAmount.ToString(),
-                        psp_TxSource = dto.TxSource,
-                        psp_Version = dto.Version,
-                        psp_SecureHash = secureHash
-                        
-
-                    }.AssignNullToEmptyStrings());
-                    return new DTOGenerador().ObtenerRespuestaCashPayment3pDTO(response);
-
-                }
-                catch (Exception ex)
-                {
-                    Globals.Logger.Error(string.Format("Error en metodo ServiciosNPS.CashPayment_3p: {0}. Datos Enviados: {1}", ex.Message, Utiles.SerializarObjeto(dto)), ex);
-                    var response = new DTOGenerador().ObtenerRespuestaCashPayment3pDTO(null);
-                    response.ErrorMessage = ex.Message + "\nIFRECP3P Inner Exception: " + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
-
-                    return response;
-                }
-            }
-        }
-
 
         public RespuestaSimpleQueryTxDTO SimpleQueryTx(RequerimientoSimpleQueryTxDTO dto)
         {
@@ -146,7 +90,7 @@ namespace Reca.BLL.NPS
                 }
                 catch (Exception ex)
                 {
-                    Globals.Logger.Error(string.Format("Error en metodo ServiciosNPS.SimpleQueryTx: {0}. Datos Enviados: {1}", ex.Message, Utiles.SerializarObjeto(dto)), ex);
+                    Tracker.WriteTrace(string.Format($"Error en metodo ServiciosNPS.SimpleQueryTx: {ex.Message}. Datos Enviados: {Utiles.SerializarObjeto(dto)}"), Tracker.TraceType.Error);
                     var response = new DTOGenerador().ObtenerRespuestaSimpleQueryTxDTO(null);
                     response.ErrorMessage = ex.Message + "\nInner Exception: " + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
 
