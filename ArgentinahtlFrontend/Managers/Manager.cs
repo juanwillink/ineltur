@@ -16,6 +16,8 @@ namespace CheckArgentina.Managers
 
             DestinationListModel SearchDestination(string destinationName, Credential userCredential, DestinationModel parent = null);
 
+            LodgingListModel SearchHotel(string hotelName);
+
             //LodgingListModel SearchLodging(string destinationId, string destinationType, string lodging,
             //    DateTime checkin, DateTime checkout,
             //    int room1, int room2, int room3, int room4, int room5, int room6, string order, Credential userCredential);
@@ -96,6 +98,11 @@ namespace CheckArgentina.Managers
         public DestinationListModel SearchDestination(string destinationName, Credential userCredential, DestinationModel parent = null)
         {
             return _searchManager.SearchDestination(destinationName, userCredential, parent);
+        }
+
+        public LodgingListModel SearchHotel(string hotelName)
+        {
+            return _searchManager.SearchHotel(hotelName);
         }
 
         //public LodgingListModel SearchLodging(string destinationId, string destinationType, string lodgingName,
