@@ -633,7 +633,7 @@ namespace Ineltur.WebService
 
                             foreach (var alojamientoDisponible in alojamientosDisponibles)
                             {
-                                var disponible = dc.GetCuposAlojamientoEnRangoFechaV3(1, 1, 1, 1, 1, 1,
+                                var disponible = dc.GetCuposAlojamientoEnRangoFechaV3(petition.Habitacion1, petition.Habitacion2, petition.Habitacion3, petition.Habitacion4, petition.Habitacion5, petition.Habitacion6,
                                 petition.FechaInicio, petition.FechaFin, alojamientoDisponible.IdAlojamiento, petition.Nacionalidad, petition.desayuno, petition.tarifaReembolsable).OrderBy(
                                 d => d.MONTOPROMEDIOPORDIA).Where(d => d.MONTOPROMEDIOPORDIA > 0).ToList();
 
