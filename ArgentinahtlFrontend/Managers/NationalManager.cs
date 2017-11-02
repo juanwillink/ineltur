@@ -111,6 +111,23 @@ namespace CheckArgentina.Managers
                 return results;
             }
 
+            public LodgingListModel SearchHotel(string hotelName)
+            {
+                var result = new LodgingListModel();
+                var lodgings = new List<LodgingModel>();
+                using (var dc = new TurismoDataContext())
+                {
+                    lodgings = dc.Alojamientos.Where(a => a.NOMBRE.Contains(hotelName)).Select(a => new LodgingModel()
+                    {
+                        LodgingName = a.NOMBRE,
+                        LodgingId = a.IDALOJ.ToString(),
+                        DestinationId = a.IDCIUDAD.ToString(),
+                    }).ToList();
+                }
+                result.Lodgings = lodgings;
+                return result;
+            }
+
             public LodgingListModel SearchLodging(SearchLodgingRequestModel searchLodgingRequestModel, Credential userCredential)
             {
                 SessionData.SearchType = SearchType.National;

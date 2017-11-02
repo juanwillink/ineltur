@@ -244,9 +244,9 @@ namespace CheckArgentina.Managers
 
             if (searchLodgingRequestModel.Rooms == null)
             {
-                petition.Habitacion1 = petition.Habitacion1 ?? 0 + 1;
-                petition.Habitacion2 = petition.Habitacion2 ?? 0 + 1;
-                petition.Habitacion3 = petition.Habitacion3 ?? 0 + 1;
+                petition.Habitacion1 = petition.Habitacion1 ?? 0;
+                petition.Habitacion2 = petition.Habitacion2 ?? 0;
+                petition.Habitacion3 = petition.Habitacion3 ?? 0;
                 petition.Habitacion4 = petition.Habitacion4 ?? 0 + 1;
                 petition.Habitacion5 = petition.Habitacion5 ?? 0 + 1;
                 petition.Habitacion6 = petition.Habitacion6 ?? 0 + 1;
