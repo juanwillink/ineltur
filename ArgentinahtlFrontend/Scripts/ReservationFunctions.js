@@ -37,7 +37,8 @@ function buildAvailableRooms(vacancies) {
             roomsBody = roomsBody +
                 "<input type='hidden' value='" + room["RoomId"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomId' />" +
                 "<input type='hidden' value='" + room["RoomName"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomName' />" +
-                "<input type='hidden' value='" + room["RoomType"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />";
+                "<input type='hidden' value='" + room["RoomType"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />" +
+                "<input type='hidden' value='" + room["RoomAdults"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />";
         }
         var body = body + "<h4 id='vacancy-name-" + vacancy["VacancyId"] + "'>" + vacancy["VacancyName"] + "</h4>" +
             "<input type='hidden' value='" + vacancy["LodgingId"] + "' id='vacancy_" + key + "_LodgingId' />" +
@@ -289,7 +290,8 @@ function empezarReservaHabitacion(vacancyNumber) {
     var room = {
         "RoomId": roomsElements[0].defaultValue,
         "RoomName": roomsElements[1].defaultValue,
-        "RoomType": roomsElements[2].defaultValue
+        "RoomType": roomsElements[2].defaultValue,
+        "RoomAdults": roomsElements[3].defaultValue
     };
     var rooms = [room];
     var vacancy = {
