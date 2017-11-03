@@ -117,7 +117,7 @@ namespace CheckArgentina.Managers
                 var lodgings = new List<LodgingModel>();
                 using (var dc = new TurismoDataContext())
                 {
-                    lodgings = dc.Alojamientos.Where(a => a.NOMBRE.Contains(hotelName)).Select(a => new LodgingModel()
+                    lodgings = dc.Alojamientos.Where(a => a.NOMBRE.Contains(hotelName) && a.ACTIVO == true).Select(a => new LodgingModel()
                     {
                         LodgingName = a.NOMBRE,
                         LodgingId = a.IDALOJ.ToString(),
