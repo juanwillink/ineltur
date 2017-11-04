@@ -4,6 +4,7 @@
     $("#hotelName2").val(lodging["LodgingName"]);
     if (lodging.Vacancies.length != 0) {
         $("#changeReservationDatesForm").hide();
+        debugger;
         fillHiddenFields(lodging);
         buildAvailableRooms(lodging.Vacancies);
     } else {
@@ -36,7 +37,8 @@ function buildAvailableRooms(vacancies) {
             roomsBody = roomsBody +
                 "<input type='hidden' value='" + room["RoomId"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomId' />" +
                 "<input type='hidden' value='" + room["RoomName"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomName' />" +
-                "<input type='hidden' value='" + room["RoomType"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />";
+                "<input type='hidden' value='" + room["RoomType"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />" +
+                "<input type='hidden' value='" + room["RoomAdults"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />";
         }
         var body = body + "<h4 id='vacancy-name-" + vacancy["VacancyId"] + "'>" + vacancy["VacancyName"] + "</h4>" +
             "<input type='hidden' value='" + vacancy["LodgingId"] + "' id='vacancy_" + key + "_LodgingId' />" +
@@ -66,7 +68,7 @@ function buildAvailableRooms(vacancies) {
                     "<tr>" +
                         "<td>" + vacancy["VacancyBeds"] + "</td>" +
                         "<td>" + vacancy["VacancyAdults"] + "</td>" +
-                        "<td>$" + vacancy["VacancyPrice"] + "</td>" +
+                        "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPrice"] + "</td>" +
                         '<td>' +
                             '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ')">Reservar</button>' +
                             '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
@@ -88,11 +90,25 @@ function buildAvailableRooms(vacancies) {
         if (vacancy["TienePromocionNxM"] == true) {
             $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Noches Free</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
         } else if (vacancy["TienePromocionMinimoMaximo"]) {
+            debugger;
             if (diffDays < vacancy["MinimoNoches"]) {
+
+                if (vacancy["MinimoNoches"] == '') {
+                    vacancy["MinimoNoches"] = "Sin Restriccion";
+                }
+                if (vacancy["MaximoNoches"] == '') {
+                    vacancy["MaximoNoches"] = "Sin Restriccion";
+                }
                 $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + vacancy["MinimoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
                 $("#vacancy_" + key + "_reservarBtn").hide();
             }
-            if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
+            else if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
+                if (vacancy["MinimoNoches"] == '') {
+                    vacancy["MinimoNoches"] = "Sin Restriccion";
+                }
+                if (vacancy["MaximoNoches"] == '') {
+                    vacancy["MaximoNoches"] = "Sin Restriccion";
+                }
                 $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + vacancy["MaximoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
                 $("#vacancy_" + key + "_reservarBtn").hide();
             }
@@ -233,12 +249,15 @@ function getVacancies(data) {
 }
 
 function fillHiddenFields(lodging) {
-    
+    if ($("#destinationIdSearch" == undefined)) {
+        $("#destinationIdSearch").val(lodging["DestinationId"])
+    }
     $("#hotelId").val(lodging["LodgingId"]);
     $("#hotelCategory").val(lodging["LodgingCategory"]);
     $("#hotelCurrency").val(lodging["LodgingCurrency"]);
     $("#hotelCurrencyCode").val(lodging["LodgingCurrencyCode"]);
     $("#hotelPrice").val(lodging["LodgingPrice"]);
+    debugger;
     $("#destinationId").val(lodging["DestinationId"]);
     $("#hotelSupplierId").val(lodging["LodgingSupplierId"]);
 }
@@ -254,6 +273,7 @@ function noRoomsFound() {
 }
 
 function empezarReservaHabitacion(vacancyNumber) {
+    
     var roomsElements = $("[id^=vacancy_" + vacancyNumber + "_Room_]");
     var checkinDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckin").val().substr(6)));
     var checkoutDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckout").val().substr(6)));
@@ -270,7 +290,8 @@ function empezarReservaHabitacion(vacancyNumber) {
     var room = {
         "RoomId": roomsElements[0].defaultValue,
         "RoomName": roomsElements[1].defaultValue,
-        "RoomType": roomsElements[2].defaultValue
+        "RoomType": roomsElements[2].defaultValue,
+        "RoomAdults": roomsElements[3].defaultValue
     };
     var rooms = [room];
     var vacancy = {
@@ -290,6 +311,7 @@ function empezarReservaHabitacion(vacancyNumber) {
         "Tarifa": tarifa,
     };
     var vacancies = [vacancy];
+    debugger;
     var values = {
         "LodgingId": $("#hotelId").val(),
         "LodgingName": $("#hotelName2").val(),

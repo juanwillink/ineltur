@@ -201,6 +201,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidad" type="s:decimal" />
           <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Cupos" type="tns:ArrayOfCupoUnidades" />
+          <s:element minOccurs="1" maxOccurs="1" name="Moneda" nillable="true" type="tns:Moneda" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfCupoUnidades">
@@ -222,6 +223,13 @@
           <s:element minOccurs="1" maxOccurs="1" name="Monto" type="s:decimal" />
         </s:sequence>
       </s:complexType>
+      <s:simpleType name="Moneda">
+        <s:restriction base="s:string">
+          <s:enumeration value="ARS" />
+          <s:enumeration value="USD" />
+          <s:enumeration value="EUR" />
+        </s:restriction>
+      </s:simpleType>
       <s:element name="SearchHotels">
         <s:complexType>
           <s:sequence>
@@ -392,13 +400,6 @@
           <s:enumeration value="Desayuno" />
           <s:enumeration value="MediaPension" />
           <s:enumeration value="PensionCompleta" />
-        </s:restriction>
-      </s:simpleType>
-      <s:simpleType name="Moneda">
-        <s:restriction base="s:string">
-          <s:enumeration value="ARS" />
-          <s:enumeration value="USD" />
-          <s:enumeration value="EUR" />
         </s:restriction>
       </s:simpleType>
       <s:complexType name="ArrayOfInfoUnidad">

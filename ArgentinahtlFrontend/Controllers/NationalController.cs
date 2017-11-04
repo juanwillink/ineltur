@@ -69,6 +69,15 @@ namespace CheckArgentina.Controllers
             return Json(Manager.SearchDestination(destinationName, SessionData.UserCredential).Destinations, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult SearchHotels(string hotelName)
+        {
+            if (hotelName == null)
+            {
+                hotelName = string.Empty;
+            }
+            return Json(Manager.SearchHotel(hotelName).Lodgings, JsonRequestBehavior.AllowGet);
+        }
+
         [AcceptVerbs(HttpVerbs.Get)]
         [ValidateInput(false)]
         public ActionResult NationalSearchResults(string destinationId, string lodgingName, DateTime checkin, DateTime checkout,

@@ -397,6 +397,7 @@ namespace CheckArgentina.Models
         public string Description { get; set; }
         public decimal MontoPorUnidad { get; set; }
         public Quota[] Quota { get; set; }
+        public string Moneda { get; set; }
     }
 
     public class Quota

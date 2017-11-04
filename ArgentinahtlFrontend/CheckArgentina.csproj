@@ -375,6 +375,7 @@
     <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\250px-Tricolour_Cockade.png" />
     <Content Include="Content\Images\assistcard-red.jpg" />
     <Content Include="Content\Images\Banners\banner1.jpg" />
     <Content Include="Content\Images\Banners\banner3.jpg" />
@@ -2035,6 +2036,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\LocalService\Servicios.wsdl" />
     <Content Include="Service References\NationalService\CheckArgentina.NationalService.RespuestaBuscarAlojamientos.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -2059,7 +2061,6 @@
     <Content Include="Service References\NationalService\CheckArgentina.NationalService.RespuestaReservarAlojamiento.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\LocalService\Servicios.wsdl" />
     <None Include="Service References\NationalService\Hoteles.disco" />
     <None Include="Service References\NationalService\configuration91.svcinfo" />
     <None Include="Service References\NationalService\configuration.svcinfo" />
@@ -2164,7 +2165,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52233</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

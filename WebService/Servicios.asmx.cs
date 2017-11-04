@@ -435,7 +435,8 @@ namespace Ineltur.WebService
                             Camas = uni.CANTCAMAS,
                             Personas = uni.CANTPERSONAS,
                             IdUnidad = uni.IDUNIDAD_ALOJ,
-                            Descripcion = uni.DESCRIPCION
+                            Descripcion = uni.DESCRIPCION,
+                            Moneda = ConvertirMoneda(usuario.IdMoneda)
                         }).ToArray();
                         foreach (var unidad in unidadesAlojamiento)
                         {
@@ -458,7 +459,7 @@ namespace Ineltur.WebService
                         {
                             Direccion = rsAlojamiento.Direccion,
                             Nombre = rsAlojamiento.Nombre,
-                            Unidades = unidadesAlojamiento
+                            Unidades = unidadesAlojamiento                            
                         };
                         var respuesta = new RespuestaInfoCuposSemanalesAlojamiento()
                         {
@@ -632,7 +633,7 @@ namespace Ineltur.WebService
 
                             foreach (var alojamientoDisponible in alojamientosDisponibles)
                             {
-                                var disponible = dc.GetCuposAlojamientoEnRangoFechaV3(1, 1, 1, 1, 1, 1,
+                                var disponible = dc.GetCuposAlojamientoEnRangoFechaV3(petition.Habitacion1, petition.Habitacion2, petition.Habitacion3, petition.Habitacion4, petition.Habitacion5, petition.Habitacion6,
                                 petition.FechaInicio, petition.FechaFin, alojamientoDisponible.IdAlojamiento, petition.Nacionalidad, petition.desayuno, petition.tarifaReembolsable).OrderBy(
                                 d => d.MONTOPROMEDIOPORDIA).Where(d => d.MONTOPROMEDIOPORDIA > 0).ToList();
 
@@ -656,8 +657,8 @@ namespace Ineltur.WebService
                                 foreach (var unidad in alojamientoDisponible.Alojamiento.Unidades)
                                 {
                                     var promociones = dc.Promociones_Alojamientos.Where(p => p.IDUNIDADPROMO == unidad.IdUnidad &&
-                                        p.FECHAINICIO < petition.FechaInicio && p.FECHAFIN > petition.FechaFin &&
-                                        p.FECHAINICIO < petition.FechaFin && p.FECHAFIN > petition.FechaFin &&
+                                        p.FECHAINICIO <= petition.FechaInicio.Date && p.FECHAFIN >= petition.FechaFin.Date &&
+                                        p.FECHAINICIO <= petition.FechaFin.Date && p.FECHAFIN >= petition.FechaFin.Date &&
                                         p.ACTIVO == true).ToArray();
 
                                     if (promociones != null)
@@ -667,13 +668,14 @@ namespace Ineltur.WebService
                                             switch (promocion.IDTIPOPUBLICACIONPROMO)
                                             {
                                                 case 1:
-                                                    var noches = (petition.FechaFin - petition.FechaInicio).TotalDays;
+                                                    var noches = (petition.FechaFin.Date - petition.FechaInicio.Date).TotalDays;
                                                     if (noches == promocion.DIASRESERVADOS)
                                                     {
                                                         unidad.TienePromocionNxM = true;
                                                         unidad.DiasACobrar = promocion.DIASACOBRAR;
                                                         alojamientoDisponible.Alojamiento.TienePromocion = true;
                                                     }
+
                                                     break;
                                                 case 2:
                                                     unidad.TienePromocionMinimoMaximo = true;

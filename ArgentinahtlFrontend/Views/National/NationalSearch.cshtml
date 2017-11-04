@@ -15,7 +15,7 @@
             <div class="form-group">
                 <label for="hotelName">Hotel</label>
                 <input type="hidden" id="hotelNameSearch" />
-                <input type="text" class="form-control" id="hotelName" />
+                <input type="text" class="form-control autocomplete" id="hotelName" />
             </div>
             <div class="col-md-5" style="padding: 0;">
                 <div class="form-group text-center">
@@ -61,11 +61,11 @@
                 <div class="form-group">
                     <label>Tipo de Habitacion</label>
                     <select class="form-control" id="roomTypeFilter">
-                        <option selected value="">Todas</option>
                         <option value="single">Single</option>
-                        <option value="doble">Doble</option>
+                        <option selected value="doble">Doble</option>
                         <option value="triple">Triple</option>
                         <option value="cuadruple">Cuadruple</option>
+                        <option value="">Otros</option>
                     </select>
                 </div>     
             </div>
@@ -114,6 +114,39 @@
                 return false;
             }
             $("#destinationIdSearch").val(ui.item.id);
+        }
+    });
+
+    //Auto complete hotels
+    $("#hotelName").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "/National/SearchHotels",
+                dataType: "json",
+                data: { HotelName: request.term, UserKey: "@Session["userkey"].ToString()" },
+                success: function (data) {
+                    debugger;
+                    if (data.length == 0) {
+                        data.push({ HotelId: null, HotelName: "No Encontrado."});
+                        $("#HotelIdSearch").val(null);
+                    }
+                    response($.map(data, function (item) {
+                        return { label: item.LodgingName, value: item.LodgingName, id: item.DestinationId};
+                    }));
+                },
+                error: function () {
+                    debugger;
+                    alert("Error");
+                }
+            });
+        },
+        minLength: 1,
+        select: function (event, ui) {
+            if (ui.item.id == null) {
+                return false;
+            }
+            $("#DestinationIdSearch").val(ui.item.id);
+            $("#DestinationName").val("");
         }
     });
 </script>

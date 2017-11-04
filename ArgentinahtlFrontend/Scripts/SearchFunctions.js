@@ -5,9 +5,9 @@
     else {
         debugger;
         var dateParts = $("#checkinDate").val().split("-");
-        var checkinDate = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]);
+        var checkinDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
         dateParts = $("#checkoutDate").val().split("-");
-        var checkoutDate = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]);
+        var checkoutDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
         var destinationId = null;
         if ($("#destinationName").val() != "") {
             destinationId = $("#destinationIdSearch").val();
@@ -277,7 +277,7 @@ function buildLodgingsView(data, userkey) {
         debugger;
         var lodging = data.Lodgings[key];
         if (lodging["TienePromocion"] == true) {
-            $("#promocion-div-" + lodging["LodgingId"] + "").append("<div class='alert alert-info' role='alert'>Este Alojamiento cuenta con <strong>promociones</strong>, click en <strong>Reservar</strong> para conocer mas!</div>");
+            $("#promocion-div-" + lodging["LodgingId"] + "").append("<div class='alert alert-info' role='alert'><img src='../Content/Images/250px-Tricolour_Cockade.png' style='width:10%;height:10%;'>  Este Alojamiento cuenta con <strong>promociones</strong>, click en <strong>Reservar</strong> para conocer mas!</div>");
         }
     }
     $("#spinnerHome").hide();

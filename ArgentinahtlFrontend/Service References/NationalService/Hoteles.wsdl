@@ -291,6 +291,10 @@
           <s:element minOccurs="1" maxOccurs="1" name="Desayuno" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Tarifa" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="TienePromocionNxM" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiasACobrar" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TienePromocionMinimoMaximo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinimoDias" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaximoDias" nillable="true" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="InfoCuposAlojamiento">

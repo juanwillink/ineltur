@@ -134,7 +134,10 @@
                                                 }                                               
                                             </div>
                                             <div class="col-md-4">
-                                                <button class="btn btn-main" onclick="openAgregarPasajeroModal('@Model.Vacancies[i].VacancyId')">Agregar Pasajeros</button>
+                                                @if (vacancy.Rooms[0].Travelers.Count() < vacancy.Rooms[0].RoomAdults)
+                                                {
+                                                    <button class="btn btn-main" onclick="openAgregarPasajeroModal('@Model.Vacancies[i].VacancyId')">Agregar Pasajeros</button>
+                                                }
                                             </div>
                                             <div class="col-md-12">
                                                 <h4 id="pasajerosTitle" hidden><b>Pasajeros:</b></h4>
@@ -192,7 +195,8 @@
             {
                 <a href="PaymentMethods"><button type="button" class="btn btn-main">Continuar Pedido</button></a>
             }
-                   
+
+            <a href="/Home/Home"><button type="button" class="btn btn-main">Volver a Inicio</button></a>
         </div>
     </div>
 </div>

@@ -191,12 +191,23 @@ namespace CheckArgentina.Managers
             var petitionResults = _service.BuscarPreciosSemanalesHotel(petition);
             if (petitionResults.Estado == EstadoRespuesta.Ok)
             {
+
+                var currency = "$";
+
+                switch (petitionResults.Alojamiento.Unidades.FirstOrDefault().Moneda.GetValueOrDefault())
+                {
+                    case Moneda.ARS: currency = "$"; break;
+                    case Moneda.EUR: currency = "€"; break;
+                    case Moneda.USD: currency = "U$S"; break;
+                }
+
                 result.Units = petitionResults.Alojamiento.Unidades.Select(uni => new Unit()
                 {
                     IdUnidad = uni.IdUnidad,
                     NombreUnidad = uni.NombreUnidad,
                     Personas = uni.Personas,
-                    Description = uni.Descripcion,
+                    Description = uni.Descripcion, 
+                    Moneda = currency,
                     Quota = uni.Cupos.Select(quota => new Quota()
                     {
                         Activo = quota.Activo,
@@ -233,9 +244,9 @@ namespace CheckArgentina.Managers
 
             if (searchLodgingRequestModel.Rooms == null)
             {
-                petition.Habitacion1 = petition.Habitacion1 ?? 0 + 1;
-                petition.Habitacion2 = petition.Habitacion2 ?? 0 + 1;
-                petition.Habitacion3 = petition.Habitacion3 ?? 0 + 1;
+                petition.Habitacion1 = petition.Habitacion1 ?? 0;
+                petition.Habitacion2 = petition.Habitacion2 ?? 0;
+                petition.Habitacion3 = petition.Habitacion3 ?? 0;
                 petition.Habitacion4 = petition.Habitacion4 ?? 0 + 1;
                 petition.Habitacion5 = petition.Habitacion5 ?? 0 + 1;
                 petition.Habitacion6 = petition.Habitacion6 ?? 0 + 1;
@@ -281,6 +292,7 @@ namespace CheckArgentina.Managers
                     {
                         var lodgingModel = new LodgingModel
                         {
+                            DestinationId = lodging.Destino.IdDestino.ToString(),
                             LodgingId = lodging.IdAlojamiento.ToString(),
                             LodgingName = lodging.Nombre,
                             LodgingDescription = lodging.Alojamiento.Descripcion,
