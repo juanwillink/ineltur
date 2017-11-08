@@ -185,19 +185,32 @@ namespace ArgentinahtlMVC.Models.Services
 								    cupounidad.CUPOMAXIMO = model.CupoMaximo;
 
 								//cupounidad.CUPORESERVADO = model.CupoReservado;
-								cupounidad.MONTO = model.MontoRACDTR;
-                                cupounidad.MONTO_EXT_CD_TR = model.MontoEXTCDTR;
-                                cupounidad.MONTO_MER_CD_TR = model.MontoMERCDTR;
-                                cupounidad.MONTO_RA_SD_TR = model.MontoRASDTR;
-                                cupounidad.MONTO_EXT_SD_TR = model.MontoEXTSDTR;
-                                cupounidad.MONTO_MER_SD_TR = model.MontoMERSDTR;
-                                cupounidad.MONTO_RA_CD_TNR = model.MontoRACDTNR;
-                                cupounidad.MONTO_EXT_CD_TNR = model.MontoEXTCDTNR;
-                                cupounidad.MONTO_MER_CD_TNR = model.MontoMERCDTNR;
-                                cupounidad.MONTO_RA_SD_TNR = model.MontoRASDTNR;
-                                cupounidad.MONTO_EXT_SD_TNR = model.MontoEXTSDTNR;
-                                cupounidad.MONTO_MER_SD_TNR = model.MontoMERSDTNR;
-                            }
+								//cupounidad.MONTO = model.MontoRACDTR;
+        //                        cupounidad.MONTO_EXT_CD_TR = model.MontoEXTCDTR;
+        //                        cupounidad.MONTO_MER_CD_TR = model.MontoMERCDTR;
+        //                        cupounidad.MONTO_RA_SD_TR = model.MontoRASDTR;
+        //                        cupounidad.MONTO_EXT_SD_TR = model.MontoEXTSDTR;
+        //                        cupounidad.MONTO_MER_SD_TR = model.MontoMERSDTR;
+        //                        cupounidad.MONTO_RA_CD_TNR = model.MontoRACDTNR;
+        //                        cupounidad.MONTO_EXT_CD_TNR = model.MontoEXTCDTNR;
+        //                        cupounidad.MONTO_MER_CD_TNR = model.MontoMERCDTNR;
+        //                        cupounidad.MONTO_RA_SD_TNR = model.MontoRASDTNR;
+        //                        cupounidad.MONTO_EXT_SD_TNR = model.MontoEXTSDTNR;
+        //                        cupounidad.MONTO_MER_SD_TNR = model.MontoMERSDTNR;
+
+								cupounidad.MONTO = model.MontoRACDTR == -1 ? cupounidad.MONTO : model.MontoRACDTR;
+								cupounidad.MONTO_EXT_CD_TR = model.MontoEXTCDTR ?? cupounidad.MONTO_EXT_CD_TR;
+								cupounidad.MONTO_MER_CD_TR = model.MontoMERCDTR ?? cupounidad.MONTO_MER_CD_TR;
+								cupounidad.MONTO_RA_SD_TR = model.MontoRASDTR ?? cupounidad.MONTO_RA_SD_TR;
+								cupounidad.MONTO_EXT_SD_TR = model.MontoEXTSDTR ?? cupounidad.MONTO_EXT_SD_TR;
+								cupounidad.MONTO_MER_SD_TR = model.MontoMERSDTR ?? cupounidad.MONTO_MER_SD_TR;
+								cupounidad.MONTO_RA_CD_TNR = model.MontoRACDTNR ?? cupounidad.MONTO_RA_CD_TNR;
+								cupounidad.MONTO_EXT_CD_TNR = model.MontoEXTCDTNR ?? cupounidad.MONTO_EXT_CD_TNR;
+								cupounidad.MONTO_MER_CD_TNR = model.MontoMERCDTNR ?? cupounidad.MONTO_MER_CD_TNR;
+								cupounidad.MONTO_RA_SD_TNR = model.MontoRASDTNR ?? cupounidad.MONTO_RA_SD_TNR;
+								cupounidad.MONTO_EXT_SD_TNR = model.MontoEXTSDTNR ?? cupounidad.MONTO_EXT_SD_TNR;
+								cupounidad.MONTO_MER_SD_TNR = model.MontoMERSDTNR ?? cupounidad.MONTO_MER_SD_TNR;
+							}
                             else
                             {
 

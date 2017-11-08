@@ -11,16 +11,14 @@ using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using System.Xml;
 using System.Security.Cryptography;
-using Reca.Common.Utils;
-using Reca.Common.DTO.NPS;
-using Reca.Common.Consts;
+using ArgentinahtlCommon;
 
 
-namespace Reca.BLL.NPS
+namespace ArgentinahtlBLL.NPS
 {
     internal static class NPSWSServiceWrapper
     {
-        internal static NPS.PaymentServicePlatformPortTypeClient GetService(string siteUrl)
+        internal static PaymentServicePlatformPortTypeClient GetService(string siteUrl)
         {
             var basicHttpSecurityMode = BasicHttpSecurityMode.None;
 
@@ -41,42 +39,23 @@ namespace Reca.BLL.NPS
             return client;
         }
 
-        internal static NPSTest.PaymentServicePlatformPortTypeClient GetServiceTest(string siteUrl)
-        {
-            var basicHttpSecurityMode = BasicHttpSecurityMode.None;
-
-            if (siteUrl.StartsWith("https"))
-                basicHttpSecurityMode = BasicHttpSecurityMode.Transport;
-
-            Uri serviceUri = new Uri(siteUrl);
-
-            EndpointAddress endpointAddress = new EndpointAddress(serviceUri);
-
-            //Create the binding here
-            Binding binding = new CustomBinding(BindingFactory.CreateInstance(basicHttpSecurityMode));
-
-            NPSTest.PaymentServicePlatformPortTypeClient client = new NPSTest.PaymentServicePlatformPortTypeClient(binding, endpointAddress);
-
-            client.Endpoint.Behaviors.Add(new FaultFormatingBehavior());
-
-            return client;
-        }
+        
     }
 
     internal static class BindingFactory
     {
         internal static Binding CreateInstance(BasicHttpSecurityMode basicHttpSecurityMode)
         {
-            ConfiguracionBLL conf = new ConfiguracionBLL();
-            string proxy = conf.ObtenerConfiguracion((int)ConfiguracionEnum.NPSBindingProxy).Valor;
-            string useDefaultProxy = conf.ObtenerConfiguracion((int)ConfiguracionEnum.NPSBindingUseDefaultWebProxy).Valor;
+            //ConfiguracionBLL conf = new ConfiguracionBLL();
+            //string proxy = conf.ObtenerConfiguracion((int)ConfiguracionEnum.NPSBindingProxy).Valor;
+            //string useDefaultProxy = conf.ObtenerConfiguracion((int)ConfiguracionEnum.NPSBindingUseDefaultWebProxy).Valor;
 
             BasicHttpBinding binding = new BasicHttpBinding();
             binding.Security.Mode = basicHttpSecurityMode;
             binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
             binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.UserName;
-            binding.UseDefaultWebProxy =  !string.IsNullOrEmpty(useDefaultProxy) && useDefaultProxy.ToUpper() != "NO" ? true : false;
-            binding.ProxyAddress = new Uri(proxy);
+            //binding.UseDefaultWebProxy =  !string.IsNullOrEmpty(useDefaultProxy) && useDefaultProxy.ToUpper() != "NO" ? true : false;
+            //binding.ProxyAddress = new Uri(proxy);
 
             binding.ReaderQuotas.MaxStringContentLength = int.MaxValue;
             binding.ReaderQuotas.MaxArrayLength = int.MaxValue;
@@ -116,11 +95,11 @@ namespace Reca.BLL.NPS
         {
             try
             {
-                Globals.Logger.Info($"FaultMessageInspector.BeforeSendRequest - Request: {request} ");
+				Tracker.WriteTrace($"FaultMessageInspector.BeforeSendRequest - Request: {request} ");
             }
             catch (Exception e)
             {
-                Globals.Logger.Error($"FaultMessageInspector.BeforeSendRequest - Exception: {ExceptionHelper.GetFullMessage(e)} ");
+                Tracker.WriteTrace($"FaultMessageInspector.BeforeSendRequest - Exception: {e.Message} ") ;
             }
             return null;
         }
@@ -129,7 +108,7 @@ namespace Reca.BLL.NPS
         {
             try
             {
-                Globals.Logger.Info($"FaultMessageInspector.AfterReceiveReply - Response: {reply} ");
+				Tracker.WriteTrace($"FaultMessageInspector.AfterReceiveReply - Response: {reply} ");
 
                 if (reply.IsFault)
                 {
@@ -152,69 +131,15 @@ namespace Reca.BLL.NPS
                     }
 
                 }
-                //else
-                //{
-                //    Message revised = null;
-                //    var contents = new StringBuilder();
-                //    var writer = XmlWriter.Create(contents);
-
-                //    reply.WriteMessage(writer);
-                //    writer.Flush();
-
-                //    revised = Message.CreateMessage(reply.Version, reply.Headers.Action, XmlReader.Create(new StringReader(contents.ToString())));
-                //    revised.Headers.CopyHeadersFrom(reply);
-                //    revised.Properties.CopyProperties(reply.Properties);
-
-                //    reply = revised;
-
-                //    //XmlDocument doc = new XmlDocument();
-                //    //MemoryStream ms = new MemoryStream();
-                //    //XmlWriter writer = XmlWriter.Create(ms);
-                //    //reply.WriteMessage(writer);
-                //    ////writer.Flush();
-                //    //ms.Position = 0;
-                //    //doc.Load(ms);
-
-                //    //ChangeMessage(ref doc);
-
-                //    //ms.SetLength(0);
-                //    //writer = XmlWriter.Create(ms);
-                //    //doc.WriteTo(writer);
-                //    ////writer.Flush();
-                //    //ms.Position = 0;
-                //    //XmlReader reader = XmlReader.Create(ms);
-                //    //reply = Message.CreateMessage(reader, int.MaxValue, reply.Version);
-
-                //}
+               
 
             }
             catch (Exception e)
             {
-                Globals.Logger.Error($"FaultMessageInspector.AfterReceiveReply - Exception: {ExceptionHelper.GetFullMessage(e)} ");
+				Tracker.WriteTrace($"FaultMessageInspector.AfterReceiveReply - Exception: {e.Message} ");
             }
         }
 
-        //void ChangeMessage(ref XmlDocument doc)
-        //{
-            
-        //    XmlNamespaceManager nsManager = new XmlNamespaceManager(doc.NameTable);
-
-        //    nsManager.AddNamespace("s", "http://schemas.xmlsoap.org/soap/envelope/");
-
-        //    nsManager.AddNamespace("tempuri", "http://tempuri.org/");
-
-        //    XmlNode node = doc.SelectSingleNode("//ns1", nsManager);
-
-        //    if (node != null)
-        //    {
-        //        XmlText text = node.FirstChild as XmlText;
-
-        //        if (text != null)
-        //        {
-        //            text.Value = "Modified: " + text.Value;
-        //        }
-        //    }
-        //}
     }
 
 
@@ -262,47 +187,7 @@ namespace Reca.BLL.NPS
 
         }
 
-        internal static string ObtenerHashCashPayment3p(RequerimientoCashPayment3pDTO dto)
-        {
-            string hash = string.Empty;
-
-            try
-            {
-                hash =
-                        (dto.Amount == 0 ? null : Math.Truncate(dto.Amount * 100).ToString()) +
-                        dto.Country +
-                        dto.Currency +
-                        //(dto.CustomerDocNum == 0 ? null : dto.CustomerDocNum.ToString()) +
-                        //dto.CustomerId +
-                        dto.CustomerMail +
-                        (dto.DaysAvailableToPay == 0 ? null : dto.DaysAvailableToPay.ToString()) +
-                        dto.DaysUntilSecondExpDate.ToString() +
-                        dto.FirstExpDate.ToString("yyyy-MM-dd") +
-                        //dto.ForceProcessingMethod +
-                        dto.FrmBackButtonURL +
-                        dto.FrmLanguage +
-                        //dto.MerchantMail +
-                        dto.MerchOrderId +
-                        dto.MerchTxRef +
-                        dto.MerchantId +
-                        dto.PosDateTime.ToString("yyyy-MM-dd HH:mm:ss") +
-                        dto.Product.ToString() +
-                        //dto.PurchaseDescription +
-                        dto.ReturnURL +
-                        dto.SurchargeAmount.ToString() +
-                        dto.TxSource +
-                        dto.Version +
-                        dto.SecretKey;
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-            return CodificarHash(hash);
-
-        }
+ 
 
         internal static string ObtenerHashSimpleQueryTx(RequerimientoSimpleQueryTxDTO dto)
         {
@@ -367,35 +252,6 @@ namespace Reca.BLL.NPS
                 dto.MerchantMail = originalResponse.psp_MerchantMail;
                 dto.Plan = originalResponse.psp_Plan;
                 dto.FirstPaymentDeferralDate = originalResponse.psp_FirstPaymentDeferral;
-                dto.PosDateTime = Convert.ToDateTime(originalResponse.psp_PosDateTime);
-
-                if (dto.ResponseCod != Convert.ToInt16(CodigoRespuestaSolicitudAutorizacionNPS.Exitosa))
-                {
-                    dto.ErrorMessage = dto.ResponseMsg;
-                    if (dto.ResponseExtended != null)
-                        dto.ErrorMessage += " Detalle: " + dto.ResponseExtended;
-                }
-            }
-
-            return dto;
-        }
-
-        internal RespuestaCashPayment3pDTO ObtenerRespuestaCashPayment3pDTO(RespuestaStruct_CashPayment_3p originalResponse)
-        {
-            RespuestaCashPayment3pDTO dto = new RespuestaCashPayment3pDTO();
-
-            if (originalResponse != null)
-            {
-                dto.ResponseCod = Convert.ToInt32(originalResponse.psp_ResponseCod);
-                dto.ResponseMsg = originalResponse.psp_ResponseMsg;
-                dto.ResponseExtended = originalResponse.psp_ResponseExtended;
-                dto.TransactionId = Convert.ToInt64(originalResponse.psp_TransactionId);
-                dto.Session3p = originalResponse.psp_Session3p;
-                dto.FrontPSP_URL = originalResponse.psp_FrontPSP_URL;
-                dto.MerchantId = originalResponse.psp_MerchantId;
-                dto.MerchTxRef = originalResponse.psp_MerchTxRef;
-                dto.MerchOrderId = originalResponse.psp_MerchOrderId;
-                dto.BarCode = originalResponse.psp_BarCode;
                 dto.PosDateTime = Convert.ToDateTime(originalResponse.psp_PosDateTime);
 
                 if (dto.ResponseCod != Convert.ToInt16(CodigoRespuestaSolicitudAutorizacionNPS.Exitosa))

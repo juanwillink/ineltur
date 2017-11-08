@@ -48,8 +48,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="NSP\ServiceHelpers.cs" />
-    <Compile Include="NSP\ServiciosNPS.cs" />
+    <Compile Include="NPS\ServiceHelpers.cs" />
+    <Compile Include="NPS\ServiciosNPS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +179,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ArgentinahtlCommon\ArgentinahtlCommon.csproj">
+      <Project>{a791f116-d17e-47db-9223-b96de24747e1}</Project>
+      <Name>ArgentinahtlCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
