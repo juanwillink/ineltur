@@ -1217,6 +1217,32 @@ namespace CheckArgentina.LocalService {
         
         private decimal montoField;
         
+        private decimal montoExtranjeroField;
+        
+        private decimal montoMercosurField;
+        
+        private decimal montoExtranjeroCDTRField;
+        
+        private decimal montoMercosurCDTRField;
+        
+        private decimal montoArgentinoSDTRField;
+        
+        private decimal montoExtranjeroSDTRField;
+        
+        private decimal montoMercosurSDTRField;
+        
+        private decimal montoArgentinoCDTNRField;
+        
+        private decimal montoExtrajeroCDTNRField;
+        
+        private decimal montoMercosurCDTNRField;
+        
+        private decimal montoArgentinoSDTNRField;
+        
+        private decimal montoExtranjeroSDTNRField;
+        
+        private decimal montoMercosurSDTNRField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public bool Activo {
@@ -1334,6 +1360,162 @@ namespace CheckArgentina.LocalService {
             set {
                 this.montoField = value;
                 this.RaisePropertyChanged("Monto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public decimal MontoExtranjero {
+            get {
+                return this.montoExtranjeroField;
+            }
+            set {
+                this.montoExtranjeroField = value;
+                this.RaisePropertyChanged("MontoExtranjero");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public decimal MontoMercosur {
+            get {
+                return this.montoMercosurField;
+            }
+            set {
+                this.montoMercosurField = value;
+                this.RaisePropertyChanged("MontoMercosur");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public decimal MontoExtranjeroCDTR {
+            get {
+                return this.montoExtranjeroCDTRField;
+            }
+            set {
+                this.montoExtranjeroCDTRField = value;
+                this.RaisePropertyChanged("MontoExtranjeroCDTR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public decimal MontoMercosurCDTR {
+            get {
+                return this.montoMercosurCDTRField;
+            }
+            set {
+                this.montoMercosurCDTRField = value;
+                this.RaisePropertyChanged("MontoMercosurCDTR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public decimal MontoArgentinoSDTR {
+            get {
+                return this.montoArgentinoSDTRField;
+            }
+            set {
+                this.montoArgentinoSDTRField = value;
+                this.RaisePropertyChanged("MontoArgentinoSDTR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
+        public decimal MontoExtranjeroSDTR {
+            get {
+                return this.montoExtranjeroSDTRField;
+            }
+            set {
+                this.montoExtranjeroSDTRField = value;
+                this.RaisePropertyChanged("MontoExtranjeroSDTR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
+        public decimal MontoMercosurSDTR {
+            get {
+                return this.montoMercosurSDTRField;
+            }
+            set {
+                this.montoMercosurSDTRField = value;
+                this.RaisePropertyChanged("MontoMercosurSDTR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
+        public decimal MontoArgentinoCDTNR {
+            get {
+                return this.montoArgentinoCDTNRField;
+            }
+            set {
+                this.montoArgentinoCDTNRField = value;
+                this.RaisePropertyChanged("MontoArgentinoCDTNR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=18)]
+        public decimal MontoExtrajeroCDTNR {
+            get {
+                return this.montoExtrajeroCDTNRField;
+            }
+            set {
+                this.montoExtrajeroCDTNRField = value;
+                this.RaisePropertyChanged("MontoExtrajeroCDTNR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=19)]
+        public decimal MontoMercosurCDTNR {
+            get {
+                return this.montoMercosurCDTNRField;
+            }
+            set {
+                this.montoMercosurCDTNRField = value;
+                this.RaisePropertyChanged("MontoMercosurCDTNR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=20)]
+        public decimal MontoArgentinoSDTNR {
+            get {
+                return this.montoArgentinoSDTNRField;
+            }
+            set {
+                this.montoArgentinoSDTNRField = value;
+                this.RaisePropertyChanged("MontoArgentinoSDTNR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=21)]
+        public decimal MontoExtranjeroSDTNR {
+            get {
+                return this.montoExtranjeroSDTNRField;
+            }
+            set {
+                this.montoExtranjeroSDTNRField = value;
+                this.RaisePropertyChanged("MontoExtranjeroSDTNR");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=22)]
+        public decimal MontoMercosurSDTNR {
+            get {
+                return this.montoMercosurSDTNRField;
+            }
+            set {
+                this.montoMercosurSDTNRField = value;
+                this.RaisePropertyChanged("MontoMercosurSDTNR");
             }
         }
         

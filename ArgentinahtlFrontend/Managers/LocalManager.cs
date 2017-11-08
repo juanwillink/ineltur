@@ -219,7 +219,20 @@ namespace CheckArgentina.Managers
                         IdCupoUnidad = quota.IdCupoUnidad,
                         IdUnidadAloj = quota.IdUnidadAloj,
                         MarcaTemporada = quota.MarcaTemporada,
-                        Monto = quota.Monto
+                        Monto = quota.Monto,
+                        MontoExtranjero = quota.MontoExtranjero,
+                        MontoMercosur = quota.MontoMercosur,
+                        MontoExtranjeroCDTR = quota.MontoExtranjeroCDTR,
+                        MontoMercosurCDTR = quota.MontoMercosurCDTR,
+                        MontoArgentinoSDTR = quota.MontoArgentinoSDTR,
+                        MontoExtranjeroSDTR = quota.MontoExtranjeroSDTR,
+                        MontoMercosurSDTR = quota.MontoMercosurSDTR,
+                        MontoArgentinoCDTNR = quota.MontoArgentinoCDTNR,
+                        MontoExtrajeroCDTNR = quota.MontoExtrajeroCDTNR,
+                        MontoMercosurCDTNR = quota.MontoMercosurCDTNR,
+                        MontoArgentinoSDTNR = quota.MontoArgentinoSDTNR,
+                        MontoExtranjeroSDTNR = quota.MontoExtranjeroSDTNR,
+                        MontoMercosurSDTNR = quota.MontoMercosurCDTNR,
                     }).ToArray()
                 }).ToArray();
             }

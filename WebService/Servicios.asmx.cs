@@ -452,7 +452,20 @@ namespace Ineltur.WebService
                                 IdCupoUnidad = cupo.IDCUPOUNIDAD,
                                 IdUnidadAloj = cupo.IDUNIDAD_ALOJ,
                                 MarcaTemporada = cupo.MARCA_TEMPORADA,
-                                Monto = Decimal.Round((decimal)((cupo.MONTO * markup) * (cotizacionAloj / cotizacionUsuario)), 0)
+                                Monto = (float.IsNaN(cupo.MONTO)) ? 0 : Decimal.Round((decimal)((cupo.MONTO * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtranjero = (cupo.MONTO_EXT == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_EXT * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosur = (cupo.MONTO_MER == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtranjeroCDTR = (cupo.MONTO_EXT_CD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_EXT_CD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosurCDTR = (cupo.MONTO_MER_CD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_CD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoArgentinoCDTNR = (cupo.MONTO_RA_CD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_RA_CD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtrajeroCDTNR = (cupo.MONTO_MER_CD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_CD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosurCDTNR = (cupo.MONTO_MER_CD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_CD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoArgentinoSDTR = (cupo.MONTO_RA_SD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_RA_SD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtranjeroSDTR = (cupo.MONTO_EXT_SD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_EXT_SD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosurSDTR = (cupo.MONTO_MER_SD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_SD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoArgentinoSDTNR = (cupo.MONTO_RA_SD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_RA_SD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtranjeroSDTNR = (cupo.MONTO_EXT_SD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_EXT_SD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosurSDTNR = (cupo.MONTO_MER_SD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_SD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0)
                             }).ToArray();
                         }
                         var alojamiento = new InfoCuposAlojamiento()

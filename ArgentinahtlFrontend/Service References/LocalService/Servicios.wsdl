@@ -221,6 +221,19 @@
           <s:element minOccurs="1" maxOccurs="1" name="IdUnidadAloj" type="s1:guid" />
           <s:element minOccurs="1" maxOccurs="1" name="MarcaTemporada" nillable="true" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Monto" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtranjero" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosur" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtranjeroCDTR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosurCDTR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoArgentinoSDTR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtranjeroSDTR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosurSDTR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoArgentinoCDTNR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtrajeroCDTNR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosurCDTNR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoArgentinoSDTNR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtranjeroSDTNR" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosurSDTNR" type="s:decimal" />
         </s:sequence>
       </s:complexType>
       <s:simpleType name="Moneda">

@@ -2036,7 +2036,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\LocalService\Servicios.wsdl" />
     <Content Include="Service References\NationalService\CheckArgentina.NationalService.RespuestaBuscarAlojamientos.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -2061,6 +2060,7 @@
     <Content Include="Service References\NationalService\CheckArgentina.NationalService.RespuestaReservarAlojamiento.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\LocalService\Servicios.wsdl" />
     <None Include="Service References\NationalService\Hoteles.disco" />
     <None Include="Service References\NationalService\configuration91.svcinfo" />
     <None Include="Service References\NationalService\configuration.svcinfo" />
