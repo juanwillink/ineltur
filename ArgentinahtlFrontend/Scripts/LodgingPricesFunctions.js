@@ -60,81 +60,86 @@ function buildDatesTable(data) {
     for (var key1 in data.Units) {
         var unit3 = data.Units[key1];
         body = body + "<tbody id='" + unit3["IdUnidad"] + "' class='tableUnit'><tr><td></td>";
-        for (var key3 in unit.Quota) {
-            var quota2 = unit.Quota[key3];
-            var src = quota2["Fecha"];
-            src = src.replace(/[^0-9 +]/g, '');
-            var date = new Date(parseInt(src));
-            var day = date.getDate();
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear();
-            debugger;
-            if (key3 == 0) {
-                $("#firstWeekDay").val(year + "/" + month + "/" + day);
+        if (unit3.Quota.length > 0) {
+            for (var key3 in unit.Quota) {
+                var quota2 = unit.Quota[key3];
+                var src = quota2["Fecha"];
+                src = src.replace(/[^0-9 +]/g, '');
+                var date = new Date(parseInt(src));
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var year = date.getFullYear();
+                debugger;
+                if (key3 == 0) {
+                    $("#firstWeekDay").val(year + "/" + month + "/" + day);
+                }
+                body = body + "<th>" + day + "/" + month + "/" + year + "</th>";
             }
-            body = body + "<th>" + day + "/" + month + "/" + year + "</th>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaArgentina'><td>Con Desayuno Tarifa Reembolsable</td>";
-        for (var key2 in unit.Quota) {
-            var quota3 = unit.Quota[key2];
-            body = body + "<td>" + quota3["Monto"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaExtrangera'><td>Con Desayuno Tarifa Reembolsable</td>";
-        for (var key4 in unit.Quota) {
-            var quota4 = unit.Quota[key4];
-            body = body + "<td>" + quota4["MontoExtranjeroCDTR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaMercosur'><td>Con Desayuno Tarifa Reembolsable</td>";
-        for (var key5 in unit.Quota) {
-            var quota5 = unit.Quota[key5];
-            body = body + "<td>" + quota5["MontoMercosurCDTR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaArgentina'><td>Sin Desayuno Tarifa Reembolsable</td>";
-        for (var key6 in unit.Quota) {
-            var quota6 = unit.Quota[key6];
-            body = body + "<td>" + quota6["MontoArgentinoSDTR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaExtrangera'><td>Sin Desayuno Tarifa Reembolsable</td>";
-        for (var key7 in unit.Quota) {
-            var quota7 = unit.Quota[key7];
-            body = body + "<td>" + quota7["MontoExtranjeroSDTR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaMercosur'><td>Sin Desayuno Tarifa Reembolsable</td>";
-        for (var key8 in unit.Quota) {
-            var quota8 = unit.Quota[key8];
-            body = body + "<td>" + quota8["MontoMercosurSDTR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaArgentina'><td>Con Desayuno Tarifa No Reembolsable</td>";
-        for (var key9 in unit.Quota) {
-            var quota9 = unit.Quota[key9];
-            body = body + "<td>" + quota9["MontoArgentinoCDTNR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaExtrangera'><td>Con Desayuno Tarifa No Reembolsable</td>";
-        for (var key10 in unit.Quota) {
-            var quota10 = unit.Quota[key10];
-            body = body + "<td>" + quota10["MontoExtrajeroCDTNR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaMercosur'><td>Con Desayuno Tarifa No Reembolsable</td>";
-        for (var key11 in unit.Quota) {
-            var quota11 = unit.Quota[key11];
-            body = body + "<td>" + quota11["MontoMercosurCDTNR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaArgentina'><td>Sin Desayuno Tarifa No Reembolsable</td>";
-        for (var key12 in unit.Quota) {
-            var quota12 = unit.Quota[key12];
-            body = body + "<td>" + quota12["MontoArgentinoSDTNR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaExtrangera'><td>Sin Desayuno Tarifa No Reembolsable</td>";
-        for (var key13 in unit.Quota) {
-            var quota13 = unit.Quota[key13];
-            body = body + "<td>" + quota13["MontoExtranjeroSDTNR"] + "</td>";
-        }
-        body = body + "</tr><tr class='rowTarifa tarifaMercosur'><td>Sin Desayuno Tarifa No Reembolsable</td>";
-        for (var key14 in unit.Quota) {
-            var quota14 = unit.Quota[key14];
-            body = body + "<td>" + quota14["MontoMercosurSDTNR"] + "</td>";
+            body = body + "</tr><tr class='rowTarifa tarifaArgentina'><td>Con Desayuno Tarifa Reembolsable</td>";
+            for (var key2 in unit.Quota) {
+                var quota3 = unit.Quota[key2];
+                body = body + "<td>" + quota3["Monto"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaExtrangera'><td>Con Desayuno Tarifa Reembolsable</td>";
+            for (var key4 in unit.Quota) {
+                var quota4 = unit.Quota[key4];
+                body = body + "<td>" + quota4["MontoExtranjeroCDTR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaMercosur'><td>Con Desayuno Tarifa Reembolsable</td>";
+            for (var key5 in unit.Quota) {
+                var quota5 = unit.Quota[key5];
+                body = body + "<td>" + quota5["MontoMercosurCDTR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaArgentina'><td>Sin Desayuno Tarifa Reembolsable</td>";
+            for (var key6 in unit.Quota) {
+                var quota6 = unit.Quota[key6];
+                body = body + "<td>" + quota6["MontoArgentinoSDTR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaExtrangera'><td>Sin Desayuno Tarifa Reembolsable</td>";
+            for (var key7 in unit.Quota) {
+                var quota7 = unit.Quota[key7];
+                body = body + "<td>" + quota7["MontoExtranjeroSDTR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaMercosur'><td>Sin Desayuno Tarifa Reembolsable</td>";
+            for (var key8 in unit.Quota) {
+                var quota8 = unit.Quota[key8];
+                body = body + "<td>" + quota8["MontoMercosurSDTR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaArgentina'><td>Con Desayuno Tarifa No Reembolsable</td>";
+            for (var key9 in unit.Quota) {
+                var quota9 = unit.Quota[key9];
+                body = body + "<td>" + quota9["MontoArgentinoCDTNR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaExtrangera'><td>Con Desayuno Tarifa No Reembolsable</td>";
+            for (var key10 in unit.Quota) {
+                var quota10 = unit.Quota[key10];
+                body = body + "<td>" + quota10["MontoExtrajeroCDTNR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaMercosur'><td>Con Desayuno Tarifa No Reembolsable</td>";
+            for (var key11 in unit.Quota) {
+                var quota11 = unit.Quota[key11];
+                body = body + "<td>" + quota11["MontoMercosurCDTNR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaArgentina'><td>Sin Desayuno Tarifa No Reembolsable</td>";
+            for (var key12 in unit.Quota) {
+                var quota12 = unit.Quota[key12];
+                body = body + "<td>" + quota12["MontoArgentinoSDTNR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaExtrangera'><td>Sin Desayuno Tarifa No Reembolsable</td>";
+            for (var key13 in unit.Quota) {
+                var quota13 = unit.Quota[key13];
+                body = body + "<td>" + quota13["MontoExtranjeroSDTNR"] + "</td>";
+            }
+            body = body + "</tr><tr class='rowTarifa tarifaMercosur'><td>Sin Desayuno Tarifa No Reembolsable</td>";
+            for (var key14 in unit.Quota) {
+                var quota14 = unit.Quota[key14];
+                body = body + "<td>" + quota14["MontoMercosurSDTNR"] + "</td>";
+            }      
+        } else {
+            body = body + "<td>NO POSEE TARIFAS CARGADAS</td>";
         }
         body = body + "</tr>";
+        
     }
     table.append(body);
     $(".tableUnit").hide();
@@ -142,6 +147,7 @@ function buildDatesTable(data) {
 }
 
 function showTable(selected) {
+    debugger;
     $(".rowTarifa").hide();
     if ($("#nationalityFilter").val() == 'arg') {
         $(".tarifaArgentina").show();
