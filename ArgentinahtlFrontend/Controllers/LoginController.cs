@@ -62,6 +62,28 @@ namespace CheckArgentina.Controllers
             }
         }
 
+        public ActionResult MailReservation(string LodgingName, string EmailPasajero, string HabitacionName, string Checkin, string Checkout, string NombrePasajero, string CantidadPasajeros, string Observaciones)
+        {
+            using (var smtp = ObtenerClienteSmtp())
+            {
+                FluentEmail.Email
+                    .From(EmailPasajero)
+                    .Subject(string.Format("Reserva en {0} via mail", LodgingName))
+                    .To("juanwillink@gmail.com")
+                    .Body("Datos de la Reserva: <br>" +
+                    "Hotel:" + LodgingName +
+                    "Pasajero:" + NombrePasajero +
+                    "Cantidad:" + CantidadPasajeros +
+                    "Check In:" + Checkin +
+                    "Check Out:" + Checkout +
+                    "Tipo de Habitacion:" + HabitacionName +
+                    "Observaciones:" + Observaciones)
+                    .UsingClient(smtp)
+                    .Send();
+            }
+            return null;
+        }
+
         public ActionResult Registration(RegistrationModel model)
         {
             using (var smtp = ObtenerClienteSmtp())

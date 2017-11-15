@@ -2127,6 +2127,7 @@
     <Content Include="Views\Shared\Reservation.cshtml" />
     <Content Include="Views\Modals\AgregarPasajeroModal.cshtml" />
     <None Include="Service References\NationalService\Hoteles.wsdl" />
+    <Content Include="Views\Modals\EmailReservationModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

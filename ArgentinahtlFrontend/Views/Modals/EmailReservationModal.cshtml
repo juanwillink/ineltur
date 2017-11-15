@@ -1,0 +1,112 @@
+﻿<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="EmailReservationModal" tabindex="-1" role="dialog" aria-labelledby="EmailReservationModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="EmailReservationModalLabel"></h4>
+                <input type="hidden" id="hotelNameMail" value="" />
+            </div>
+            <div class="modal-body">     
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                                <label>Tipo de Habitacion</label>
+                                <input type="text" name="tipoDeHabitacion" value="" class="form-control" id="tipoDeHabitacion"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Check In</label>
+                                <input type="date" name="checkinDate" value="" class="form-control" id="checkinDate"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Check Out</label>
+                                <input type="date" name="checkoutDate" value="" class="form-control" id="checkoutDate"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Nombre y Apellido</label>
+                                <input type="text" name="nombrePasajero" value="" class="form-control" id="nombrePasajero"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="emailPasajero" value="" class="form-control" id="emailPasajero" />
+                            </div>
+                            <div class="form-group">
+                                <label>Cantidad de Pasajeros</label>
+                                <input type="number" name="cantidadPasajeros" value="" class="form-control" id="cantidadPasajeros"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Observaciones</label>
+                                <textarea class="form-control" name="observaciones" id="observaciones" value=""></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success" type="button" id="btnEnviarReservaMail" onclick="enviarReservaMail()">Reservar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="spinner2" hidden style="margin-top: 50%;">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-main" onclick="checkHotelAvailability()">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var opts = {
+        lines: 13 // The number of lines to draw
+        , length: 37 // The length of each line
+        , width: 12 // The line thickness
+        , radius: 42 // The radius of the inner circle
+        , scale: 1 // Scales overall size of the spinner
+        , corners: 1 // Corner roundness (0..1)
+        , color: '#000000' // #rgb or #rrggbb or array of colors
+        , opacity: 0.05 // Opacity of the lines
+        , rotate: 0 // The rotation offset
+        , direction: 1 // 1: clockwise, -1: counterclockwise
+        , speed: 1 // Rounds per second
+        , trail: 60 // Afterglow percentage
+        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+        , zIndex: 2e9 // The z-index (defaults to 2000000000)
+        , className: 'spinner' // The CSS class to assign to the spinner
+        , top: '50%' // Top position relative to parent
+        , left: '50%' // Left position relative to parent
+        , shadow: false // Whether to render a shadow
+        , hwaccel: false // Whether to use hardware acceleration
+        , position: 'absolute' // Element positioning
+    }
+    var target = document.getElementById('spinner2')
+    var spinner = new Spinner(opts).spin(target);
+
+    function enviarReservaMail() {
+        var values = {
+            "LodgingName": $("#hotelNameMail").val(),
+            "HabitacionName": $("#tipoDeHabitacion").val(),
+            "Checkin": $("#checkinDate").val(),
+            "Checkout": $("#checkoutDate").val(),
+            "NombrePasajero": $("#nombrePasajero").val(),
+            "EmailPasajero": $("#emailPasajero").val(),
+            "CantidadPasajeros": $("#cantidadPasajeros").val(),
+            "Observaciones": $("#observaciones").val()
+        };
+
+        $.ajax({
+            url: "../Login/MailReservation",
+            dataType: "json",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            cache: false,
+            data: JSON.stringify(values),
+            success: function (data) {
+                $("#EmailReservationModal").modal('hide');
+            },
+            error: function () {
+                alert("Se produjo algun error");
+            }
+        });
+    }
+</script>

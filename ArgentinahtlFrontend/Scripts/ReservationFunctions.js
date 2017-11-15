@@ -23,6 +23,13 @@ function openReservationModalSimple(lodging) {
     $("#ReservationModal").modal('show');
 }
 
+function openEmailReservationModal(lodging) {
+    debugger;
+    $("#EmailReservationModalLabel").text("Reservar Via Email en " + lodging["LodgingName"]);
+    $("#hotelNameMail").val(lodging["LodgingName"]);
+    $("#EmailReservationModal").modal("show");
+}
+
 function agregarHabitacion(lodgingName, destinationId, checkinDate, checkoutDate) {
     checkHotelAvailabilityForReservation(lodgingName, destinationId, checkinDate, checkoutDate);
 }
