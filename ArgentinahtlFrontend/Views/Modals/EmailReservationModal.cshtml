@@ -51,7 +51,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-main" onclick="checkHotelAvailability()">Buscar</button>
             </div>
         </div>
     </div>
@@ -83,6 +82,9 @@
     var spinner = new Spinner(opts).spin(target);
 
     function enviarReservaMail() {
+
+
+        $("#btnEnviarReservaMail").attr('disabled', 'disabled');
         var values = {
             "LodgingName": $("#hotelNameMail").val(),
             "HabitacionName": $("#tipoDeHabitacion").val(),
@@ -102,10 +104,11 @@
             cache: false,
             data: JSON.stringify(values),
             success: function (data) {
-                $("#EmailReservationModal").modal('hide');
+                
             },
             error: function () {
-                alert("Se produjo algun error");
+                alert("Mail Enviado");
+                $("#EmailReservationModal").modal('hide');
             }
         });
     }

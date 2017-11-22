@@ -71,17 +71,17 @@ namespace CheckArgentina.Controllers
                     .Subject(string.Format("Reserva en {0} via mail", LodgingName))
                     .To("juanwillink@gmail.com")
                     .Body("Datos de la Reserva: <br>" +
-                    "Hotel:" + LodgingName +
-                    "Pasajero:" + NombrePasajero +
-                    "Cantidad:" + CantidadPasajeros +
-                    "Check In:" + Checkin +
-                    "Check Out:" + Checkout +
-                    "Tipo de Habitacion:" + HabitacionName +
+                    "Hotel:" + LodgingName + "<br>" +
+                    "Pasajero:" + NombrePasajero + "<br>" +
+                    "Cantidad:" + CantidadPasajeros + "<br>" +
+                    "Check In:" + Checkin + "<br>" +
+                    "Check Out:" + Checkout + "<br>" +
+                    "Tipo de Habitacion:" + HabitacionName + "<br>" +
                     "Observaciones:" + Observaciones)
                     .UsingClient(smtp)
                     .Send();
             }
-            return null;
+            return View("Home");
         }
 
         public ActionResult Registration(RegistrationModel model)
@@ -91,7 +91,7 @@ namespace CheckArgentina.Controllers
                 FluentEmail.Email
                 .From(Config.LeerSetting("MailAccountFrom"))
                 .Subject(string.Format("Alta de usuario {0}", model.BuissnessName))
-                .To("mjjara@argentinahtl.com")
+                .To("reservas@ineltur.com")
                 .Body("Datos del Alta: <br>" +
                     "Nombre de la Empresa: " + model.BuissnessName + "<br>" +
                     "Razon Social: " + model.RazonSocial + "<br>" +

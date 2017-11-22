@@ -213,7 +213,7 @@ function buildLodgingsView(data, userkey) {
                                             "<div class='row'>" +
                                                 '<button class="btn btn-info" style="margin: 5px;" onclick="openDetailsModal(' + "'" + lodging["LodgingId"] + "'" + ')">Mas Informacion</button>' +
                                                 '<button class="btn btn-main" style="margin: 5px;" onclick="verTarifasHotel(' + "'" + lodging["LodgingId"] + "'," + "'" + lodging["LodgingName"] + "'" + ')">Ver Tarifas</button>' +
-                                                "<button class='btn btn-default' style='margin: 5px' onclick='openReservationModalSimple(" + stringifiedLodging + ");'>Reservar</button>" +
+                                                "<button class='btn btn-success' style='margin: 5px;' onclick='openEmailReservationModal(" + stringifiedLodging + ");'>Reserva Via Mail</button>" +
                                                 "<button class='btn btn-default' style='margin: 5px' onclick='openPhoneReservationModalSimple();'>Reserva Telefonica</button>" +
                                                 "</div>" +
                                             "<div class='row'>" +
@@ -260,7 +260,7 @@ function buildLodgingsView(data, userkey) {
                                                     "<div class='row'>" +
                                                         '<button class="btn btn-info" style="margin: 5px;" onclick="openDetailsModal(' + "'" + lodging["LodgingId"] + "'" + ')">Mas Informacion</button>' +
                                                         '<button class="btn btn-main" style="margin: 5px;" onclick="verTarifasHotel(' + "'" + lodging["LodgingId"] + "'," + "'" + lodging["LodgingName"] + "'" + ')">Ver Tarifas</button>' +
-                                                        "<button class='btn btn-success' style='margin: 5px;' onclick='openEmailReservationModal(" + stringifiedLodging + ");'>Reserva Via Mail</button>" +
+                                                        "<button class='btn btn-success' style='margin: 5px;' onclick='openReservationModal(" + stringifiedLodging + ");'>Reserva On-Line</button>" +
                                                     "</div>" +
                                                     "<div class='row'>" +
                                                         "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno +
