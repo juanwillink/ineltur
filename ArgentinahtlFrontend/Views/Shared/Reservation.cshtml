@@ -187,6 +187,10 @@
         </div>
         <div class="panel-footer">
             
+            <div class="alert alert-warning">
+                <h3>Esta reserva entrara en costos de cancelacion a partir del @DateTime.Now.Date.AddDays(Model.DiasCancelacionCargo)</h3>
+            </div>
+
             @if (Model.ReservationOwner == null)
             {
                 <button class="btn btn-main" onclick="alert('Debe agregar al menos un pasajero');">Continuar reserva</button>

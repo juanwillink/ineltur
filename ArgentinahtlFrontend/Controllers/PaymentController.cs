@@ -27,6 +27,8 @@ namespace CheckArgentina.Controllers
 
             reservation.PaymentMethods = SessionData.PaymentMethods;
 
+            reservation.DiasCancelacionCargo = manager.GetDiasCancelacionCargo(Guid.Parse(reservation.LodgingId));
+
             SessionData.Reservation = reservation;
 
             SessionData.Reservation.PromotionPrice = SessionData.Reservation.TotalAmount;
