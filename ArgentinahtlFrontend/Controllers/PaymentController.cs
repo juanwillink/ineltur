@@ -35,6 +35,12 @@ namespace CheckArgentina.Controllers
 
             foreach (var vacancy in reservation.Vacancies)
             {
+
+                using (var dc = new TurismoDataContext())
+                {
+                    var promociones = dc.Promociones_Alojamientos.Where(p => p.IDUNIDADPROMO.ToString() == vacancy.VacancyId && p.ACTIVO == true && p.FECHAINICIO <= vacancy.VacancyCheckin && p.FECHAFIN >= vacancy.VacancyCheckout);
+                    vacancy.Promociones = promociones.ToArray();
+                }
                 if (vacancy.Promociones.Length > 0)
                 {
                     foreach (var promocion in vacancy.Promociones)

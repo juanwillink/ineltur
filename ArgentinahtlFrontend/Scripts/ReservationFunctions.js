@@ -114,9 +114,9 @@ function buildAvailableRooms(vacancies) {
     for (var key in vacancies) {
         var vacancy = vacancies[key];
         var dateParts = $("#checkinDate").val().split("-");
-        var checkinDate = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]);
+        var checkinDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
         dateParts = $("#checkoutDate").val().split("-");
-        var checkoutDate = new Date(dateParts[0], (dateParts[1] - 1), dateParts[2]);
+        var checkoutDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
         var oneDay = 24 * 60 * 60 * 1000;
         var diffDays = Math.round(Math.abs((checkoutDate.getTime() - checkinDate.getTime()) / (oneDay)));
         debugger;
@@ -125,29 +125,37 @@ function buildAvailableRooms(vacancies) {
             var promotion = vacancy.Promociones[key2];
             switch (promotion["IDTIPOPUBLICACIONPROMO"]) {
                 case 1:
-                    $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Noches Free</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
+                    var checkin = new Date(parseInt(promotion["FECHAINICIO"].replace('/Date(', '')));
+                    var checkout = new Date(parseInt(promotion["FECHAFIN"].replace('/Date(', '')));
+                    if (checkin <= checkinDate && checkout >= checkoutDate) {
+                        $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Noches Free</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
+                    }
                     break;
                 case 2:
-                    if (diffDays < promotion["MINIMONOCHES"]) {
+                    var checkin = new Date(parseInt(promotion["FECHAINICIO"].replace('/Date(', '')));
+                    var checkout = new Date(parseInt(promotion["FECHAFIN"].replace('/Date(', '')));
+                    if (checkin <= checkinDate && checkout >= checkoutDate) {
+                        if (diffDays < promotion["MINIMONOCHES"]) {
 
-                        if (promotion["MINIMONOCHES"] == '') {
-                            promotion["MINIMONOCHES"] = "Sin Restriccion";
+                            if (promotion["MINIMONOCHES"] == '') {
+                                promotion["MINIMONOCHES"] = "Sin Restriccion";
+                            }
+                            if (promotion["MAXIMONOCHES"] == '') {
+                                promotion["MAXIMONOCHES"] = "Sin Restriccion";
+                            }
+                            $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + promotion["MINIMONOCHES"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
+                            $("#vacancy_" + key + "_reservarBtn").hide();
                         }
-                        if (promotion["MAXIMONOCHES"] == '') {
-                            promotion["MAXIMONOCHES"] = "Sin Restriccion";
+                        else if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
+                            if (promotion["MINIMONOCHES"] == '') {
+                                promotion["MINIMONOCHES"] = "Sin Restriccion";
+                            }
+                            if (promotion["MAXIMONOCHES"] == '') {
+                                promotion["MAXIMONOCHES"] = "Sin Restriccion";
+                            }
+                            $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + promotion["MAXIMONOCHES"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
+                            $("#vacancy_" + key + "_reservarBtn").hide();
                         }
-                        $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + promotion["MINIMONOCHES"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
-                        $("#vacancy_" + key + "_reservarBtn").hide();
-                    }
-                    else if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
-                        if (promotion["MINIMONOCHES"] == '') {
-                            promotion["MINIMONOCHES"] = "Sin Restriccion";
-                        }
-                        if (promotion["MAXIMONOCHES"] == '') {
-                            promotion["MAXIMONOCHES"] = "Sin Restriccion";
-                        }
-                        $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + promotion["MAXIMONOCHES"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
-                        $("#vacancy_" + key + "_reservarBtn").hide();
                     }
                     break;
                 default:
