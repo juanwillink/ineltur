@@ -121,7 +121,38 @@ function buildAvailableRooms(vacancies) {
         var diffDays = Math.round(Math.abs((checkoutDate.getTime() - checkinDate.getTime()) / (oneDay)));
         debugger;
 
+        for (var key2 in vacancy.Promociones) {
+            var promotion = vacancy.Promociones[key2];
+            switch (promotion["IDTIPOPUBLICACIONPROMO"]) {
+                case 1:
+                    $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Noches Free</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
+                    break;
+                case 2:
+                    if (diffDays < promotion["MINIMONOCHES"]) {
 
+                        if (promotion["MINIMONOCHES"] == '') {
+                            promotion["MINIMONOCHES"] = "Sin Restriccion";
+                        }
+                        if (promotion["MAXIMONOCHES"] == '') {
+                            promotion["MAXIMONOCHES"] = "Sin Restriccion";
+                        }
+                        $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + promotion["MINIMONOCHES"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
+                        $("#vacancy_" + key + "_reservarBtn").hide();
+                    }
+                    else if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
+                        if (promotion["MINIMONOCHES"] == '') {
+                            promotion["MINIMONOCHES"] = "Sin Restriccion";
+                        }
+                        if (promotion["MAXIMONOCHES"] == '') {
+                            promotion["MAXIMONOCHES"] = "Sin Restriccion";
+                        }
+                        $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + promotion["MAXIMONOCHES"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
+                        $("#vacancy_" + key + "_reservarBtn").hide();
+                    }
+                    break;
+                default:
+            }
+        }
 
 
 
