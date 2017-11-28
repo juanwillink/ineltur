@@ -274,11 +274,15 @@ function buildLodgingsView(data, userkey) {
         }
     }
     $("#lodgingList").append(body);
-    for (var    key in data.Lodgings) {
+    for (var key in data.Lodgings) {
         debugger;
         var lodging = data.Lodgings[key];
-        if (lodging["TienePromocion"] == true) {
-            $("#promocion-div-" + lodging["LodgingId"] + "").append("<div class='alert alert-info' role='alert'><img src='../Content/Images/250px-Tricolour_Cockade.png' style='width:10%;height:10%;'>  Este Alojamiento cuenta con <strong>promociones</strong>, click en <strong>Reservar</strong> para conocer mas!</div>");
+        var stringifiedLodging2 = JSON.stringify(lodging);
+        for (var key2 in lodging.Vacancies) {
+            var vacancy = lodging.Vacancies[key2];
+            if (vacancy.Promociones.length > 0) {
+                $("#promocion-div-" + lodging["LodgingId"] + "").append("<div onclick='openLodgingPromotionsModal(" + stringifiedLodging2 + ")' class='alert alert-info' role='alert'><img src='../Content/Images/250px-Tricolour_Cockade.png' style='width:10%;height:10%;'>  Este Alojamiento cuenta con <strong>promociones</strong>, click <strong>AQUI</strong> para conocer mas!</div>");
+            }  
         }
     }
     $("#spinnerHome").hide();

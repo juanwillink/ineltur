@@ -318,8 +318,7 @@ namespace CheckArgentina.Managers
                             LodgingUnderPetition = lodging.Alojamiento.BajoPeticion,
                             LodgingCancelationPolitic = lodging.Alojamiento.PoliticasCancelacion,
                             LodgingBreakfast = searchLodgingRequestModel.Breakfast,
-                            LodgingTarifa = searchLodgingRequestModel.Tarifa,
-                            TienePromocion = lodging.Alojamiento.TienePromocion
+                            LodgingTarifa = searchLodgingRequestModel.Tarifa
                         };
                         var currency = "$";
 
@@ -359,10 +358,25 @@ namespace CheckArgentina.Managers
                                     Tarifa = v.Tarifa,
                                     Available = true,
                                     ConfirmedVacancyPrice = v.MontoPorUnidad,
-                                    TienePromocionNxM = v.TienePromocionNxM,
-                                    TienePromocionMinimoMaximo = v.TienePromocionMinimoMaximo,
-                                    MinimoNoches = v.MinimoDias,
-                                    MaximoNoches = v.MaximoDias,
+                                    Promociones = v.Promociones.Select(p => new Promociones_Alojamiento
+                                    {
+                                        ACTIVO = p.Activo,
+                                        DESCRIPCION = p.Descripcion1,
+                                        DESCRIPCION2 = p.Descripcion2,
+                                        DESCUENTO = p.Descuento,
+                                        DIASACOBRAR = p.DiasACobrar,
+                                        DIASRESERVADOS = p.DiasReservados,
+                                        FECHAFIN = p.FechaFin,
+                                        FECHAINICIO = p.FechaInicio,
+                                        IDALOJ = p.LodgingId,
+                                        IDPROMOCION = p.PromocionId,
+                                        IDTIPOPUBLICACIONPROMO = p.TipoPromocionId,
+                                        IDUNIDADPROMO = p.IdUnidadPromo,
+                                        MINIMONOCHES = p.MinimoNoches,
+                                        MAXIMONOCHES = p.MaximoNoches,
+                                        NOMBRE = p.NombrePromocion,
+                                        SLOGAN = p.Slogan
+                                    }).ToArray(),
                                     Rooms = new List<RoomModel>{
                                         new RoomModel{
                                             RoomId = v.IdUnidad.ToString(),

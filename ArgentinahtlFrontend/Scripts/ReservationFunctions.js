@@ -30,6 +30,32 @@ function openEmailReservationModal(lodging) {
     $("#EmailReservationModal").modal("show");
 }
 
+function openLodgingPromotionsModal(lodging) {
+    $("#LodgingPromotionsModalTitle").text("Promociones para el hotel " + lodging["LodgingName"]);
+    completePromotions(lodging);
+    $("#LodgingPromotionsModal").modal("show");
+}
+
+function completePromotions(lodging) {
+    var body = "";
+    $("#PromotionsList").empty();
+    for (var key in lodging.Vacancies) {
+        var vacancy = lodging.Vacancies[key];
+        body = body + "<h3>" + vacancy["VacancyName"] + "</h3>";
+        debugger;
+        if (vacancy.Promociones.length > 0) {
+            for (var key2 in vacancy.Promociones) {
+                var promotion = vacancy.Promociones[key2];
+                body = body + "<h4>" + promotion["NOMBRE"] + "</h4>";
+                body = body + "<p>" + promotion["DESCRIPCION"] + "</p>";
+            }
+        } else {
+            body = body + "<p>Esta unidad no cuenta con promociones</p>";
+        }
+    }
+    $("#PromotionsList").append(body);
+}
+
 function agregarHabitacion(lodgingName, destinationId, checkinDate, checkoutDate) {
     checkHotelAvailabilityForReservation(lodgingName, destinationId, checkinDate, checkoutDate);
 }
@@ -94,32 +120,38 @@ function buildAvailableRooms(vacancies) {
         var oneDay = 24 * 60 * 60 * 1000;
         var diffDays = Math.round(Math.abs((checkoutDate.getTime() - checkinDate.getTime()) / (oneDay)));
         debugger;
-        if (vacancy["TienePromocionNxM"] == true) {
-            $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Noches Free</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
-        } else if (vacancy["TienePromocionMinimoMaximo"]) {
-            debugger;
-            if (diffDays < vacancy["MinimoNoches"]) {
 
-                if (vacancy["MinimoNoches"] == '') {
-                    vacancy["MinimoNoches"] = "Sin Restriccion";
-                }
-                if (vacancy["MaximoNoches"] == '') {
-                    vacancy["MaximoNoches"] = "Sin Restriccion";
-                }
-                $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + vacancy["MinimoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
-                $("#vacancy_" + key + "_reservarBtn").hide();
-            }
-            else if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
-                if (vacancy["MinimoNoches"] == '') {
-                    vacancy["MinimoNoches"] = "Sin Restriccion";
-                }
-                if (vacancy["MaximoNoches"] == '') {
-                    vacancy["MaximoNoches"] = "Sin Restriccion";
-                }
-                $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + vacancy["MaximoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
-                $("#vacancy_" + key + "_reservarBtn").hide();
-            }
-        }
+
+
+
+
+
+        //if (vacancy["TienePromocionNxM"] == true) {
+        //    $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Noches Free</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
+        //} else if (vacancy["TienePromocionMinimoMaximo"]) {
+        //    debugger;
+        //    if (diffDays < vacancy["MinimoNoches"]) {
+
+        //        if (vacancy["MinimoNoches"] == '') {
+        //            vacancy["MinimoNoches"] = "Sin Restriccion";
+        //        }
+        //        if (vacancy["MaximoNoches"] == '') {
+        //            vacancy["MaximoNoches"] = "Sin Restriccion";
+        //        }
+        //        $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Minimo de noches " + vacancy["MinimoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
+        //        $("#vacancy_" + key + "_reservarBtn").hide();
+        //    }
+        //    else if (diffDays > vacancy["MaximoNoches"] && vacancy["MaximoNoches"] != null) {
+        //        if (vacancy["MinimoNoches"] == '') {
+        //            vacancy["MinimoNoches"] = "Sin Restriccion";
+        //        }
+        //        if (vacancy["MaximoNoches"] == '') {
+        //            vacancy["MaximoNoches"] = "Sin Restriccion";
+        //        }
+        //        $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + vacancy["MaximoNoches"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
+        //        $("#vacancy_" + key + "_reservarBtn").hide();
+        //    }
+        //}
     }
     $("#spinner2").fadeOut('slow', function () {
         $("#AvailableRoomsRow").fadeIn('slow');

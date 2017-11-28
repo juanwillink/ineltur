@@ -315,10 +315,7 @@ namespace CheckArgentina.Models
         public bool Available { get; set; }
         public int Breakfast { get; set; }
         public int Tarifa { get; set; }
-        public bool TienePromocionNxM { get; set; }
-        public bool TienePromocionMinimoMaximo { get; set; }
-        public int? MinimoNoches { get; set; }
-        public int? MaximoNoches { get; set; }
+        public Promociones_Alojamiento[] Promociones { get; set; }
     }
 
     public class RoomModel

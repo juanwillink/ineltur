@@ -188,7 +188,7 @@
         <div class="panel-footer">
             
             <div class="alert alert-warning">
-                <h3>Esta reserva entrara en costos de cancelacion a partir del @DateTime.Now.Date.AddDays(Model.DiasCancelacionCargo)</h3>
+                <h3>Esta reserva entrara en costos de cancelacion a partir del @DateTime.Now.Date.AddDays(Model.DiasCancelacionCargo).ToString("dd/MM/yyyy")</h3>
             </div>
 
             @if (Model.ReservationOwner == null)

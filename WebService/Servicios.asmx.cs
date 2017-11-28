@@ -584,12 +584,12 @@ namespace Ineltur.WebService
                     {
                         //Se busco con fecha de Checkin
 
-                        var hoteles = dc.GetAlojamientosConDisponibilidadV3(
+                        var hoteles = dc.GetAlojamientosConDisponibilidadV4(
                             petition.Habitacion1.GetValueOrDefault(), petition.Habitacion2.GetValueOrDefault(),
                         petition.Habitacion3.GetValueOrDefault(), petition.Habitacion4.GetValueOrDefault(),
                         petition.Habitacion5.GetValueOrDefault(), petition.Habitacion6.GetValueOrDefault(),
                         petition.FechaInicio, petition.FechaFin, ConvertirOrdenamiento(petition.Orden),
-                        ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad, petition.NombreAlojamiento, petition.desayuno, petition.tarifaReembolsable)
+                        ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad, petition.NombreAlojamiento, petition.desayuno, petition.tarifaReembolsable, usuario.IdUsuario)
                             .Where(a => a.montoTotalEstimadoEnPesos > 0).ToArray();
                         if (hoteles.Length == 0)
                         {
@@ -669,46 +669,30 @@ namespace Ineltur.WebService
 
                                 foreach (var unidad in alojamientoDisponible.Alojamiento.Unidades)
                                 {
-                                    var promociones = dc.Promociones_Alojamientos.Where(p => p.IDUNIDADPROMO == unidad.IdUnidad &&
-                                        p.FECHAINICIO <= petition.FechaInicio.Date && p.FECHAFIN >= petition.FechaFin.Date &&
-                                        p.FECHAINICIO <= petition.FechaFin.Date && p.FECHAFIN >= petition.FechaFin.Date &&
+                                    var promociones = dc.PROMOCIONES_ALOJAMIENTOs.Where(p => p.IDUNIDADPROMO == unidad.IdUnidad &&
                                         p.ACTIVO == true).ToArray();
 
                                     if (promociones != null)
                                     {
-                                        foreach (var promocion in promociones)
+                                        unidad.Promociones = promociones.Select(d => new PromotionModel()
                                         {
-                                            switch (promocion.IDTIPOPUBLICACIONPROMO)
-                                            {
-                                                case 1:
-                                                    var noches = (petition.FechaFin.Date - petition.FechaInicio.Date).TotalDays;
-                                                    if (noches == promocion.DIASRESERVADOS)
-                                                    {
-                                                        unidad.TienePromocionNxM = true;
-                                                        unidad.DiasACobrar = promocion.DIASACOBRAR;
-                                                        alojamientoDisponible.Alojamiento.TienePromocion = true;
-                                                    }
-
-                                                    break;
-                                                case 2:
-                                                    unidad.TienePromocionMinimoMaximo = true;
-                                                    if (promocion.MINIMONOCHES != null)
-                                                    {
-                                                        unidad.MinimoDias = promocion.MINIMONOCHES;
-                                                    }
-                                                    if (promocion.MAXIMONOCHES != null)
-                                                    {
-                                                        unidad.MaximoDias = promocion.MAXIMONOCHES;
-                                                    }
-                                                    break;
-                                                case 3:
-                                                    break;
-                                                case 4:
-                                                    break;
-                                                default:
-                                                    break;
-                                            }
-                                        }   
+                                            Activo = d.ACTIVO,
+                                            Descripcion1 = d.DESCRIPCION,
+                                            Descripcion2 = d.DESCRIPCION2,
+                                            Descuento = d.DESCUENTO,
+                                            DiasACobrar = d.DIASACOBRAR,
+                                            DiasReservados = d.DIASRESERVADOS,
+                                            FechaFin = d.FECHAFIN,
+                                            FechaInicio = d.FECHAINICIO,
+                                            IdUnidadPromo = d.IDUNIDADPROMO,
+                                            LodgingId = d.IDALOJ,
+                                            MaximoNoches = d.MAXIMONOCHES,
+                                            MinimoNoches = d.MINIMONOCHES,
+                                            NombrePromocion = d.NOMBRE,
+                                            PromocionId = d.IDPROMOCION,
+                                            Slogan = d.SLOGAN,
+                                            TipoPromocionId = d.IDTIPOPUBLICACIONPROMO
+                                        }).ToArray();
                                     }
                                 }
                             }

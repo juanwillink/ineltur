@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Ineltur.Datos;
 using Ineltur.Datos.Entidades;
 
@@ -15,11 +16,7 @@ namespace Ineltur.WebService
         public decimal MontoPorUnidad { get; set; }
         public int Desayuno { get; set; }
         public int Tarifa { get; set; }
-        public bool TienePromocionNxM { get; set; }
-        public int? DiasACobrar { get; set; }
-        public bool TienePromocionMinimoMaximo { get; set; }
-        public int? MinimoDias { get; set; }
-        public int? MaximoDias { get; set; }
+        public PromotionModel[] Promociones { get; set; }
     }
     public class InfoUnidadReservada
     {

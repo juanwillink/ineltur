@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -2126,8 +2127,9 @@
     <Content Include="Views\Modals\LodgingPricesModal.cshtml" />
     <Content Include="Views\Shared\Reservation.cshtml" />
     <Content Include="Views\Modals\AgregarPasajeroModal.cshtml" />
-    <None Include="Service References\NationalService\Hoteles.wsdl" />
     <Content Include="Views\Modals\EmailReservationModal.cshtml" />
+    <None Include="Service References\NationalService\Hoteles.wsdl" />
+    <Content Include="Views\Modals\LodgingPromotionsModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

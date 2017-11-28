@@ -185,6 +185,18 @@
       <Association Name="MonedaDB_Transaccion" Member="Transaccions" ThisKey="IDMONEDA" OtherKey="IDMONEDA" Type="Transaccion" />
     </Type>
   </Table>
+  <Table Name="dbo.TIPO_PROMOCIONES_ALOJAMIENTO" Member="Tipo_PRomociones_Alojamientos">
+    <Type Name="Tipo_PRomociones_Alojamiento">
+      <Column Name="IDTIPOPROMOCION" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FECHAALTA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="TOPEDIASMAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TOPEDIASMIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CODIGO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.PROMOCIONES_ALOJAMIENTO" Member="Promociones_Alojamientos">
     <Type Name="Promociones_Alojamiento">
       <Column Name="IDPROMOCION" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -206,20 +218,9 @@
       <Column Name="BLOQUEACUPOS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="SLOGAN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="MINIMONOCHES" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MAXIMONOCHES" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DESCUENTO" Type="System.Single" DbType="Real" CanBeNull="true" />
       <Column Name="IDTIPOPUBLICACIONPROMO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TIPO_PROMOCIONES_ALOJAMIENTO" Member="Tipo_PRomociones_Alojamientos">
-    <Type Name="Tipo_PRomociones_Alojamiento">
-      <Column Name="IDTIPOPROMOCION" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FECHAALTA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="ACTIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
-      <Column Name="TOPEDIASMAX" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TOPEDIASMIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CODIGO" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.addTransaccionNPS" Method="addTransaccionNPS">

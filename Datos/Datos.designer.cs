@@ -111,9 +111,9 @@ namespace Ineltur.Datos.Entidades
     partial void InsertTipo_Promociones_Alojamiento(Tipo_Promociones_Alojamiento instance);
     partial void UpdateTipo_Promociones_Alojamiento(Tipo_Promociones_Alojamiento instance);
     partial void DeleteTipo_Promociones_Alojamiento(Tipo_Promociones_Alojamiento instance);
-    partial void InsertPromociones_Alojamiento(Promociones_Alojamiento instance);
-    partial void UpdatePromociones_Alojamiento(Promociones_Alojamiento instance);
-    partial void DeletePromociones_Alojamiento(Promociones_Alojamiento instance);
+    partial void InsertPROMOCIONES_ALOJAMIENTO(PROMOCIONES_ALOJAMIENTO instance);
+    partial void UpdatePROMOCIONES_ALOJAMIENTO(PROMOCIONES_ALOJAMIENTO instance);
+    partial void DeletePROMOCIONES_ALOJAMIENTO(PROMOCIONES_ALOJAMIENTO instance);
     #endregion
 		
 		public WebServiceDataContext() : 
@@ -362,11 +362,11 @@ namespace Ineltur.Datos.Entidades
 			}
 		}
 		
-		public System.Data.Linq.Table<Promociones_Alojamiento> Promociones_Alojamientos
+		public System.Data.Linq.Table<PROMOCIONES_ALOJAMIENTO> PROMOCIONES_ALOJAMIENTOs
 		{
 			get
 			{
-				return this.GetTable<Promociones_Alojamiento>();
+				return this.GetTable<PROMOCIONES_ALOJAMIENTO>();
 			}
 		}
 		
@@ -659,6 +659,30 @@ namespace Ineltur.Datos.Entidades
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cantUnidadesSimples, cantUnidadesDobles, cantUnidadesTriples, cantUnidadesCuadruples, cantUnidades5Personas, cantUnidades6Personas, fechaInicio, fechaFin, idAloj, nacionalidad, desayuno, tarifaReembolsable);
 			return ((ISingleResult<getUnidades_AlojCuposUnidadesPorIdAlojDisponiblesEnRangoDeFechasV3Result>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAlojamientosConDisponibilidadV4")]
+		public ISingleResult<getAlojamientosConDisponibilidadV4Result> GetAlojamientosConDisponibilidadV4(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidadesSimples, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidadesDobles, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidadesTriples, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidadesCuadruples, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidades5Personas, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidades6Personas, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> fechaInicio, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> fechaFin, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string orden, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idCiudad, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idProvincia, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idTipoAloj, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(3)")] string nacionalidad, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nombreAloj, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> desayuno, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> tarifaReembolsable, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idUsuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cantUnidadesSimples, cantUnidadesDobles, cantUnidadesTriples, cantUnidadesCuadruples, cantUnidades5Personas, cantUnidades6Personas, fechaInicio, fechaFin, orden, idCiudad, idProvincia, idTipoAloj, nacionalidad, nombreAloj, desayuno, tarifaReembolsable, idUsuario);
+			return ((ISingleResult<getAlojamientosConDisponibilidadV4Result>)(result.ReturnValue));
 		}
 	}
 	
@@ -10711,7 +10735,7 @@ namespace Ineltur.Datos.Entidades
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PROMOCIONES_ALOJAMIENTO")]
-	public partial class Promociones_Alojamiento : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class PROMOCIONES_ALOJAMIENTO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -10810,7 +10834,7 @@ namespace Ineltur.Datos.Entidades
     partial void OnIDTIPOPUBLICACIONPROMOChanged();
     #endregion
 		
-		public Promociones_Alojamiento()
+		public PROMOCIONES_ALOJAMIENTO()
 		{
 			OnCreated();
 		}
@@ -17629,6 +17653,536 @@ namespace Ineltur.Datos.Entidades
 				if ((this._ES_TNR != value))
 				{
 					this._ES_TNR = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getAlojamientosConDisponibilidadV4Result
+	{
+		
+		private System.Nullable<float> _montoTotalEstimadoEnPesos;
+		
+		private System.Nullable<System.Guid> _idAloj;
+		
+		private string _nombre;
+		
+		private string _direccion;
+		
+		private string _telefono;
+		
+		private System.Nullable<System.Guid> _idCiudad;
+		
+		private string _urlsubdominio;
+		
+		private System.Nullable<bool> _sitioPublicado;
+		
+		private System.Nullable<System.Guid> _idMoneda;
+		
+		private System.Nullable<int> _prioridadEstrellas;
+		
+		private string _nombreEstrellas;
+		
+		private System.Nullable<float> _montoUnidadSingleMasBarataPorDia;
+		
+		private System.Nullable<int> _cupoTotalDisponibleSingle;
+		
+		private System.Nullable<float> _montoUnidadDobleMasBarataPorDia;
+		
+		private System.Nullable<int> _cupoTotalDisponibleDoble;
+		
+		private System.Nullable<float> _montoUnidadTripleMasBarataPorDia;
+		
+		private System.Nullable<int> _cupoTotalDisponibleTriple;
+		
+		private System.Nullable<float> _montoUnidadCuadrupleMasBarataPorDia;
+		
+		private System.Nullable<int> _cupoTotalDisponibleCuadruple;
+		
+		private System.Nullable<float> _montoUnidad5PersonasMasBarataPorDia;
+		
+		private System.Nullable<int> _cupoTotalDisponible5Personas;
+		
+		private System.Nullable<float> _montoUnidad6PersonasMasBarataPorDia;
+		
+		private System.Nullable<int> _cupoTotalDisponible6Personas;
+		
+		private System.Nullable<float> _montoTotalEstimado;
+		
+		private System.Nullable<int> _satisfacePedidoDisponibilidad;
+		
+		private System.Nullable<int> _agendaReservas;
+		
+		private System.Nullable<System.Guid> _idTipoAloj;
+		
+		private string _nombreCiudad;
+		
+		private string _nombreProvincia;
+		
+		public getAlojamientosConDisponibilidadV4Result()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalEstimadoEnPesos", DbType="Real")]
+		public System.Nullable<float> montoTotalEstimadoEnPesos
+		{
+			get
+			{
+				return this._montoTotalEstimadoEnPesos;
+			}
+			set
+			{
+				if ((this._montoTotalEstimadoEnPesos != value))
+				{
+					this._montoTotalEstimadoEnPesos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idAloj", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> idAloj
+		{
+			get
+			{
+				return this._idAloj;
+			}
+			set
+			{
+				if ((this._idAloj != value))
+				{
+					this._idAloj = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(100)")]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_direccion", DbType="VarChar(100)")]
+		public string direccion
+		{
+			get
+			{
+				return this._direccion;
+			}
+			set
+			{
+				if ((this._direccion != value))
+				{
+					this._direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="VarChar(50)")]
+		public string telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this._telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCiudad", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> idCiudad
+		{
+			get
+			{
+				return this._idCiudad;
+			}
+			set
+			{
+				if ((this._idCiudad != value))
+				{
+					this._idCiudad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlsubdominio", DbType="VarChar(250)")]
+		public string urlsubdominio
+		{
+			get
+			{
+				return this._urlsubdominio;
+			}
+			set
+			{
+				if ((this._urlsubdominio != value))
+				{
+					this._urlsubdominio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sitioPublicado", DbType="Bit")]
+		public System.Nullable<bool> sitioPublicado
+		{
+			get
+			{
+				return this._sitioPublicado;
+			}
+			set
+			{
+				if ((this._sitioPublicado != value))
+				{
+					this._sitioPublicado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMoneda", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> idMoneda
+		{
+			get
+			{
+				return this._idMoneda;
+			}
+			set
+			{
+				if ((this._idMoneda != value))
+				{
+					this._idMoneda = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prioridadEstrellas", DbType="Int")]
+		public System.Nullable<int> prioridadEstrellas
+		{
+			get
+			{
+				return this._prioridadEstrellas;
+			}
+			set
+			{
+				if ((this._prioridadEstrellas != value))
+				{
+					this._prioridadEstrellas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreEstrellas", DbType="VarChar(100)")]
+		public string nombreEstrellas
+		{
+			get
+			{
+				return this._nombreEstrellas;
+			}
+			set
+			{
+				if ((this._nombreEstrellas != value))
+				{
+					this._nombreEstrellas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoUnidadSingleMasBarataPorDia", DbType="Real")]
+		public System.Nullable<float> montoUnidadSingleMasBarataPorDia
+		{
+			get
+			{
+				return this._montoUnidadSingleMasBarataPorDia;
+			}
+			set
+			{
+				if ((this._montoUnidadSingleMasBarataPorDia != value))
+				{
+					this._montoUnidadSingleMasBarataPorDia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cupoTotalDisponibleSingle", DbType="Int")]
+		public System.Nullable<int> cupoTotalDisponibleSingle
+		{
+			get
+			{
+				return this._cupoTotalDisponibleSingle;
+			}
+			set
+			{
+				if ((this._cupoTotalDisponibleSingle != value))
+				{
+					this._cupoTotalDisponibleSingle = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoUnidadDobleMasBarataPorDia", DbType="Real")]
+		public System.Nullable<float> montoUnidadDobleMasBarataPorDia
+		{
+			get
+			{
+				return this._montoUnidadDobleMasBarataPorDia;
+			}
+			set
+			{
+				if ((this._montoUnidadDobleMasBarataPorDia != value))
+				{
+					this._montoUnidadDobleMasBarataPorDia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cupoTotalDisponibleDoble", DbType="Int")]
+		public System.Nullable<int> cupoTotalDisponibleDoble
+		{
+			get
+			{
+				return this._cupoTotalDisponibleDoble;
+			}
+			set
+			{
+				if ((this._cupoTotalDisponibleDoble != value))
+				{
+					this._cupoTotalDisponibleDoble = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoUnidadTripleMasBarataPorDia", DbType="Real")]
+		public System.Nullable<float> montoUnidadTripleMasBarataPorDia
+		{
+			get
+			{
+				return this._montoUnidadTripleMasBarataPorDia;
+			}
+			set
+			{
+				if ((this._montoUnidadTripleMasBarataPorDia != value))
+				{
+					this._montoUnidadTripleMasBarataPorDia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cupoTotalDisponibleTriple", DbType="Int")]
+		public System.Nullable<int> cupoTotalDisponibleTriple
+		{
+			get
+			{
+				return this._cupoTotalDisponibleTriple;
+			}
+			set
+			{
+				if ((this._cupoTotalDisponibleTriple != value))
+				{
+					this._cupoTotalDisponibleTriple = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoUnidadCuadrupleMasBarataPorDia", DbType="Real")]
+		public System.Nullable<float> montoUnidadCuadrupleMasBarataPorDia
+		{
+			get
+			{
+				return this._montoUnidadCuadrupleMasBarataPorDia;
+			}
+			set
+			{
+				if ((this._montoUnidadCuadrupleMasBarataPorDia != value))
+				{
+					this._montoUnidadCuadrupleMasBarataPorDia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cupoTotalDisponibleCuadruple", DbType="Int")]
+		public System.Nullable<int> cupoTotalDisponibleCuadruple
+		{
+			get
+			{
+				return this._cupoTotalDisponibleCuadruple;
+			}
+			set
+			{
+				if ((this._cupoTotalDisponibleCuadruple != value))
+				{
+					this._cupoTotalDisponibleCuadruple = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoUnidad5PersonasMasBarataPorDia", DbType="Real")]
+		public System.Nullable<float> montoUnidad5PersonasMasBarataPorDia
+		{
+			get
+			{
+				return this._montoUnidad5PersonasMasBarataPorDia;
+			}
+			set
+			{
+				if ((this._montoUnidad5PersonasMasBarataPorDia != value))
+				{
+					this._montoUnidad5PersonasMasBarataPorDia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cupoTotalDisponible5Personas", DbType="Int")]
+		public System.Nullable<int> cupoTotalDisponible5Personas
+		{
+			get
+			{
+				return this._cupoTotalDisponible5Personas;
+			}
+			set
+			{
+				if ((this._cupoTotalDisponible5Personas != value))
+				{
+					this._cupoTotalDisponible5Personas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoUnidad6PersonasMasBarataPorDia", DbType="Real")]
+		public System.Nullable<float> montoUnidad6PersonasMasBarataPorDia
+		{
+			get
+			{
+				return this._montoUnidad6PersonasMasBarataPorDia;
+			}
+			set
+			{
+				if ((this._montoUnidad6PersonasMasBarataPorDia != value))
+				{
+					this._montoUnidad6PersonasMasBarataPorDia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cupoTotalDisponible6Personas", DbType="Int")]
+		public System.Nullable<int> cupoTotalDisponible6Personas
+		{
+			get
+			{
+				return this._cupoTotalDisponible6Personas;
+			}
+			set
+			{
+				if ((this._cupoTotalDisponible6Personas != value))
+				{
+					this._cupoTotalDisponible6Personas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalEstimado", DbType="Real")]
+		public System.Nullable<float> montoTotalEstimado
+		{
+			get
+			{
+				return this._montoTotalEstimado;
+			}
+			set
+			{
+				if ((this._montoTotalEstimado != value))
+				{
+					this._montoTotalEstimado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_satisfacePedidoDisponibilidad", DbType="Int")]
+		public System.Nullable<int> satisfacePedidoDisponibilidad
+		{
+			get
+			{
+				return this._satisfacePedidoDisponibilidad;
+			}
+			set
+			{
+				if ((this._satisfacePedidoDisponibilidad != value))
+				{
+					this._satisfacePedidoDisponibilidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_agendaReservas", DbType="Int")]
+		public System.Nullable<int> agendaReservas
+		{
+			get
+			{
+				return this._agendaReservas;
+			}
+			set
+			{
+				if ((this._agendaReservas != value))
+				{
+					this._agendaReservas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTipoAloj", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> idTipoAloj
+		{
+			get
+			{
+				return this._idTipoAloj;
+			}
+			set
+			{
+				if ((this._idTipoAloj != value))
+				{
+					this._idTipoAloj = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreCiudad", DbType="VarChar(100)")]
+		public string nombreCiudad
+		{
+			get
+			{
+				return this._nombreCiudad;
+			}
+			set
+			{
+				if ((this._nombreCiudad != value))
+				{
+					this._nombreCiudad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreProvincia", DbType="VarChar(100)")]
+		public string nombreProvincia
+		{
+			get
+			{
+				return this._nombreProvincia;
+			}
+			set
+			{
+				if ((this._nombreProvincia != value))
+				{
+					this._nombreProvincia = value;
 				}
 			}
 		}

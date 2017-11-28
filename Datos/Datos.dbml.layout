@@ -430,10 +430,10 @@
         <elementListCompartment Id="7be8898d-2c1d-4bc6-927d-2280d64eff0d" absoluteBounds="15.015, 8.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f998b397-8026-4456-a3a3-88cb34d991a0" absoluteBounds="15.125, 11.25, 2, 5.0400211588541657">
-      <DataClassMoniker Name="/WebServiceDataContext/Promociones_Alojamiento" />
+    <classShape Id="332fe5a0-1e86-4005-b79d-933b3587ffa2" absoluteBounds="15.125, 13.375, 2, 5.0400211588541657">
+      <DataClassMoniker Name="/WebServiceDataContext/PROMOCIONES_ALOJAMIENTO" />
       <nestedChildShapes>
-        <elementListCompartment Id="da8a04ff-00a5-413b-a9cf-ffc42bb64d20" absoluteBounds="15.14, 11.71, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6456559f-5421-4643-b9c5-ec67afd6ee50" absoluteBounds="15.14, 13.835, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

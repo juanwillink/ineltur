@@ -460,8 +460,8 @@
       <Column Name="CODIGO" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PROMOCIONES_ALOJAMIENTO" Member="Promociones_Alojamientos">
-    <Type Name="Promociones_Alojamiento">
+  <Table Name="dbo.PROMOCIONES_ALOJAMIENTO" Member="PROMOCIONES_ALOJAMIENTOs">
+    <Type Name="PROMOCIONES_ALOJAMIENTO">
       <Column Name="IDPROMOCION" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="IDALOJ" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
@@ -1126,6 +1126,56 @@
       <Column Name="CANTUNIDADESPEDIDAS" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CANTCAMAS" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ES_TNR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getAlojamientosConDisponibilidadV4" Method="GetAlojamientosConDisponibilidadV4">
+    <Parameter Name="cantUnidadesSimples" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidadesDobles" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidadesTriples" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidadesCuadruples" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidades5Personas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidades6Personas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fechaInicio" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="fechaFin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="orden" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="idCiudad" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="idProvincia" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="idTipoAloj" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="nacionalidad" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="nombreAloj" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="desayuno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tarifaReembolsable" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idUsuario" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="getAlojamientosConDisponibilidadV4Result">
+      <Column Name="montoTotalEstimadoEnPesos" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="idAloj" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idCiudad" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="urlsubdominio" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="sitioPublicado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="idMoneda" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="prioridadEstrellas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nombreEstrellas" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="montoUnidadSingleMasBarataPorDia" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="cupoTotalDisponibleSingle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="montoUnidadDobleMasBarataPorDia" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="cupoTotalDisponibleDoble" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="montoUnidadTripleMasBarataPorDia" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="cupoTotalDisponibleTriple" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="montoUnidadCuadrupleMasBarataPorDia" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="cupoTotalDisponibleCuadruple" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="montoUnidad5PersonasMasBarataPorDia" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="cupoTotalDisponible5Personas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="montoUnidad6PersonasMasBarataPorDia" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="cupoTotalDisponible6Personas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="montoTotalEstimado" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="satisfacePedidoDisponibilidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="agendaReservas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idTipoAloj" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="nombreCiudad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nombreProvincia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

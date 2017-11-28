@@ -159,6 +159,262 @@ namespace CheckArgentina.LocalService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
+    public partial class PromotionModel : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nombrePromocionField;
+        
+        private string nombreTipoPromocionField;
+        
+        private int tipoPromocionIdField;
+        
+        private string descripcion1Field;
+        
+        private string descripcion2Field;
+        
+        private string sloganField;
+        
+        private System.Nullable<System.DateTime> fechaInicioField;
+        
+        private System.Nullable<System.DateTime> fechaFinField;
+        
+        private System.Guid lodgingIdField;
+        
+        private System.Guid promocionIdField;
+        
+        private System.Nullable<int> diasReservadosField;
+        
+        private System.Nullable<int> diasACobrarField;
+        
+        private bool activoField;
+        
+        private System.Nullable<System.Guid> idUnidadPromoField;
+        
+        private System.Nullable<int> minimoNochesField;
+        
+        private System.Nullable<int> maximoNochesField;
+        
+        private System.Nullable<float> descuentoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string NombrePromocion {
+            get {
+                return this.nombrePromocionField;
+            }
+            set {
+                this.nombrePromocionField = value;
+                this.RaisePropertyChanged("NombrePromocion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string NombreTipoPromocion {
+            get {
+                return this.nombreTipoPromocionField;
+            }
+            set {
+                this.nombreTipoPromocionField = value;
+                this.RaisePropertyChanged("NombreTipoPromocion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int TipoPromocionId {
+            get {
+                return this.tipoPromocionIdField;
+            }
+            set {
+                this.tipoPromocionIdField = value;
+                this.RaisePropertyChanged("TipoPromocionId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Descripcion1 {
+            get {
+                return this.descripcion1Field;
+            }
+            set {
+                this.descripcion1Field = value;
+                this.RaisePropertyChanged("Descripcion1");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Descripcion2 {
+            get {
+                return this.descripcion2Field;
+            }
+            set {
+                this.descripcion2Field = value;
+                this.RaisePropertyChanged("Descripcion2");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string Slogan {
+            get {
+                return this.sloganField;
+            }
+            set {
+                this.sloganField = value;
+                this.RaisePropertyChanged("Slogan");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<System.DateTime> FechaInicio {
+            get {
+                return this.fechaInicioField;
+            }
+            set {
+                this.fechaInicioField = value;
+                this.RaisePropertyChanged("FechaInicio");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public System.Nullable<System.DateTime> FechaFin {
+            get {
+                return this.fechaFinField;
+            }
+            set {
+                this.fechaFinField = value;
+                this.RaisePropertyChanged("FechaFin");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public System.Guid LodgingId {
+            get {
+                return this.lodgingIdField;
+            }
+            set {
+                this.lodgingIdField = value;
+                this.RaisePropertyChanged("LodgingId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public System.Guid PromocionId {
+            get {
+                return this.promocionIdField;
+            }
+            set {
+                this.promocionIdField = value;
+                this.RaisePropertyChanged("PromocionId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        public System.Nullable<int> DiasReservados {
+            get {
+                return this.diasReservadosField;
+            }
+            set {
+                this.diasReservadosField = value;
+                this.RaisePropertyChanged("DiasReservados");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=11)]
+        public System.Nullable<int> DiasACobrar {
+            get {
+                return this.diasACobrarField;
+            }
+            set {
+                this.diasACobrarField = value;
+                this.RaisePropertyChanged("DiasACobrar");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public bool Activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("Activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
+        public System.Nullable<System.Guid> IdUnidadPromo {
+            get {
+                return this.idUnidadPromoField;
+            }
+            set {
+                this.idUnidadPromoField = value;
+                this.RaisePropertyChanged("IdUnidadPromo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=14)]
+        public System.Nullable<int> MinimoNoches {
+            get {
+                return this.minimoNochesField;
+            }
+            set {
+                this.minimoNochesField = value;
+                this.RaisePropertyChanged("MinimoNoches");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=15)]
+        public System.Nullable<int> MaximoNoches {
+            get {
+                return this.maximoNochesField;
+            }
+            set {
+                this.maximoNochesField = value;
+                this.RaisePropertyChanged("MaximoNoches");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=16)]
+        public System.Nullable<float> Descuento {
+            get {
+                return this.descuentoField;
+            }
+            set {
+                this.descuentoField = value;
+                this.RaisePropertyChanged("Descuento");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
     public partial class InfoUnidad : object, System.ComponentModel.INotifyPropertyChanged {
         
         private System.Guid idUnidadField;
@@ -179,15 +435,7 @@ namespace CheckArgentina.LocalService {
         
         private int tarifaField;
         
-        private bool tienePromocionNxMField;
-        
-        private System.Nullable<int> diasACobrarField;
-        
-        private bool tienePromocionMinimoMaximoField;
-        
-        private System.Nullable<int> minimoDiasField;
-        
-        private System.Nullable<int> maximoDiasField;
+        private PromotionModel[] promocionesField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -298,62 +546,14 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public bool TienePromocionNxM {
+        [System.Xml.Serialization.XmlArrayAttribute(Order=9)]
+        public PromotionModel[] Promociones {
             get {
-                return this.tienePromocionNxMField;
+                return this.promocionesField;
             }
             set {
-                this.tienePromocionNxMField = value;
-                this.RaisePropertyChanged("TienePromocionNxM");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
-        public System.Nullable<int> DiasACobrar {
-            get {
-                return this.diasACobrarField;
-            }
-            set {
-                this.diasACobrarField = value;
-                this.RaisePropertyChanged("DiasACobrar");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-        public bool TienePromocionMinimoMaximo {
-            get {
-                return this.tienePromocionMinimoMaximoField;
-            }
-            set {
-                this.tienePromocionMinimoMaximoField = value;
-                this.RaisePropertyChanged("TienePromocionMinimoMaximo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=12)]
-        public System.Nullable<int> MinimoDias {
-            get {
-                return this.minimoDiasField;
-            }
-            set {
-                this.minimoDiasField = value;
-                this.RaisePropertyChanged("MinimoDias");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
-        public System.Nullable<int> MaximoDias {
-            get {
-                return this.maximoDiasField;
-            }
-            set {
-                this.maximoDiasField = value;
-                this.RaisePropertyChanged("MaximoDias");
+                this.promocionesField = value;
+                this.RaisePropertyChanged("Promociones");
             }
         }
         
@@ -416,8 +616,6 @@ namespace CheckArgentina.LocalService {
         private System.Nullable<float> latitudField;
         
         private System.Nullable<float> longitudField;
-        
-        private bool tienePromocionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -668,18 +866,6 @@ namespace CheckArgentina.LocalService {
             set {
                 this.longitudField = value;
                 this.RaisePropertyChanged("Longitud");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=21)]
-        public bool TienePromocion {
-            get {
-                return this.tienePromocionField;
-            }
-            set {
-                this.tienePromocionField = value;
-                this.RaisePropertyChanged("TienePromocion");
             }
         }
         
@@ -1215,33 +1401,33 @@ namespace CheckArgentina.LocalService {
         
         private System.Nullable<int> marcaTemporadaField;
         
-        private decimal montoField;
+        private System.Nullable<decimal> montoField;
         
-        private decimal montoExtranjeroField;
+        private System.Nullable<decimal> montoExtranjeroField;
         
-        private decimal montoMercosurField;
+        private System.Nullable<decimal> montoMercosurField;
         
-        private decimal montoExtranjeroCDTRField;
+        private System.Nullable<decimal> montoExtranjeroCDTRField;
         
-        private decimal montoMercosurCDTRField;
+        private System.Nullable<decimal> montoMercosurCDTRField;
         
-        private decimal montoArgentinoSDTRField;
+        private System.Nullable<decimal> montoArgentinoSDTRField;
         
-        private decimal montoExtranjeroSDTRField;
+        private System.Nullable<decimal> montoExtranjeroSDTRField;
         
-        private decimal montoMercosurSDTRField;
+        private System.Nullable<decimal> montoMercosurSDTRField;
         
-        private decimal montoArgentinoCDTNRField;
+        private System.Nullable<decimal> montoArgentinoCDTNRField;
         
-        private decimal montoExtrajeroCDTNRField;
+        private System.Nullable<decimal> montoExtrajeroCDTNRField;
         
-        private decimal montoMercosurCDTNRField;
+        private System.Nullable<decimal> montoMercosurCDTNRField;
         
-        private decimal montoArgentinoSDTNRField;
+        private System.Nullable<decimal> montoArgentinoSDTNRField;
         
-        private decimal montoExtranjeroSDTNRField;
+        private System.Nullable<decimal> montoExtranjeroSDTNRField;
         
-        private decimal montoMercosurSDTNRField;
+        private System.Nullable<decimal> montoMercosurSDTNRField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -1352,8 +1538,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public decimal Monto {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
+        public System.Nullable<decimal> Monto {
             get {
                 return this.montoField;
             }
@@ -1364,8 +1550,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-        public decimal MontoExtranjero {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        public System.Nullable<decimal> MontoExtranjero {
             get {
                 return this.montoExtranjeroField;
             }
@@ -1376,8 +1562,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-        public decimal MontoMercosur {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=11)]
+        public System.Nullable<decimal> MontoMercosur {
             get {
                 return this.montoMercosurField;
             }
@@ -1388,8 +1574,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
-        public decimal MontoExtranjeroCDTR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=12)]
+        public System.Nullable<decimal> MontoExtranjeroCDTR {
             get {
                 return this.montoExtranjeroCDTRField;
             }
@@ -1400,8 +1586,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-        public decimal MontoMercosurCDTR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
+        public System.Nullable<decimal> MontoMercosurCDTR {
             get {
                 return this.montoMercosurCDTRField;
             }
@@ -1412,8 +1598,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
-        public decimal MontoArgentinoSDTR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=14)]
+        public System.Nullable<decimal> MontoArgentinoSDTR {
             get {
                 return this.montoArgentinoSDTRField;
             }
@@ -1424,8 +1610,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
-        public decimal MontoExtranjeroSDTR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=15)]
+        public System.Nullable<decimal> MontoExtranjeroSDTR {
             get {
                 return this.montoExtranjeroSDTRField;
             }
@@ -1436,8 +1622,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
-        public decimal MontoMercosurSDTR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=16)]
+        public System.Nullable<decimal> MontoMercosurSDTR {
             get {
                 return this.montoMercosurSDTRField;
             }
@@ -1448,8 +1634,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
-        public decimal MontoArgentinoCDTNR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=17)]
+        public System.Nullable<decimal> MontoArgentinoCDTNR {
             get {
                 return this.montoArgentinoCDTNRField;
             }
@@ -1460,8 +1646,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=18)]
-        public decimal MontoExtrajeroCDTNR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=18)]
+        public System.Nullable<decimal> MontoExtrajeroCDTNR {
             get {
                 return this.montoExtrajeroCDTNRField;
             }
@@ -1472,8 +1658,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=19)]
-        public decimal MontoMercosurCDTNR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=19)]
+        public System.Nullable<decimal> MontoMercosurCDTNR {
             get {
                 return this.montoMercosurCDTNRField;
             }
@@ -1484,8 +1670,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=20)]
-        public decimal MontoArgentinoSDTNR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=20)]
+        public System.Nullable<decimal> MontoArgentinoSDTNR {
             get {
                 return this.montoArgentinoSDTNRField;
             }
@@ -1496,8 +1682,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=21)]
-        public decimal MontoExtranjeroSDTNR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=21)]
+        public System.Nullable<decimal> MontoExtranjeroSDTNR {
             get {
                 return this.montoExtranjeroSDTNRField;
             }
@@ -1508,8 +1694,8 @@ namespace CheckArgentina.LocalService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=22)]
-        public decimal MontoMercosurSDTNR {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=22)]
+        public System.Nullable<decimal> MontoMercosurSDTNR {
             get {
                 return this.montoMercosurSDTNRField;
             }
