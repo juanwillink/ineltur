@@ -47,7 +47,7 @@ function completePromotions(lodging) {
             for (var key2 in vacancy.Promociones) {
                 var promotion = vacancy.Promociones[key2];
                 body = body + "<h4>" + promotion["NOMBRE"] + "</h4>";
-                body = body + "<p>" + promotion["DESCRIPCION"] + "</p>";
+                body = body + "<p>" + promotion["DESCRIPCION2"] + "</p>";
             }
         } else {
             body = body + "<p>Esta unidad no cuenta con promociones</p>";

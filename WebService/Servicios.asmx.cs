@@ -591,6 +591,7 @@ namespace Ineltur.WebService
                         petition.FechaInicio, petition.FechaFin, ConvertirOrdenamiento(petition.Orden),
                         ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad, petition.NombreAlojamiento, petition.desayuno, petition.tarifaReembolsable, usuario.IdUsuario)
                             .Where(a => a.montoTotalEstimadoEnPesos > 0).ToArray();
+
                         if (hoteles.Length == 0)
                         {
                             var respuestaError = new RespuestaBuscarAlojamientosEInfo()
