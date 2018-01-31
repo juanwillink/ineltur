@@ -304,7 +304,18 @@ namespace CheckArgentina.Models
         [Required]
         [Display(Name = "Precio por Unidad")]
         [DataType(DataType.Currency)]
-        public decimal VacancyPrice { get; set; }
+        public decimal VacancyPriceRaCdTr { get; set; }
+        public decimal VacancyPriceRaCdTnr { get; set; }
+        public decimal VacancyPriceRaSdTr { get; set; }
+        public decimal VacancyPriceRaSdTnr { get; set; }
+        public decimal VacancyPriceExCdTr { get; set; }
+        public decimal VacancyPriceExCdTnr { get; set; }
+        public decimal VacancyPriceExSdTr { get; set; }
+        public decimal VacancyPriceExSdTnr { get; set; }
+        public decimal VacancyPriceMeCdTr { get; set; }
+        public decimal VacancyPriceMeCdTnr { get; set; }
+        public decimal VacancyPriceMeSdTr { get; set; }
+        public decimal VacancyPriceMeSdTnr { get; set; }
 
         [Display(Name = "Precio por Unidad Confirmado")]
         [DataType(DataType.Currency)]

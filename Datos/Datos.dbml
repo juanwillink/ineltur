@@ -1178,4 +1178,70 @@
       <Column Name="nombreProvincia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.getTarifasTodasDeUnidadPedida" Method="getTarifasTodasDeUnidadPedida" IsComposable="true">
+    <Parameter Name="cantUnidadesSimples" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidadesDobles" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidadesTriples" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidadesOtros" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidades5Personas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cantUnidades6Personas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fechaInicio" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="fechaFin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="orden" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="idCiudad" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="idProvincia" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="idTipoAloj" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="nacionalidad" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="nombreAloj" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="desayuno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tarifaReembolsable" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idUsuario" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="getTarifasTodasDeUnidadPedidaResult">
+      <Column Name="idAloj" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="nombreAlojamiento" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nombreEstrellas" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="idUnidadAloj" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="nombreHabitacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="montoTotal" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidad" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDia" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="cupoDisponible" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cantPersonas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cantUnidadesPedidas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cantCamas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="montoTotalMRCDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMRCDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMRCDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMRSDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMRSDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMRSDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMRSDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMRSDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMRSDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMECDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMECDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMECDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMECDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMECDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMECDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMESDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMESDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMESDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMESDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMESDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMESDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMMCDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMMCDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMMCDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMMCDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMMCDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMMCDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMMSDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMMSDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMMSDTR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalMMSDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoTotalPorUnidadMMSDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="montoPromedioPorDiaMMSDTNR" Type="System.Single" DbType="Real" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

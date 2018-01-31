@@ -142,7 +142,7 @@ namespace CheckArgentina.Controllers
 
         [AcceptVerbs(HttpVerbs.Post)]
         [ValidateInput(false)]
-        public ActionResult SearchLodgingWeeklyPrices(Guid lodgingId, string dateString)
+        public ActionResult SearchLodgingWeeklyPrices(Guid LodgingId, string dateString, string Nationality)
         {
             DateTime date = DateTime.Now.Date;
 
@@ -158,7 +158,7 @@ namespace CheckArgentina.Controllers
                 SessionData.User = ServiceManager.GetUser(Session["userkey"].ToString());
                 
             }
-            return Json(Manager.GetLodgingWeeklyPrices(lodgingId, date, SessionData.UserCredential), JsonRequestBehavior.AllowGet);
+            return Json(Manager.GetLodgingWeeklyPrices(LodgingId, date, SessionData.UserCredential, Nationality), JsonRequestBehavior.AllowGet);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]

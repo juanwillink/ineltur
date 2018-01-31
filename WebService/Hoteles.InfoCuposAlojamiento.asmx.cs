@@ -108,7 +108,7 @@ namespace Ineltur.WebService
                             
                             Disponibles = d.CUPODISPONIBLE.GetValueOrDefault(),
                             //MontoPorUnidad = Decimal.Round((decimal)(d.MontoPromedioPorDia.GetValueOrDefault() * markup), 2),
-                            MontoPorUnidad = Decimal.Round((decimal)((d.MONTOPROMEDIOPORDIA.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2),
+                            //MontoPorUnidad = Decimal.Round((decimal)((d.MONTOPROMEDIOPORDIA.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2),
                         }).ToArray()
                     };
 

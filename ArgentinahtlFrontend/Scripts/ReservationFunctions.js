@@ -92,22 +92,184 @@ function buildAvailableRooms(vacancies) {
                 "<thead>" +
                     "<tr>" +
                         "<th class='text-center'>Camas</th>" +
+                        "<th class='text-center'>Desayuno</th>" +
+                        "<th class='text-center'>Tarifa Reembolsable</th>" +
                         "<th class='text-center'>Personas</th>" +
                         "<th class='text-center'>Precio por Noche</th>" +
                         "<th class='text-center'>Acciones</th>" +
                     "</tr>" +
                 "</thead>" +
-                "<tbody>" +
-                    "<tr>" +
-                        "<td>" + vacancy["VacancyBeds"] + "</td>" +
-                        "<td>" + vacancy["VacancyAdults"] + "</td>" +
-                        "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPrice"] + "</td>" +
-                        '<td>' +
-                            '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ')">Reservar</button>' +
-                            '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
-                        '</td>' +
-                    "</tr>" +
-                "</tbody>" +
+            "<tbody>";
+
+        if (vacancy["VacancyPriceRaCdTr"] != "0" && vacancy["VacancyPriceRaCdTr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>Si</td>" +
+                "<td>Si</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceRaCdTr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceRaCdTr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceRaCdTnr"] != "0" && vacancy["VacancyPriceRaCdTnr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>Si</td>" +
+                "<td>No</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceRaCdTnr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceRaCdTnr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceRaSdTr"] != "0" && vacancy["VacancyPriceRaSdTr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>No</td>" +
+                "<td>Si</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceRaSdTr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceRaSdTr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceRaSdTnr"] != "0" && vacancy["VacancyPriceRaSdTnr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>No</td>" +
+                "<td>No</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceRaSdTnr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceRaSdTnr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceExCdTr"] != "0" && vacancy["VacancyPriceExCdTr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>Si</td>" +
+                "<td>Si</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceExCdTr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceExCdTr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceExCdTnr"] != "0" && vacancy["VacancyPriceExCdTnr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>Si</td>" +
+                "<td>No</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceExCdTnr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceExCdTnr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceExSdTr"] != "0" && vacancy["VacancyPriceExSdTr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>No</td>" +
+                "<td>Si</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceExSdTr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceExSdTr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceExSdTnr"] != "0" && vacancy["VacancyPriceExSdTnr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>No</td>" +
+                "<td>No</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceExSdTnr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceExSdTnr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceMeCdTr"] != "0" && vacancy["VacancyPriceMeCdTr"] != null) {
+            body = body + 
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>Si</td>" +
+                "<td>Si</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceMeCdTr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceMeCdTr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceMeCdTnr"] != "0" && vacancy["VacancyPriceMeCdTnr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>Si</td>" +
+                "<td>No</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceMeCdTnr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceMeCdTnr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceMeSdTr"] != "0" && vacancy["VacancyPriceMeSdTr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>No</td>" +
+                "<td>Si</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceMeSdTr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceMeSdTr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        if (vacancy["VacancyPriceMeSdTnr"] != "0" && vacancy["VacancyPriceMeSdTnr"] != null) {
+            body = body +
+                "<tr>" +
+                "<td>" + vacancy["VacancyBeds"] + "</td>" +
+                "<td>No</td>" +
+                "<td>No</td>" +
+                "<td>" + vacancy["VacancyAdults"] + "</td>" +
+                "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceMeSdTnr"] + "</td>" +
+                '<td>' +
+                '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceMeSdTnr"] + ')">Reservar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '</td>' +
+                "</tr>";
+        }
+        body = body + "</tbody>" +
             "</table><br />";
     }
     $("#AvailableRoomsDiv").append(body);
@@ -350,15 +512,15 @@ function noRoomsFound() {
     
 }
 
-function empezarReservaHabitacion(vacancyNumber) {
-    
+function empezarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
+    debugger;
     var roomsElements = $("[id^=vacancy_" + vacancyNumber + "_Room_]");
     var checkinDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckin").val().substr(6)));
     var checkoutDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckout").val().substr(6)));
     var tienePromocionNxM = false;
     var result = $("#TienePromocionNxM-" + vacancyNumber).val();
-    var desayuno = $("#vacancy_" + vacancyNumber + "_Breakfast").val();
-    var tarifa = $("#vacancy_" + vacancyNumber + "_Tarifa").val();
+    var desayuno = desayuno;
+    var tarifa = tarifa;
     var tienePromocion = false;
     if (result) {
         tienePromocionNxM = true;
@@ -381,7 +543,7 @@ function empezarReservaHabitacion(vacancyNumber) {
         "VacancyName": $("#vacancy_" + vacancyNumber + "_VacancyName").val(),
         "VacancyCheckin": checkinDate,
         "VacancyCheckout": checkoutDate,
-        "VacancyPrice": $("#vacancy_" + vacancyNumber + "_VacancyPrice").val(),
+        "ConfirmedVacancyPrice": precio,
         "VacancyReserved": 1,
         "Rooms": rooms,
         "TienePromocionNxM": tienePromocionNxM,

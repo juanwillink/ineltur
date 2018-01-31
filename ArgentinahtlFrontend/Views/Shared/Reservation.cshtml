@@ -121,7 +121,7 @@
                                         <div id="vacancyDiv_@i">
                                             <input type="hidden" id="reserved_vacancy_vacancyId_@i" value="@Model.Vacancies[i].VacancyId" />
                                             <input type="hidden" id="reserved_vacancy_vacancyName_@i" value="@Model.Vacancies[i].VacancyName" />
-                                            <input type="hidden" id="reserved_vacancy_vacancyPrice_@i" value="@Model.Vacancies[i].VacancyPrice" />
+                                            <input type="hidden" id="reserved_vacancy_vacancyPrice_@i" value="@Model.Vacancies[i].ConfirmedVacancyPrice" />
                                             <input type="hidden" id="reserved_vacancy_roomId_@i" value="@Model.Vacancies[i].Rooms.FirstOrDefault().RoomId" />
                                             <input type="hidden" id="reserved_vacancy_roomName_@i" value="@Model.Vacancies[i].Rooms.FirstOrDefault().RoomName" />
                                             <input type="hidden" id="reserved_vacancy_roomType_@i" value="@Model.Vacancies[i].Rooms.FirstOrDefault().RoomType" />

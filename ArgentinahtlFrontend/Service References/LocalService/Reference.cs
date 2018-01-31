@@ -53,7 +53,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -94,7 +94,7 @@ namespace CheckArgentina.LocalService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PeticionInfoAlojamiento))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PeticionBuscarMisReservas))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PeticionLogin))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -154,7 +154,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -410,7 +410,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -429,11 +429,29 @@ namespace CheckArgentina.LocalService {
         
         private int disponiblesField;
         
-        private decimal montoPorUnidadField;
+        private decimal montoPorUnidadRaCdTrField;
         
-        private int desayunoField;
+        private decimal montoPorUnidadRaCdTnrField;
         
-        private int tarifaField;
+        private decimal montoPorUnidadRaSdTrField;
+        
+        private decimal montoPorUnidadRaSdTnrField;
+        
+        private decimal montoPorUnidadExCdTrField;
+        
+        private decimal montoPorUnidadExCdTnrField;
+        
+        private decimal montoPorUnidadExSdTrField;
+        
+        private decimal montoPorUnidadExSdTnrField;
+        
+        private decimal montoPorUnidadMeCdTrField;
+        
+        private decimal montoPorUnidadMeCdTnrField;
+        
+        private decimal montoPorUnidadMeSdTrField;
+        
+        private decimal montoPorUnidadMeSdTnrField;
         
         private PromotionModel[] promocionesField;
         
@@ -511,42 +529,150 @@ namespace CheckArgentina.LocalService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public decimal MontoPorUnidad {
+        public decimal MontoPorUnidadRaCdTr {
             get {
-                return this.montoPorUnidadField;
+                return this.montoPorUnidadRaCdTrField;
             }
             set {
-                this.montoPorUnidadField = value;
-                this.RaisePropertyChanged("MontoPorUnidad");
+                this.montoPorUnidadRaCdTrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadRaCdTr");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public int Desayuno {
+        public decimal MontoPorUnidadRaCdTnr {
             get {
-                return this.desayunoField;
+                return this.montoPorUnidadRaCdTnrField;
             }
             set {
-                this.desayunoField = value;
-                this.RaisePropertyChanged("Desayuno");
+                this.montoPorUnidadRaCdTnrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadRaCdTnr");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public int Tarifa {
+        public decimal MontoPorUnidadRaSdTr {
             get {
-                return this.tarifaField;
+                return this.montoPorUnidadRaSdTrField;
             }
             set {
-                this.tarifaField = value;
-                this.RaisePropertyChanged("Tarifa");
+                this.montoPorUnidadRaSdTrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadRaSdTr");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public decimal MontoPorUnidadRaSdTnr {
+            get {
+                return this.montoPorUnidadRaSdTnrField;
+            }
+            set {
+                this.montoPorUnidadRaSdTnrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadRaSdTnr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public decimal MontoPorUnidadExCdTr {
+            get {
+                return this.montoPorUnidadExCdTrField;
+            }
+            set {
+                this.montoPorUnidadExCdTrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadExCdTr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public decimal MontoPorUnidadExCdTnr {
+            get {
+                return this.montoPorUnidadExCdTnrField;
+            }
+            set {
+                this.montoPorUnidadExCdTnrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadExCdTnr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public decimal MontoPorUnidadExSdTr {
+            get {
+                return this.montoPorUnidadExSdTrField;
+            }
+            set {
+                this.montoPorUnidadExSdTrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadExSdTr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public decimal MontoPorUnidadExSdTnr {
+            get {
+                return this.montoPorUnidadExSdTnrField;
+            }
+            set {
+                this.montoPorUnidadExSdTnrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadExSdTnr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public decimal MontoPorUnidadMeCdTr {
+            get {
+                return this.montoPorUnidadMeCdTrField;
+            }
+            set {
+                this.montoPorUnidadMeCdTrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadMeCdTr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
+        public decimal MontoPorUnidadMeCdTnr {
+            get {
+                return this.montoPorUnidadMeCdTnrField;
+            }
+            set {
+                this.montoPorUnidadMeCdTnrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadMeCdTnr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
+        public decimal MontoPorUnidadMeSdTr {
+            get {
+                return this.montoPorUnidadMeSdTrField;
+            }
+            set {
+                this.montoPorUnidadMeSdTrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadMeSdTr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
+        public decimal MontoPorUnidadMeSdTnr {
+            get {
+                return this.montoPorUnidadMeSdTnrField;
+            }
+            set {
+                this.montoPorUnidadMeSdTnrField = value;
+                this.RaisePropertyChanged("MontoPorUnidadMeSdTnr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=18)]
         public PromotionModel[] Promociones {
             get {
                 return this.promocionesField;
@@ -568,7 +694,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -880,7 +1006,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -940,7 +1066,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
     public enum TipoDestino {
@@ -959,7 +1085,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
     public enum TipoAlojamiento {
@@ -1023,7 +1149,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
     public enum CategoriaAlojamiento {
@@ -1057,7 +1183,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
     public enum RegimenAlojamiento {
@@ -1076,7 +1202,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
     public enum Moneda {
@@ -1092,7 +1218,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1376,7 +1502,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1716,7 +1842,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1874,7 +2000,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1962,7 +2088,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2078,7 +2204,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2394,7 +2520,7 @@ namespace CheckArgentina.LocalService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RespuestaInfoCuposSemanalesAlojamiento))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RespuestaBuscarMisReservas))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RespuestaLogin))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2440,7 +2566,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
     public enum EstadoRespuesta {
@@ -2468,7 +2594,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2491,7 +2617,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2514,7 +2640,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2537,7 +2663,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2602,7 +2728,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2835,7 +2961,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.ineltur.com/")]
     public enum OrdenAlojamientos {
@@ -2851,7 +2977,7 @@ namespace CheckArgentina.LocalService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2861,6 +2987,8 @@ namespace CheckArgentina.LocalService {
         private System.Guid idAlojamientoField;
         
         private System.DateTime fechaField;
+        
+        private string nationalityField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -2885,10 +3013,22 @@ namespace CheckArgentina.LocalService {
                 this.RaisePropertyChanged("Fecha");
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Nationality {
+            get {
+                return this.nationalityField;
+            }
+            set {
+                this.nationalityField = value;
+                this.RaisePropertyChanged("Nationality");
+            }
+        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]

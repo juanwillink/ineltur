@@ -197,7 +197,7 @@ namespace Ineltur.WebService
                                     Camas = d.CANTCAMAS.GetValueOrDefault(),
 
                                     Disponibles = d.CUPODISPONIBLE.GetValueOrDefault(),
-                                    MontoPorUnidad = Decimal.Round((decimal)((d.MONTOPROMEDIOPORDIA.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2),
+                                    //MontoPorUnidad = Decimal.Round((decimal)((d.MONTOPROMEDIOPORDIA.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2),
                                                     //Decimal.Round((decimal)(d.MontoPromedioPorDia.GetValueOrDefault() * markup), 2),
                                 }).ToArray();
 

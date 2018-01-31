@@ -684,6 +684,29 @@ namespace Ineltur.Datos.Entidades
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cantUnidadesSimples, cantUnidadesDobles, cantUnidadesTriples, cantUnidadesCuadruples, cantUnidades5Personas, cantUnidades6Personas, fechaInicio, fechaFin, orden, idCiudad, idProvincia, idTipoAloj, nacionalidad, nombreAloj, desayuno, tarifaReembolsable, idUsuario);
 			return ((ISingleResult<getAlojamientosConDisponibilidadV4Result>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTarifasTodasDeUnidadPedida", IsComposable=true)]
+		public IQueryable<getTarifasTodasDeUnidadPedidaResult> getTarifasTodasDeUnidadPedida(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidadesSimples, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidadesDobles, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidadesTriples, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidadesOtros, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidades5Personas, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cantUnidades6Personas, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> fechaInicio, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> fechaFin, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string orden, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idCiudad, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idProvincia, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idTipoAloj, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(3)")] string nacionalidad, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nombreAloj, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> desayuno, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> tarifaReembolsable, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idUsuario)
+		{
+			return this.CreateMethodCallQuery<getTarifasTodasDeUnidadPedidaResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cantUnidadesSimples, cantUnidadesDobles, cantUnidadesTriples, cantUnidadesOtros, cantUnidades5Personas, cantUnidades6Personas, fechaInicio, fechaFin, orden, idCiudad, idProvincia, idTipoAloj, nacionalidad, nombreAloj, desayuno, tarifaReembolsable, idUsuario);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CIUDADES")]
@@ -18183,6 +18206,824 @@ namespace Ineltur.Datos.Entidades
 				if ((this._nombreProvincia != value))
 				{
 					this._nombreProvincia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getTarifasTodasDeUnidadPedidaResult
+	{
+		
+		private System.Nullable<System.Guid> _idAloj;
+		
+		private string _nombreAlojamiento;
+		
+		private string _nombreEstrellas;
+		
+		private System.Nullable<System.Guid> _idUnidadAloj;
+		
+		private string _nombreHabitacion;
+		
+		private System.Nullable<float> _montoTotal;
+		
+		private System.Nullable<float> _montoTotalPorUnidad;
+		
+		private System.Nullable<float> _montoPromedioPorDia;
+		
+		private System.Nullable<int> _cupoDisponible;
+		
+		private System.Nullable<int> _cantPersonas;
+		
+		private System.Nullable<int> _cantUnidadesPedidas;
+		
+		private System.Nullable<int> _cantCamas;
+		
+		private System.Nullable<float> _montoTotalMRCDTNR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMRCDTNR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMRCDTNR;
+		
+		private System.Nullable<float> _montoTotalMRSDTR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMRSDTR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMRSDTR;
+		
+		private System.Nullable<float> _montoTotalMRSDTNR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMRSDTNR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMRSDTNR;
+		
+		private System.Nullable<float> _montoTotalMECDTR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMECDTR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMECDTR;
+		
+		private System.Nullable<float> _montoTotalMECDTNR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMECDTNR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMECDTNR;
+		
+		private System.Nullable<float> _montoTotalMESDTR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMESDTR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMESDTR;
+		
+		private System.Nullable<float> _montoTotalMESDTNR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMESDTNR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMESDTNR;
+		
+		private System.Nullable<float> _montoTotalMMCDTR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMMCDTR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMMCDTR;
+		
+		private System.Nullable<float> _montoTotalMMCDTNR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMMCDTNR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMMCDTNR;
+		
+		private System.Nullable<float> _montoTotalMMSDTR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMMSDTR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMMSDTR;
+		
+		private System.Nullable<float> _montoTotalMMSDTNR;
+		
+		private System.Nullable<float> _montoTotalPorUnidadMMSDTNR;
+		
+		private System.Nullable<float> _montoPromedioPorDiaMMSDTNR;
+		
+		public getTarifasTodasDeUnidadPedidaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idAloj", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> idAloj
+		{
+			get
+			{
+				return this._idAloj;
+			}
+			set
+			{
+				if ((this._idAloj != value))
+				{
+					this._idAloj = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreAlojamiento", DbType="VarChar(100)")]
+		public string nombreAlojamiento
+		{
+			get
+			{
+				return this._nombreAlojamiento;
+			}
+			set
+			{
+				if ((this._nombreAlojamiento != value))
+				{
+					this._nombreAlojamiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreEstrellas", DbType="VarChar(100)")]
+		public string nombreEstrellas
+		{
+			get
+			{
+				return this._nombreEstrellas;
+			}
+			set
+			{
+				if ((this._nombreEstrellas != value))
+				{
+					this._nombreEstrellas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUnidadAloj", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> idUnidadAloj
+		{
+			get
+			{
+				return this._idUnidadAloj;
+			}
+			set
+			{
+				if ((this._idUnidadAloj != value))
+				{
+					this._idUnidadAloj = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreHabitacion", DbType="VarChar(100)")]
+		public string nombreHabitacion
+		{
+			get
+			{
+				return this._nombreHabitacion;
+			}
+			set
+			{
+				if ((this._nombreHabitacion != value))
+				{
+					this._nombreHabitacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotal", DbType="Real")]
+		public System.Nullable<float> montoTotal
+		{
+			get
+			{
+				return this._montoTotal;
+			}
+			set
+			{
+				if ((this._montoTotal != value))
+				{
+					this._montoTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidad", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidad
+		{
+			get
+			{
+				return this._montoTotalPorUnidad;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidad != value))
+				{
+					this._montoTotalPorUnidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDia", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDia
+		{
+			get
+			{
+				return this._montoPromedioPorDia;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDia != value))
+				{
+					this._montoPromedioPorDia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cupoDisponible", DbType="Int")]
+		public System.Nullable<int> cupoDisponible
+		{
+			get
+			{
+				return this._cupoDisponible;
+			}
+			set
+			{
+				if ((this._cupoDisponible != value))
+				{
+					this._cupoDisponible = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cantPersonas", DbType="Int")]
+		public System.Nullable<int> cantPersonas
+		{
+			get
+			{
+				return this._cantPersonas;
+			}
+			set
+			{
+				if ((this._cantPersonas != value))
+				{
+					this._cantPersonas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cantUnidadesPedidas", DbType="Int")]
+		public System.Nullable<int> cantUnidadesPedidas
+		{
+			get
+			{
+				return this._cantUnidadesPedidas;
+			}
+			set
+			{
+				if ((this._cantUnidadesPedidas != value))
+				{
+					this._cantUnidadesPedidas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cantCamas", DbType="Int")]
+		public System.Nullable<int> cantCamas
+		{
+			get
+			{
+				return this._cantCamas;
+			}
+			set
+			{
+				if ((this._cantCamas != value))
+				{
+					this._cantCamas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMRCDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalMRCDTNR
+		{
+			get
+			{
+				return this._montoTotalMRCDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalMRCDTNR != value))
+				{
+					this._montoTotalMRCDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMRCDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMRCDTNR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMRCDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMRCDTNR != value))
+				{
+					this._montoTotalPorUnidadMRCDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMRCDTNR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMRCDTNR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMRCDTNR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMRCDTNR != value))
+				{
+					this._montoPromedioPorDiaMRCDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMRSDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalMRSDTR
+		{
+			get
+			{
+				return this._montoTotalMRSDTR;
+			}
+			set
+			{
+				if ((this._montoTotalMRSDTR != value))
+				{
+					this._montoTotalMRSDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMRSDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMRSDTR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMRSDTR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMRSDTR != value))
+				{
+					this._montoTotalPorUnidadMRSDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMRSDTR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMRSDTR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMRSDTR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMRSDTR != value))
+				{
+					this._montoPromedioPorDiaMRSDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMRSDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalMRSDTNR
+		{
+			get
+			{
+				return this._montoTotalMRSDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalMRSDTNR != value))
+				{
+					this._montoTotalMRSDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMRSDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMRSDTNR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMRSDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMRSDTNR != value))
+				{
+					this._montoTotalPorUnidadMRSDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMRSDTNR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMRSDTNR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMRSDTNR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMRSDTNR != value))
+				{
+					this._montoPromedioPorDiaMRSDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMECDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalMECDTR
+		{
+			get
+			{
+				return this._montoTotalMECDTR;
+			}
+			set
+			{
+				if ((this._montoTotalMECDTR != value))
+				{
+					this._montoTotalMECDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMECDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMECDTR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMECDTR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMECDTR != value))
+				{
+					this._montoTotalPorUnidadMECDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMECDTR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMECDTR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMECDTR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMECDTR != value))
+				{
+					this._montoPromedioPorDiaMECDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMECDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalMECDTNR
+		{
+			get
+			{
+				return this._montoTotalMECDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalMECDTNR != value))
+				{
+					this._montoTotalMECDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMECDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMECDTNR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMECDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMECDTNR != value))
+				{
+					this._montoTotalPorUnidadMECDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMECDTNR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMECDTNR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMECDTNR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMECDTNR != value))
+				{
+					this._montoPromedioPorDiaMECDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMESDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalMESDTR
+		{
+			get
+			{
+				return this._montoTotalMESDTR;
+			}
+			set
+			{
+				if ((this._montoTotalMESDTR != value))
+				{
+					this._montoTotalMESDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMESDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMESDTR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMESDTR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMESDTR != value))
+				{
+					this._montoTotalPorUnidadMESDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMESDTR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMESDTR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMESDTR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMESDTR != value))
+				{
+					this._montoPromedioPorDiaMESDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMESDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalMESDTNR
+		{
+			get
+			{
+				return this._montoTotalMESDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalMESDTNR != value))
+				{
+					this._montoTotalMESDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMESDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMESDTNR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMESDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMESDTNR != value))
+				{
+					this._montoTotalPorUnidadMESDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMESDTNR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMESDTNR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMESDTNR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMESDTNR != value))
+				{
+					this._montoPromedioPorDiaMESDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMMCDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalMMCDTR
+		{
+			get
+			{
+				return this._montoTotalMMCDTR;
+			}
+			set
+			{
+				if ((this._montoTotalMMCDTR != value))
+				{
+					this._montoTotalMMCDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMMCDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMMCDTR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMMCDTR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMMCDTR != value))
+				{
+					this._montoTotalPorUnidadMMCDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMMCDTR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMMCDTR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMMCDTR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMMCDTR != value))
+				{
+					this._montoPromedioPorDiaMMCDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMMCDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalMMCDTNR
+		{
+			get
+			{
+				return this._montoTotalMMCDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalMMCDTNR != value))
+				{
+					this._montoTotalMMCDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMMCDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMMCDTNR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMMCDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMMCDTNR != value))
+				{
+					this._montoTotalPorUnidadMMCDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMMCDTNR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMMCDTNR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMMCDTNR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMMCDTNR != value))
+				{
+					this._montoPromedioPorDiaMMCDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMMSDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalMMSDTR
+		{
+			get
+			{
+				return this._montoTotalMMSDTR;
+			}
+			set
+			{
+				if ((this._montoTotalMMSDTR != value))
+				{
+					this._montoTotalMMSDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMMSDTR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMMSDTR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMMSDTR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMMSDTR != value))
+				{
+					this._montoTotalPorUnidadMMSDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMMSDTR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMMSDTR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMMSDTR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMMSDTR != value))
+				{
+					this._montoPromedioPorDiaMMSDTR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalMMSDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalMMSDTNR
+		{
+			get
+			{
+				return this._montoTotalMMSDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalMMSDTNR != value))
+				{
+					this._montoTotalMMSDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoTotalPorUnidadMMSDTNR", DbType="Real")]
+		public System.Nullable<float> montoTotalPorUnidadMMSDTNR
+		{
+			get
+			{
+				return this._montoTotalPorUnidadMMSDTNR;
+			}
+			set
+			{
+				if ((this._montoTotalPorUnidadMMSDTNR != value))
+				{
+					this._montoTotalPorUnidadMMSDTNR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_montoPromedioPorDiaMMSDTNR", DbType="Real")]
+		public System.Nullable<float> montoPromedioPorDiaMMSDTNR
+		{
+			get
+			{
+				return this._montoPromedioPorDiaMMSDTNR;
+			}
+			set
+			{
+				if ((this._montoPromedioPorDiaMMSDTNR != value))
+				{
+					this._montoPromedioPorDiaMMSDTNR = value;
 				}
 			}
 		}

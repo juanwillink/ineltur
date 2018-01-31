@@ -13,9 +13,20 @@ namespace Ineltur.WebService
         public int Personas { get; set; }
         public int Camas { get; set; }
         public int Disponibles { get; set; }
-        public decimal MontoPorUnidad { get; set; }
-        public int Desayuno { get; set; }
-        public int Tarifa { get; set; }
+        public decimal MontoPorUnidadRaCdTr { get; set; }
+        public decimal MontoPorUnidadRaCdTnr { get; set; }
+        public decimal MontoPorUnidadRaSdTr { get; set; }
+        public decimal MontoPorUnidadRaSdTnr { get; set; }
+        public decimal MontoPorUnidadExCdTr { get; set; }
+        public decimal MontoPorUnidadExCdTnr { get; set; }
+        public decimal MontoPorUnidadExSdTr { get; set; }
+        public decimal MontoPorUnidadExSdTnr { get; set; }
+        public decimal MontoPorUnidadMeCdTr { get; set; }
+        public decimal MontoPorUnidadMeCdTnr { get; set; }
+        public decimal MontoPorUnidadMeSdTr { get; set; }
+        public decimal MontoPorUnidadMeSdTnr { get; set; }
+        //public int Desayuno { get; set; }
+        //public int Tarifa { get; set; }
         public PromotionModel[] Promociones { get; set; }
     }
     public class InfoUnidadReservada
