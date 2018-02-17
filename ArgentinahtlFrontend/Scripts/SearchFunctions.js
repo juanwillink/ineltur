@@ -117,14 +117,14 @@ function buildLodgingsView(data, userkey) {
     } else {
         for (var key in data.Lodgings) {        
             var lodging = data.Lodgings[key];
-            var desayuno = "No";
-            var tarifaReembolsable = "No";
-            if (lodging["LodgingBreakfast"] == 1) {
-                desayuno = "Si";
-            }
-            if (lodging["LodgingTarifa"] == 1) {
-                tarifaReembolsable = "Si";
-            }
+            //var desayuno = "No";
+            //var tarifaReembolsable = "No";
+            //if (lodging["LodgingBreakfast"] == 1) {
+            //    desayuno = "Si";
+            //}
+            //if (lodging["LodgingTarifa"] == 1) {
+            //    tarifaReembolsable = "Si";
+            //}
             var stringifiedLodging = JSON.stringify(lodging);
             var categoryText = ""
             for (var i = 0; i < lodging["LodgingCategory"]; i++) {
@@ -167,10 +167,10 @@ function buildLodgingsView(data, userkey) {
                                                 '<button class="btn btn-info" style="margin: 5px;" onclick="openDetailsModal(' + "'" + lodging["LodgingId"] + "'" + ')">Mas Informacion</button>' +
                                                 '<button class="btn btn-main" style="margin: 5px;" onclick="verTarifasHotel(' + "'" + lodging["LodgingId"] + "'," + "'" + lodging["LodgingName"] + "'" + ')">Ver Tarifas</button>' +
                                                 "<button class='btn btn-success' style='margin: 5px;' onclick='openReservationModal(" + stringifiedLodging + ");'>Reservar</button>" +
-                                            "</div>" +
-                                            "<div class='row'>" +
-                                                "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno + 
-                                            "</div>" +
+                                                "</div>" +
+                                            //"<div class='row'>" +
+                                            //    "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno + 
+                                            //"</div>" +
                                         "</div>" +   
                                     "</div>" +
                                 "</div>" +
@@ -213,11 +213,12 @@ function buildLodgingsView(data, userkey) {
                                             "<div class='row'>" +
                                                 '<button class="btn btn-info" style="margin: 5px;" onclick="openDetailsModal(' + "'" + lodging["LodgingId"] + "'" + ')">Mas Informacion</button>' +
                                                 '<button class="btn btn-main" style="margin: 5px;" onclick="verTarifasHotel(' + "'" + lodging["LodgingId"] + "'," + "'" + lodging["LodgingName"] + "'" + ')">Ver Tarifas</button>' +
-                                                "<button class='btn btn-default' style='margin: 5px' onclick='openReservationModalSimple(" + stringifiedLodging + ");'>Reservar</button>" +
-                                            "</div>" +
-                                            "<div class='row'>" +
-                                                "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno +
-                                            "</div>" +
+                                                "<button class='btn btn-success' style='margin: 5px;' onclick='openEmailReservationModal(" + stringifiedLodging + ");'>Reserva Via Mail</button>" +
+                                                "<button class='btn btn-default' style='margin: 5px' onclick='openPhoneReservationModalSimple();'>Reserva Telefonica</button>" +
+                                                "</div>" +
+                                            //"<div class='row'>" +
+                                            //    "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno +
+                                            //"</div>" +
                                         "</div>" + 
                                     "</div>" +
                                 "</div>" +
@@ -259,11 +260,11 @@ function buildLodgingsView(data, userkey) {
                                                     "<div class='row'>" +
                                                         '<button class="btn btn-info" style="margin: 5px;" onclick="openDetailsModal(' + "'" + lodging["LodgingId"] + "'" + ')">Mas Informacion</button>' +
                                                         '<button class="btn btn-main" style="margin: 5px;" onclick="verTarifasHotel(' + "'" + lodging["LodgingId"] + "'," + "'" + lodging["LodgingName"] + "'" + ')">Ver Tarifas</button>' +
-                                                        "<button class='btn btn-success' style='margin: 5px;' onclick='openReservationModal(" + stringifiedLodging + ");'>Reservar</button>" +
+                                                        "<button class='btn btn-success' style='margin: 5px;' onclick='openReservationModal(" + stringifiedLodging + ");'>Reserva On-Line</button>" +
                                                     "</div>" +
-                                                    "<div class='row'>" +
-                                                        "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno +
-                                                    "</div>" +
+                                                    //"<div class='row'>" +
+                                                    //    "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno +
+                                                    //"</div>" +
                                                 "</div>" +                
                                             "</div>" +
                                         "</div>" +
@@ -273,11 +274,15 @@ function buildLodgingsView(data, userkey) {
         }
     }
     $("#lodgingList").append(body);
-    for (var    key in data.Lodgings) {
+    for (var key in data.Lodgings) {
         debugger;
         var lodging = data.Lodgings[key];
-        if (lodging["TienePromocion"] == true) {
-            $("#promocion-div-" + lodging["LodgingId"] + "").append("<div class='alert alert-info' role='alert'><img src='../Content/Images/250px-Tricolour_Cockade.png' style='width:10%;height:10%;'>  Este Alojamiento cuenta con <strong>promociones</strong>, click en <strong>Reservar</strong> para conocer mas!</div>");
+        var stringifiedLodging2 = JSON.stringify(lodging);
+        for (var key2 in lodging.Vacancies) {
+            var vacancy = lodging.Vacancies[key2];
+            if (vacancy.Promociones.length > 0) {
+                $("#promocion-div-" + lodging["LodgingId"] + "").append("<div onclick='openLodgingPromotionsModal(" + stringifiedLodging2 + ")' class='alert alert-info' role='alert'><img src='../Content/Images/250px-Tricolour_Cockade.png' style='width:10%;height:10%;'>  Este Alojamiento cuenta con <strong>promociones</strong>, click <strong>AQUI</strong> para conocer mas!</div>");
+            }  
         }
     }
     $("#spinnerHome").hide();

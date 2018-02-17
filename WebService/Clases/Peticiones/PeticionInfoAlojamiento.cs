@@ -6,5 +6,6 @@ namespace Ineltur.WebService
     {
         public Guid IdAlojamiento { get; set; }
         public DateTime Fecha { get; set; }
+        public string Nationality { get; set; }
     }
 }

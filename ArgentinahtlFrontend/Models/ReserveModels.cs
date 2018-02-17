@@ -34,7 +34,7 @@ namespace CheckArgentina.Models
         {
             get
             {
-                return Vacancies.Sum(v => Decimal.Round(v.VacancyReserved, 0) * Decimal.Round(v.VacancyPrice, 0) * Convert.ToInt16((v.VacancyCheckout - v.VacancyCheckin).TotalDays));
+                return Vacancies.Sum(v => Decimal.Round(v.VacancyReserved, 0) * Decimal.Round(v.ConfirmedVacancyPrice, 0) * Convert.ToInt16((v.VacancyCheckout - v.VacancyCheckin).TotalDays));
             }
             set { }
             

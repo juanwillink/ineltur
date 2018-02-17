@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1996,6 +1997,7 @@
     </None>
     <None Include="Properties\PublishProfiles\Anibal.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\Juan.pubxml" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -2036,7 +2038,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\LocalService\Servicios.wsdl" />
     <Content Include="Service References\NationalService\CheckArgentina.NationalService.RespuestaBuscarAlojamientos.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -2061,6 +2062,7 @@
     <Content Include="Service References\NationalService\CheckArgentina.NationalService.RespuestaReservarAlojamiento.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\LocalService\Servicios.wsdl" />
     <None Include="Service References\NationalService\Hoteles.disco" />
     <None Include="Service References\NationalService\configuration91.svcinfo" />
     <None Include="Service References\NationalService\configuration.svcinfo" />
@@ -2126,7 +2128,9 @@
     <Content Include="Views\Modals\LodgingPricesModal.cshtml" />
     <Content Include="Views\Shared\Reservation.cshtml" />
     <Content Include="Views\Modals\AgregarPasajeroModal.cshtml" />
+    <Content Include="Views\Modals\EmailReservationModal.cshtml" />
     <None Include="Service References\NationalService\Hoteles.wsdl" />
+    <Content Include="Views\Modals\LodgingPromotionsModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

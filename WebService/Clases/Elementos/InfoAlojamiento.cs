@@ -30,8 +30,27 @@ namespace Ineltur.WebService
         public InfoUnidad[] Unidades { get; set; }
         public float? Latitud { get; set; }
         public float? Longitud { get; set; }
-        public bool TienePromocion { get; set; }
+    }
 
+    public class PromotionModel
+    {
+        public string NombrePromocion { get; set; }
+        public string NombreTipoPromocion { get; set; }
+        public int TipoPromocionId { get; set; }
+        public string Descripcion1 { get; set; }
+        public string Descripcion2 { get; set; }
+        public string Slogan { get; set; }
+        public DateTime? FechaInicio { get; set; }
+        public DateTime? FechaFin { get; set; }
+        public Guid LodgingId { get; set; }
+        public Guid PromocionId { get; set; }
+        public int? DiasReservados { get; set; }
+        public int? DiasACobrar { get; set; }
+        public bool Activo { get; set; }
+        public Guid? IdUnidadPromo { get; set; }
+        public int? MinimoNoches { get; set; }
+        public int? MaximoNoches { get; set; }
+        public float? Descuento { get; set; }
     }
 
     public class InfoCuposAlojamiento

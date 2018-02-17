@@ -421,13 +421,15 @@ namespace Ineltur.WebService
                     }
                     var markup = 1 / ((1 - (usuario.MarkupAAgencia) / 100) * (1 - (usuario.MarkupAConsumidorFinal) / 100));
                     var monedaAloj = ObtenerMoneda(dc, (Guid)peticion.IdAlojamiento);
-                    var cotizacionAloj = ObtenerCotizacion(dc, (Guid)monedaAloj);
                     var cotizacionUsuario = ObtenerCotizacion(dc, usuario.IdMoneda);
 
 
                     var rsAlojamiento = dc.Alojamientos.SingleOrDefault(a => a.IdAlojamiento == peticion.IdAlojamiento);
                     if (peticion.IdAlojamiento != null)
                     {
+
+                        var cotizacionAloj = ObtenerCotizacionTarifaAlojamiento(dc, rsAlojamiento.IdAlojamiento, peticion.Nationality);
+
                         var unidades = dc.getUnidades_AlojPorIdAloj(peticion.IdAlojamiento);
                         var unidadesAlojamiento = unidades.Select(uni => new InfoUnidadConCupos()
                         {
@@ -452,7 +454,20 @@ namespace Ineltur.WebService
                                 IdCupoUnidad = cupo.IDCUPOUNIDAD,
                                 IdUnidadAloj = cupo.IDUNIDAD_ALOJ,
                                 MarcaTemporada = cupo.MARCA_TEMPORADA,
-                                Monto = Decimal.Round((decimal)((cupo.MONTO * markup) * (cotizacionAloj / cotizacionUsuario)), 0)
+                                Monto = (float.IsNaN(cupo.MONTO)) ? 0 : Decimal.Round((decimal)((cupo.MONTO * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtranjero = (cupo.MONTO_EXT == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_EXT * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosur = (cupo.MONTO_MER == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtranjeroCDTR = (cupo.MONTO_EXT_CD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_EXT_CD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosurCDTR = (cupo.MONTO_MER_CD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_CD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoArgentinoCDTNR = (cupo.MONTO_RA_CD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_RA_CD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtrajeroCDTNR = (cupo.MONTO_MER_CD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_CD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosurCDTNR = (cupo.MONTO_MER_CD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_CD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoArgentinoSDTR = (cupo.MONTO_RA_SD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_RA_SD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtranjeroSDTR = (cupo.MONTO_EXT_SD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_EXT_SD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosurSDTR = (cupo.MONTO_MER_SD_TR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_SD_TR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoArgentinoSDTNR = (cupo.MONTO_RA_SD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_RA_SD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoExtranjeroSDTNR = (cupo.MONTO_EXT_SD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_EXT_SD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0),
+                                MontoMercosurSDTNR = (cupo.MONTO_MER_SD_TNR == null) ? 0 : Decimal.Round((decimal)((cupo.MONTO_MER_SD_TNR * markup) * (cotizacionAloj / cotizacionUsuario)), 0)
                             }).ToArray();
                         }
                         var alojamiento = new InfoCuposAlojamiento()
@@ -571,13 +586,29 @@ namespace Ineltur.WebService
                     {
                         //Se busco con fecha de Checkin
 
-                        var hoteles = dc.GetAlojamientosConDisponibilidadV3(
+
+
+                        var hoteles = dc.getTarifasTodasDeUnidadPedida(
                             petition.Habitacion1.GetValueOrDefault(), petition.Habitacion2.GetValueOrDefault(),
-                        petition.Habitacion3.GetValueOrDefault(), petition.Habitacion4.GetValueOrDefault(),
-                        petition.Habitacion5.GetValueOrDefault(), petition.Habitacion6.GetValueOrDefault(),
-                        petition.FechaInicio, petition.FechaFin, ConvertirOrdenamiento(petition.Orden),
-                        ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad, petition.NombreAlojamiento, petition.desayuno, petition.tarifaReembolsable, usuario.IdUsuario)
-                            .Where(a => a.montoTotalEstimadoEnPesos > 0).ToArray();
+                            petition.Habitacion3.GetValueOrDefault(), petition.Habitacion4.GetValueOrDefault(),
+                            petition.Habitacion5.GetValueOrDefault(), petition.Habitacion6.GetValueOrDefault(),
+                            petition.FechaInicio, petition.FechaFin, ConvertirOrdenamiento(petition.Orden),
+                            ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad,
+                            petition.NombreAlojamiento, null, null, usuario.IdUsuario)
+                                .Where(a => a.montoTotalPorUnidad > 0).ToArray();
+                                
+
+
+
+
+                        //var hoteles = dc.GetAlojamientosConDisponibilidadV4(
+                        //    petition.Habitacion1.GetValueOrDefault(), petition.Habitacion2.GetValueOrDefault(),
+                        //petition.Habitacion3.GetValueOrDefault(), petition.Habitacion4.GetValueOrDefault(),
+                        //petition.Habitacion5.GetValueOrDefault(), petition.Habitacion6.GetValueOrDefault(),
+                        //petition.FechaInicio, petition.FechaFin, ConvertirOrdenamiento(petition.Orden),
+                        //ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad, petition.NombreAlojamiento, petition.desayuno, petition.tarifaReembolsable, usuario.IdUsuario)
+                        //    .Where(a => a.montoTotalEstimadoEnPesos > 0).ToArray();
+
                         if (hoteles.Length == 0)
                         {
                             var respuestaError = new RespuestaBuscarAlojamientosEInfo()
@@ -595,107 +626,90 @@ namespace Ineltur.WebService
 
                             var cotizMonedaUsuario = ObtenerCotizacion(dc, usuario.IdMoneda); //Agregado por AM
 
+                            var nombreCiudad = dc.Ciudades.Where(c => c.IdCiudad == ciudad).SingleOrDefault();
+                            var nombreProvincia = dc.Provincias.Where(p => p.IdProvincia == nombreCiudad.IdProvincia).SingleOrDefault();
+
                             var alojamientosDisponibles = hoteles.Select(a => new InfoAlojamientoDisponibleCompleta()
                             {
+
+
                                 Destino = new InfoDestino()
                                 {
                                     TipoDestino = TipoDestino.Ciudad,
-                                    IdDestino = a.idCiudad.GetValueOrDefault(),
-                                    NombreDestino = String.Concat(a.nombreCiudad, ", ", a.nombreProvincia)
+                                    IdDestino = ciudad.GetValueOrDefault(),
+                                    NombreDestino = String.Concat(nombreCiudad.Nombre, ", ", nombreProvincia.Nombre)
                                 },
 
                                 Alojamiento = ObtenerInfoAlojamiento(dc.Alojamientos.SingleOrDefault(aloj => aloj.IdAlojamiento == a.idAloj), usuario.IdMoneda),
 
-                                TipoAlojamiento = ConvertirTipoAlojamiento(a.idTipoAloj),
                                 IdAlojamiento = a.idAloj.GetValueOrDefault(),
-                                Nombre = a.nombre,
+                                Nombre = a.nombreAlojamiento,
                                 Moneda = ConvertirMoneda(usuario.IdMoneda),
 
-                                Cupo1 = a.cupoTotalDisponibleSingle,
-                                Cupo2 = a.cupoTotalDisponibleDoble,
-                                Cupo3 = a.cupoTotalDisponibleTriple,
-                                Cupo4 = a.cupoTotalDisponibleCuadruple,
-                                Cupo5 = a.cupoTotalDisponible5Personas,
-                                Cupo6 = a.cupoTotalDisponible6Personas,
+                                Cupo1 = a.cupoDisponible,
 
-                                Tarifa1 = Decimal.Round((decimal)((a.montoUnidadSingleMasBarataPorDia.GetValueOrDefault() * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
-                                Tarifa2 = Decimal.Round((decimal)((a.montoUnidadDobleMasBarataPorDia.GetValueOrDefault() * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
-                                Tarifa3 = Decimal.Round((decimal)((a.montoUnidadTripleMasBarataPorDia.GetValueOrDefault() * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
-                                Tarifa4 = Decimal.Round((decimal)((a.montoUnidadCuadrupleMasBarataPorDia.GetValueOrDefault() * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
-                                Tarifa5 = Decimal.Round((decimal)((a.montoUnidad5PersonasMasBarataPorDia.GetValueOrDefault() * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
-                                Tarifa6 = Decimal.Round((decimal)((a.montoUnidad6PersonasMasBarataPorDia.GetValueOrDefault() * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
-                                MontoUnidadMasBarata = (ElegirTarifaMasBarata(
-                                    a.montoUnidadSingleMasBarataPorDia, a.montoUnidadDobleMasBarataPorDia,
-                                    a.montoUnidadTripleMasBarataPorDia, a.montoUnidadCuadrupleMasBarataPorDia,
-                                    a.montoUnidad5PersonasMasBarataPorDia, a.montoUnidad6PersonasMasBarataPorDia) * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)
+                                
 
+                                Tarifa1 = Decimal.Round((decimal)((a.montoPromedioPorDia.GetValueOrDefault() * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
+                               
                             }).ToArray();
 
                             foreach (var alojamientoDisponible in alojamientosDisponibles)
                             {
-                                var disponible = dc.GetCuposAlojamientoEnRangoFechaV3(petition.Habitacion1, petition.Habitacion2, petition.Habitacion3, petition.Habitacion4, petition.Habitacion5, petition.Habitacion6,
-                                petition.FechaInicio, petition.FechaFin, alojamientoDisponible.IdAlojamiento, petition.Nacionalidad, petition.desayuno, petition.tarifaReembolsable).OrderBy(
-                                d => d.MONTOPROMEDIOPORDIA).Where(d => d.MONTOPROMEDIOPORDIA > 0).ToList();
-
                                 var monedaAloj = ObtenerMoneda(dc, (Guid)alojamientoDisponible.IdAlojamiento);
                                 var cotizMonedaAloj = ObtenerCotizacionTarifaAlojamiento(dc, alojamientoDisponible.IdAlojamiento, petition.Nacionalidad);
 
-                                alojamientoDisponible.Alojamiento.Unidades = disponible.Where(d => d.CUPODISPONIBLE.GetValueOrDefault() > 0)
+                                alojamientoDisponible.Alojamiento.Unidades = hoteles.Where(d => d.cupoDisponible.GetValueOrDefault() > 0)
                                     .Select(d => new InfoUnidad()
                                     {
-                                        IdUnidad = d.IDUNIDAD_ALOJ,
-                                        Fecha = d.FECHA,
-                                        Tarifa = petition.tarifaReembolsable,
-                                        Desayuno = petition.desayuno,
-                                        NombreUnidad = d.NOMBRE,
-                                        Personas = d.CANTPERSONAS.GetValueOrDefault(),
-                                        Camas = d.CANTCAMAS.GetValueOrDefault(),
-                                        Disponibles = d.CUPODISPONIBLE.GetValueOrDefault(),
-                                        MontoPorUnidad = Decimal.Round((decimal)((d.MONTOPROMEDIOPORDIA.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2),
+                                        IdUnidad = d.idUnidadAloj.GetValueOrDefault(),
+                                        //Fecha = d.FECHA,
+                                        //Tarifa = petition.tarifaReembolsable,
+                                        //Desayuno = petition.desayuno,
+                                        NombreUnidad = d.nombreHabitacion,
+                                        Personas = d.cantPersonas.GetValueOrDefault(),
+                                        Camas = d.cantCamas.GetValueOrDefault(),
+                                        Disponibles = d.cupoDisponible.GetValueOrDefault(),
+                                        MontoPorUnidadRaCdTr = (petition.Nacionalidad == "arg") ? Decimal.Round((decimal)((d.montoPromedioPorDia.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadRaCdTnr = (petition.Nacionalidad == "arg") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMRCDTNR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadRaSdTr = (petition.Nacionalidad == "arg") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMRSDTR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadRaSdTnr = (petition.Nacionalidad == "arg") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMRSDTNR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadExCdTr = (petition.Nacionalidad == "ext") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMECDTR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadExCdTnr = (petition.Nacionalidad == "ext") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMECDTNR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadExSdTr = (petition.Nacionalidad == "ext") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMESDTR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadExSdTnr = (petition.Nacionalidad == "ext") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMESDTNR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadMeCdTr = (petition.Nacionalidad == "mer") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMMCDTR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadMeCdTnr = (petition.Nacionalidad == "mer") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMMCDTNR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadMeSdTr = (petition.Nacionalidad == "mer") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMMSDTR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
+                                        MontoPorUnidadMeSdTnr = (petition.Nacionalidad == "mer") ? Decimal.Round((decimal)((d.montoPromedioPorDiaMMSDTNR.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2) : 0,
                                     }).ToArray();
 
                                 foreach (var unidad in alojamientoDisponible.Alojamiento.Unidades)
                                 {
-                                    var promociones = dc.Promociones_Alojamientos.Where(p => p.IDUNIDADPROMO == unidad.IdUnidad &&
-                                        p.FECHAINICIO <= petition.FechaInicio.Date && p.FECHAFIN >= petition.FechaFin.Date &&
-                                        p.FECHAINICIO <= petition.FechaFin.Date && p.FECHAFIN >= petition.FechaFin.Date &&
+                                    var promociones = dc.PROMOCIONES_ALOJAMIENTOs.Where(p => p.IDUNIDADPROMO == unidad.IdUnidad &&
                                         p.ACTIVO == true).ToArray();
 
                                     if (promociones != null)
                                     {
-                                        foreach (var promocion in promociones)
+                                        unidad.Promociones = promociones.Select(d => new PromotionModel()
                                         {
-                                            switch (promocion.IDTIPOPUBLICACIONPROMO)
-                                            {
-                                                case 1:
-                                                    var noches = (petition.FechaFin.Date - petition.FechaInicio.Date).TotalDays;
-                                                    if (noches == promocion.DIASRESERVADOS)
-                                                    {
-                                                        unidad.TienePromocionNxM = true;
-                                                        unidad.DiasACobrar = promocion.DIASACOBRAR;
-                                                        alojamientoDisponible.Alojamiento.TienePromocion = true;
-                                                    }
-
-                                                    break;
-                                                case 2:
-                                                    unidad.TienePromocionMinimoMaximo = true;
-                                                    if (promocion.MINIMONOCHES != null)
-                                                    {
-                                                        unidad.MinimoDias = promocion.MINIMONOCHES;
-                                                    }
-                                                    if (promocion.MAXIMONOCHES != null)
-                                                    {
-                                                        unidad.MaximoDias = promocion.MAXIMONOCHES;
-                                                    }
-                                                    break;
-                                                case 3:
-                                                    break;
-                                                case 4:
-                                                    break;
-                                                default:
-                                                    break;
-                                            }
-                                        }   
+                                            Activo = d.ACTIVO,
+                                            Descripcion1 = d.DESCRIPCION,
+                                            Descripcion2 = d.DESCRIPCION2,
+                                            Descuento = d.DESCUENTO,
+                                            DiasACobrar = d.DIASACOBRAR,
+                                            DiasReservados = d.DIASRESERVADOS,
+                                            FechaFin = d.FECHAFIN,
+                                            FechaInicio = d.FECHAINICIO,
+                                            IdUnidadPromo = d.IDUNIDADPROMO,
+                                            LodgingId = d.IDALOJ,
+                                            MaximoNoches = d.MAXIMONOCHES,
+                                            MinimoNoches = d.MINIMONOCHES,
+                                            NombrePromocion = d.NOMBRE,
+                                            PromocionId = d.IDPROMOCION,
+                                            Slogan = d.SLOGAN,
+                                            TipoPromocionId = d.IDTIPOPUBLICACIONPROMO
+                                        }).ToArray();
                                     }
                                 }
                             }

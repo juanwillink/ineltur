@@ -230,7 +230,7 @@ namespace CheckArgentina.Managers
                                     VacancyAdults = v.Personas,
                                     VacancyBeds = v.Camas,
                                     VacancyCount = v.Disponibles,
-                                    VacancyPrice = Decimal.Round(v.MontoPorUnidad, 0),
+                                    //VacancyPrice = Decimal.Round(v.MontoPorUnidad, 0),
                                     VacancyCheckin = searchLodgingRequestModel.Checkin,
                                     VacancyCheckout = searchLodgingRequestModel.Checkout,
                                     VacancyDates = group.Select(vg => vg.Fecha).ToList(),
@@ -300,7 +300,7 @@ namespace CheckArgentina.Managers
                 foreach (var vacancy in reservationModel.Vacancies)
                 {
                     vacancy.Available = true;
-                    vacancy.ConfirmedVacancyPrice = vacancy.VacancyPrice;
+                    //vacancy.ConfirmedVacancyPrice = vacancy.VacancyPrice;
                 }
 
                 return reservationModel;
@@ -552,7 +552,7 @@ namespace CheckArgentina.Managers
                                 VacancyAdults = v.Personas,
                                 VacancyBeds = v.Camas,
                                 VacancyCount = v.Disponibles,
-                                VacancyPrice = v.MontoPorUnidad,
+                                //VacancyPrice = v.MontoPorUnidad,
                                 VacancyCheckin = searchLodgingRequestModel.Checkin,
                                 VacancyCheckout = searchLodgingRequestModel.Checkout,
                                 VacancyDates = group.Select(vg => vg.Fecha).ToList(),

@@ -156,6 +156,7 @@
             <s:sequence>
               <s:element minOccurs="1" maxOccurs="1" name="IdAlojamiento" type="s1:guid" />
               <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nationality" type="s:string" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -220,7 +221,20 @@
           <s:element minOccurs="1" maxOccurs="1" name="IdCupoUnidad" type="s1:guid" />
           <s:element minOccurs="1" maxOccurs="1" name="IdUnidadAloj" type="s1:guid" />
           <s:element minOccurs="1" maxOccurs="1" name="MarcaTemporada" nillable="true" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Monto" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Monto" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtranjero" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosur" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtranjeroCDTR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosurCDTR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoArgentinoSDTR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtranjeroSDTR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosurSDTR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoArgentinoCDTNR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtrajeroCDTNR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosurCDTNR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoArgentinoSDTNR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoExtranjeroSDTNR" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMercosurSDTNR" nillable="true" type="s:decimal" />
         </s:sequence>
       </s:complexType>
       <s:simpleType name="Moneda">
@@ -373,7 +387,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="Unidades" type="tns:ArrayOfInfoUnidad" />
           <s:element minOccurs="1" maxOccurs="1" name="Latitud" nillable="true" type="s:float" />
           <s:element minOccurs="1" maxOccurs="1" name="Longitud" nillable="true" type="s:float" />
-          <s:element minOccurs="1" maxOccurs="1" name="TienePromocion" type="s:boolean" />
         </s:sequence>
       </s:complexType>
       <s:simpleType name="CategoriaAlojamiento">
@@ -415,14 +428,45 @@
           <s:element minOccurs="1" maxOccurs="1" name="Personas" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Camas" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Disponibles" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidad" type="s:decimal" />
-          <s:element minOccurs="1" maxOccurs="1" name="Desayuno" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Tarifa" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="TienePromocionNxM" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadRaCdTr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadRaCdTnr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadRaSdTr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadRaSdTnr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadExCdTr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadExCdTnr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadExSdTr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadExSdTnr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadMeCdTr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadMeCdTnr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadMeSdTr" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPorUnidadMeSdTnr" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Promociones" type="tns:ArrayOfPromotionModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPromotionModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PromotionModel" nillable="true" type="tns:PromotionModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PromotionModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NombrePromocion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreTipoPromocion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoPromocionId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Slogan" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LodgingId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="PromocionId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiasReservados" nillable="true" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="DiasACobrar" nillable="true" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="TienePromocionMinimoMaximo" type="s:boolean" />
-          <s:element minOccurs="1" maxOccurs="1" name="MinimoDias" nillable="true" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="MaximoDias" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Activo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdUnidadPromo" nillable="true" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinimoNoches" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaximoNoches" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Descuento" nillable="true" type="s:float" />
         </s:sequence>
       </s:complexType>
     </s:schema>

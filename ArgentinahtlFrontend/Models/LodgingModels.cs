@@ -304,7 +304,18 @@ namespace CheckArgentina.Models
         [Required]
         [Display(Name = "Precio por Unidad")]
         [DataType(DataType.Currency)]
-        public decimal VacancyPrice { get; set; }
+        public decimal VacancyPriceRaCdTr { get; set; }
+        public decimal VacancyPriceRaCdTnr { get; set; }
+        public decimal VacancyPriceRaSdTr { get; set; }
+        public decimal VacancyPriceRaSdTnr { get; set; }
+        public decimal VacancyPriceExCdTr { get; set; }
+        public decimal VacancyPriceExCdTnr { get; set; }
+        public decimal VacancyPriceExSdTr { get; set; }
+        public decimal VacancyPriceExSdTnr { get; set; }
+        public decimal VacancyPriceMeCdTr { get; set; }
+        public decimal VacancyPriceMeCdTnr { get; set; }
+        public decimal VacancyPriceMeSdTr { get; set; }
+        public decimal VacancyPriceMeSdTnr { get; set; }
 
         [Display(Name = "Precio por Unidad Confirmado")]
         [DataType(DataType.Currency)]
@@ -315,10 +326,7 @@ namespace CheckArgentina.Models
         public bool Available { get; set; }
         public int Breakfast { get; set; }
         public int Tarifa { get; set; }
-        public bool TienePromocionNxM { get; set; }
-        public bool TienePromocionMinimoMaximo { get; set; }
-        public int? MinimoNoches { get; set; }
-        public int? MaximoNoches { get; set; }
+        public Promociones_Alojamiento[] Promociones { get; set; }
     }
 
     public class RoomModel
@@ -411,6 +419,19 @@ namespace CheckArgentina.Models
         public Guid IdCupoUnidad { get; set; }
         public Guid IdUnidadAloj { get; set; }
         public int? MarcaTemporada { get; set; }
-        public decimal Monto { get; set; }
+        public decimal? Monto { get; set; }
+        public decimal? MontoExtranjero { get; set; }
+        public decimal? MontoMercosur { get; set; }
+        public decimal? MontoExtranjeroCDTR { get; set; }
+        public decimal? MontoMercosurCDTR { get; set; }
+        public decimal? MontoArgentinoSDTR { get; set; }
+        public decimal? MontoExtranjeroSDTR { get; set; }
+        public decimal? MontoMercosurSDTR { get; set; }
+        public decimal? MontoArgentinoCDTNR { get; set; }
+        public decimal? MontoExtrajeroCDTNR { get; set; }
+        public decimal? MontoMercosurCDTNR { get; set; }
+        public decimal? MontoArgentinoSDTNR { get; set; }
+        public decimal? MontoExtranjeroSDTNR { get; set; }
+        public decimal? MontoMercosurSDTNR { get; set; }
     }
 }

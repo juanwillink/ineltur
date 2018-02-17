@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="241db18f-0b3c-4ab3-836c-23e0964e6359" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b2bc9de8-49fc-4b79-94e6-c81a73ac012e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:61275/Hoteles.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Hoteles.disco" MetadataType="Disco" ID="0808f37b-a2cf-4c36-a7cb-3a04d8080200" SourceId="1" SourceUrl="http://localhost:61275/Hoteles.asmx?disco" />
-    <MetadataFile FileName="Hoteles.wsdl" MetadataType="Wsdl" ID="7ce68116-513a-41fd-8dd7-e77214a5ece8" SourceId="1" SourceUrl="http://localhost:61275/Hoteles.asmx?wsdl" />
+    <MetadataFile FileName="Hoteles.disco" MetadataType="Disco" ID="b96cb84e-f0b7-4271-94dd-6d2e17c4af0a" SourceId="1" SourceUrl="http://localhost:61275/Hoteles.asmx?disco" />
+    <MetadataFile FileName="Hoteles.wsdl" MetadataType="Wsdl" ID="0bfbd16e-74d5-46b5-a769-e124bcce6d17" SourceId="1" SourceUrl="http://localhost:61275/Hoteles.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

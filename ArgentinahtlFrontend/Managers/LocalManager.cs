@@ -93,7 +93,7 @@ namespace CheckArgentina.Managers
                                 VacancyCheckout = v.FechaFin,
                                 VacancyCount = int.Parse(v.Cantidad.ToString()),
                                 VacancyDescription = v.NombreHabitacion,
-                                VacancyPrice = Decimal.Round(Decimal.Parse(v.Monto.ToString()), 2),
+                                //VacancyPrice = Decimal.Round(Decimal.Parse(v.Monto.ToString()), 2),
                                 ConfirmedVacancyPrice = Decimal.Round(Decimal.Parse(v.MontoTotal.ToString()), 2)
                             }).First();
                             vacancies.Add(vacancy);
@@ -178,14 +178,15 @@ namespace CheckArgentina.Managers
             petition.IdiomaDeseado = credential.Language;
         }
 
-        public UnitListModel GetLodgingWeeklyPrices(Guid lodgingId, DateTime date, Credential userCredential)
+        public UnitListModel GetLodgingWeeklyPrices(Guid lodgingId, DateTime date, Credential userCredential, string nationality)
         {
             SessionData.SearchType = SearchType.National;
             UnitListModel result = new UnitListModel();
             var petition = new PeticionInfoAlojamiento()
             {
                 IdAlojamiento = lodgingId,
-                Fecha = date
+                Fecha = date,
+                Nationality = nationality
             };
             CompletePetition(petition, userCredential);
             var petitionResults = _service.BuscarPreciosSemanalesHotel(petition);
@@ -219,7 +220,20 @@ namespace CheckArgentina.Managers
                         IdCupoUnidad = quota.IdCupoUnidad,
                         IdUnidadAloj = quota.IdUnidadAloj,
                         MarcaTemporada = quota.MarcaTemporada,
-                        Monto = quota.Monto
+                        Monto = quota.Monto,
+                        MontoExtranjero = quota.MontoExtranjero,
+                        MontoMercosur = quota.MontoMercosur,
+                        MontoExtranjeroCDTR = quota.MontoExtranjeroCDTR,
+                        MontoMercosurCDTR = quota.MontoMercosurCDTR,
+                        MontoArgentinoSDTR = quota.MontoArgentinoSDTR,
+                        MontoExtranjeroSDTR = quota.MontoExtranjeroSDTR,
+                        MontoMercosurSDTR = quota.MontoMercosurSDTR,
+                        MontoArgentinoCDTNR = quota.MontoArgentinoCDTNR,
+                        MontoExtrajeroCDTNR = quota.MontoExtrajeroCDTNR,
+                        MontoMercosurCDTNR = quota.MontoMercosurCDTNR,
+                        MontoArgentinoSDTNR = quota.MontoArgentinoSDTNR,
+                        MontoExtranjeroSDTNR = quota.MontoExtranjeroSDTNR,
+                        MontoMercosurSDTNR = quota.MontoMercosurCDTNR,
                     }).ToArray()
                 }).ToArray();
             }
@@ -299,14 +313,13 @@ namespace CheckArgentina.Managers
                             LodgingLocation = lodging.Alojamiento.Direccion,
                             LodgingCity = lodging.Destino.NombreDestino,
                             LodgingPhone = lodging.Alojamiento.Telefono,
-                            LodgingPrice = Math.Round(Decimal.Parse(lodging.MontoUnidadMasBarata.ToString()), 0),
+                            LodgingPrice = Math.Round(Decimal.Parse(lodging.Tarifa1.ToString()), 0),
                             LodgingServices = lodging.Alojamiento.Amenidades,
                             LodgingCategory = GetCategory(lodging.Alojamiento.Categoria),
                             LodgingUnderPetition = lodging.Alojamiento.BajoPeticion,
                             LodgingCancelationPolitic = lodging.Alojamiento.PoliticasCancelacion,
-                            LodgingBreakfast = searchLodgingRequestModel.Breakfast,
-                            LodgingTarifa = searchLodgingRequestModel.Tarifa,
-                            TienePromocion = lodging.Alojamiento.TienePromocion
+                            //LodgingBreakfast = searchLodgingRequestModel.Breakfast,
+                            //LodgingTarifa = searchLodgingRequestModel.Tarifa
                         };
                         var currency = "$";
 
@@ -338,18 +351,44 @@ namespace CheckArgentina.Managers
                                     VacancyAdults = v.Personas,
                                     VacancyBeds = v.Camas,
                                     VacancyCount = v.Disponibles,
-                                    VacancyPrice = Decimal.Round(v.MontoPorUnidad, 0),
+                                    VacancyPriceRaCdTr = Decimal.Round(v.MontoPorUnidadRaCdTr, 0),
+                                    VacancyPriceRaCdTnr = Decimal.Round(v.MontoPorUnidadRaCdTnr, 0),
+                                    VacancyPriceRaSdTr = Decimal.Round(v.MontoPorUnidadRaSdTr, 0),
+                                    VacancyPriceRaSdTnr = Decimal.Round(v.MontoPorUnidadRaSdTnr, 0),
+                                    VacancyPriceExCdTr = Decimal.Round(v.MontoPorUnidadExCdTr, 0),
+                                    VacancyPriceExCdTnr = Decimal.Round(v.MontoPorUnidadExCdTnr, 0),
+                                    VacancyPriceExSdTr = Decimal.Round(v.MontoPorUnidadExSdTr, 0),
+                                    VacancyPriceExSdTnr = Decimal.Round(v.MontoPorUnidadExSdTnr, 0),
+                                    VacancyPriceMeCdTr = Decimal.Round(v.MontoPorUnidadMeCdTr, 0),
+                                    VacancyPriceMeCdTnr = Decimal.Round(v.MontoPorUnidadMeCdTnr, 0),
+                                    VacancyPriceMeSdTr = Decimal.Round(v.MontoPorUnidadMeSdTr, 0),
+                                    VacancyPriceMeSdTnr = Decimal.Round(v.MontoPorUnidadMeSdTnr, 0),
                                     VacancyCheckin = searchLodgingRequestModel.Checkin,
                                     VacancyCheckout = searchLodgingRequestModel.Checkout,
                                     VacancyDates = group.Select(vg => vg.Fecha).ToList(),
-                                    Breakfast = v.Desayuno,
-                                    Tarifa = v.Tarifa,
+                                    //Breakfast = v.Desayuno,
+                                    //Tarifa = v.Tarifa,
                                     Available = true,
-                                    ConfirmedVacancyPrice = v.MontoPorUnidad,
-                                    TienePromocionNxM = v.TienePromocionNxM,
-                                    TienePromocionMinimoMaximo = v.TienePromocionMinimoMaximo,
-                                    MinimoNoches = v.MinimoDias,
-                                    MaximoNoches = v.MaximoDias,
+                                    ConfirmedVacancyPrice = 0,
+                                    Promociones = v.Promociones.Select(p => new Promociones_Alojamiento
+                                    {
+                                        ACTIVO = p.Activo,
+                                        DESCRIPCION = p.Descripcion1,
+                                        DESCRIPCION2 = p.Descripcion2,
+                                        DESCUENTO = p.Descuento,
+                                        DIASACOBRAR = p.DiasACobrar,
+                                        DIASRESERVADOS = p.DiasReservados,
+                                        FECHAFIN = p.FechaFin,
+                                        FECHAINICIO = p.FechaInicio,
+                                        IDALOJ = p.LodgingId,
+                                        IDPROMOCION = p.PromocionId,
+                                        IDTIPOPUBLICACIONPROMO = p.TipoPromocionId,
+                                        IDUNIDADPROMO = p.IdUnidadPromo,
+                                        MINIMONOCHES = p.MinimoNoches,
+                                        MAXIMONOCHES = p.MaximoNoches,
+                                        NOMBRE = p.NombrePromocion,
+                                        SLOGAN = p.Slogan
+                                    }).ToArray(),
                                     Rooms = new List<RoomModel>{
                                         new RoomModel{
                                             RoomId = v.IdUnidad.ToString(),

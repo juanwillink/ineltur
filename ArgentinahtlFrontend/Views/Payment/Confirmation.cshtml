@@ -290,10 +290,10 @@
                                             {
                                                 @Html.Label(" - No disponible!").AddInlineStyles("color:red;float:left;")
                                             }
-                                            else if (vacancy.VacancyPrice != vacancy.ConfirmedVacancyPrice)
+                                            @*else if (vacancy.VacancyPrice != vacancy.ConfirmedVacancyPrice)
                                             {
                                                 @Html.Label(" - Precio modificado! Anterior: " + Model.LodgingCurrency + " " + vacancy.VacancyPrice).AddInlineStyles("color:red;float:left;")
-                                            }
+                                            }*@
                                         </div>
                                     </li>
                                 }   
@@ -370,7 +370,7 @@
                                 @Html.Hidden(string.Format("Vacancies[{0}].VacancyCheckin", i), Model.Vacancies[i].VacancyCheckin)
                                 @Html.Hidden(string.Format("Vacancies[{0}].VacancyCheckout", i), Model.Vacancies[i].VacancyCheckout)
                                 @Html.Hidden(string.Format("Vacancies[{0}].VacancyCount", i), Model.Vacancies[i].VacancyCount)
-                                @Html.Hidden(string.Format("Vacancies[{0}].VacancyPrice", i), Model.Vacancies[i].VacancyPrice)
+                                @Html.Hidden(string.Format("Vacancies[{0}].ConfirmedVacancyPrice", i), Model.Vacancies[i].ConfirmedVacancyPrice)
                                 @Html.Hidden(string.Format("Vacancies[{0}].VacancyReserved", i), Model.Vacancies[i].VacancyReserved)
                                 @Html.Hidden(string.Format("Vacancies[{0}].VacancySelected", i), Model.Vacancies[i].VacancySelected)
 

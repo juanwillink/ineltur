@@ -27,25 +27,40 @@ namespace CheckArgentina.Controllers
 
             reservation.PaymentMethods = SessionData.PaymentMethods;
 
+            reservation.DiasCancelacionCargo = manager.GetDiasCancelacionCargo(Guid.Parse(reservation.LodgingId));
+
             SessionData.Reservation = reservation;
 
             SessionData.Reservation.PromotionPrice = SessionData.Reservation.TotalAmount;
 
             foreach (var vacancy in reservation.Vacancies)
             {
-                if (vacancy.TienePromocionNxM)
+
+                using (var dc = new TurismoDataContext())
                 {
-                    using (var dc = new TurismoDataContext())
+                    var promociones = dc.Promociones_Alojamientos.Where(p => p.IDUNIDADPROMO.ToString() == vacancy.VacancyId && p.ACTIVO == true && p.FECHAINICIO <= vacancy.VacancyCheckin && p.FECHAFIN >= vacancy.VacancyCheckout);
+                    vacancy.Promociones = promociones.ToArray();
+                }
+                if (vacancy.Promociones.Length > 0)
+                {
+                    foreach (var promocion in vacancy.Promociones)
                     {
-                        var promocion = dc.Promociones_Alojamientos.SingleOrDefault(p => p.IDUNIDADPROMO.ToString() == vacancy.VacancyId && 
-                                        p.DIASRESERVADOS == (reservation.Vacancies.FirstOrDefault().VacancyCheckout - reservation.Vacancies.FirstOrDefault().VacancyCheckin).TotalDays);
-                        var nochesARestar = promocion.DIASRESERVADOS - promocion.DIASACOBRAR;
-                        for (int i = 0; i < nochesARestar; i++)
+                        switch (promocion.IDTIPOPUBLICACIONPROMO)
                         {
-                            SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice - vacancy.VacancyPrice;
+                            case 1:
+                                var nochesARestar = promocion.DIASRESERVADOS - promocion.DIASACOBRAR;
+                                for (int i = 0; i < nochesARestar; i++)
+                                {
+                                    //SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice - vacancy.VacancyPrice;
+                                }
+                                break;
+                            case 5:
+                                SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice * (decimal.Parse(promocion.DESCUENTO.ToString()) / 100);
+                                break;
+                            default:
+                                break;
                         }
                     }
-                    
                 }
             }
 

@@ -62,6 +62,28 @@ namespace CheckArgentina.Controllers
             }
         }
 
+        public ActionResult MailReservation(string LodgingName, string EmailPasajero, string HabitacionName, string Checkin, string Checkout, string NombrePasajero, string CantidadPasajeros, string Observaciones)
+        {
+            using (var smtp = ObtenerClienteSmtp())
+            {
+                FluentEmail.Email
+                    .From(EmailPasajero)
+                    .Subject(string.Format("Reserva en {0} via mail", LodgingName))
+                    .To("juanwillink@gmail.com")
+                    .Body("Datos de la Reserva: <br>" +
+                    "Hotel:" + LodgingName + "<br>" +
+                    "Pasajero:" + NombrePasajero + "<br>" +
+                    "Cantidad:" + CantidadPasajeros + "<br>" +
+                    "Check In:" + Checkin + "<br>" +
+                    "Check Out:" + Checkout + "<br>" +
+                    "Tipo de Habitacion:" + HabitacionName + "<br>" +
+                    "Observaciones:" + Observaciones)
+                    .UsingClient(smtp)
+                    .Send();
+            }
+            return View("Home");
+        }
+
         public ActionResult Registration(RegistrationModel model)
         {
             using (var smtp = ObtenerClienteSmtp())
@@ -69,7 +91,7 @@ namespace CheckArgentina.Controllers
                 FluentEmail.Email
                 .From(Config.LeerSetting("MailAccountFrom"))
                 .Subject(string.Format("Alta de usuario {0}", model.BuissnessName))
-                .To("mjjara@argentinahtl.com")
+                .To("reservas@ineltur.com")
                 .Body("Datos del Alta: <br>" +
                     "Nombre de la Empresa: " + model.BuissnessName + "<br>" +
                     "Razon Social: " + model.RazonSocial + "<br>" +
@@ -120,7 +142,7 @@ namespace CheckArgentina.Controllers
 
         [AcceptVerbs(HttpVerbs.Post)]
         [ValidateInput(false)]
-        public ActionResult SearchLodgingWeeklyPrices(Guid lodgingId, string dateString)
+        public ActionResult SearchLodgingWeeklyPrices(Guid LodgingId, string dateString, string Nationality)
         {
             DateTime date = DateTime.Now.Date;
 
@@ -136,7 +158,7 @@ namespace CheckArgentina.Controllers
                 SessionData.User = ServiceManager.GetUser(Session["userkey"].ToString());
                 
             }
-            return Json(Manager.GetLodgingWeeklyPrices(lodgingId, date, SessionData.UserCredential), JsonRequestBehavior.AllowGet);
+            return Json(Manager.GetLodgingWeeklyPrices(LodgingId, date, SessionData.UserCredential, Nationality), JsonRequestBehavior.AllowGet);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
