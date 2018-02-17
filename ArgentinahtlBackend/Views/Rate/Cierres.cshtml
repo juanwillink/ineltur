@@ -8,7 +8,6 @@
 }
 
 <script type="text/javascript">
-
     function realizarCierre() {
         $.ajax({
             type: "POST",
@@ -27,14 +26,29 @@
                 }
             }
         });
-    }
+	}
 </script>
 
-<script>
 
-    $('table.tablesorter').floatThead({
-        position: 'fixed'
-    })
+<script>
+	$(document).ready(function () {
+		$("#MES-01").change(function () { if (this.checked) { $("#r01 input:checkbox").prop('checked', true); } else { $('#r01 input:checkbox').prop('checked', false); } });
+		$("#MES-02").change(function () { if (this.checked) { $("#r02 input:checkbox").prop('checked', true); } else { $("#r02 input:checkbox").prop('checked', false); } });
+		$("#MES-03").change(function () { if (this.checked) { $("#r03 input:checkbox").prop('checked', true); } else { $("#r03 input:checkbox").prop('checked', false); } });
+		$("#MES-04").change(function () { if (this.checked) { $("#r04 input:checkbox").prop('checked', true); } else { $("#r04 input:checkbox").prop('checked', false); } });
+		$("#MES-05").change(function () { if (this.checked) { $("#r05 input:checkbox").prop('checked', true); } else { $("#r05 input:checkbox").prop('checked', false); } });
+		$("#MES-06").change(function () { if (this.checked) { $("#r06 input:checkbox").prop('checked', true); } else { $("#r06 input:checkbox").prop('checked', false); } });
+		$("#MES-07").change(function () { if (this.checked) { $("#r07 input:checkbox").prop('checked', true); } else { $("#r07 input:checkbox").prop('checked', false); } });
+		$("#MES-08").change(function () { if (this.checked) { $("#r08 input:checkbox").prop('checked', true); } else { $("#r08 input:checkbox").prop('checked', false); } });
+		$("#MES-09").change(function () { if (this.checked) { $("#r09 input:checkbox").prop('checked', true); } else { $("#r09 input:checkbox").prop('checked', false); } });
+		$("#MES-10").change(function () { if (this.checked) { $("#r10 input:checkbox").prop('checked', true); } else { $("#r10 input:checkbox").prop('checked', false); } });
+		$("#MES-11").change(function () { if (this.checked) { $('#r11 input:checkbox').prop('checked', true); } else { $('#r11 input:checkbox').prop('checked', false); } });
+		$("#MES-12").change(function () { if (this.checked) { $("#r12 input:checkbox").prop('checked', true); } else { $("#r12 input:checkbox").prop('checked', false); } });
+
+		$('table.tablesorter').floatThead({
+			position: 'fixed'
+		})
+	});
 
 </script>
 
@@ -43,6 +57,7 @@
 <input id="anio" name="anio" type="hidden" value="@Model.Rates[0].Fecha.Year" />
 @Html.Label("Cupo alta grises"):<input id="cupogris" name="cupogris" type="text" value="@Model.Rates[0].UnidadAlojamiento.RoomCupo" style="width:30px"/>
 @Html.Label("Cupo alta rojos"):<input id="cuporojo" name="cuporojo" type="text" value="@Model.Rates[0].UnidadAlojamiento.RoomCupo" style="width:30px"/>
+@Html.Label("Cupo modificar verdes"):<input id="cupoverde" name="cupoverde" type="text" value="0" style="width:30px" />
 
 @Html.Raw(Model.TablaCupos);
 

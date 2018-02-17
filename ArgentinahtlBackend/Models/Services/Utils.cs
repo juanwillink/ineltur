@@ -39,17 +39,19 @@ namespace ArgentinahtlMVC.Models.Services
             for (int r = 1; r <= 12; r++)
             {
                 TableRow tempRow = new TableRow();
+				tempRow.ID = "r" + r.ToString("D2");
 
-                //1er columna: Nombre del mes
-                TableCell tempCell = new TableCell();
-                tempCell.ID = r.ToString("D2");
+				//1er columna: Nombre del mes
+				TableCell tempCell = new TableCell();
+                tempCell.ID = "m" + r.ToString("D2");
                 tempRow.Cells.Add(tempCell);
                 tempCell.BackColor = Color.Gray;
                 tempCell.ForeColor = Color.White;
                 tempCell.Font.Bold = true;
                 tempCell.Controls.Add(new Label() { Text = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(r) });
+				tempCell.Controls.Add(new CheckBox() { ID = "MES-" + r.ToString("D2") });
 
-                for (int c = 1; c <= 31; c++)
+				for (int c = 1; c <= 31; c++)
                 {
                     tempCell = new TableCell();
                     tempCell.ID = r.ToString("D2") + c.ToString("D2");

@@ -576,7 +576,7 @@ namespace Ineltur.WebService
                         petition.Habitacion3.GetValueOrDefault(), petition.Habitacion4.GetValueOrDefault(),
                         petition.Habitacion5.GetValueOrDefault(), petition.Habitacion6.GetValueOrDefault(),
                         petition.FechaInicio, petition.FechaFin, ConvertirOrdenamiento(petition.Orden),
-                        ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad, petition.NombreAlojamiento, petition.desayuno, petition.tarifaReembolsable)
+                        ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad, petition.NombreAlojamiento, petition.desayuno, petition.tarifaReembolsable, usuario.IdUsuario)
                             .Where(a => a.montoTotalEstimadoEnPesos > 0).ToArray();
                         if (hoteles.Length == 0)
                         {

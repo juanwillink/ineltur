@@ -253,7 +253,7 @@ namespace ArgentinahtlMVC.Models.Services
             return false;
         }
 
-        public static bool SaveCierre(Guid idCupoUnidad, int cupoASumar)
+        public static bool SaveCierre(Guid idCupoUnidad, int cupoASumarRojo, int cupoASumarVerde)
         {
             if (idCupoUnidad != null)
             {
@@ -263,10 +263,12 @@ namespace ArgentinahtlMVC.Models.Services
 
                     if (cupoUnidad != null)
                     {
-                        if (cupoUnidad.CUPOMAXIMO > cupoUnidad.CUPORESERVADO)
+                        if (cupoUnidad.CUPOMAXIMO > cupoUnidad.CUPORESERVADO && cupoASumarVerde == 0)
                             cupoUnidad.CUPOMAXIMO = cupoUnidad.CUPORESERVADO;
-                        else
-                            cupoUnidad.CUPOMAXIMO += cupoASumar;
+						else if (cupoUnidad.CUPOMAXIMO > cupoUnidad.CUPORESERVADO) //cuando cupoASumarVerde != 0
+							cupoUnidad.CUPOMAXIMO += cupoASumarVerde;
+						else
+                            cupoUnidad.CUPOMAXIMO += cupoASumarRojo;
                         //cupoUnidad.CUPOMAXIMO += cupoUnidad.UnidadAlojamiento.CUPOPORDEFECTO;
 
                         dc.SubmitChanges();
