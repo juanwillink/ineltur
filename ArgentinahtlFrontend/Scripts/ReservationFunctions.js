@@ -70,8 +70,8 @@ function buildAvailableRooms(vacancies) {
             roomsBody = roomsBody +
                 "<input type='hidden' value='" + room["RoomId"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomId' />" +
                 "<input type='hidden' value='" + room["RoomName"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomName' />" +
-                "<input type='hidden' value='" + room["RoomType"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />" +
-                "<input type='hidden' value='" + room["RoomAdults"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />";
+                "<input type='hidden' value='" + room["RoomAdults"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomType' />" +
+                "<input type='hidden' value='" + room["RoomAdults"] + "' id='vacancy_" + key + "_Room_" + key2 + "_RoomAdults' />";
         }
         var body = body + "<h4 id='vacancy-name-" + vacancy["VacancyId"] + "'>" + vacancy["VacancyName"] + "</h4>" +
             "<input type='hidden' value='" + vacancy["LodgingId"] + "' id='vacancy_" + key + "_LodgingId' />" +
@@ -111,7 +111,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceRaCdTr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceRaCdTr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceRaCdTr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -125,7 +125,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceRaCdTnr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceRaCdTnr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceRaCdTnr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -139,7 +139,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceRaSdTr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceRaSdTr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceRaSdTr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -153,7 +153,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceRaSdTnr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceRaSdTnr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceRaSdTnr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -167,7 +167,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceExCdTr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceExCdTr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceExCdTr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -181,7 +181,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceExCdTnr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceExCdTnr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceExCdTnr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -195,7 +195,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceExSdTr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceExSdTr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceExSdTr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -209,7 +209,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceExSdTnr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceExSdTnr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceExSdTnr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -223,7 +223,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceMeCdTr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceMeCdTr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 1,1, ' + vacancy["VacancyPriceMeCdTr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -237,7 +237,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceMeCdTnr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceMeCdTnr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 1,0, ' + vacancy["VacancyPriceMeCdTnr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -251,7 +251,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceMeSdTr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceMeSdTr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 0,1, ' + vacancy["VacancyPriceMeSdTr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -265,7 +265,7 @@ function buildAvailableRooms(vacancies) {
                 "<td>" + vacancy["LodgingCurrency"] + vacancy["VacancyPriceMeSdTnr"] + "</td>" +
                 '<td>' +
                 '<button id="vacancy_' + key + '_reservarBtn" class="btn btn-main empezarReservaHabitacionButton" onclick="empezarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceMeSdTnr"] + ')">Reservar</button>' +
-                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ')">Agregar</button>' +
+                '<button style="display: none;" class="btn btn-main agregarReservaHabitacionButton" onclick="agregarReservaHabitacion(' + "'" + key + "'" + ', 0,0, ' + vacancy["VacancyPriceMeSdTnr"] + ')">Agregar</button>' +
                 '</td>' +
                 "</tr>";
         }
@@ -318,6 +318,13 @@ function buildAvailableRooms(vacancies) {
                             $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Maximo de noches " + promotion["MAXIMONOCHES"] + "</strong><input type='hidden' value='true' id='TienePromocionMinimoMaximo-" + key + "' />").addClass("alert alert-danger");
                             $("#vacancy_" + key + "_reservarBtn").hide();
                         }
+                    }
+                    break;
+                case 6:
+                    var checkin = new Date(parseInt(promotion["FECHAINICIO"].replace('/Date(', '')));
+                    var checkout = new Date(parseInt(promotion["FECHAFIN"].replace('/Date(', '')));
+                    if (checkin <= checkinDate && checkout >= checkoutDate) {
+                        $("#vacancy-name-" + vacancy["VacancyId"] + "").append(" - <strong>Family Plan - Segunda Habitacion 50%</strong><input type='hidden' value='true' id='TienePromocionNxM-" + key + "' />").addClass("alert alert-info");
                     }
                     break;
                 default:
@@ -392,27 +399,16 @@ function checkHotelAvailability() {
 }
 
 function checkHotelAvailabilityForReservation(lodgingName, destinationId, vacancycheckinDate, vacancycheckoutDate) {
+    debugger;
     var from1 = vacancycheckinDate.split("/");
     var from1Year = from1[2].split(" ");
     var from2 = vacancycheckoutDate.split("/");
     var from2Year = from2[2].split(" ");
-    var checkinDate = new Date(from1Year[0], from1[1] - 1, from1[0]);
-    var checkoutDate = new Date(from2Year[0], from2[1] - 1, from2[0]);
+    var checkinDate = new Date(from1Year[0], from1[0] - 1, from1[1]);
+    var checkoutDate = new Date(from2Year[0], from2[0] - 1, from2[1]);
     $("#hotelName2").val(lodgingName);
     var oldVacanciesCount = $("[id^=vacancyDiv]").length;
-    var singleRoom = {
-        "RoomTypeCode": "single"
-    };
-    var dobleRoom = {
-        "RoomTypeCode": "doble"
-    };
-    var tripleRoom = {
-        "RoomTypeCode": "triple"
-    };
-    var cuadrupleRoom = {
-        "RoomTypeCode": "cuadruple"
-    };
-    var rooms = [singleRoom, dobleRoom, tripleRoom, cuadrupleRoom]
+    var rooms = []
     for (var i = 0; i < oldVacanciesCount; i++) {
         var vacancyTypeCount = $("#reserved_vacancy_vacancyReserved_" + i).val();
         for (var j = 0; j < vacancyTypeCount; j++) {
@@ -424,6 +420,12 @@ function checkHotelAvailabilityForReservation(lodgingName, destinationId, vacanc
                     rooms.push(room);
                     break;
                 case "Double":
+                    var room = {
+                        "RoomTypeCode": "doble"
+                    };
+                    rooms.push(room);
+                    break;
+                case "DSU":
                     var room = {
                         "RoomTypeCode": "doble"
                     };
@@ -634,7 +636,7 @@ function openAgregarPasajeroModal(vacancyId) {
     $("#pasajeroVacancyId").val(vacancyId)
 }
 
-function agregarReservaHabitacion(vacancyNumber) {
+function agregarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
     var checkinDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckin").val().substr(6)));
     var checkoutDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckout").val().substr(6)));
     var oldVacanciesCount = $("[id^=vacancyDiv]").length;
@@ -673,7 +675,7 @@ function agregarReservaHabitacion(vacancyNumber) {
             "VacancyName": $("#reserved_vacancy_vacancyName_" + i).val(),
             "VacancyCheckin": checkinDate,
             "VacancyCheckout": checkoutDate,
-            "VacancyPrice": $("#reserved_vacancy_vacancyPrice_" + i).val(),
+            "ConfirmedVacancyPrice": $("#reserved_vacancy_vacancyPrice_" + i).val(),
             "VacancyReserved": parseInt($("#reserved_vacancy_vacancyReserved_" + i).val()) + vacancyExists,
             "Rooms": rooms
         };
@@ -696,7 +698,7 @@ function agregarReservaHabitacion(vacancyNumber) {
             "VacancyName": $("#vacancy_" + vacancyNumber + "_VacancyName").val(),
             "VacancyCheckin": checkinDate,
             "VacancyCheckout": checkoutDate,
-            "VacancyPrice": $("#vacancy_" + vacancyNumber + "_VacancyPrice").val(),
+            "ConfirmedVacancyPrice": precio,
             "VacancyReserved": 1,
             "Rooms": newRooms
         };

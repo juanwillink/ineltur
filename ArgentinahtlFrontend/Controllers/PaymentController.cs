@@ -45,20 +45,24 @@ namespace CheckArgentina.Controllers
                 {
                     foreach (var promocion in vacancy.Promociones)
                     {
-                        switch (promocion.IDTIPOPUBLICACIONPROMO)
+                        if (promocion.IDTIPOPUBLICACIONPROMO == 1)
                         {
-                            case 1:
-                                var nochesARestar = promocion.DIASRESERVADOS - promocion.DIASACOBRAR;
-                                for (int i = 0; i < nochesARestar; i++)
-                                {
-                                    //SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice - vacancy.VacancyPrice;
-                                }
-                                break;
-                            case 5:
-                                SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice * (decimal.Parse(promocion.DESCUENTO.ToString()) / 100);
-                                break;
-                            default:
-                                break;
+                            var nochesARestar = promocion.DIASRESERVADOS - promocion.DIASACOBRAR;
+                            for (int i = 0; i < nochesARestar; i++)
+                            {
+                                //SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice - vacancy.VacancyPrice;
+                            }
+                        }
+                        else if (promocion.IDTIPOPUBLICACIONPROMO == 5)
+                        {
+                            SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice * (decimal.Parse(promocion.DESCUENTO.ToString()) / 100);
+                        }
+                        else if (promocion.IDTIPOPUBLICACIONPROMO == 6)
+                        {
+                            if (SessionData.Reservation.Vacancies.FirstOrDefault().VacancyReserved > 1)
+                            {
+                                SessionData.Reservation.Vacancies.FirstOrDefault().ConfirmedVacancyPrice = (SessionData.Reservation.Vacancies.FirstOrDefault().ConfirmedVacancyPrice / 2);
+                            }
                         }
                     }
                 }

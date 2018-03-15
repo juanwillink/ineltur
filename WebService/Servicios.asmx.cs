@@ -659,7 +659,7 @@ namespace Ineltur.WebService
                                 var monedaAloj = ObtenerMoneda(dc, (Guid)alojamientoDisponible.IdAlojamiento);
                                 var cotizMonedaAloj = ObtenerCotizacionTarifaAlojamiento(dc, alojamientoDisponible.IdAlojamiento, petition.Nacionalidad);
 
-                                alojamientoDisponible.Alojamiento.Unidades = hoteles.Where(d => d.cupoDisponible.GetValueOrDefault() > 0)
+                                alojamientoDisponible.Alojamiento.Unidades = hoteles.Where(d => d.cupoDisponible.GetValueOrDefault() > 0 && d.idAloj == alojamientoDisponible.IdAlojamiento)
                                     .Select(d => new InfoUnidad()
                                     {
                                         IdUnidad = d.idUnidadAloj.GetValueOrDefault(),

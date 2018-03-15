@@ -24,7 +24,7 @@
             if (data["Latitud"] == null || data["Longitud"] == null) {
                 $("#supermap").hide();
             } else {
-                initMap(data["Latitud"], data["Longitud"]);
+                //initMap(data["Latitud"], data["Longitud"]);
             }
 
         },
