@@ -152,34 +152,39 @@ namespace ArgentinahtlMVC.Controllers
             int anio = 0;
             int cupoAInsertarGrises = 0;
             int cupoASumarRojos = 0;
+			int cupoAQuitarOSumarVerdes = 0;
 
             foreach (string name in Request.Form.AllKeys)
             {
                 var idCupoUnidad = string.Empty;
 
-                if (name.Equals("roomid")) 
-                    roomid = Request.Form[name];
-                else if (name.Equals("anio"))
-                    anio = Int32.Parse(Request.Form[name]);
-                else if (name.Equals("cupogris"))
-                    cupoAInsertarGrises = Int32.Parse(Request.Form[name]);
-                else if (name.Equals("cuporojo"))
-                    cupoASumarRojos = Int32.Parse(Request.Form[name]);
-                else
-                {
-                    idCupoUnidad = name; //Request.Form[name] si quisiera obtener el valor de ese control
+				if (name.Equals("roomid"))
+					roomid = Request.Form[name];
+				else if (name.Equals("anio"))
+					anio = Int32.Parse(Request.Form[name]);
+				else if (name.Equals("cupogris"))
+					cupoAInsertarGrises = Int32.Parse(Request.Form[name]);
+				else if (name.Equals("cuporojo"))
+					cupoASumarRojos = Int32.Parse(Request.Form[name]);
+				else if (name.Equals("cupoverde"))
+					cupoAQuitarOSumarVerdes = Int32.Parse(Request.Form[name]);
+				else if (name.Contains("MES-"))
+					continue;
+				else
+				{
+					idCupoUnidad = name; //Request.Form[name] si quisiera obtener el valor de ese control
 
-                    if (!Guid.TryParse(idCupoUnidad, out idcu) && !string.IsNullOrEmpty(roomid))
-                    {  
-                        //respuesta += " IdCupoUnidad no válido: " + idCupoUnidad;
-                        DbAccess.InsertarCupo(roomid, anio, Int32.Parse(name.Substring(0, 2)), Int32.Parse(name.Substring(2, 2)), cupoAInsertarGrises);
-                    }
-                    else
-                    {
-                        if (!DbAccess.SaveCierre(idcu, cupoASumarRojos))
-                            respuesta += " Error al cerrar " + idcu.ToString();
-                    }
-                }
+					if (!Guid.TryParse(idCupoUnidad, out idcu) && !string.IsNullOrEmpty(roomid))
+					{
+						//respuesta += " IdCupoUnidad no válido: " + idCupoUnidad;
+						DbAccess.InsertarCupo(roomid, anio, Int32.Parse(name.Substring(0, 2)), Int32.Parse(name.Substring(2, 2)), cupoAInsertarGrises);
+					}
+					else
+					{
+						if (!DbAccess.SaveCierre(idcu, cupoASumarRojos, cupoAQuitarOSumarVerdes))
+							respuesta += " Error al cerrar " + idcu.ToString();
+					}
+				}
             }
 
             if (string.IsNullOrEmpty(respuesta))
