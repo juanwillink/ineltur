@@ -130,6 +130,16 @@
 
         $('#StartDate_' + (parseInt(count) + 1)).change();
     })
+
+    $("#addHabitacionBtn").click(function (data) {
+        var target = $("#addHabitacionBtn").closest("tr");
+        var count = target.attr('name');
+        target.attr('name', (parseInt(count) + 1));
+        target.before("<tr><td><label>Siguiente Habitacion</label></td><td><select id='IdUnidadPromo_" + (parseInt(count) + 1) + "'>@for (int i = 0; i < Model.Lodging.Rooms.Count; i++)
+			{
+			 <option value='@Model.Lodging.Rooms[i].RoomId.ToString()'>@Model.Lodging.Rooms[i].RoomName.ToString()</option>;
+			}</select></td>");        
+    });
 </script>
 
 <h2>@ViewBag.Title</h2>
@@ -159,9 +169,10 @@
             <td>@Html.LabelFor(m => m.IdUnidadPromo):</td>
             <td colspan="2">
                 @Html.DropDownListFor(m => m.IdUnidadPromo,
-            @Model.Lodging.Rooms.Select(st => new SelectListItem { Text = st.RoomName, Value = st.RoomId.ToString() })))
+            @Model.Lodging.Rooms.Select(st => new SelectListItem { Text = st.RoomName, Value = st.RoomId.ToString() }))
             </td>
         </tr>
+        <tr name="0"><td><button id="addHabitacionBtn" type="button">Agregar Habitacion</button></td></tr>
         <tr><td>@Html.LabelFor(m => m.Activo)</td><td> <input type="radio" name="Activo" value="true" checked/> Si <input type="radio" name="Activo" value="False" /> No</td></tr>
         <tr><td>@Html.LabelFor(m => m.Slogan):</td><td>@Html.TextBoxFor(m => m.Slogan)</td></tr>
         <tr><td>@Html.LabelFor(m => m.MinimoNoches):</td><td>@Html.TextBoxFor(m => m.MinimoNoches)</td></tr>

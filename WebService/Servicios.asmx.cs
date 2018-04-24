@@ -654,8 +654,11 @@ namespace Ineltur.WebService
                                
                             }).ToArray();
 
+                            alojamientosDisponibles = alojamientosDisponibles.GroupBy(a => a.IdAlojamiento).Select(a => a.First()).ToArray();
+
                             foreach (var alojamientoDisponible in alojamientosDisponibles)
                             {
+
                                 var monedaAloj = ObtenerMoneda(dc, (Guid)alojamientoDisponible.IdAlojamiento);
                                 var cotizMonedaAloj = ObtenerCotizacionTarifaAlojamiento(dc, alojamientoDisponible.IdAlojamiento, petition.Nacionalidad);
 
