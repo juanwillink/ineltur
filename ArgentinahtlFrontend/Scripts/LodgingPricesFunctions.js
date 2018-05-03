@@ -1,5 +1,5 @@
 ﻿function verTarifasHotel(lodgingId, lodgingName) {
-    debugger;
+    //debugger;
     $("#lodgingId").val(lodgingId);
     $("#lodging-prices-modalLabel").text("Tarifas para el hotel " + lodgingName)
     var values;
@@ -26,13 +26,13 @@
         cache: false,
         data: JSON.stringify(values),
         beforeSend: function () {
-            debugger;
+            //debugger;
             $("#PricesTable").empty();
             $("#lodging-prices-modal").modal('show');
             $("#spinnerModal").show();
         },
         success: function (data) {
-            debugger;
+            //debugger;
             $("#spinnerModal").fadeOut('fast', function () {
                 buildDatesTable(data);
             });
@@ -51,7 +51,7 @@ function buildDatesTable(data) {
         var unit = data.Units[0];
         colspan = unit.Quota.length + 1;
     }
-    debugger;
+    //debugger;
 
     body = body + "<thead><tr style='background-color: #00125A; color: white;'><th colspan=" + colspan + " style='text-align:center; border-radius: 6px 6px 0px 0px;'><select class='form-control' style='color: black;' onchange='showTable(this)'><option selected>Selecciona una Habitacion</option>";
     for (var key in data.Units) {
@@ -71,7 +71,7 @@ function buildDatesTable(data) {
                 var day = date.getDate();
                 var month = date.getMonth() + 1;
                 var year = date.getFullYear();
-                debugger;
+                //debugger;
                 if (key3 == 0) {
                     $("#firstWeekDay").val(year + "/" + month + "/" + day);
                 }
@@ -149,7 +149,7 @@ function buildDatesTable(data) {
 }
 
 function showTable(selected) {
-    debugger;
+    //debugger;
     $(".rowTarifa").hide();
     if ($("#nationalityFilter").val() == 'arg') {
         $(".tarifaArgentina").show();
@@ -193,7 +193,7 @@ function oneMoreWeek() {
 }
 
 function oneLessWeek() {
-    debugger;
+    //debugger;
     var table = $("#PricesTable");
     table.empty();
     lodgingId = $("#lodgingId").val();
@@ -258,7 +258,7 @@ function searchSpecificDate() {
 }
 
 $('#lodging-prices-modal').on('hidden.bs.modal', function () {
-    debugger;
+    //debugger;
     var table = $("#PricesTable");
     table.empty();
 });

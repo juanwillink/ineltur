@@ -31,7 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conversiones.cs" />
     <Compile Include="NpsBLL.cs" />
     <Compile Include="Connected Services\NPS\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -183,6 +186,10 @@
     <ProjectReference Include="..\ArgentinahtlCommon\ArgentinahtlCommon.csproj">
       <Project>{a791f116-d17e-47db-9223-b96de24747e1}</Project>
       <Name>ArgentinahtlCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{c869ec77-7b0c-4da8-b18d-2588b1ea95c4}</Project>
+      <Name>Datos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

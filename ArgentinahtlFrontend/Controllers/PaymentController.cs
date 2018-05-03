@@ -8,7 +8,9 @@ using CheckArgentina.Managers;
 using System;
 using System.Net;
 using System.Net.Mail;
-using NPSWSClientCOM;
+using ArgentinahtlBLL;
+using ArgentinahtlCommon.DTO.NPS;
+using ArgentinahtlCommon;
 
 
 namespace CheckArgentina.Controllers
@@ -214,42 +216,45 @@ namespace CheckArgentina.Controllers
                 return RedirectToAction("PaymentError");
         }
 
-        public ActionResult ProcessPaymentNPS(ReservationModel reservation)
+		#region NPS
+
+		public ActionResult ProcessPaymentNPS(ReservationModel reservation)
         {
-            var client = new NPSWSClient();
-            
-            using(var dc = new TurismoDataContext())
-            {
-                int? attemptNumber = -1, error = 1;
-                Guid? npsTransactionId = null;
+			try
+			{
+				var npsBLL = new NpsBLL();
 
-                //var reservationDb = dc.Transaccions.Single(t => t.IDTRANSACCION == Guid.Parse(reservation.ReservationId));
+				var dto = npsBLL.GuardarPagoNPS(new PagoNPSDTO { ReservationId = long.Parse(SessionData.Reservation.ReservationId), IdEstadoNPS = (int)EstadoNPS.Iniciada, FechaGeneracion = DateTime.Now });
 
-                dc.addTransaccionNPS(null, SessionData.Reservation.ReservationId, "", "", ref npsTransactionId, ref attemptNumber);
-                var npsTransaction = dc.TransaccionNPS.SingleOrDefault(tn => tn.IDTRANSACCION_NPS == npsTransactionId);
+				using (var dc = new TurismoDataContext())
+				{
+					var formaPago = dc.FormaPagos.SingleOrDefault(fp => fp.IDFORMAPAGO == Guid.Parse(reservation.PaymentMethodId));
+					var moneda = dc.MonedaDBs.SingleOrDefault(m => m.DESCRIPCION == MapCurrencyFromNPS(SessionData.Reservation.LodgingCurrencyCode));
 
-                var paymentMethod = dc.FormaPagos.SingleOrDefault(fp => fp.IDFORMAPAGO == Guid.Parse(reservation.PaymentMethodId));
-                var currencyDb = dc.MonedaDBs.SingleOrDefault(m => m.DESCRIPCION == MapCurrencyFromNPS(SessionData.Reservation.LodgingCurrencyCode));
+					var response = npsBLL.ObtenerDatosPostTC(dto.IdPagoNPS.ToString(), SessionData.Reservation.ReservationId,
+						(float)SessionData.Reservation.TotalAmount * moneda.COTIZACION, 1, "032", //currencyDb.CODIGO_NPS,
+						formaPago.DESCRIPCION.Trim(), false, 0,
+						SessionData.Reservation.ReservationOwner.TravelerId, SessionData.Reservation.ReservationOwner.TravelerEmail);
 
-                var response = client.Authorize_3p(
-                        "2.2", "ineltur", "WEB", npsTransaction.REF_INELTUR + "-" + attemptNumber, npsTransaction.REF_INELTUR,
-                        Url.Action("BridgeProcessResultPaymentNPS", "Payment", null, Request.Url.Scheme), "es_AR", Request.UrlReferrer.AbsoluteUri,
-                        (float)SessionData.Reservation.TotalAmount * currencyDb.COTIZACION, 1, 0, null,
-                        "032", "ARG", paymentMethod.DESCRIPCION, SessionData.Reservation.ReservationOwner.TravelerEmail, Config.LeerSetting("MailReservation"),
-                        "Reserva en " + SessionData.Reservation.LodgingName, 3, "", DateTime.Now
-                    );
+					dto.IdTransaccionNPS = response.TransactionId;
+					dto.ResponseCod = response.ResponseCod;
+					dto.ResponseMsg = response.ResponseMsg;
+					dto.ResponseExtended = response.ResponseExtended;
+					npsBLL.GuardarPagoNPS(dto);
 
-                dc.updateTransaccionNPS(npsTransactionId, npsTransaction.IDTRANSACCION, npsTransaction.NROINTENTO, response.MerchTxRef,
-                    response.TransactionId.ToString(), string.Format("{0}: {1} / {2}", response.ResponseCod, response.ResponseMsg, response.ResponseExtended), ref error);
-
-                if (response.ResponseCod == 1)
-                {
-                    SessionData.Reservation.PaymentMethodId = reservation.PaymentMethodId;
-                    return View(new NPSRedirectionModel { FrontPSP_URL = response.FrontPSP_URL });
-                }
-                else
-                    return Redirect(Request.UrlReferrer.AbsoluteUri);
-            }
+					if (response.ResponseCod == (int)EstadoNPS.AprobadaAutorizada)
+					{
+						SessionData.Reservation.PaymentMethodId = reservation.PaymentMethodId;
+						return View(new NPSRedirectionModel { FrontPSP_URL = response.FrontPSP_URL });
+					}
+					else
+						return Redirect(Request.UrlReferrer.AbsoluteUri);
+				}
+			}
+			catch (Exception)
+			{
+				return RedirectToAction("PaymentError");
+			}
         }
 
         public ActionResult BridgeProcessResultPaymentNPS(NPSPaymentModel model)
@@ -259,36 +264,81 @@ namespace CheckArgentina.Controllers
 
         public ActionResult ProcessResultPaymentNPS(NPSPaymentModel model)
         {
-            var client = new NPSWSClient();
+            var npsBLL = new NpsBLL();
 
             if(new ServiceController().CompleteReservation())
             {
-                using (var dc = new TurismoDataContext())
-                {
-                    int? attemptNumber = -1;
-                    Guid? npsTransactionId = null;
-                    var npsTransaction = dc.TransaccionNPS.SingleOrDefault(tn => tn.REF_INELTUR == model.psp_MerchTxRef);
-                    npsTransaction.IDTRANSACCION = Guid.Parse(SessionData.Reservation.ReservationId);
+				var response = npsBLL.ActualizarEstadoPago(model.psp_MerchTxRef);
 
-                    dc.SubmitChanges();
-
-                    var response = client.Capture_3p("2.2", "ineltur", "WEB", SessionData.Reservation.ReservationCode + "-" + (npsTransaction.NROINTENTO + 1), Convert.ToInt64(model.psp_TransactionId),
-                    (float)SessionData.Reservation.TotalAmount, "ineltur", DateTime.Now);
-
-                    dc.addTransaccionNPS(npsTransaction.IDTRANSACCION, model.psp_MerchTxRef,
-                        model.psp_TransactionId, string.Format("{0}: {1} / {2}", response.ResponseCod, response.ResponseMsg, response.ResponseExtended), ref npsTransactionId, ref attemptNumber);
-                
-                    if (response.ResponseCod == 0)
-                        return RedirectToAction("PaymentSuccess");
-                    else
-                        return RedirectToAction("PaymentError");
-                }
+                if (string.IsNullOrEmpty(response))
+                    return RedirectToAction("PaymentSuccess");
+                else
+                    return RedirectToAction("PaymentError");
             }
             else
                 return RedirectToAction("PaymentError");
         }
 
-        public ActionResult SendEmailReservation(EmailReservationModel model)
+		
+		//public JsonResult ObtenerDatosPostTC(long idPago)
+		//{
+		//    try
+		//    {
+		//        var result = pagoSrv.ObtenerDatosPostNPS(idPago);
+		//        return Json(result);
+		//    }
+		//    catch (Exception)
+		//    {
+
+		//        throw;
+		//    }
+		//}
+
+		//[HttpPost]
+		//[AllowAnonymous]
+		//public ActionResult CallbackNPS()
+		//{
+		//	ViewBag.HasErrors = false;
+		//	ViewBag.Respuesta = string.Empty;
+
+		//	string respuesta, merchTrxRef = string.Empty, idRequest;
+
+		//	foreach (string name in Request.Form.AllKeys)
+		//	{
+		//		if (name == "psp_MerchTxRef")
+		//		{
+		//			merchTrxRef = Request.Form[name];
+		//		}
+		//	}
+
+		//	long idPago;
+
+		//	if (!long.TryParse(merchTrxRef, out idPago))
+		//		respuesta = "Pago no válido. Contacte a su administrador.";
+		//	else
+		//	{
+		//		idRequest = SessionHelper.IdRequest;
+		//		respuesta = pagoSrv.ActualizarEstadoPagoNPS(idPago, idRequest);
+
+		//	}
+
+		//	ViewBag.Respuesta = idPago + " - " + respuesta;
+
+		//	if (respuesta != string.Empty) ViewBag.HasErrors = true;
+
+		//	return View();
+		//}
+
+
+		//[AllowAnonymous]
+		//public ActionResult CallBackNPSVolver()
+		//{
+		//	return View();
+		//}
+
+		#endregion
+
+		public ActionResult SendEmailReservation(EmailReservationModel model)
         {
             model.TravelerId = !string.IsNullOrEmpty(model.TravelerId) ? model.TravelerId : "0"; 
 
@@ -297,7 +347,7 @@ namespace CheckArgentina.Controllers
                 FluentEmail.Email
                 .From(model.TravelerEmail)
                 .Subject(string.Format("Reserva en {0}", model.LodgingName))
-                .To("mjjara@argentinahtl.com")
+                .To("manzur.anibal@gmail.com")
                 .Body("Datos de la reserva: <br>"+
                     "Nombre del Hotel: " + model.LodgingName + "<br>" +
                     "Ciudad: " + model.DestinationName + "<br>" +

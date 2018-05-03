@@ -12,6 +12,7 @@ using System.ServiceModel.Dispatcher;
 using System.Xml;
 using System.Security.Cryptography;
 using ArgentinahtlCommon;
+using ArgentinahtlCommon.DTO.NPS;
 
 
 namespace ArgentinahtlBLL.NPS
@@ -254,7 +255,7 @@ namespace ArgentinahtlBLL.NPS
                 dto.FirstPaymentDeferralDate = originalResponse.psp_FirstPaymentDeferral;
                 dto.PosDateTime = Convert.ToDateTime(originalResponse.psp_PosDateTime);
 
-                if (dto.ResponseCod != Convert.ToInt16(CodigoRespuestaSolicitudAutorizacionNPS.Exitosa))
+				if (dto.ResponseCod != Convert.ToInt16(RespuestaSolicitudAutorizacionNPS.Exitosa))
                 {
                     dto.ErrorMessage = dto.ResponseMsg;
                     if (dto.ResponseExtended != null)
@@ -279,7 +280,7 @@ namespace ArgentinahtlBLL.NPS
                 dto.QueryCriteriaId = originalResponse.psp_QueryCriteriaId;
                 dto.PosDateTime = Convert.ToDateTime(originalResponse.psp_PosDateTime);
 
-                if (originalResponse.psp_ResponseCod == CodigoRespuestaSimpleQueryTxNPS.Exitosa)
+                if (originalResponse.psp_ResponseCod == RespuestaSimpleQueryTxNPS.Exitosa)
                 {
                     dto.Transaction.ResponseCod = Convert.ToInt32(originalResponse.psp_Transaction.psp_ResponseCod);
                     dto.Transaction.ResponseMsg = originalResponse.psp_Transaction.psp_ResponseMsg;

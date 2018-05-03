@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Turismo-ProduccionV3" Class="TurismoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=test.argentinahtl.com,1433;Initial Catalog=Turismo-ProduccionV3;Persist Security Info=True;User ID=itiers" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Argentinahtl" Class="TurismoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local);Initial Catalog=Argentinahtl;Integrated Security=False;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ArgentinahtlConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.TIPO_FORMAS_PAGO" Member="TipoFormaPagos">
     <Type Name="TipoFormaPago">
       <Column Name="IDTIPOFORMAPAGO" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -155,6 +155,7 @@
       <Column Name="IDPASAJERO" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="COTIZACIONALOJ" Type="System.Single" DbType="Real" CanBeNull="true" />
       <Association Name="Transaccion_TransaccionNPS" Member="TransaccionNPS" ThisKey="IDTRANSACCION" OtherKey="IDTRANSACCION" Type="TransaccionNPS" />
+      <Association Name="Transaccion_PAGO_NPS" Member="PAGO_NPS" ThisKey="IDTRANSACCION" OtherKey="IdTransaccion" Type="PAGO_NPS" />
       <Association Name="Alojamiento_Transaccion" Member="Alojamiento" ThisKey="IDALOJ" OtherKey="IDALOJ" Type="Alojamiento" IsForeignKey="true" />
       <Association Name="FormaPago_Transaccion" Member="FormaPago" ThisKey="IDFORMAPAGO" OtherKey="IDFORMAPAGO" Type="FormaPago" IsForeignKey="true" />
       <Association Name="MonedaDB_Transaccion" Member="MonedaDB" Storage="_MONEDA" ThisKey="IDMONEDA" OtherKey="IDMONEDA" Type="MonedaDB" IsForeignKey="true" />
@@ -221,6 +222,36 @@
       <Column Name="MAXIMONOCHES" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DESCUENTO" Type="System.Single" DbType="Real" CanBeNull="true" />
       <Column Name="IDTIPOPUBLICACIONPROMO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ESTADO_PAGO_NPS" Member="ESTADO_PAGO_NPS">
+    <Type Name="ESTADO_PAGO_NPS">
+      <Column Name="IdEstadoNPS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="EsEstadoFinal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ESTADO_PAGO_NPS_PAGO_NPS" Member="PAGO_NPS" ThisKey="IdEstadoNPS" OtherKey="IdEstadoNPS" Type="PAGO_NPS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PAGO_NPS" Member="PAGO_NPS">
+    <Type Name="PAGO_NPS">
+      <Column Name="IdPagoNPS" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdTransaccion" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CodigoReserva" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReservationId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoNPS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoEstado" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="IdTransaccionNPS" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FechaGeneracion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CodigoBarra" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="NPSCantCuotas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Referencia" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="DiasComprobanteVencido" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResponseCod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResponseMsg" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="ResponseExtended" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="Transaccion_PAGO_NPS" Member="Transaccion" ThisKey="IdTransaccion" OtherKey="IDTRANSACCION" Type="Transaccion" IsForeignKey="true" />
+      <Association Name="ESTADO_PAGO_NPS_PAGO_NPS" Member="ESTADO_PAGO_NPS" ThisKey="IdEstadoNPS" OtherKey="IdEstadoNPS" Type="ESTADO_PAGO_NPS" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.addTransaccionNPS" Method="addTransaccionNPS">

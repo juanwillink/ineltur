@@ -19,7 +19,7 @@
             $("#lodging-details-modal").modal('show');
         },
         success: function (data) {
-            debugger;
+            //debugger;
             buildDetailsTabs(data);
             if (data["Latitud"] == null || data["Longitud"] == null) {
                 $("#supermap").hide();
@@ -85,7 +85,7 @@ function GetHotelRoomsInfo() {
 }
 
 function BuildRoomsInfo(data) {
-    debugger;
+    //debugger;
     var container = $("#UnitsInfoDiv");
     container.empty();
     var body = ""

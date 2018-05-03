@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A791F116-D17E-47DB-9223-B96DE24747E1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArgentinahtlCommon</RootNamespace>
-    <AssemblyName>ArgentinahtlCommon</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ProjectGuid>{AF8AD951-BB64-4E43-85BC-08A30B73C98E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsolaPruebas</RootNamespace>
+    <AssemblyName>ConsolaPruebas</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,12 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLog">
-      <HintPath>..\..\..\..\..\..\Ineltur\Plataforma Hoteles v1.0.0\WebService\bin\NLog.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,19 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consts.cs" />
-    <Compile Include="DTO\NPS\PagoNPSDTO.cs" />
-    <Compile Include="DTO\NPS\RequerimientoPayOnline3pDTO.cs" />
-    <Compile Include="DTO\NPS\RequerimientoSimpleQueryTxDTO.cs" />
-    <Compile Include="DTO\NPS\RespuestaPayOnline3pDTO.cs" />
-    <Compile Include="DTO\NPS\RespuestaSimpleQueryTxDTO.cs" />
-    <Compile Include="DTO\NPS\TransactionNpsDTO.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tracker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Parametros\" />
-    <Folder Include="Utiles\" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArgentinahtlBLL\ArgentinahtlBLL.csproj">
+      <Project>{0f6603c0-50c1-498d-ac9d-2e345ea08870}</Project>
+      <Name>ArgentinahtlBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArgentinahtlCommon\ArgentinahtlCommon.csproj">
+      <Project>{a791f116-d17e-47db-9223-b96de24747e1}</Project>
+      <Name>ArgentinahtlCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{c869ec77-7b0c-4da8-b18d-2588b1ea95c4}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

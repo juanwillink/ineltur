@@ -3,7 +3,7 @@
         alert("Debe ingresar algun destino o algun hotel.");
     }
     else {
-        debugger;
+        //debugger;
         var dateParts = $("#checkinDate").val().split("-");
         var checkinDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
         dateParts = $("#checkoutDate").val().split("-");
@@ -275,7 +275,7 @@ function buildLodgingsView(data, userkey) {
     }
     $("#lodgingList").append(body);
     for (var key in data.Lodgings) {
-        debugger;
+        //debugger;
         var lodging = data.Lodgings[key];
         var stringifiedLodging2 = JSON.stringify(lodging);
         for (var key2 in lodging.Vacancies) {

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using NLog;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Text;
+using System.IO;
 
 namespace ArgentinahtlCommon
 {
@@ -85,5 +89,57 @@ namespace ArgentinahtlCommon
                     break;
             }
         }
-    }
+
+		public static string SerializarObjeto(Object objeto)
+		{
+			var encoding = Encoding.GetEncoding("iso-8859-1");
+
+			XmlWriterSettings xmlWriterSettings = new XmlWriterSettings
+			{
+				Indent = true,
+				OmitXmlDeclaration = true,
+				Encoding = encoding
+			};
+
+			try
+			{
+
+				XmlSerializer xmlSerializer = new XmlSerializer(objeto.GetType());
+
+				using (var stream = new MemoryStream())
+				{
+					using (var xmlWriter = XmlWriter.Create(stream, xmlWriterSettings))
+					{
+						xmlSerializer.Serialize(xmlWriter, objeto);
+					}
+					return encoding.GetString(stream.ToArray());
+				}
+
+			}
+			catch (Exception ex)
+			{
+				return ex.Message + "\n" + (ex.InnerException != null ? "Inner Exception: " + ex.InnerException.Message : string.Empty);
+				//try
+				//{
+				//    string rpta = string.Empty;
+				//    rpta = objeto.GetType().ToString();
+
+				//    return rpta;
+
+				//}
+				//catch (Exception ex)
+				//{
+				//    return ex.Message + "\nInner Exception: " + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
+				//}
+			}
+
+			//El siguiente código hace lo mismo que el anterior pero con codificación UTF-16
+			//XmlSerializer xmlSerializer = new XmlSerializer(objeto.GetType());
+			//StringWriter textWriter = new StringWriter();
+			//xmlSerializer.Serialize(textWriter, objeto);
+			//return textWriter.ToString();
+
+
+		}
+	}
 }

@@ -80,9 +80,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NPSWSClientCOM">
-      <HintPath>..\..\ArgentinahtlBackend1.0\ArgentinahtlBackend\bin\NPSWSClientCOM.dll</HintPath>
-    </Reference>
     <Reference Include="SevenZip.SDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SevenZip.SDK.1.0.0\lib\SevenZip.SDK.dll</HintPath>
       <Private>True</Private>

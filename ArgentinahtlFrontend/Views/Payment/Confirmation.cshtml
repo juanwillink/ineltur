@@ -183,7 +183,7 @@
         function getRoomCapacity() {
             var tipoDeHabitacion = $('#tipoDeHabitacion').text();
             var cantidadDeHabitaciones = $('#cantidadDeHabitaciones').text();
-            debugger;
+            //debugger;
             if (tipoDeHabitacion.indexOf('Cuadruple') !== -1) {
                 return 4 * cantidadDeHabitaciones;
             } else if (tipoDeHabitacion.indexOf('Triple') !== -1) {
@@ -201,7 +201,7 @@
         function disableAddButton() {
             var travelers = $('[id^=room_traveler_0]');
             var roomCapacity = getRoomCapacity();
-            debugger;
+            //debugger;
             if (travelers.length >= roomCapacity) {
                 $('#addButton').prop('disabled', true);
             } else {

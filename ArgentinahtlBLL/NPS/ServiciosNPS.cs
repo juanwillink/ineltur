@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using ArgentinahtlCommon;
+using ArgentinahtlCommon.DTO.NPS;
 
 namespace ArgentinahtlBLL.NPS
 {
@@ -41,7 +42,7 @@ namespace ArgentinahtlBLL.NPS
                         psp_Plan = (string.IsNullOrEmpty(dto.Plan) ? null : dto.Plan),
                         psp_Currency = dto.Currency,
                         psp_Country = dto.Country,
-                        psp_Product = dto.Product.ToString(),
+                        psp_Product = dto.Product,
                         //psp_CustomerId = dto.CustomerId,
                         psp_CustomerMail = dto.CustomerMail,
                         psp_MerchantMail = dto.MerchantMail,
@@ -58,7 +59,7 @@ namespace ArgentinahtlBLL.NPS
                 }
                 catch (Exception ex)
                 {
-                    Tracker.WriteTrace(string.Format($"Error en metodo ServiciosNPS.PayOnLine_3p: {ex.Message}. Datos Enviados: {Utiles.SerializarObjeto(dto)}"), Tracker.TraceType.Error);
+                    Tracker.WriteTrace(string.Format($"Error en metodo ServiciosNPS.PayOnLine_3p: {ex.Message}. Datos Enviados: {Tracker.SerializarObjeto(dto)}"), false, Tracker.TraceType.Error);
                     var response = new DTOGenerador().ObtenerRespuestaPayOnline3pDTO(null);
                     response.ErrorMessage = ex.Message + "\nINELPOL3P Inner Exception: " + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
 
@@ -90,7 +91,7 @@ namespace ArgentinahtlBLL.NPS
                 }
                 catch (Exception ex)
                 {
-                    Tracker.WriteTrace(string.Format($"Error en metodo ServiciosNPS.SimpleQueryTx: {ex.Message}. Datos Enviados: {Utiles.SerializarObjeto(dto)}"), Tracker.TraceType.Error);
+                    Tracker.WriteTrace(string.Format($"Error en metodo ServiciosNPS.SimpleQueryTx: {ex.Message}. Datos Enviados: {Tracker.SerializarObjeto(dto)}"), false, Tracker.TraceType.Error);
                     var response = new DTOGenerador().ObtenerRespuestaSimpleQueryTxDTO(null);
                     response.ErrorMessage = ex.Message + "\nInner Exception: " + (ex.InnerException != null ? ex.InnerException.Message : string.Empty);
 

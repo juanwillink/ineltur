@@ -4,7 +4,7 @@
     $("#hotelName2").val(lodging["LodgingName"]);
     if (lodging.Vacancies.length != 0) {
         $("#changeReservationDatesForm").hide();
-        debugger;
+        //debugger;
         fillHiddenFields(lodging);
         buildAvailableRooms(lodging.Vacancies);
     } else {
@@ -24,7 +24,7 @@ function openReservationModalSimple(lodging) {
 }
 
 function openEmailReservationModal(lodging) {
-    debugger;
+    //debugger;
     $("#EmailReservationModalLabel").text("Reservar Via Email en " + lodging["LodgingName"]);
     $("#hotelNameMail").val(lodging["LodgingName"]);
     $("#EmailReservationModal").modal("show");
@@ -42,7 +42,7 @@ function completePromotions(lodging) {
     for (var key in lodging.Vacancies) {
         var vacancy = lodging.Vacancies[key];
         body = body + "<h3>" + vacancy["VacancyName"] + "</h3>";
-        debugger;
+        //debugger;
         if (vacancy.Promociones.length > 0) {
             for (var key2 in vacancy.Promociones) {
                 var promotion = vacancy.Promociones[key2];
@@ -281,7 +281,7 @@ function buildAvailableRooms(vacancies) {
         var checkoutDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
         var oneDay = 24 * 60 * 60 * 1000;
         var diffDays = Math.round(Math.abs((checkoutDate.getTime() - checkinDate.getTime()) / (oneDay)));
-        debugger;
+        //debugger;
 
         for (var key2 in vacancy.Promociones) {
             var promotion = vacancy.Promociones[key2];
@@ -497,7 +497,7 @@ function fillHiddenFields(lodging) {
     $("#hotelCurrency").val(lodging["LodgingCurrency"]);
     $("#hotelCurrencyCode").val(lodging["LodgingCurrencyCode"]);
     $("#hotelPrice").val(lodging["LodgingPrice"]);
-    debugger;
+    //debugger;
     $("#destinationId").val(lodging["DestinationId"]);
     $("#hotelSupplierId").val(lodging["LodgingSupplierId"]);
 }
@@ -513,7 +513,7 @@ function noRoomsFound() {
 }
 
 function empezarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
-    debugger;
+    //debugger;
     var roomsElements = $("[id^=vacancy_" + vacancyNumber + "_Room_]");
     var checkinDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckin").val().substr(6)));
     var checkoutDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckout").val().substr(6)));
@@ -551,7 +551,7 @@ function empezarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
         "Tarifa": tarifa,
     };
     var vacancies = [vacancy];
-    debugger;
+    //debugger;
     var values = {
         "LodgingId": $("#hotelId").val(),
         "LodgingName": $("#hotelName2").val(),

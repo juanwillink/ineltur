@@ -20,81 +20,81 @@ namespace CheckArgentina.Models
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Turismo-ProduccionV3")]
+
+
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name = "Turismo-ProduccionV3")]
 	public partial class TurismoDataContext : System.Data.Linq.DataContext
 	{
-		
+
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-		
-    #region Extensibility Method Definitions
-    partial void OnCreated();
-    partial void InsertTipoFormaPago(TipoFormaPago instance);
-    partial void UpdateTipoFormaPago(TipoFormaPago instance);
-    partial void DeleteTipoFormaPago(TipoFormaPago instance);
-    partial void InsertFormaPago(FormaPago instance);
-    partial void UpdateFormaPago(FormaPago instance);
-    partial void DeleteFormaPago(FormaPago instance);
-    partial void InsertUsuario(Usuario instance);
-    partial void UpdateUsuario(Usuario instance);
-    partial void DeleteUsuario(Usuario instance);
-    partial void InsertUsuarioAlojamiento(UsuarioAlojamiento instance);
-    partial void UpdateUsuarioAlojamiento(UsuarioAlojamiento instance);
-    partial void DeleteUsuarioAlojamiento(UsuarioAlojamiento instance);
-    partial void InsertAlojamiento(Alojamiento instance);
-    partial void UpdateAlojamiento(Alojamiento instance);
-    partial void DeleteAlojamiento(Alojamiento instance);
-    partial void InsertCiudad(Ciudad instance);
-    partial void UpdateCiudad(Ciudad instance);
-    partial void DeleteCiudad(Ciudad instance);
-    partial void InsertTransaccion(Transaccion instance);
-    partial void UpdateTransaccion(Transaccion instance);
-    partial void DeleteTransaccion(Transaccion instance);
-    partial void InsertTransaccionNPS(TransaccionNPS instance);
-    partial void UpdateTransaccionNPS(TransaccionNPS instance);
-    partial void DeleteTransaccionNPS(TransaccionNPS instance);
-    partial void InsertMonedaDB(MonedaDB instance);
-    partial void UpdateMonedaDB(MonedaDB instance);
-    partial void DeleteMonedaDB(MonedaDB instance);
-    partial void InsertTipo_PRomociones_Alojamiento(Tipo_PRomociones_Alojamiento instance);
-    partial void UpdateTipo_PRomociones_Alojamiento(Tipo_PRomociones_Alojamiento instance);
-    partial void DeleteTipo_PRomociones_Alojamiento(Tipo_PRomociones_Alojamiento instance);
-    partial void InsertPromociones_Alojamiento(Promociones_Alojamiento instance);
-    partial void UpdatePromociones_Alojamiento(Promociones_Alojamiento instance);
-    partial void DeletePromociones_Alojamiento(Promociones_Alojamiento instance);
-    #endregion
-		
-		public TurismoDataContext() : 
+
+		#region Extensibility Method Definitions
+		partial void OnCreated();
+		partial void InsertTipoFormaPago(TipoFormaPago instance);
+		partial void UpdateTipoFormaPago(TipoFormaPago instance);
+		partial void DeleteTipoFormaPago(TipoFormaPago instance);
+		partial void InsertFormaPago(FormaPago instance);
+		partial void UpdateFormaPago(FormaPago instance);
+		partial void DeleteFormaPago(FormaPago instance);
+		partial void InsertUsuario(Usuario instance);
+		partial void UpdateUsuario(Usuario instance);
+		partial void DeleteUsuario(Usuario instance);
+		partial void InsertUsuarioAlojamiento(UsuarioAlojamiento instance);
+		partial void UpdateUsuarioAlojamiento(UsuarioAlojamiento instance);
+		partial void DeleteUsuarioAlojamiento(UsuarioAlojamiento instance);
+		partial void InsertAlojamiento(Alojamiento instance);
+		partial void UpdateAlojamiento(Alojamiento instance);
+		partial void DeleteAlojamiento(Alojamiento instance);
+		partial void InsertCiudad(Ciudad instance);
+		partial void UpdateCiudad(Ciudad instance);
+		partial void DeleteCiudad(Ciudad instance);
+		partial void InsertTransaccion(Transaccion instance);
+		partial void UpdateTransaccion(Transaccion instance);
+		partial void DeleteTransaccion(Transaccion instance);
+		partial void InsertTransaccionNPS(TransaccionNPS instance);
+		partial void UpdateTransaccionNPS(TransaccionNPS instance);
+		partial void DeleteTransaccionNPS(TransaccionNPS instance);
+		partial void InsertMonedaDB(MonedaDB instance);
+		partial void UpdateMonedaDB(MonedaDB instance);
+		partial void DeleteMonedaDB(MonedaDB instance);
+		partial void InsertTipo_PRomociones_Alojamiento(Tipo_PRomociones_Alojamiento instance);
+		partial void UpdateTipo_PRomociones_Alojamiento(Tipo_PRomociones_Alojamiento instance);
+		partial void DeleteTipo_PRomociones_Alojamiento(Tipo_PRomociones_Alojamiento instance);
+		partial void InsertPromociones_Alojamiento(Promociones_Alojamiento instance);
+		partial void UpdatePromociones_Alojamiento(Promociones_Alojamiento instance);
+		partial void DeletePromociones_Alojamiento(Promociones_Alojamiento instance);
+		#endregion
+
+		public TurismoDataContext() :
 				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DataSourceConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
-		
-		public TurismoDataContext(string connection) : 
+
+		public TurismoDataContext(string connection) :
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
-		
-		public TurismoDataContext(System.Data.IDbConnection connection) : 
+
+		public TurismoDataContext(System.Data.IDbConnection connection) :
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
-		
-		public TurismoDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+
+		public TurismoDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
-		
-		public TurismoDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+
+		public TurismoDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) :
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
-		
+
 		public System.Data.Linq.Table<TipoFormaPago> TipoFormaPagos
 		{
 			get
@@ -102,7 +102,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<TipoFormaPago>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<FormaPago> FormaPagos
 		{
 			get
@@ -110,7 +110,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<FormaPago>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<Usuario> Usuarios
 		{
 			get
@@ -118,7 +118,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<Usuario>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<UsuarioAlojamiento> UsuarioAlojamientos
 		{
 			get
@@ -126,7 +126,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<UsuarioAlojamiento>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<Alojamiento> Alojamientos
 		{
 			get
@@ -134,7 +134,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<Alojamiento>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<Ciudad> Ciudads
 		{
 			get
@@ -142,7 +142,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<Ciudad>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<Transaccion> Transaccions
 		{
 			get
@@ -150,7 +150,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<Transaccion>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<TransaccionNPS> TransaccionNPS
 		{
 			get
@@ -158,7 +158,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<TransaccionNPS>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<MonedaDB> MonedaDBs
 		{
 			get
@@ -166,7 +166,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<MonedaDB>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<Tipo_PRomociones_Alojamiento> Tipo_PRomociones_Alojamientos
 		{
 			get
@@ -174,7 +174,7 @@ namespace CheckArgentina.Models
 				return this.GetTable<Tipo_PRomociones_Alojamiento>();
 			}
 		}
-		
+
 		public System.Data.Linq.Table<Promociones_Alojamiento> Promociones_Alojamientos
 		{
 			get
@@ -182,70 +182,70 @@ namespace CheckArgentina.Models
 				return this.GetTable<Promociones_Alojamiento>();
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addTransaccionNPS")]
-		public int addTransaccionNPS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDTRANSACCION", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDTRANSACCION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REF_INELTUR", DbType="VarChar(50)")] string rEF_INELTUR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REF_NPS", DbType="VarChar(50)")] string rEF_NPS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ESTADO_RESULTADO", DbType="VarChar(20)")] string eSTADO_RESULTADO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDTRANSACCION_NPS", DbType="UniqueIdentifier")] ref System.Nullable<System.Guid> iDTRANSACCION_NPS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NROINTENTO", DbType="Int")] ref System.Nullable<int> nROINTENTO)
+
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.addTransaccionNPS")]
+		public int addTransaccionNPS([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "IDTRANSACCION", DbType = "UniqueIdentifier")] System.Nullable<System.Guid> iDTRANSACCION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "REF_INELTUR", DbType = "VarChar(50)")] string rEF_INELTUR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "REF_NPS", DbType = "VarChar(50)")] string rEF_NPS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ESTADO_RESULTADO", DbType = "VarChar(20)")] string eSTADO_RESULTADO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "IDTRANSACCION_NPS", DbType = "UniqueIdentifier")] ref System.Nullable<System.Guid> iDTRANSACCION_NPS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "NROINTENTO", DbType = "Int")] ref System.Nullable<int> nROINTENTO)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDTRANSACCION, rEF_INELTUR, rEF_NPS, eSTADO_RESULTADO, iDTRANSACCION_NPS, nROINTENTO);
 			iDTRANSACCION_NPS = ((System.Nullable<System.Guid>)(result.GetParameterValue(4)));
 			nROINTENTO = ((System.Nullable<int>)(result.GetParameterValue(5)));
 			return ((int)(result.ReturnValue));
 		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateTransaccionNPS")]
-		public int updateTransaccionNPS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDTRANSACCION_NPS", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDTRANSACCION_NPS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDTRANSACCION", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDTRANSACCION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NROINTENTO", DbType="Int")] System.Nullable<int> nROINTENTO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REF_INELTUR", DbType="VarChar(50)")] string rEF_INELTUR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REF_NPS", DbType="VarChar(50)")] string rEF_NPS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ESTADO_RESULTADO", DbType="VarChar(20)")] string eSTADO_RESULTADO, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> error)
+
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.updateTransaccionNPS")]
+		public int updateTransaccionNPS([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "IDTRANSACCION_NPS", DbType = "UniqueIdentifier")] System.Nullable<System.Guid> iDTRANSACCION_NPS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "IDTRANSACCION", DbType = "UniqueIdentifier")] System.Nullable<System.Guid> iDTRANSACCION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "NROINTENTO", DbType = "Int")] System.Nullable<int> nROINTENTO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "REF_INELTUR", DbType = "VarChar(50)")] string rEF_INELTUR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "REF_NPS", DbType = "VarChar(50)")] string rEF_NPS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ESTADO_RESULTADO", DbType = "VarChar(20)")] string eSTADO_RESULTADO, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType = "Int")] ref System.Nullable<int> error)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDTRANSACCION_NPS, iDTRANSACCION, nROINTENTO, rEF_INELTUR, rEF_NPS, eSTADO_RESULTADO, error);
 			error = ((System.Nullable<int>)(result.GetParameterValue(6)));
 			return ((int)(result.ReturnValue));
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TIPO_FORMAS_PAGO")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.TIPO_FORMAS_PAGO")]
 	public partial class TipoFormaPago : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDTIPOFORMAPAGO;
-		
+
 		private string _NOMBRE;
-		
+
 		private string _DESCRIPCION;
-		
+
 		private System.DateTime _FECHA_ALTA;
-		
+
 		private bool _ACTIVO;
-		
+
 		private System.Nullable<System.DateTime> _FECHA_BAJA;
-		
+
 		private EntitySet<FormaPago> _FORMAS_PAGOs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDTIPOFORMAPAGOChanging(System.Guid value);
-    partial void OnIDTIPOFORMAPAGOChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnFECHA_ALTAChanging(System.DateTime value);
-    partial void OnFECHA_ALTAChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHA_BAJAChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDTIPOFORMAPAGOChanging(System.Guid value);
+		partial void OnIDTIPOFORMAPAGOChanged();
+		partial void OnNOMBREChanging(string value);
+		partial void OnNOMBREChanged();
+		partial void OnDESCRIPCIONChanging(string value);
+		partial void OnDESCRIPCIONChanged();
+		partial void OnFECHA_ALTAChanging(System.DateTime value);
+		partial void OnFECHA_ALTAChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHA_BAJAChanged();
+		#endregion
+
 		public TipoFormaPago()
 		{
 			this._FORMAS_PAGOs = new EntitySet<FormaPago>(new Action<FormaPago>(this.attach_FORMAS_PAGOs), new Action<FormaPago>(this.detach_FORMAS_PAGOs));
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOFORMAPAGO", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPOFORMAPAGO", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDTIPOFORMAPAGO
 		{
 			get
@@ -264,8 +264,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBRE", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string NOMBRE
 		{
 			get
@@ -284,8 +284,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION", DbType = "VarChar(4000)")]
 		public string DESCRIPCION
 		{
 			get
@@ -304,8 +304,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_ALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHA_ALTA
 		{
 			get
@@ -324,8 +324,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -344,8 +344,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_BAJA", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_BAJA", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHA_BAJA
 		{
 			get
@@ -364,8 +364,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoFormaPago_FormaPago", Storage="_FORMAS_PAGOs", ThisKey="IDTIPOFORMAPAGO", OtherKey="IDTIPOFORMAPAGO")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "TipoFormaPago_FormaPago", Storage = "_FORMAS_PAGOs", ThisKey = "IDTIPOFORMAPAGO", OtherKey = "IDTIPOFORMAPAGO")]
 		public EntitySet<FormaPago> FormaPagos
 		{
 			get
@@ -377,11 +377,11 @@ namespace CheckArgentina.Models
 				this._FORMAS_PAGOs.Assign(value);
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -389,7 +389,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -397,72 +397,72 @@ namespace CheckArgentina.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
+
 		private void attach_FORMAS_PAGOs(FormaPago entity)
 		{
 			this.SendPropertyChanging();
 			entity.TipoFormaPago = this;
 		}
-		
+
 		private void detach_FORMAS_PAGOs(FormaPago entity)
 		{
 			this.SendPropertyChanging();
 			entity.TipoFormaPago = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FORMAS_PAGO")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.FORMAS_PAGO")]
 	public partial class FormaPago : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDFORMAPAGO;
-		
+
 		private string _NOMBRE;
-		
+
 		private string _DESCRIPCION;
-		
+
 		private bool _ACTIVO;
-		
+
 		private System.DateTime _FECHA_ALTA;
-		
+
 		private System.Nullable<System.DateTime> _FECHA_BAJA;
-		
+
 		private System.Guid _IDTIPOFORMAPAGO;
-		
+
 		private EntitySet<Transaccion> _Transaccions;
-		
+
 		private EntityRef<TipoFormaPago> _TIPO_FORMAS_PAGO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDFORMAPAGOChanging(System.Guid value);
-    partial void OnIDFORMAPAGOChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnFECHA_ALTAChanging(System.DateTime value);
-    partial void OnFECHA_ALTAChanged();
-    partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHA_BAJAChanged();
-    partial void OnIDTIPOFORMAPAGOChanging(System.Guid value);
-    partial void OnIDTIPOFORMAPAGOChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDFORMAPAGOChanging(System.Guid value);
+		partial void OnIDFORMAPAGOChanged();
+		partial void OnNOMBREChanging(string value);
+		partial void OnNOMBREChanged();
+		partial void OnDESCRIPCIONChanging(string value);
+		partial void OnDESCRIPCIONChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnFECHA_ALTAChanging(System.DateTime value);
+		partial void OnFECHA_ALTAChanged();
+		partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHA_BAJAChanged();
+		partial void OnIDTIPOFORMAPAGOChanging(System.Guid value);
+		partial void OnIDTIPOFORMAPAGOChanged();
+		#endregion
+
 		public FormaPago()
 		{
 			this._Transaccions = new EntitySet<Transaccion>(new Action<Transaccion>(this.attach_Transaccions), new Action<Transaccion>(this.detach_Transaccions));
 			this._TIPO_FORMAS_PAGO = default(EntityRef<TipoFormaPago>);
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFORMAPAGO", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDFORMAPAGO", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDFORMAPAGO
 		{
 			get
@@ -481,8 +481,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBRE", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string NOMBRE
 		{
 			get
@@ -501,8 +501,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION", DbType = "VarChar(4000)")]
 		public string DESCRIPCION
 		{
 			get
@@ -521,8 +521,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -541,8 +541,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_ALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHA_ALTA
 		{
 			get
@@ -561,8 +561,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_BAJA", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_BAJA", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHA_BAJA
 		{
 			get
@@ -581,8 +581,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOFORMAPAGO", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPOFORMAPAGO", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDTIPOFORMAPAGO
 		{
 			get
@@ -605,8 +605,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FormaPago_Transaccion", Storage="_Transaccions", ThisKey="IDFORMAPAGO", OtherKey="IDFORMAPAGO")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "FormaPago_Transaccion", Storage = "_Transaccions", ThisKey = "IDFORMAPAGO", OtherKey = "IDFORMAPAGO")]
 		public EntitySet<Transaccion> Transaccions
 		{
 			get
@@ -618,8 +618,8 @@ namespace CheckArgentina.Models
 				this._Transaccions.Assign(value);
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoFormaPago_FormaPago", Storage="_TIPO_FORMAS_PAGO", ThisKey="IDTIPOFORMAPAGO", OtherKey="IDTIPOFORMAPAGO", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "TipoFormaPago_FormaPago", Storage = "_TIPO_FORMAS_PAGO", ThisKey = "IDTIPOFORMAPAGO", OtherKey = "IDTIPOFORMAPAGO", IsForeignKey = true)]
 		public TipoFormaPago TipoFormaPago
 		{
 			get
@@ -629,7 +629,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				TipoFormaPago previousValue = this._TIPO_FORMAS_PAGO.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._TIPO_FORMAS_PAGO.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -652,11 +652,11 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -664,7 +664,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -672,184 +672,184 @@ namespace CheckArgentina.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
+
 		private void attach_Transaccions(Transaccion entity)
 		{
 			this.SendPropertyChanging();
 			entity.FormaPago = this;
 		}
-		
+
 		private void detach_Transaccions(Transaccion entity)
 		{
 			this.SendPropertyChanging();
 			entity.FormaPago = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USUARIOS")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.USUARIOS")]
 	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDUSUARIO;
-		
+
 		private System.Guid _IDTIPOUSUARIO;
-		
+
 		private System.Nullable<System.Guid> _IDCIUDAD;
-		
+
 		private string _OTRACIUDAD;
-		
+
 		private System.Guid _IDPAIS;
-		
+
 		private System.Nullable<System.Guid> _IDOCUPACION;
-		
+
 		private string _NOMBRE;
-		
+
 		private string _APELLIDO;
-		
+
 		private System.DateTime _FECHA_NACIMIENTO;
-		
+
 		private string _DIRECCION;
-		
+
 		private string _TELEFONO;
-		
+
 		private string _FAX;
-		
+
 		private string _EMAIL;
-		
+
 		private string _NOMBREUSUARIO;
-		
+
 		private string _CLAVE;
-		
+
 		private System.DateTime _FECHA_ALTA;
-		
+
 		private bool _ACTIVO;
-		
+
 		private System.Nullable<System.DateTime> _FECHA_BAJA;
-		
+
 		private System.Nullable<bool> _SEXO;
-		
+
 		private System.Guid _IDTIPODOCUMENTO;
-		
+
 		private System.Nullable<bool> _DESEAPROPAGANDA;
-		
+
 		private string _NRODOCUMENTO;
-		
+
 		private System.Nullable<System.Guid> _IDPROVINCIA;
-		
+
 		private string _CP;
-		
+
 		private System.Nullable<System.DateTime> _ULTIMOACCESO;
-		
+
 		private int _CANTIDADACCESOS;
-		
+
 		private System.Nullable<System.DateTime> _FECHAMAILPUBLICIDAD;
-		
+
 		private System.Nullable<bool> _HABILITARCUENTACORRIENTE;
-		
+
 		private System.Nullable<bool> _RESERVASONLINEILIMITADAS;
-		
+
 		private System.Nullable<float> _MARKUPAAGENCIA;
-		
+
 		private System.Nullable<float> _MARKUPACONSUMIDORFINAL;
-		
+
 		private System.Nullable<System.Guid> _IDMONEDA;
-		
+
 		private System.Nullable<System.Guid> _IDCLIENTE;
-		
+
 		private System.Nullable<bool> _INTERFAZPAGOPROPIA;
-		
+
 		private string _URLLOGO;
-		
+
 		private EntitySet<UsuarioAlojamiento> _UsuarioAlojamientos;
-		
+
 		private EntityRef<Ciudad> _Ciudad;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDUSUARIOChanging(System.Guid value);
-    partial void OnIDUSUARIOChanged();
-    partial void OnIDTIPOUSUARIOChanging(System.Guid value);
-    partial void OnIDTIPOUSUARIOChanged();
-    partial void OnIDCIUDADChanging(System.Nullable<System.Guid> value);
-    partial void OnIDCIUDADChanged();
-    partial void OnOTRACIUDADChanging(string value);
-    partial void OnOTRACIUDADChanged();
-    partial void OnIDPAISChanging(System.Guid value);
-    partial void OnIDPAISChanged();
-    partial void OnIDOCUPACIONChanging(System.Nullable<System.Guid> value);
-    partial void OnIDOCUPACIONChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnAPELLIDOChanging(string value);
-    partial void OnAPELLIDOChanged();
-    partial void OnFECHA_NACIMIENTOChanging(System.DateTime value);
-    partial void OnFECHA_NACIMIENTOChanged();
-    partial void OnDIRECCIONChanging(string value);
-    partial void OnDIRECCIONChanged();
-    partial void OnTELEFONOChanging(string value);
-    partial void OnTELEFONOChanged();
-    partial void OnFAXChanging(string value);
-    partial void OnFAXChanged();
-    partial void OnEMAILChanging(string value);
-    partial void OnEMAILChanged();
-    partial void OnNOMBREUSUARIOChanging(string value);
-    partial void OnNOMBREUSUARIOChanged();
-    partial void OnCLAVEChanging(string value);
-    partial void OnCLAVEChanged();
-    partial void OnFECHA_ALTAChanging(System.DateTime value);
-    partial void OnFECHA_ALTAChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHA_BAJAChanged();
-    partial void OnSEXOChanging(System.Nullable<bool> value);
-    partial void OnSEXOChanged();
-    partial void OnIDTIPODOCUMENTOChanging(System.Guid value);
-    partial void OnIDTIPODOCUMENTOChanged();
-    partial void OnDESEAPROPAGANDAChanging(System.Nullable<bool> value);
-    partial void OnDESEAPROPAGANDAChanged();
-    partial void OnNRODOCUMENTOChanging(string value);
-    partial void OnNRODOCUMENTOChanged();
-    partial void OnIDPROVINCIAChanging(System.Nullable<System.Guid> value);
-    partial void OnIDPROVINCIAChanged();
-    partial void OnCPChanging(string value);
-    partial void OnCPChanged();
-    partial void OnULTIMOACCESOChanging(System.Nullable<System.DateTime> value);
-    partial void OnULTIMOACCESOChanged();
-    partial void OnCANTIDADACCESOSChanging(int value);
-    partial void OnCANTIDADACCESOSChanged();
-    partial void OnFECHAMAILPUBLICIDADChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAMAILPUBLICIDADChanged();
-    partial void OnHABILITARCUENTACORRIENTEChanging(System.Nullable<bool> value);
-    partial void OnHABILITARCUENTACORRIENTEChanged();
-    partial void OnRESERVASONLINEILIMITADASChanging(System.Nullable<bool> value);
-    partial void OnRESERVASONLINEILIMITADASChanged();
-    partial void OnMARKUPAAGENCIAChanging(System.Nullable<float> value);
-    partial void OnMARKUPAAGENCIAChanged();
-    partial void OnMARKUPACONSUMIDORFINALChanging(System.Nullable<float> value);
-    partial void OnMARKUPACONSUMIDORFINALChanged();
-    partial void OnIDMONEDAChanging(System.Nullable<System.Guid> value);
-    partial void OnIDMONEDAChanged();
-    partial void OnIDCLIENTEChanging(System.Nullable<System.Guid> value);
-    partial void OnIDCLIENTEChanged();
-    partial void OnINTERFAZPAGOPROPIAChanging(System.Nullable<bool> value);
-    partial void OnINTERFAZPAGOPROPIAChanged();
-    partial void OnURLLOGOChanging(string value);
-    partial void OnURLLOGOChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDUSUARIOChanging(System.Guid value);
+		partial void OnIDUSUARIOChanged();
+		partial void OnIDTIPOUSUARIOChanging(System.Guid value);
+		partial void OnIDTIPOUSUARIOChanged();
+		partial void OnIDCIUDADChanging(System.Nullable<System.Guid> value);
+		partial void OnIDCIUDADChanged();
+		partial void OnOTRACIUDADChanging(string value);
+		partial void OnOTRACIUDADChanged();
+		partial void OnIDPAISChanging(System.Guid value);
+		partial void OnIDPAISChanged();
+		partial void OnIDOCUPACIONChanging(System.Nullable<System.Guid> value);
+		partial void OnIDOCUPACIONChanged();
+		partial void OnNOMBREChanging(string value);
+		partial void OnNOMBREChanged();
+		partial void OnAPELLIDOChanging(string value);
+		partial void OnAPELLIDOChanged();
+		partial void OnFECHA_NACIMIENTOChanging(System.DateTime value);
+		partial void OnFECHA_NACIMIENTOChanged();
+		partial void OnDIRECCIONChanging(string value);
+		partial void OnDIRECCIONChanged();
+		partial void OnTELEFONOChanging(string value);
+		partial void OnTELEFONOChanged();
+		partial void OnFAXChanging(string value);
+		partial void OnFAXChanged();
+		partial void OnEMAILChanging(string value);
+		partial void OnEMAILChanged();
+		partial void OnNOMBREUSUARIOChanging(string value);
+		partial void OnNOMBREUSUARIOChanged();
+		partial void OnCLAVEChanging(string value);
+		partial void OnCLAVEChanged();
+		partial void OnFECHA_ALTAChanging(System.DateTime value);
+		partial void OnFECHA_ALTAChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHA_BAJAChanged();
+		partial void OnSEXOChanging(System.Nullable<bool> value);
+		partial void OnSEXOChanged();
+		partial void OnIDTIPODOCUMENTOChanging(System.Guid value);
+		partial void OnIDTIPODOCUMENTOChanged();
+		partial void OnDESEAPROPAGANDAChanging(System.Nullable<bool> value);
+		partial void OnDESEAPROPAGANDAChanged();
+		partial void OnNRODOCUMENTOChanging(string value);
+		partial void OnNRODOCUMENTOChanged();
+		partial void OnIDPROVINCIAChanging(System.Nullable<System.Guid> value);
+		partial void OnIDPROVINCIAChanged();
+		partial void OnCPChanging(string value);
+		partial void OnCPChanged();
+		partial void OnULTIMOACCESOChanging(System.Nullable<System.DateTime> value);
+		partial void OnULTIMOACCESOChanged();
+		partial void OnCANTIDADACCESOSChanging(int value);
+		partial void OnCANTIDADACCESOSChanged();
+		partial void OnFECHAMAILPUBLICIDADChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHAMAILPUBLICIDADChanged();
+		partial void OnHABILITARCUENTACORRIENTEChanging(System.Nullable<bool> value);
+		partial void OnHABILITARCUENTACORRIENTEChanged();
+		partial void OnRESERVASONLINEILIMITADASChanging(System.Nullable<bool> value);
+		partial void OnRESERVASONLINEILIMITADASChanged();
+		partial void OnMARKUPAAGENCIAChanging(System.Nullable<float> value);
+		partial void OnMARKUPAAGENCIAChanged();
+		partial void OnMARKUPACONSUMIDORFINALChanging(System.Nullable<float> value);
+		partial void OnMARKUPACONSUMIDORFINALChanged();
+		partial void OnIDMONEDAChanging(System.Nullable<System.Guid> value);
+		partial void OnIDMONEDAChanged();
+		partial void OnIDCLIENTEChanging(System.Nullable<System.Guid> value);
+		partial void OnIDCLIENTEChanged();
+		partial void OnINTERFAZPAGOPROPIAChanging(System.Nullable<bool> value);
+		partial void OnINTERFAZPAGOPROPIAChanged();
+		partial void OnURLLOGOChanging(string value);
+		partial void OnURLLOGOChanged();
+		#endregion
+
 		public Usuario()
 		{
 			this._UsuarioAlojamientos = new EntitySet<UsuarioAlojamiento>(new Action<UsuarioAlojamiento>(this.attach_UsuarioAlojamientos), new Action<UsuarioAlojamiento>(this.detach_UsuarioAlojamientos));
 			this._Ciudad = default(EntityRef<Ciudad>);
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDUSUARIO", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDUSUARIO
 		{
 			get
@@ -868,8 +868,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOUSUARIO", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPOUSUARIO", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDTIPOUSUARIO
 		{
 			get
@@ -888,8 +888,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCIUDAD", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDCIUDAD", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDCIUDAD
 		{
 			get
@@ -912,8 +912,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTRACIUDAD", DbType="VarChar(100)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_OTRACIUDAD", DbType = "VarChar(100)")]
 		public string OTRACIUDAD
 		{
 			get
@@ -932,8 +932,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPAIS", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDPAIS", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDPAIS
 		{
 			get
@@ -952,8 +952,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDOCUPACION", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDOCUPACION", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDOCUPACION
 		{
 			get
@@ -972,8 +972,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBRE", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string NOMBRE
 		{
 			get
@@ -992,8 +992,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APELLIDO", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_APELLIDO", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string APELLIDO
 		{
 			get
@@ -1012,8 +1012,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_NACIMIENTO", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_NACIMIENTO", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHA_NACIMIENTO
 		{
 			get
@@ -1032,8 +1032,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIRECCION", DbType="VarChar(100)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DIRECCION", DbType = "VarChar(100)")]
 		public string DIRECCION
 		{
 			get
@@ -1052,8 +1052,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONO", DbType="VarChar(50)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TELEFONO", DbType = "VarChar(50)")]
 		public string TELEFONO
 		{
 			get
@@ -1072,8 +1072,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAX", DbType="VarChar(50)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FAX", DbType = "VarChar(50)")]
 		public string FAX
 		{
 			get
@@ -1092,8 +1092,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EMAIL", DbType = "VarChar(150) NOT NULL", CanBeNull = false)]
 		public string EMAIL
 		{
 			get
@@ -1112,8 +1112,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBREUSUARIO", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBREUSUARIO", DbType = "VarChar(15) NOT NULL", CanBeNull = false)]
 		public string NOMBREUSUARIO
 		{
 			get
@@ -1132,8 +1132,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLAVE", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CLAVE", DbType = "VarChar(15) NOT NULL", CanBeNull = false)]
 		public string CLAVE
 		{
 			get
@@ -1152,8 +1152,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_ALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHA_ALTA
 		{
 			get
@@ -1172,8 +1172,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -1192,8 +1192,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_BAJA", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_BAJA", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHA_BAJA
 		{
 			get
@@ -1212,8 +1212,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEXO", DbType="Bit")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SEXO", DbType = "Bit")]
 		public System.Nullable<bool> SEXO
 		{
 			get
@@ -1232,8 +1232,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPODOCUMENTO", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPODOCUMENTO", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDTIPODOCUMENTO
 		{
 			get
@@ -1252,8 +1252,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESEAPROPAGANDA", DbType="Bit")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESEAPROPAGANDA", DbType = "Bit")]
 		public System.Nullable<bool> DESEAPROPAGANDA
 		{
 			get
@@ -1272,8 +1272,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRODOCUMENTO", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NRODOCUMENTO", DbType = "VarChar(15) NOT NULL", CanBeNull = false)]
 		public string NRODOCUMENTO
 		{
 			get
@@ -1292,8 +1292,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPROVINCIA", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDPROVINCIA", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDPROVINCIA
 		{
 			get
@@ -1312,8 +1312,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CP", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CP", DbType = "VarChar(10) NOT NULL", CanBeNull = false)]
 		public string CP
 		{
 			get
@@ -1332,8 +1332,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ULTIMOACCESO", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ULTIMOACCESO", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> ULTIMOACCESO
 		{
 			get
@@ -1352,8 +1352,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANTIDADACCESOS", DbType="Int NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CANTIDADACCESOS", DbType = "Int NOT NULL")]
 		public int CANTIDADACCESOS
 		{
 			get
@@ -1372,8 +1372,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAMAILPUBLICIDAD", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHAMAILPUBLICIDAD", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHAMAILPUBLICIDAD
 		{
 			get
@@ -1392,8 +1392,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HABILITARCUENTACORRIENTE", DbType="Bit")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_HABILITARCUENTACORRIENTE", DbType = "Bit")]
 		public System.Nullable<bool> HABILITARCUENTACORRIENTE
 		{
 			get
@@ -1412,8 +1412,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RESERVASONLINEILIMITADAS", DbType="Bit")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RESERVASONLINEILIMITADAS", DbType = "Bit")]
 		public System.Nullable<bool> RESERVASONLINEILIMITADAS
 		{
 			get
@@ -1432,8 +1432,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MARKUPAAGENCIA", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MARKUPAAGENCIA", DbType = "Real")]
 		public System.Nullable<float> MARKUPAAGENCIA
 		{
 			get
@@ -1452,8 +1452,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MARKUPACONSUMIDORFINAL", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MARKUPACONSUMIDORFINAL", DbType = "Real")]
 		public System.Nullable<float> MARKUPACONSUMIDORFINAL
 		{
 			get
@@ -1472,8 +1472,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDMONEDA", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDMONEDA
 		{
 			get
@@ -1492,8 +1492,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCLIENTE", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDCLIENTE", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDCLIENTE
 		{
 			get
@@ -1512,8 +1512,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INTERFAZPAGOPROPIA", DbType="Bit")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INTERFAZPAGOPROPIA", DbType = "Bit")]
 		public System.Nullable<bool> INTERFAZPAGOPROPIA
 		{
 			get
@@ -1532,8 +1532,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URLLOGO", DbType="VarChar(70)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_URLLOGO", DbType = "VarChar(70)")]
 		public string URLLOGO
 		{
 			get
@@ -1552,8 +1552,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_UsuarioAlojamiento", Storage="_UsuarioAlojamientos", ThisKey="IDUSUARIO", OtherKey="IDUSUARIO")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Usuario_UsuarioAlojamiento", Storage = "_UsuarioAlojamientos", ThisKey = "IDUSUARIO", OtherKey = "IDUSUARIO")]
 		public EntitySet<UsuarioAlojamiento> UsuarioAlojamientos
 		{
 			get
@@ -1565,8 +1565,8 @@ namespace CheckArgentina.Models
 				this._UsuarioAlojamientos.Assign(value);
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ciudad_Usuario", Storage="_Ciudad", ThisKey="IDCIUDAD", OtherKey="IDCIUDAD", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Ciudad_Usuario", Storage = "_Ciudad", ThisKey = "IDCIUDAD", OtherKey = "IDCIUDAD", IsForeignKey = true)]
 		public Ciudad Ciudad
 		{
 			get
@@ -1576,7 +1576,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				Ciudad previousValue = this._Ciudad.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._Ciudad.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -1599,11 +1599,11 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -1611,7 +1611,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -1619,52 +1619,52 @@ namespace CheckArgentina.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
+
 		private void attach_UsuarioAlojamientos(UsuarioAlojamiento entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = this;
 		}
-		
+
 		private void detach_UsuarioAlojamientos(UsuarioAlojamiento entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USUARIOS_ALOJ")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.USUARIOS_ALOJ")]
 	public partial class UsuarioAlojamiento : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDUSUARIO;
-		
+
 		private System.Guid _IDALOJ;
-		
+
 		private EntityRef<Usuario> _Usuario;
-		
+
 		private EntityRef<Alojamiento> _Alojamiento;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDUSUARIOChanging(System.Guid value);
-    partial void OnIDUSUARIOChanged();
-    partial void OnIDALOJChanging(System.Guid value);
-    partial void OnIDALOJChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDUSUARIOChanging(System.Guid value);
+		partial void OnIDUSUARIOChanged();
+		partial void OnIDALOJChanging(System.Guid value);
+		partial void OnIDALOJChanged();
+		#endregion
+
 		public UsuarioAlojamiento()
 		{
 			this._Usuario = default(EntityRef<Usuario>);
 			this._Alojamiento = default(EntityRef<Alojamiento>);
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDUSUARIO", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDUSUARIO
 		{
 			get
@@ -1687,8 +1687,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDALOJ", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDALOJ
 		{
 			get
@@ -1711,8 +1711,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_UsuarioAlojamiento", Storage="_Usuario", ThisKey="IDUSUARIO", OtherKey="IDUSUARIO", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Usuario_UsuarioAlojamiento", Storage = "_Usuario", ThisKey = "IDUSUARIO", OtherKey = "IDUSUARIO", IsForeignKey = true)]
 		public Usuario Usuario
 		{
 			get
@@ -1722,7 +1722,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -1745,8 +1745,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Alojamiento_UsuarioAlojamiento", Storage="_Alojamiento", ThisKey="IDALOJ", OtherKey="IDALOJ", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Alojamiento_UsuarioAlojamiento", Storage = "_Alojamiento", ThisKey = "IDALOJ", OtherKey = "IDALOJ", IsForeignKey = true)]
 		public Alojamiento Alojamiento
 		{
 			get
@@ -1756,7 +1756,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				Alojamiento previousValue = this._Alojamiento.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._Alojamiento.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -1779,11 +1779,11 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -1791,7 +1791,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -1800,143 +1800,143 @@ namespace CheckArgentina.Models
 			}
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ALOJAMIENTOS")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.ALOJAMIENTOS")]
 	public partial class Alojamiento : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDALOJ;
-		
+
 		private System.Guid _IDCIUDAD;
-		
+
 		private System.Guid _IDTIPOALOJ;
-		
+
 		private System.Nullable<System.Guid> _IDUSUARIO;
-		
+
 		private System.Guid _IDPAIS;
-		
+
 		private System.Guid _IDTIPO_PERFIL;
-		
+
 		private System.Nullable<System.Guid> _IDMONEDA;
-		
+
 		private string _NOMBRE;
-		
+
 		private string _RAZONSOCIAL;
-		
+
 		private string _DESCRIPCION;
-		
+
 		private string _DESCRIPCION2;
-		
+
 		private string _DIRECCION;
-		
+
 		private string _TELEFONO;
-		
+
 		private string _EMAIL;
-		
+
 		private string _WEB;
-		
+
 		private string _FAX;
-		
+
 		private string _CUIT;
-		
+
 		private System.DateTime _FECHA_ALTA;
-		
+
 		private System.Nullable<System.DateTime> _FECHA_BAJA;
-		
+
 		private int _AGENDARESERVAS;
-		
+
 		private string _URLSUBDOMINIO;
-		
+
 		private bool _ACTIVO;
-		
+
 		private int _ALTACONFIRMADA;
-		
+
 		private bool _SITIOPUBLICADO;
-		
+
 		private System.Guid _IDTIPOESTRELLAALOJ;
-		
+
 		private int _CODIGOBLOQUEO;
-		
+
 		private float _COMISION;
-		
+
 		private string _POLITICASCANCELACION;
-		
+
 		private System.Nullable<int> _DIASCANCELACIONCARGO;
-		
+
 		private EntitySet<UsuarioAlojamiento> _UsuarioAlojamientos;
-		
+
 		private EntitySet<Transaccion> _Transaccions;
-		
+
 		private EntityRef<Ciudad> _Ciudad;
-		
+
 		private EntityRef<MonedaDB> _MONEDA;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDALOJChanging(System.Guid value);
-    partial void OnIDALOJChanged();
-    partial void OnIDCIUDADChanging(System.Guid value);
-    partial void OnIDCIUDADChanged();
-    partial void OnIDTIPOALOJChanging(System.Guid value);
-    partial void OnIDTIPOALOJChanged();
-    partial void OnIDUSUARIOChanging(System.Nullable<System.Guid> value);
-    partial void OnIDUSUARIOChanged();
-    partial void OnIDPAISChanging(System.Guid value);
-    partial void OnIDPAISChanged();
-    partial void OnIDTIPO_PERFILChanging(System.Guid value);
-    partial void OnIDTIPO_PERFILChanged();
-    partial void OnIDMONEDAChanging(System.Nullable<System.Guid> value);
-    partial void OnIDMONEDAChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnRAZONSOCIALChanging(string value);
-    partial void OnRAZONSOCIALChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnDESCRIPCION2Changing(string value);
-    partial void OnDESCRIPCION2Changed();
-    partial void OnDIRECCIONChanging(string value);
-    partial void OnDIRECCIONChanged();
-    partial void OnTELEFONOChanging(string value);
-    partial void OnTELEFONOChanged();
-    partial void OnEMAILChanging(string value);
-    partial void OnEMAILChanged();
-    partial void OnWEBChanging(string value);
-    partial void OnWEBChanged();
-    partial void OnFAXChanging(string value);
-    partial void OnFAXChanged();
-    partial void OnCUITChanging(string value);
-    partial void OnCUITChanged();
-    partial void OnFECHA_ALTAChanging(System.DateTime value);
-    partial void OnFECHA_ALTAChanged();
-    partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHA_BAJAChanged();
-    partial void OnAGENDARESERVASChanging(int value);
-    partial void OnAGENDARESERVASChanged();
-    partial void OnURLSUBDOMINIOChanging(string value);
-    partial void OnURLSUBDOMINIOChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnALTACONFIRMADAChanging(int value);
-    partial void OnALTACONFIRMADAChanged();
-    partial void OnSITIOPUBLICADOChanging(bool value);
-    partial void OnSITIOPUBLICADOChanged();
-    partial void OnIDTIPOESTRELLAALOJChanging(System.Guid value);
-    partial void OnIDTIPOESTRELLAALOJChanged();
-    partial void OnCODIGOBLOQUEOChanging(int value);
-    partial void OnCODIGOBLOQUEOChanged();
-    partial void OnCOMISIONChanging(float value);
-    partial void OnCOMISIONChanged();
-    partial void OnPOLITICASCANCELACIONChanging(string value);
-    partial void OnPOLITICASCANCELACIONChanged();
-    partial void OnDIASCANCELACIONCARGOChanging(System.Nullable<int> value);
-    partial void OnDIASCANCELACIONCARGOChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDALOJChanging(System.Guid value);
+		partial void OnIDALOJChanged();
+		partial void OnIDCIUDADChanging(System.Guid value);
+		partial void OnIDCIUDADChanged();
+		partial void OnIDTIPOALOJChanging(System.Guid value);
+		partial void OnIDTIPOALOJChanged();
+		partial void OnIDUSUARIOChanging(System.Nullable<System.Guid> value);
+		partial void OnIDUSUARIOChanged();
+		partial void OnIDPAISChanging(System.Guid value);
+		partial void OnIDPAISChanged();
+		partial void OnIDTIPO_PERFILChanging(System.Guid value);
+		partial void OnIDTIPO_PERFILChanged();
+		partial void OnIDMONEDAChanging(System.Nullable<System.Guid> value);
+		partial void OnIDMONEDAChanged();
+		partial void OnNOMBREChanging(string value);
+		partial void OnNOMBREChanged();
+		partial void OnRAZONSOCIALChanging(string value);
+		partial void OnRAZONSOCIALChanged();
+		partial void OnDESCRIPCIONChanging(string value);
+		partial void OnDESCRIPCIONChanged();
+		partial void OnDESCRIPCION2Changing(string value);
+		partial void OnDESCRIPCION2Changed();
+		partial void OnDIRECCIONChanging(string value);
+		partial void OnDIRECCIONChanged();
+		partial void OnTELEFONOChanging(string value);
+		partial void OnTELEFONOChanged();
+		partial void OnEMAILChanging(string value);
+		partial void OnEMAILChanged();
+		partial void OnWEBChanging(string value);
+		partial void OnWEBChanged();
+		partial void OnFAXChanging(string value);
+		partial void OnFAXChanged();
+		partial void OnCUITChanging(string value);
+		partial void OnCUITChanged();
+		partial void OnFECHA_ALTAChanging(System.DateTime value);
+		partial void OnFECHA_ALTAChanged();
+		partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHA_BAJAChanged();
+		partial void OnAGENDARESERVASChanging(int value);
+		partial void OnAGENDARESERVASChanged();
+		partial void OnURLSUBDOMINIOChanging(string value);
+		partial void OnURLSUBDOMINIOChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnALTACONFIRMADAChanging(int value);
+		partial void OnALTACONFIRMADAChanged();
+		partial void OnSITIOPUBLICADOChanging(bool value);
+		partial void OnSITIOPUBLICADOChanged();
+		partial void OnIDTIPOESTRELLAALOJChanging(System.Guid value);
+		partial void OnIDTIPOESTRELLAALOJChanged();
+		partial void OnCODIGOBLOQUEOChanging(int value);
+		partial void OnCODIGOBLOQUEOChanged();
+		partial void OnCOMISIONChanging(float value);
+		partial void OnCOMISIONChanged();
+		partial void OnPOLITICASCANCELACIONChanging(string value);
+		partial void OnPOLITICASCANCELACIONChanged();
+		partial void OnDIASCANCELACIONCARGOChanging(System.Nullable<int> value);
+		partial void OnDIASCANCELACIONCARGOChanged();
+		#endregion
+
 		public Alojamiento()
 		{
 			this._UsuarioAlojamientos = new EntitySet<UsuarioAlojamiento>(new Action<UsuarioAlojamiento>(this.attach_UsuarioAlojamientos), new Action<UsuarioAlojamiento>(this.detach_UsuarioAlojamientos));
@@ -1945,8 +1945,8 @@ namespace CheckArgentina.Models
 			this._MONEDA = default(EntityRef<MonedaDB>);
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDALOJ", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDALOJ
 		{
 			get
@@ -1965,8 +1965,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCIUDAD", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDCIUDAD", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDCIUDAD
 		{
 			get
@@ -1989,8 +1989,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOALOJ", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPOALOJ", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDTIPOALOJ
 		{
 			get
@@ -2009,8 +2009,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDUSUARIO", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDUSUARIO
 		{
 			get
@@ -2029,8 +2029,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPAIS", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDPAIS", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDPAIS
 		{
 			get
@@ -2049,8 +2049,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPO_PERFIL", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPO_PERFIL", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDTIPO_PERFIL
 		{
 			get
@@ -2069,8 +2069,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDMONEDA", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDMONEDA
 		{
 			get
@@ -2093,8 +2093,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBRE", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string NOMBRE
 		{
 			get
@@ -2113,8 +2113,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RAZONSOCIAL", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RAZONSOCIAL", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string RAZONSOCIAL
 		{
 			get
@@ -2133,8 +2133,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION", DbType = "VarChar(4000)")]
 		public string DESCRIPCION
 		{
 			get
@@ -2153,8 +2153,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION2", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION2", DbType = "VarChar(4000)")]
 		public string DESCRIPCION2
 		{
 			get
@@ -2173,8 +2173,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIRECCION", DbType="VarChar(100)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DIRECCION", DbType = "VarChar(100)")]
 		public string DIRECCION
 		{
 			get
@@ -2193,8 +2193,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONO", DbType="VarChar(50)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TELEFONO", DbType = "VarChar(50)")]
 		public string TELEFONO
 		{
 			get
@@ -2213,8 +2213,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="VarChar(150)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EMAIL", DbType = "VarChar(150)")]
 		public string EMAIL
 		{
 			get
@@ -2233,8 +2233,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB", DbType="VarChar(150)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_WEB", DbType = "VarChar(150)")]
 		public string WEB
 		{
 			get
@@ -2253,8 +2253,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAX", DbType="VarChar(50)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FAX", DbType = "VarChar(50)")]
 		public string FAX
 		{
 			get
@@ -2273,8 +2273,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUIT", DbType="VarChar(15)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CUIT", DbType = "VarChar(15)")]
 		public string CUIT
 		{
 			get
@@ -2293,8 +2293,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_ALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHA_ALTA
 		{
 			get
@@ -2313,8 +2313,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_BAJA", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_BAJA", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHA_BAJA
 		{
 			get
@@ -2333,8 +2333,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AGENDARESERVAS", DbType="Int NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AGENDARESERVAS", DbType = "Int NOT NULL")]
 		public int AGENDARESERVAS
 		{
 			get
@@ -2353,8 +2353,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URLSUBDOMINIO", DbType="VarChar(150)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_URLSUBDOMINIO", DbType = "VarChar(150)")]
 		public string URLSUBDOMINIO
 		{
 			get
@@ -2373,8 +2373,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -2393,8 +2393,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALTACONFIRMADA", DbType="Int NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ALTACONFIRMADA", DbType = "Int NOT NULL")]
 		public int ALTACONFIRMADA
 		{
 			get
@@ -2413,8 +2413,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SITIOPUBLICADO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SITIOPUBLICADO", DbType = "Bit NOT NULL")]
 		public bool SITIOPUBLICADO
 		{
 			get
@@ -2433,8 +2433,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOESTRELLAALOJ", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPOESTRELLAALOJ", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDTIPOESTRELLAALOJ
 		{
 			get
@@ -2453,8 +2453,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGOBLOQUEO", DbType="Int NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODIGOBLOQUEO", DbType = "Int NOT NULL")]
 		public int CODIGOBLOQUEO
 		{
 			get
@@ -2473,8 +2473,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMISION", DbType="Real NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_COMISION", DbType = "Real NOT NULL")]
 		public float COMISION
 		{
 			get
@@ -2493,8 +2493,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POLITICASCANCELACION", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_POLITICASCANCELACION", DbType = "VarChar(4000)")]
 		public string POLITICASCANCELACION
 		{
 			get
@@ -2513,8 +2513,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIASCANCELACIONCARGO", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DIASCANCELACIONCARGO", DbType = "Int")]
 		public System.Nullable<int> DIASCANCELACIONCARGO
 		{
 			get
@@ -2533,8 +2533,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Alojamiento_UsuarioAlojamiento", Storage="_UsuarioAlojamientos", ThisKey="IDALOJ", OtherKey="IDALOJ")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Alojamiento_UsuarioAlojamiento", Storage = "_UsuarioAlojamientos", ThisKey = "IDALOJ", OtherKey = "IDALOJ")]
 		public EntitySet<UsuarioAlojamiento> UsuarioAlojamientos
 		{
 			get
@@ -2546,8 +2546,8 @@ namespace CheckArgentina.Models
 				this._UsuarioAlojamientos.Assign(value);
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Alojamiento_Transaccion", Storage="_Transaccions", ThisKey="IDALOJ", OtherKey="IDALOJ")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Alojamiento_Transaccion", Storage = "_Transaccions", ThisKey = "IDALOJ", OtherKey = "IDALOJ")]
 		public EntitySet<Transaccion> Transaccions
 		{
 			get
@@ -2559,8 +2559,8 @@ namespace CheckArgentina.Models
 				this._Transaccions.Assign(value);
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ciudad_Alojamiento", Storage="_Ciudad", ThisKey="IDCIUDAD", OtherKey="IDCIUDAD", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Ciudad_Alojamiento", Storage = "_Ciudad", ThisKey = "IDCIUDAD", OtherKey = "IDCIUDAD", IsForeignKey = true)]
 		public Ciudad Ciudad
 		{
 			get
@@ -2570,7 +2570,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				Ciudad previousValue = this._Ciudad.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._Ciudad.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -2593,8 +2593,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonedaDB_Alojamiento", Storage="_MONEDA", ThisKey="IDMONEDA", OtherKey="IDMONEDA", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "MonedaDB_Alojamiento", Storage = "_MONEDA", ThisKey = "IDMONEDA", OtherKey = "IDMONEDA", IsForeignKey = true)]
 		public MonedaDB MonedaDB
 		{
 			get
@@ -2604,7 +2604,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				MonedaDB previousValue = this._MONEDA.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._MONEDA.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -2627,11 +2627,11 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -2639,7 +2639,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -2647,88 +2647,88 @@ namespace CheckArgentina.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
+
 		private void attach_UsuarioAlojamientos(UsuarioAlojamiento entity)
 		{
 			this.SendPropertyChanging();
 			entity.Alojamiento = this;
 		}
-		
+
 		private void detach_UsuarioAlojamientos(UsuarioAlojamiento entity)
 		{
 			this.SendPropertyChanging();
 			entity.Alojamiento = null;
 		}
-		
+
 		private void attach_Transaccions(Transaccion entity)
 		{
 			this.SendPropertyChanging();
 			entity.Alojamiento = this;
 		}
-		
+
 		private void detach_Transaccions(Transaccion entity)
 		{
 			this.SendPropertyChanging();
 			entity.Alojamiento = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CIUDADES")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.CIUDADES")]
 	public partial class Ciudad : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDCIUDAD;
-		
+
 		private System.Nullable<System.Guid> _IDPROVINCIA;
-		
+
 		private string _NOMBRE;
-		
+
 		private string _WEB;
-		
+
 		private string _ZIP;
-		
+
 		private string _ABREVIATURA;
-		
+
 		private bool _ACTIVO;
-		
+
 		private System.DateTime _FECHA_ALTA;
-		
+
 		private EntitySet<Usuario> _Usuarios;
-		
+
 		private EntitySet<Alojamiento> _Alojamientos;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDCIUDADChanging(System.Guid value);
-    partial void OnIDCIUDADChanged();
-    partial void OnIDPROVINCIAChanging(System.Nullable<System.Guid> value);
-    partial void OnIDPROVINCIAChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnWEBChanging(string value);
-    partial void OnWEBChanged();
-    partial void OnZIPChanging(string value);
-    partial void OnZIPChanged();
-    partial void OnABREVIATURAChanging(string value);
-    partial void OnABREVIATURAChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnFECHA_ALTAChanging(System.DateTime value);
-    partial void OnFECHA_ALTAChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDCIUDADChanging(System.Guid value);
+		partial void OnIDCIUDADChanged();
+		partial void OnIDPROVINCIAChanging(System.Nullable<System.Guid> value);
+		partial void OnIDPROVINCIAChanged();
+		partial void OnNOMBREChanging(string value);
+		partial void OnNOMBREChanged();
+		partial void OnWEBChanging(string value);
+		partial void OnWEBChanged();
+		partial void OnZIPChanging(string value);
+		partial void OnZIPChanged();
+		partial void OnABREVIATURAChanging(string value);
+		partial void OnABREVIATURAChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnFECHA_ALTAChanging(System.DateTime value);
+		partial void OnFECHA_ALTAChanged();
+		#endregion
+
 		public Ciudad()
 		{
 			this._Usuarios = new EntitySet<Usuario>(new Action<Usuario>(this.attach_Usuarios), new Action<Usuario>(this.detach_Usuarios));
 			this._Alojamientos = new EntitySet<Alojamiento>(new Action<Alojamiento>(this.attach_Alojamientos), new Action<Alojamiento>(this.detach_Alojamientos));
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCIUDAD", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDCIUDAD", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDCIUDAD
 		{
 			get
@@ -2747,8 +2747,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPROVINCIA", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDPROVINCIA", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDPROVINCIA
 		{
 			get
@@ -2767,8 +2767,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBRE", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string NOMBRE
 		{
 			get
@@ -2787,8 +2787,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB", DbType="VarChar(150)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_WEB", DbType = "VarChar(150)")]
 		public string WEB
 		{
 			get
@@ -2807,8 +2807,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZIP", DbType="VarChar(10)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ZIP", DbType = "VarChar(10)")]
 		public string ZIP
 		{
 			get
@@ -2827,8 +2827,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABREVIATURA", DbType="VarChar(5)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ABREVIATURA", DbType = "VarChar(5)")]
 		public string ABREVIATURA
 		{
 			get
@@ -2847,8 +2847,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -2867,8 +2867,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_ALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHA_ALTA
 		{
 			get
@@ -2887,8 +2887,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ciudad_Usuario", Storage="_Usuarios", ThisKey="IDCIUDAD", OtherKey="IDCIUDAD")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Ciudad_Usuario", Storage = "_Usuarios", ThisKey = "IDCIUDAD", OtherKey = "IDCIUDAD")]
 		public EntitySet<Usuario> Usuarios
 		{
 			get
@@ -2900,8 +2900,8 @@ namespace CheckArgentina.Models
 				this._Usuarios.Assign(value);
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ciudad_Alojamiento", Storage="_Alojamientos", ThisKey="IDCIUDAD", OtherKey="IDCIUDAD")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Ciudad_Alojamiento", Storage = "_Alojamientos", ThisKey = "IDCIUDAD", OtherKey = "IDCIUDAD")]
 		public EntitySet<Alojamiento> Alojamientos
 		{
 			get
@@ -2913,11 +2913,11 @@ namespace CheckArgentina.Models
 				this._Alojamientos.Assign(value);
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -2925,7 +2925,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -2933,164 +2933,164 @@ namespace CheckArgentina.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
+
 		private void attach_Usuarios(Usuario entity)
 		{
 			this.SendPropertyChanging();
 			entity.Ciudad = this;
 		}
-		
+
 		private void detach_Usuarios(Usuario entity)
 		{
 			this.SendPropertyChanging();
 			entity.Ciudad = null;
 		}
-		
+
 		private void attach_Alojamientos(Alojamiento entity)
 		{
 			this.SendPropertyChanging();
 			entity.Ciudad = this;
 		}
-		
+
 		private void detach_Alojamientos(Alojamiento entity)
 		{
 			this.SendPropertyChanging();
 			entity.Ciudad = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRANSACCIONES")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.TRANSACCIONES")]
 	public partial class Transaccion : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDTRANSACCION;
-		
+
 		private System.Nullable<System.Guid> _IDFORMAPAGO;
-		
+
 		private System.Nullable<System.Guid> _IDUSUARIO;
-		
+
 		private System.Nullable<System.Guid> _IDCLIENTE;
-		
+
 		private string _DESCRIPCION;
-		
+
 		private System.Nullable<float> _MONTOTOTALCONDESC;
-		
+
 		private int _CODIGO_RESERVA;
-		
+
 		private int _ESTADORESERVA;
-		
+
 		private bool _ACTIVO;
-		
+
 		private System.DateTime _FECHA_ALTA;
-		
+
 		private System.Nullable<int> _CODIGO_CONFIRMACION;
-		
+
 		private System.Nullable<float> _MONTOTOTALSINDESC;
-		
+
 		private System.Nullable<float> _COTIZACION;
-		
+
 		private System.Guid _IDMONEDA;
-		
+
 		private System.Nullable<int> _IDPU;
-		
+
 		private System.Nullable<int> _CANTCUOTAS;
-		
+
 		private System.Nullable<int> _ESTADOPAGO;
-		
+
 		private System.Nullable<System.Guid> _IDALOJ;
-		
+
 		private System.Guid _IDSITIOORIGEN;
-		
+
 		private int _TIPOTRANSACCION;
-		
+
 		private System.Nullable<float> _MONTO_DEBE;
-		
+
 		private System.Nullable<float> _MONTO_HABER;
-		
+
 		private System.Nullable<System.DateTime> _FECHA_VENCIMIENTO;
-		
+
 		private string _PASAJERONOMBRE;
-		
+
 		private string _PASAJEROAPELLIDO;
-		
+
 		private System.Nullable<bool> _MAILCONFALOJENVIADO;
-		
+
 		private System.Nullable<System.Guid> _IDPASAJERO;
-		
+
 		private System.Nullable<float> _COTIZACIONALOJ;
-		
+
 		private EntitySet<TransaccionNPS> _TransaccionNPS;
-		
+
 		private EntityRef<Alojamiento> _Alojamiento;
-		
+
 		private EntityRef<FormaPago> _FormaPago;
-		
+
 		private EntityRef<MonedaDB> _MONEDA;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDTRANSACCIONChanging(System.Guid value);
-    partial void OnIDTRANSACCIONChanged();
-    partial void OnIDFORMAPAGOChanging(System.Nullable<System.Guid> value);
-    partial void OnIDFORMAPAGOChanged();
-    partial void OnIDUSUARIOChanging(System.Nullable<System.Guid> value);
-    partial void OnIDUSUARIOChanged();
-    partial void OnIDCLIENTEChanging(System.Nullable<System.Guid> value);
-    partial void OnIDCLIENTEChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnMONTOTOTALCONDESCChanging(System.Nullable<float> value);
-    partial void OnMONTOTOTALCONDESCChanged();
-    partial void OnCODIGO_RESERVAChanging(int value);
-    partial void OnCODIGO_RESERVAChanged();
-    partial void OnESTADORESERVAChanging(int value);
-    partial void OnESTADORESERVAChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnFECHA_ALTAChanging(System.DateTime value);
-    partial void OnFECHA_ALTAChanged();
-    partial void OnCODIGO_CONFIRMACIONChanging(System.Nullable<int> value);
-    partial void OnCODIGO_CONFIRMACIONChanged();
-    partial void OnMONTOTOTALSINDESCChanging(System.Nullable<float> value);
-    partial void OnMONTOTOTALSINDESCChanged();
-    partial void OnCOTIZACIONChanging(System.Nullable<float> value);
-    partial void OnCOTIZACIONChanged();
-    partial void OnIDMONEDAChanging(System.Guid value);
-    partial void OnIDMONEDAChanged();
-    partial void OnIDPUChanging(System.Nullable<int> value);
-    partial void OnIDPUChanged();
-    partial void OnCANTCUOTASChanging(System.Nullable<int> value);
-    partial void OnCANTCUOTASChanged();
-    partial void OnESTADOPAGOChanging(System.Nullable<int> value);
-    partial void OnESTADOPAGOChanged();
-    partial void OnIDALOJChanging(System.Nullable<System.Guid> value);
-    partial void OnIDALOJChanged();
-    partial void OnIDSITIOORIGENChanging(System.Guid value);
-    partial void OnIDSITIOORIGENChanged();
-    partial void OnTIPOTRANSACCIONChanging(int value);
-    partial void OnTIPOTRANSACCIONChanged();
-    partial void OnMONTO_DEBEChanging(System.Nullable<float> value);
-    partial void OnMONTO_DEBEChanged();
-    partial void OnMONTO_HABERChanging(System.Nullable<float> value);
-    partial void OnMONTO_HABERChanged();
-    partial void OnFECHA_VENCIMIENTOChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHA_VENCIMIENTOChanged();
-    partial void OnPASAJERONOMBREChanging(string value);
-    partial void OnPASAJERONOMBREChanged();
-    partial void OnPASAJEROAPELLIDOChanging(string value);
-    partial void OnPASAJEROAPELLIDOChanged();
-    partial void OnMAILCONFALOJENVIADOChanging(System.Nullable<bool> value);
-    partial void OnMAILCONFALOJENVIADOChanged();
-    partial void OnIDPASAJEROChanging(System.Nullable<System.Guid> value);
-    partial void OnIDPASAJEROChanged();
-    partial void OnCOTIZACIONALOJChanging(System.Nullable<float> value);
-    partial void OnCOTIZACIONALOJChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDTRANSACCIONChanging(System.Guid value);
+		partial void OnIDTRANSACCIONChanged();
+		partial void OnIDFORMAPAGOChanging(System.Nullable<System.Guid> value);
+		partial void OnIDFORMAPAGOChanged();
+		partial void OnIDUSUARIOChanging(System.Nullable<System.Guid> value);
+		partial void OnIDUSUARIOChanged();
+		partial void OnIDCLIENTEChanging(System.Nullable<System.Guid> value);
+		partial void OnIDCLIENTEChanged();
+		partial void OnDESCRIPCIONChanging(string value);
+		partial void OnDESCRIPCIONChanged();
+		partial void OnMONTOTOTALCONDESCChanging(System.Nullable<float> value);
+		partial void OnMONTOTOTALCONDESCChanged();
+		partial void OnCODIGO_RESERVAChanging(int value);
+		partial void OnCODIGO_RESERVAChanged();
+		partial void OnESTADORESERVAChanging(int value);
+		partial void OnESTADORESERVAChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnFECHA_ALTAChanging(System.DateTime value);
+		partial void OnFECHA_ALTAChanged();
+		partial void OnCODIGO_CONFIRMACIONChanging(System.Nullable<int> value);
+		partial void OnCODIGO_CONFIRMACIONChanged();
+		partial void OnMONTOTOTALSINDESCChanging(System.Nullable<float> value);
+		partial void OnMONTOTOTALSINDESCChanged();
+		partial void OnCOTIZACIONChanging(System.Nullable<float> value);
+		partial void OnCOTIZACIONChanged();
+		partial void OnIDMONEDAChanging(System.Guid value);
+		partial void OnIDMONEDAChanged();
+		partial void OnIDPUChanging(System.Nullable<int> value);
+		partial void OnIDPUChanged();
+		partial void OnCANTCUOTASChanging(System.Nullable<int> value);
+		partial void OnCANTCUOTASChanged();
+		partial void OnESTADOPAGOChanging(System.Nullable<int> value);
+		partial void OnESTADOPAGOChanged();
+		partial void OnIDALOJChanging(System.Nullable<System.Guid> value);
+		partial void OnIDALOJChanged();
+		partial void OnIDSITIOORIGENChanging(System.Guid value);
+		partial void OnIDSITIOORIGENChanged();
+		partial void OnTIPOTRANSACCIONChanging(int value);
+		partial void OnTIPOTRANSACCIONChanged();
+		partial void OnMONTO_DEBEChanging(System.Nullable<float> value);
+		partial void OnMONTO_DEBEChanged();
+		partial void OnMONTO_HABERChanging(System.Nullable<float> value);
+		partial void OnMONTO_HABERChanged();
+		partial void OnFECHA_VENCIMIENTOChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHA_VENCIMIENTOChanged();
+		partial void OnPASAJERONOMBREChanging(string value);
+		partial void OnPASAJERONOMBREChanged();
+		partial void OnPASAJEROAPELLIDOChanging(string value);
+		partial void OnPASAJEROAPELLIDOChanged();
+		partial void OnMAILCONFALOJENVIADOChanging(System.Nullable<bool> value);
+		partial void OnMAILCONFALOJENVIADOChanged();
+		partial void OnIDPASAJEROChanging(System.Nullable<System.Guid> value);
+		partial void OnIDPASAJEROChanged();
+		partial void OnCOTIZACIONALOJChanging(System.Nullable<float> value);
+		partial void OnCOTIZACIONALOJChanged();
+		#endregion
+
 		public Transaccion()
 		{
 			this._TransaccionNPS = new EntitySet<TransaccionNPS>(new Action<TransaccionNPS>(this.attach_TransaccionNPS), new Action<TransaccionNPS>(this.detach_TransaccionNPS));
@@ -3099,8 +3099,8 @@ namespace CheckArgentina.Models
 			this._MONEDA = default(EntityRef<MonedaDB>);
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTRANSACCION", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDTRANSACCION
 		{
 			get
@@ -3119,8 +3119,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFORMAPAGO", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDFORMAPAGO", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDFORMAPAGO
 		{
 			get
@@ -3143,8 +3143,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDUSUARIO", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDUSUARIO
 		{
 			get
@@ -3163,8 +3163,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCLIENTE", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDCLIENTE", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDCLIENTE
 		{
 			get
@@ -3183,8 +3183,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION", DbType = "VarChar(4000)")]
 		public string DESCRIPCION
 		{
 			get
@@ -3203,8 +3203,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALCONDESC", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MONTOTOTALCONDESC", DbType = "Real")]
 		public System.Nullable<float> MONTOTOTALCONDESC
 		{
 			get
@@ -3223,8 +3223,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_RESERVA", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODIGO_RESERVA", AutoSync = AutoSync.Always, DbType = "Int NOT NULL IDENTITY", IsDbGenerated = true)]
 		public int CODIGO_RESERVA
 		{
 			get
@@ -3243,8 +3243,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADORESERVA", DbType="Int NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ESTADORESERVA", DbType = "Int NOT NULL")]
 		public int ESTADORESERVA
 		{
 			get
@@ -3263,8 +3263,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -3283,8 +3283,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_ALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHA_ALTA
 		{
 			get
@@ -3303,8 +3303,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_CONFIRMACION", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODIGO_CONFIRMACION", DbType = "Int")]
 		public System.Nullable<int> CODIGO_CONFIRMACION
 		{
 			get
@@ -3323,8 +3323,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALSINDESC", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MONTOTOTALSINDESC", DbType = "Real")]
 		public System.Nullable<float> MONTOTOTALSINDESC
 		{
 			get
@@ -3343,8 +3343,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACION", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_COTIZACION", DbType = "Real")]
 		public System.Nullable<float> COTIZACION
 		{
 			get
@@ -3363,8 +3363,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDMONEDA", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDMONEDA
 		{
 			get
@@ -3387,8 +3387,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPU", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDPU", DbType = "Int")]
 		public System.Nullable<int> IDPU
 		{
 			get
@@ -3407,8 +3407,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANTCUOTAS", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CANTCUOTAS", DbType = "Int")]
 		public System.Nullable<int> CANTCUOTAS
 		{
 			get
@@ -3427,8 +3427,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADOPAGO", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ESTADOPAGO", DbType = "Int")]
 		public System.Nullable<int> ESTADOPAGO
 		{
 			get
@@ -3447,8 +3447,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDALOJ", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDALOJ
 		{
 			get
@@ -3471,8 +3471,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDSITIOORIGEN", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDSITIOORIGEN", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDSITIOORIGEN
 		{
 			get
@@ -3491,8 +3491,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOTRANSACCION", DbType="Int NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TIPOTRANSACCION", DbType = "Int NOT NULL")]
 		public int TIPOTRANSACCION
 		{
 			get
@@ -3511,8 +3511,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTO_DEBE", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MONTO_DEBE", DbType = "Real")]
 		public System.Nullable<float> MONTO_DEBE
 		{
 			get
@@ -3531,8 +3531,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTO_HABER", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MONTO_HABER", DbType = "Real")]
 		public System.Nullable<float> MONTO_HABER
 		{
 			get
@@ -3551,8 +3551,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_VENCIMIENTO", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_VENCIMIENTO", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHA_VENCIMIENTO
 		{
 			get
@@ -3571,8 +3571,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASAJERONOMBRE", DbType="VarChar(50)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PASAJERONOMBRE", DbType = "VarChar(50)")]
 		public string PASAJERONOMBRE
 		{
 			get
@@ -3591,8 +3591,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASAJEROAPELLIDO", DbType="VarChar(50)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PASAJEROAPELLIDO", DbType = "VarChar(50)")]
 		public string PASAJEROAPELLIDO
 		{
 			get
@@ -3611,8 +3611,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAILCONFALOJENVIADO", DbType="Bit")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MAILCONFALOJENVIADO", DbType = "Bit")]
 		public System.Nullable<bool> MAILCONFALOJENVIADO
 		{
 			get
@@ -3631,8 +3631,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPASAJERO", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDPASAJERO", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDPASAJERO
 		{
 			get
@@ -3651,8 +3651,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACIONALOJ", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_COTIZACIONALOJ", DbType = "Real")]
 		public System.Nullable<float> COTIZACIONALOJ
 		{
 			get
@@ -3671,8 +3671,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaccion_TransaccionNPS", Storage="_TransaccionNPS", ThisKey="IDTRANSACCION", OtherKey="IDTRANSACCION")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Transaccion_TransaccionNPS", Storage = "_TransaccionNPS", ThisKey = "IDTRANSACCION", OtherKey = "IDTRANSACCION")]
 		public EntitySet<TransaccionNPS> TransaccionNPS
 		{
 			get
@@ -3684,8 +3684,8 @@ namespace CheckArgentina.Models
 				this._TransaccionNPS.Assign(value);
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Alojamiento_Transaccion", Storage="_Alojamiento", ThisKey="IDALOJ", OtherKey="IDALOJ", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Alojamiento_Transaccion", Storage = "_Alojamiento", ThisKey = "IDALOJ", OtherKey = "IDALOJ", IsForeignKey = true)]
 		public Alojamiento Alojamiento
 		{
 			get
@@ -3695,7 +3695,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				Alojamiento previousValue = this._Alojamiento.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._Alojamiento.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -3718,8 +3718,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FormaPago_Transaccion", Storage="_FormaPago", ThisKey="IDFORMAPAGO", OtherKey="IDFORMAPAGO", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "FormaPago_Transaccion", Storage = "_FormaPago", ThisKey = "IDFORMAPAGO", OtherKey = "IDFORMAPAGO", IsForeignKey = true)]
 		public FormaPago FormaPago
 		{
 			get
@@ -3729,7 +3729,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				FormaPago previousValue = this._FormaPago.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._FormaPago.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -3752,8 +3752,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonedaDB_Transaccion", Storage="_MONEDA", ThisKey="IDMONEDA", OtherKey="IDMONEDA", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "MonedaDB_Transaccion", Storage = "_MONEDA", ThisKey = "IDMONEDA", OtherKey = "IDMONEDA", IsForeignKey = true)]
 		public MonedaDB MonedaDB
 		{
 			get
@@ -3763,7 +3763,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				MonedaDB previousValue = this._MONEDA.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._MONEDA.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -3786,11 +3786,11 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -3798,7 +3798,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -3806,65 +3806,65 @@ namespace CheckArgentina.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
+
 		private void attach_TransaccionNPS(TransaccionNPS entity)
 		{
 			this.SendPropertyChanging();
 			entity.Transaccion = this;
 		}
-		
+
 		private void detach_TransaccionNPS(TransaccionNPS entity)
 		{
 			this.SendPropertyChanging();
 			entity.Transaccion = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRANSACCION_NPS")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.TRANSACCION_NPS")]
 	public partial class TransaccionNPS : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDTRANSACCION_NPS;
-		
+
 		private System.Nullable<System.Guid> _IDTRANSACCION;
-		
+
 		private int _NROINTENTO;
-		
+
 		private string _REF_INELTUR;
-		
+
 		private string _REF_NPS;
-		
+
 		private string _ESTADO_RESULTADO;
-		
+
 		private EntityRef<Transaccion> _Transaccion;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDTRANSACCION_NPSChanging(System.Guid value);
-    partial void OnIDTRANSACCION_NPSChanged();
-    partial void OnIDTRANSACCIONChanging(System.Nullable<System.Guid> value);
-    partial void OnIDTRANSACCIONChanged();
-    partial void OnNROINTENTOChanging(int value);
-    partial void OnNROINTENTOChanged();
-    partial void OnREF_INELTURChanging(string value);
-    partial void OnREF_INELTURChanged();
-    partial void OnREF_NPSChanging(string value);
-    partial void OnREF_NPSChanged();
-    partial void OnESTADO_RESULTADOChanging(string value);
-    partial void OnESTADO_RESULTADOChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDTRANSACCION_NPSChanging(System.Guid value);
+		partial void OnIDTRANSACCION_NPSChanged();
+		partial void OnIDTRANSACCIONChanging(System.Nullable<System.Guid> value);
+		partial void OnIDTRANSACCIONChanged();
+		partial void OnNROINTENTOChanging(int value);
+		partial void OnNROINTENTOChanged();
+		partial void OnREF_INELTURChanging(string value);
+		partial void OnREF_INELTURChanged();
+		partial void OnREF_NPSChanging(string value);
+		partial void OnREF_NPSChanged();
+		partial void OnESTADO_RESULTADOChanging(string value);
+		partial void OnESTADO_RESULTADOChanged();
+		#endregion
+
 		public TransaccionNPS()
 		{
 			this._Transaccion = default(EntityRef<Transaccion>);
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION_NPS", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTRANSACCION_NPS", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDTRANSACCION_NPS
 		{
 			get
@@ -3883,8 +3883,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTRANSACCION", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDTRANSACCION
 		{
 			get
@@ -3907,8 +3907,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NROINTENTO", DbType="Int NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NROINTENTO", DbType = "Int NOT NULL")]
 		public int NROINTENTO
 		{
 			get
@@ -3927,8 +3927,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REF_INELTUR", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REF_INELTUR", DbType = "VarChar(50) NOT NULL", CanBeNull = false)]
 		public string REF_INELTUR
 		{
 			get
@@ -3947,8 +3947,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REF_NPS", DbType="VarChar(50)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REF_NPS", DbType = "VarChar(50)")]
 		public string REF_NPS
 		{
 			get
@@ -3967,8 +3967,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADO_RESULTADO", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ESTADO_RESULTADO", DbType = "VarChar(150) NOT NULL", CanBeNull = false)]
 		public string ESTADO_RESULTADO
 		{
 			get
@@ -3987,8 +3987,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaccion_TransaccionNPS", Storage="_Transaccion", ThisKey="IDTRANSACCION", OtherKey="IDTRANSACCION", IsForeignKey=true)]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Transaccion_TransaccionNPS", Storage = "_Transaccion", ThisKey = "IDTRANSACCION", OtherKey = "IDTRANSACCION", IsForeignKey = true)]
 		public Transaccion Transaccion
 		{
 			get
@@ -3998,7 +3998,7 @@ namespace CheckArgentina.Models
 			set
 			{
 				Transaccion previousValue = this._Transaccion.Entity;
-				if (((previousValue != value) 
+				if (((previousValue != value)
 							|| (this._Transaccion.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
@@ -4021,11 +4021,11 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -4033,7 +4033,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -4042,63 +4042,63 @@ namespace CheckArgentina.Models
 			}
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MONEDAS")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.MONEDAS")]
 	public partial class MonedaDB : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDMONEDA;
-		
+
 		private string _NOMBRE;
-		
+
 		private string _DESCRIPCION;
-		
+
 		private System.DateTime _FECHA_ALTA;
-		
+
 		private bool _ACTIVO;
-		
+
 		private System.Nullable<System.DateTime> _FECHA_BAJA;
-		
+
 		private string _SIMBOLO;
-		
+
 		private float _COTIZACION;
-		
+
 		private EntitySet<Alojamiento> _Alojamientos;
-		
+
 		private EntitySet<Transaccion> _Transaccions;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDMONEDAChanging(System.Guid value);
-    partial void OnIDMONEDAChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnFECHA_ALTAChanging(System.DateTime value);
-    partial void OnFECHA_ALTAChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHA_BAJAChanged();
-    partial void OnSIMBOLOChanging(string value);
-    partial void OnSIMBOLOChanged();
-    partial void OnCOTIZACIONChanging(float value);
-    partial void OnCOTIZACIONChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDMONEDAChanging(System.Guid value);
+		partial void OnIDMONEDAChanged();
+		partial void OnNOMBREChanging(string value);
+		partial void OnNOMBREChanged();
+		partial void OnDESCRIPCIONChanging(string value);
+		partial void OnDESCRIPCIONChanged();
+		partial void OnFECHA_ALTAChanging(System.DateTime value);
+		partial void OnFECHA_ALTAChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnFECHA_BAJAChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHA_BAJAChanged();
+		partial void OnSIMBOLOChanging(string value);
+		partial void OnSIMBOLOChanged();
+		partial void OnCOTIZACIONChanging(float value);
+		partial void OnCOTIZACIONChanged();
+		#endregion
+
 		public MonedaDB()
 		{
 			this._Alojamientos = new EntitySet<Alojamiento>(new Action<Alojamiento>(this.attach_Alojamientos), new Action<Alojamiento>(this.detach_Alojamientos));
 			this._Transaccions = new EntitySet<Transaccion>(new Action<Transaccion>(this.attach_Transaccions), new Action<Transaccion>(this.detach_Transaccions));
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDMONEDA", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDMONEDA
 		{
 			get
@@ -4117,8 +4117,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBRE", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string NOMBRE
 		{
 			get
@@ -4137,8 +4137,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION", DbType = "VarChar(4000)")]
 		public string DESCRIPCION
 		{
 			get
@@ -4157,8 +4157,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_ALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHA_ALTA
 		{
 			get
@@ -4177,8 +4177,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -4197,8 +4197,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_BAJA", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHA_BAJA", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHA_BAJA
 		{
 			get
@@ -4217,8 +4217,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIMBOLO", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SIMBOLO", DbType = "VarChar(10) NOT NULL", CanBeNull = false)]
 		public string SIMBOLO
 		{
 			get
@@ -4237,8 +4237,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACION", DbType="Real NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_COTIZACION", DbType = "Real NOT NULL")]
 		public float COTIZACION
 		{
 			get
@@ -4257,8 +4257,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonedaDB_Alojamiento", Storage="_Alojamientos", ThisKey="IDMONEDA", OtherKey="IDMONEDA")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "MonedaDB_Alojamiento", Storage = "_Alojamientos", ThisKey = "IDMONEDA", OtherKey = "IDMONEDA")]
 		public EntitySet<Alojamiento> Alojamientos
 		{
 			get
@@ -4270,8 +4270,8 @@ namespace CheckArgentina.Models
 				this._Alojamientos.Assign(value);
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MonedaDB_Transaccion", Storage="_Transaccions", ThisKey="IDMONEDA", OtherKey="IDMONEDA")]
+
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name = "MonedaDB_Transaccion", Storage = "_Transaccions", ThisKey = "IDMONEDA", OtherKey = "IDMONEDA")]
 		public EntitySet<Transaccion> Transaccions
 		{
 			get
@@ -4283,11 +4283,11 @@ namespace CheckArgentina.Models
 				this._Transaccions.Assign(value);
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -4295,7 +4295,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -4303,82 +4303,82 @@ namespace CheckArgentina.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
+
 		private void attach_Alojamientos(Alojamiento entity)
 		{
 			this.SendPropertyChanging();
 			entity.MonedaDB = this;
 		}
-		
+
 		private void detach_Alojamientos(Alojamiento entity)
 		{
 			this.SendPropertyChanging();
 			entity.MonedaDB = null;
 		}
-		
+
 		private void attach_Transaccions(Transaccion entity)
 		{
 			this.SendPropertyChanging();
 			entity.MonedaDB = this;
 		}
-		
+
 		private void detach_Transaccions(Transaccion entity)
 		{
 			this.SendPropertyChanging();
 			entity.MonedaDB = null;
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TIPO_PROMOCIONES_ALOJAMIENTO")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.TIPO_PROMOCIONES_ALOJAMIENTO")]
 	public partial class Tipo_PRomociones_Alojamiento : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private int _IDTIPOPROMOCION;
-		
+
 		private string _NOMBRE;
-		
+
 		private System.DateTime _FECHAALTA;
-		
+
 		private bool _ACTIVO;
-		
+
 		private string _DESCRIPCION;
-		
+
 		private System.Nullable<int> _TOPEDIASMAX;
-		
+
 		private System.Nullable<int> _TOPEDIASMIN;
-		
+
 		private System.Nullable<int> _CODIGO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDTIPOPROMOCIONChanging(int value);
-    partial void OnIDTIPOPROMOCIONChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnFECHAALTAChanging(System.DateTime value);
-    partial void OnFECHAALTAChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnTOPEDIASMAXChanging(System.Nullable<int> value);
-    partial void OnTOPEDIASMAXChanged();
-    partial void OnTOPEDIASMINChanging(System.Nullable<int> value);
-    partial void OnTOPEDIASMINChanged();
-    partial void OnCODIGOChanging(System.Nullable<int> value);
-    partial void OnCODIGOChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDTIPOPROMOCIONChanging(int value);
+		partial void OnIDTIPOPROMOCIONChanged();
+		partial void OnNOMBREChanging(string value);
+		partial void OnNOMBREChanged();
+		partial void OnFECHAALTAChanging(System.DateTime value);
+		partial void OnFECHAALTAChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnDESCRIPCIONChanging(string value);
+		partial void OnDESCRIPCIONChanged();
+		partial void OnTOPEDIASMAXChanging(System.Nullable<int> value);
+		partial void OnTOPEDIASMAXChanged();
+		partial void OnTOPEDIASMINChanging(System.Nullable<int> value);
+		partial void OnTOPEDIASMINChanged();
+		partial void OnCODIGOChanging(System.Nullable<int> value);
+		partial void OnCODIGOChanged();
+		#endregion
+
 		public Tipo_PRomociones_Alojamiento()
 		{
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOPROMOCION", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPOPROMOCION", AutoSync = AutoSync.OnInsert, DbType = "Int NOT NULL IDENTITY", IsPrimaryKey = true, IsDbGenerated = true)]
 		public int IDTIPOPROMOCION
 		{
 			get
@@ -4397,8 +4397,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBRE", DbType = "VarChar(100)")]
 		public string NOMBRE
 		{
 			get
@@ -4417,8 +4417,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHAALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHAALTA
 		{
 			get
@@ -4437,8 +4437,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -4457,8 +4457,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION", DbType = "VarChar(4000)")]
 		public string DESCRIPCION
 		{
 			get
@@ -4477,8 +4477,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOPEDIASMAX", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TOPEDIASMAX", DbType = "Int")]
 		public System.Nullable<int> TOPEDIASMAX
 		{
 			get
@@ -4497,8 +4497,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOPEDIASMIN", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TOPEDIASMIN", DbType = "Int")]
 		public System.Nullable<int> TOPEDIASMIN
 		{
 			get
@@ -4517,8 +4517,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODIGO", DbType = "Int")]
 		public System.Nullable<int> CODIGO
 		{
 			get
@@ -4537,11 +4537,11 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -4549,7 +4549,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))
@@ -4558,113 +4558,113 @@ namespace CheckArgentina.Models
 			}
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PROMOCIONES_ALOJAMIENTO")]
+
+	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.PROMOCIONES_ALOJAMIENTO")]
 	public partial class Promociones_Alojamiento : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		
+
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+
 		private System.Guid _IDPROMOCION;
-		
+
 		private System.Guid _IDALOJ;
-		
+
 		private string _NOMBRE;
-		
+
 		private string _DESCRIPCION;
-		
+
 		private string _DESCRIPCION2;
-		
+
 		private System.Nullable<System.DateTime> _FECHAINICIO;
-		
+
 		private System.Nullable<System.DateTime> _FECHAFIN;
-		
+
 		private System.Nullable<int> _DIASACOBRAR;
-		
+
 		private System.Nullable<int> _DIASRESERVADOS;
-		
+
 		private bool _ACTIVO;
-		
+
 		private System.DateTime _FECHAALTA;
-		
+
 		private System.Nullable<System.DateTime> _FECHAPUBLICACION;
-		
+
 		private System.Nullable<System.DateTime> _FECHABAJAPUBLICACION;
-		
+
 		private System.Nullable<System.Guid> _IDUNIDADPROMO;
-		
+
 		private System.Nullable<bool> _FINVIGENCIAINDEFINIDO;
-		
+
 		private System.Nullable<System.DateTime> _FECHAFINPUBLICACION;
-		
+
 		private bool _BLOQUEACUPOS;
-		
+
 		private string _SLOGAN;
-		
+
 		private System.Nullable<int> _MINIMONOCHES;
-		
+
 		private System.Nullable<int> _MAXIMONOCHES;
-		
+
 		private System.Nullable<float> _DESCUENTO;
-		
+
 		private int _IDTIPOPUBLICACIONPROMO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDPROMOCIONChanging(System.Guid value);
-    partial void OnIDPROMOCIONChanged();
-    partial void OnIDALOJChanging(System.Guid value);
-    partial void OnIDALOJChanged();
-    partial void OnNOMBREChanging(string value);
-    partial void OnNOMBREChanged();
-    partial void OnDESCRIPCIONChanging(string value);
-    partial void OnDESCRIPCIONChanged();
-    partial void OnDESCRIPCION2Changing(string value);
-    partial void OnDESCRIPCION2Changed();
-    partial void OnFECHAINICIOChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAINICIOChanged();
-    partial void OnFECHAFINChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAFINChanged();
-    partial void OnDIASACOBRARChanging(System.Nullable<int> value);
-    partial void OnDIASACOBRARChanged();
-    partial void OnDIASRESERVADOSChanging(System.Nullable<int> value);
-    partial void OnDIASRESERVADOSChanged();
-    partial void OnACTIVOChanging(bool value);
-    partial void OnACTIVOChanged();
-    partial void OnFECHAALTAChanging(System.DateTime value);
-    partial void OnFECHAALTAChanged();
-    partial void OnFECHAPUBLICACIONChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAPUBLICACIONChanged();
-    partial void OnFECHABAJAPUBLICACIONChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHABAJAPUBLICACIONChanged();
-    partial void OnIDUNIDADPROMOChanging(System.Nullable<System.Guid> value);
-    partial void OnIDUNIDADPROMOChanged();
-    partial void OnFINVIGENCIAINDEFINIDOChanging(System.Nullable<bool> value);
-    partial void OnFINVIGENCIAINDEFINIDOChanged();
-    partial void OnFECHAFINPUBLICACIONChanging(System.Nullable<System.DateTime> value);
-    partial void OnFECHAFINPUBLICACIONChanged();
-    partial void OnBLOQUEACUPOSChanging(bool value);
-    partial void OnBLOQUEACUPOSChanged();
-    partial void OnSLOGANChanging(string value);
-    partial void OnSLOGANChanged();
-    partial void OnMINIMONOCHESChanging(System.Nullable<int> value);
-    partial void OnMINIMONOCHESChanged();
-    partial void OnMAXIMONOCHESChanging(System.Nullable<int> value);
-    partial void OnMAXIMONOCHESChanged();
-    partial void OnDESCUENTOChanging(System.Nullable<float> value);
-    partial void OnDESCUENTOChanged();
-    partial void OnIDTIPOPUBLICACIONPROMOChanging(int value);
-    partial void OnIDTIPOPUBLICACIONPROMOChanged();
-    #endregion
-		
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
+		partial void OnValidate(System.Data.Linq.ChangeAction action);
+		partial void OnCreated();
+		partial void OnIDPROMOCIONChanging(System.Guid value);
+		partial void OnIDPROMOCIONChanged();
+		partial void OnIDALOJChanging(System.Guid value);
+		partial void OnIDALOJChanged();
+		partial void OnNOMBREChanging(string value);
+		partial void OnNOMBREChanged();
+		partial void OnDESCRIPCIONChanging(string value);
+		partial void OnDESCRIPCIONChanged();
+		partial void OnDESCRIPCION2Changing(string value);
+		partial void OnDESCRIPCION2Changed();
+		partial void OnFECHAINICIOChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHAINICIOChanged();
+		partial void OnFECHAFINChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHAFINChanged();
+		partial void OnDIASACOBRARChanging(System.Nullable<int> value);
+		partial void OnDIASACOBRARChanged();
+		partial void OnDIASRESERVADOSChanging(System.Nullable<int> value);
+		partial void OnDIASRESERVADOSChanged();
+		partial void OnACTIVOChanging(bool value);
+		partial void OnACTIVOChanged();
+		partial void OnFECHAALTAChanging(System.DateTime value);
+		partial void OnFECHAALTAChanged();
+		partial void OnFECHAPUBLICACIONChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHAPUBLICACIONChanged();
+		partial void OnFECHABAJAPUBLICACIONChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHABAJAPUBLICACIONChanged();
+		partial void OnIDUNIDADPROMOChanging(System.Nullable<System.Guid> value);
+		partial void OnIDUNIDADPROMOChanged();
+		partial void OnFINVIGENCIAINDEFINIDOChanging(System.Nullable<bool> value);
+		partial void OnFINVIGENCIAINDEFINIDOChanged();
+		partial void OnFECHAFINPUBLICACIONChanging(System.Nullable<System.DateTime> value);
+		partial void OnFECHAFINPUBLICACIONChanged();
+		partial void OnBLOQUEACUPOSChanging(bool value);
+		partial void OnBLOQUEACUPOSChanged();
+		partial void OnSLOGANChanging(string value);
+		partial void OnSLOGANChanged();
+		partial void OnMINIMONOCHESChanging(System.Nullable<int> value);
+		partial void OnMINIMONOCHESChanged();
+		partial void OnMAXIMONOCHESChanging(System.Nullable<int> value);
+		partial void OnMAXIMONOCHESChanged();
+		partial void OnDESCUENTOChanging(System.Nullable<float> value);
+		partial void OnDESCUENTOChanged();
+		partial void OnIDTIPOPUBLICACIONPROMOChanging(int value);
+		partial void OnIDTIPOPUBLICACIONPROMOChanged();
+		#endregion
+
 		public Promociones_Alojamiento()
 		{
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPROMOCION", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDPROMOCION", DbType = "UniqueIdentifier NOT NULL", IsPrimaryKey = true)]
 		public System.Guid IDPROMOCION
 		{
 			get
@@ -4683,8 +4683,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDALOJ", DbType = "UniqueIdentifier NOT NULL")]
 		public System.Guid IDALOJ
 		{
 			get
@@ -4703,8 +4703,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NOMBRE", DbType = "VarChar(100) NOT NULL", CanBeNull = false)]
 		public string NOMBRE
 		{
 			get
@@ -4723,8 +4723,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION", DbType = "VarChar(4000)")]
 		public string DESCRIPCION
 		{
 			get
@@ -4743,8 +4743,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION2", DbType="VarChar(4000)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCRIPCION2", DbType = "VarChar(4000)")]
 		public string DESCRIPCION2
 		{
 			get
@@ -4763,8 +4763,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAINICIO", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHAINICIO", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHAINICIO
 		{
 			get
@@ -4783,8 +4783,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAFIN", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHAFIN", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHAFIN
 		{
 			get
@@ -4803,8 +4803,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIASACOBRAR", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DIASACOBRAR", DbType = "Int")]
 		public System.Nullable<int> DIASACOBRAR
 		{
 			get
@@ -4823,8 +4823,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIASRESERVADOS", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DIASRESERVADOS", DbType = "Int")]
 		public System.Nullable<int> DIASRESERVADOS
 		{
 			get
@@ -4843,8 +4843,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTIVO", DbType = "Bit NOT NULL")]
 		public bool ACTIVO
 		{
 			get
@@ -4863,8 +4863,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAALTA", DbType="DateTime NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHAALTA", DbType = "DateTime NOT NULL")]
 		public System.DateTime FECHAALTA
 		{
 			get
@@ -4883,8 +4883,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAPUBLICACION", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHAPUBLICACION", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHAPUBLICACION
 		{
 			get
@@ -4903,8 +4903,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHABAJAPUBLICACION", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHABAJAPUBLICACION", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHABAJAPUBLICACION
 		{
 			get
@@ -4923,8 +4923,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUNIDADPROMO", DbType="UniqueIdentifier")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDUNIDADPROMO", DbType = "UniqueIdentifier")]
 		public System.Nullable<System.Guid> IDUNIDADPROMO
 		{
 			get
@@ -4943,8 +4943,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINVIGENCIAINDEFINIDO", DbType="Bit")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FINVIGENCIAINDEFINIDO", DbType = "Bit")]
 		public System.Nullable<bool> FINVIGENCIAINDEFINIDO
 		{
 			get
@@ -4963,8 +4963,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHAFINPUBLICACION", DbType="DateTime")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FECHAFINPUBLICACION", DbType = "DateTime")]
 		public System.Nullable<System.DateTime> FECHAFINPUBLICACION
 		{
 			get
@@ -4983,8 +4983,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOQUEACUPOS", DbType="Bit NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BLOQUEACUPOS", DbType = "Bit NOT NULL")]
 		public bool BLOQUEACUPOS
 		{
 			get
@@ -5003,8 +5003,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLOGAN", DbType="VarChar(100)")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SLOGAN", DbType = "VarChar(100)")]
 		public string SLOGAN
 		{
 			get
@@ -5023,8 +5023,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MINIMONOCHES", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MINIMONOCHES", DbType = "Int")]
 		public System.Nullable<int> MINIMONOCHES
 		{
 			get
@@ -5043,8 +5043,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAXIMONOCHES", DbType="Int")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MAXIMONOCHES", DbType = "Int")]
 		public System.Nullable<int> MAXIMONOCHES
 		{
 			get
@@ -5063,8 +5063,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCUENTO", DbType="Real")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DESCUENTO", DbType = "Real")]
 		public System.Nullable<float> DESCUENTO
 		{
 			get
@@ -5083,8 +5083,8 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOPUBLICACIONPROMO", DbType="Int NOT NULL")]
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IDTIPOPUBLICACIONPROMO", DbType = "Int NOT NULL")]
 		public int IDTIPOPUBLICACIONPROMO
 		{
 			get
@@ -5103,11 +5103,11 @@ namespace CheckArgentina.Models
 				}
 			}
 		}
-		
+
 		public event PropertyChangingEventHandler PropertyChanging;
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+
 		protected virtual void SendPropertyChanging()
 		{
 			if ((this.PropertyChanging != null))
@@ -5115,7 +5115,7 @@ namespace CheckArgentina.Models
 				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
-		
+
 		protected virtual void SendPropertyChanged(String propertyName)
 		{
 			if ((this.PropertyChanged != null))

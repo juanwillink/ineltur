@@ -93,7 +93,7 @@
                 dataType: "json",
                 data: { DestinationName: request.term, UserKey: "@Session["userkey"].ToString()" },
                 success: function (data) {
-                    debugger;
+                    //debugger;
                     if (data.length == 0) {
                         data.push({ DestinationId: null, DestinationName: "No Encontrado."});
                         $("#destinationIdSearch").val(null);
@@ -103,7 +103,7 @@
                     }));
                 },
                 error: function () {
-                    debugger;
+                    //debugger;
                     alert("Error");
                 }
             });
@@ -125,7 +125,7 @@
                 dataType: "json",
                 data: { HotelName: request.term, UserKey: "@Session["userkey"].ToString()" },
                 success: function (data) {
-                    debugger;
+                    //debugger;
                     if (data.length == 0) {
                         data.push({ HotelId: null, HotelName: "No Encontrado."});
                         $("#HotelIdSearch").val(null);
@@ -135,7 +135,7 @@
                     }));
                 },
                 error: function () {
-                    debugger;
+                    //debugger;
                     alert("Error");
                 }
             });

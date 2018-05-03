@@ -33,7 +33,7 @@
         <elementListCompartment Id="3f90d3b9-c60e-4bc0-accd-16a1affddb9d" absoluteBounds="6.265, 5.8350000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 13.8949698893229); (7.25 : 13.8949698893229); (7.25 : 6.56899251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 13.8949698893229); (7.25 : 13.8949698893229); (7.25 : 6.56899251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TurismoDataContext/Usuario/Usuario_UsuarioAlojamiento" />
       <nodes>
         <classShapeMoniker Id="1bf43843-2f40-485e-8e0e-4e0606e91e28" />
@@ -46,7 +46,7 @@
         <elementListCompartment Id="59972ce8-6819-43a7-af65-0ab54778e6fa" absoluteBounds="3.5149999999999997, 3.2100000000000009, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 5.97199625651042); (6.25 : 5.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 6.10020182291667); (6.25 : 6.10020182291667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TurismoDataContext/Alojamiento/Alojamiento_UsuarioAlojamiento" />
       <nodes>
         <classShapeMoniker Id="66bbe4ab-70ec-43ad-9813-8e70351c68f1" />
@@ -66,7 +66,7 @@
         <classShapeMoniker Id="1bf43843-2f40-485e-8e0e-4e0606e91e28" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.7499995); (4.5 : 1.7499995); (4.5 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.28125); (4.09375 : 1.28125); (4.09375 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TurismoDataContext/Ciudad/Ciudad_Alojamiento" />
       <nodes>
         <classShapeMoniker Id="b4c6faa4-8ec9-4ecb-9a3a-744d0c3d83c5" />
@@ -79,14 +79,14 @@
         <elementListCompartment Id="02acb74a-58ab-4a5b-8e45-f3743e953504" absoluteBounds="9.265, 3.3350000000000009, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 4.09375); (9.25 : 4.09375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 7.70711507161458); (7.16666666666667 : 7.70711507161458 : JumpStart); (7.33333333333333 : 7.70711507161458 : JumpEnd); (9.25 : 7.70711507161458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TurismoDataContext/Alojamiento/Alojamiento_Transaccion" />
       <nodes>
         <classShapeMoniker Id="66bbe4ab-70ec-43ad-9813-8e70351c68f1" />
         <classShapeMoniker Id="de2dcdd7-7cb5-4354-aee4-90e1b83b162b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.40625 : 18.875); (8.40625 : 7.8501611328125); (9.25 : 7.8501611328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.40625 : 18.875); (8.40625 : 8.61572259765625); (9.25 : 8.61572259765625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TurismoDataContext/FormaPago/FormaPago_Transaccion" />
       <nodes>
         <classShapeMoniker Id="7ed0150b-334a-4a0e-bde5-80fcfb0fd672" />
@@ -112,7 +112,7 @@
         <elementListCompartment Id="c60d3cb9-60fe-447e-9408-0c142ee52a7a" absoluteBounds="0.76499999999999968, 5.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 5.86187832261619); (3.04166666666667 : 5.86187832261618 : JumpStart); (3.20833333333333 : 5.86187832261619 : JumpEnd); (3.5 : 5.86187832261619)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.86187832261619); (3.04166666666667 : 5.86187832261619 : JumpStart); (3.20833333333333 : 5.86187832261619 : JumpEnd); (3.5 : 5.86187832261619)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TurismoDataContext/MonedaDB/MonedaDB_Alojamiento" />
       <nodes>
         <classShapeMoniker Id="63aa2f48-d0a6-40b5-938c-6bddf2ebe078" />
@@ -138,5 +138,31 @@
         <elementListCompartment Id="978d6854-3fbc-4bcb-990b-a575ff8664fe" absoluteBounds="12.39, 12.835, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="3da9db17-ee29-4df0-8654-6a6408cd0035" absoluteBounds="5.625, 1.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TurismoDataContext/ESTADO_PAGO_NPS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="853f5772-1905-40dc-afda-44269ccbf120" absoluteBounds="5.64, 1.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ad44aa67-b9a3-4fda-88ec-88c535ae3f3a" absoluteBounds="4.75, 1.875, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/TurismoDataContext/PAGO_NPS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a747fcf8-eb98-4b30-95b0-3fa70881f34f" absoluteBounds="4.765, 2.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.25 : 4.22679768880208); (6.75 : 4.22679768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TurismoDataContext/Transaccion/Transaccion_PAGO_NPS" />
+      <nodes>
+        <classShapeMoniker Id="de2dcdd7-7cb5-4354-aee4-90e1b83b162b" />
+        <classShapeMoniker Id="ad44aa67-b9a3-4fda-88ec-88c535ae3f3a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.625 : 1.5); (6.625 : 1.25); (5.75 : 1.25); (5.75 : 1.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TurismoDataContext/ESTADO_PAGO_NPS/ESTADO_PAGO_NPS_PAGO_NPS" />
+      <nodes>
+        <classShapeMoniker Id="3da9db17-ee29-4df0-8654-6a6408cd0035" />
+        <classShapeMoniker Id="ad44aa67-b9a3-4fda-88ec-88c535ae3f3a" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

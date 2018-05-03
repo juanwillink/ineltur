@@ -97,7 +97,7 @@
 
 
         $(document).on('click', '@string.Format(".reserveFor_{0}", Model.LodgingName)', function (e) {
-            debugger;
+            //debugger;
             if ($("@string.Format(".TravelerName_{0}", Model.LodgingName)").val() === "" || $("@string.Format(".TravelerName_{0}",Model.LodgingName)").val() === "Debe llenar este campo") {
                 e.preventDefault();
                 $("@string.Format(".TravelerName_{0}", Model.LodgingName)").val("Debe llenar este campo");
