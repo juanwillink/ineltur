@@ -71,8 +71,8 @@ como voucher para ser entregado al momento de ingresar en el hotel:
         <td>@detalle.FechaInicial.ToString("dd/MM/yyyy")</td>
         <td>@detalle.FechaFinal.ToString("dd/MM/yyyy")</td>
         <td>@Model.CantidadPasajeros[i].ToString()</td>
-        <td>@Model.Moneda @String.Format("{0:0.00}", detalle.PorUnidad)</td>
-        <td>@Model.Moneda @String.Format("{0:0.00}", detalle.Subtotal)</td>
+        <td>@Model.Moneda @String.Format("{0:0}", detalle.PorUnidad)</td>
+        <td>@Model.Moneda @String.Format("{0:0}", detalle.Subtotal)</td>
     </tr>
     }
     <tr>
