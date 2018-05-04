@@ -468,15 +468,10 @@ namespace Ineltur.WebService
             smtp.EnableSsl = Config.LeerSetting("MailUseSSL", false);
             smtp.Host = Config.LeerSetting("MailServer");
             smtp.Port = Config.LeerSetting("MailPort", 25);
-
-            string user = Config.LeerSetting("MailUser");
-
-            if (!String.IsNullOrEmpty(user))
-            {
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential(Config.LeerSetting("MailUser"),
-                        Config.LeerSetting("MailPassword"));
-            }
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new NetworkCredential(Config.LeerSetting("MailUser"),
+                    Config.LeerSetting("MailPassword"));
+            
             return smtp;
         }
 

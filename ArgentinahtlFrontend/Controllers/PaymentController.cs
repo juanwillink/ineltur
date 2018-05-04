@@ -45,22 +45,29 @@ namespace CheckArgentina.Controllers
                 }
                 if (vacancy.Promociones.Length > 0)
                 {
+                    SessionData.Reservation.TienePromocion = true;
                     foreach (var promocion in vacancy.Promociones)
                     {
-                        switch (promocion.IDTIPOPUBLICACIONPROMO)
+                        if (promocion.IDTIPOPUBLICACIONPROMO == 1)
                         {
-                            case 1:
-                                var nochesARestar = promocion.DIASRESERVADOS - promocion.DIASACOBRAR;
-                                for (int i = 0; i < nochesARestar; i++)
-                                {
-                                    //SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice - vacancy.VacancyPrice;
-                                }
-                                break;
-                            case 5:
-                                SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice * (decimal.Parse(promocion.DESCUENTO.ToString()) / 100);
-                                break;
-                            default:
-                                break;
+                            var nochesARestar = promocion.DIASRESERVADOS - promocion.DIASACOBRAR;
+                            for (int i = 0; i < nochesARestar; i++)
+                            {
+                                SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice - vacancy.ConfirmedVacancyPrice;
+                            }
+                        }
+                        else if (promocion.IDTIPOPUBLICACIONPROMO == 5)
+                        {
+                            SessionData.Reservation.PromotionPrice = SessionData.Reservation.PromotionPrice * (decimal.Parse(promocion.DESCUENTO.ToString()) / 100);
+                        }
+                        else if (promocion.IDTIPOPUBLICACIONPROMO == 6)
+                        {
+                            if (SessionData.Reservation.Vacancies.FirstOrDefault().VacancyReserved == 2)
+                            {
+                                var precioHabitacion1 = SessionData.Reservation.Vacancies.FirstOrDefault().ConfirmedVacancyPrice;
+                                var precioHabtiacion2 = SessionData.Reservation.Vacancies.FirstOrDefault().ConfirmedVacancyPrice / 2;
+                                SessionData.Reservation.PromotionPrice = precioHabitacion1 + precioHabtiacion2;
+                            }
                         }
                     }
                 }
@@ -94,6 +101,7 @@ namespace CheckArgentina.Controllers
             {
                 travelerIdNumber = "0";
             }
+
             if (SessionData.Reservation.ReservationOwner == null)
             {
                 var reservationOwner = new TravelerModel()
@@ -106,6 +114,7 @@ namespace CheckArgentina.Controllers
                 };
                 SessionData.Reservation.ReservationOwner = reservationOwner;
             }
+
             foreach (var vacancy in SessionData.Reservation.Vacancies)
             {
                 if (vacancy.VacancyId == vacancyId)
@@ -119,6 +128,7 @@ namespace CheckArgentina.Controllers
                     vacancy.Rooms.Min().Travelers.Add(traveler);
                 }
             }
+
             return Json(traveler, JsonRequestBehavior.AllowGet);
         }
 
@@ -168,7 +178,7 @@ namespace CheckArgentina.Controllers
             //    RedirectToAction("PaymentError");
 
             //SessionData.Reservation.LodgingId = reservationModel.LodgingId;
-            SessionData.Reservation.ReservationOwner = SessionData.Reservation.Vacancies.Min().Rooms.Min().Travelers.Min();
+            //SessionData.Reservation.ReservationOwner = SessionData.Reservation.Vacancies.Min().Rooms.Min().Travelers.Min();
             //SessionData.Reservation.PaymentMethodId = reservationModel.PaymentMethodId;
             //SessionData.Reservation.Observations = reservationModel.Observations;
             //SessionData.Reservation.Vacancies = reservationModel.Vacancies;

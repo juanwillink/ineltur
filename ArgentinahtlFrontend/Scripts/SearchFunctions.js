@@ -282,6 +282,7 @@ function buildLodgingsView(data, userkey) {
             var vacancy = lodging.Vacancies[key2];
             if (vacancy.Promociones.length > 0) {
                 $("#promocion-div-" + lodging["LodgingId"] + "").append("<div onclick='openLodgingPromotionsModal(" + stringifiedLodging2 + ")' class='alert alert-info' role='alert'><img src='../Content/Images/250px-Tricolour_Cockade.png' style='width:10%;height:10%;'>  Este Alojamiento cuenta con <strong>promociones</strong>, click <strong>AQUI</strong> para conocer mas!</div>");
+                break;
             }  
         }
     }
