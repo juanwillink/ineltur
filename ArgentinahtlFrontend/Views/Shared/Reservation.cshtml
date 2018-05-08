@@ -128,6 +128,7 @@
                                             <input type="hidden" id="reserved_vacancy_roomAdults_@i" value="@Model.Vacancies[i].Rooms.FirstOrDefault().RoomAdults" />
                                             <input type="hidden" id="reserved_vacancy_vacancyReserved_@i" value="@Model.Vacancies[i].VacancyReserved" />
                                             <input type="hidden" id="reserved_lodging_destinationId" value="@Model.DestinationId"/>
+                                            <input type="hidden" id="nationality" value="@Model.Nationality" />
                                             <div class="col-md-8" style="padding-left: 0px;">
                                                 <h4 style="display: inline-block"><b>Habitacion:</b> @Model.Vacancies[i].VacancyName</h4>
                                                 @if (Model.Vacancies.Count != 1)

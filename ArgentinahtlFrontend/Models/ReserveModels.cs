@@ -42,6 +42,8 @@ namespace CheckArgentina.Models
 
         public decimal PromotionPrice { get; set; }
 
+        public string Nationality { get; set; }
+
         [Required]
         [Display(Name = "ID. Hotel")]
         [DataType(DataType.Text)]
