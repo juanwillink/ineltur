@@ -256,14 +256,16 @@ namespace Ineltur.WebService
                             fechaInicio, fechaFin, peticion.IdAlojamiento, "arg", peticion.Desayuno, peticion.TarifaReembolsable).Where(
                             d => unidades.Contains(d.IDUNIDAD_ALOJ)).ToList();
                     bool satisfecho = true;
-                    decimal total = 0.0m;
+                    decimal total = peticion.PrecioPromocional;
                     var detalles = new List<DetalleReserva>();
 
                     //1.Cambiar markup teniendo en cuenta cotizaciones de ambas monedas
                     float cotizMonedaUsuario = ObtenerCotizacion(dc, usuario.IdMoneda); //Agregado por AM
-                    float cotizMonedaAloj = ObtenerCotizacion(dc, (Guid)alojamiento.Moneda.IdMoneda); //Agregado por AM
+                    //float cotizMonedaAloj = ObtenerCotizacion(dc, (Guid)alojamiento.Moneda.IdMoneda); //Agregado por AM
+                    float cotizMonedaAloj = ObtenerCotizacionTarifaAlojamiento(dc, peticion.IdAlojamiento, peticion.Nacionalidad);
 
-                    var markupYCotiz = cotizMonedaAloj / ((1 - (usuario.MarkupAAgencia) / 100) * (1 - (usuario.MarkupAConsumidorFinal) / 100) * cotizMonedaUsuario);
+                    //var markupYCotiz = cotizMonedaAloj / ((1 - (usuario.MarkupAAgencia) / 100) * (1 - (usuario.MarkupAConsumidorFinal) / 100) * cotizMonedaUsuario);
+                    var markup = 1 / ((1 - (usuario.MarkupAAgencia) / 100) * (1 - (usuario.MarkupAConsumidorFinal) / 100));
 
                     Tracker.WriteTrace(operationNumber, "Guardando Transacción en BD...");
 
@@ -330,7 +332,7 @@ namespace Ineltur.WebService
                                 } else
                                 {
                                     dc.AddReservaUnidad(detalle.IdUnidad, idTransaccion, inicio, fin,
-                                        disponible.MONTOPROMEDIOPORDIA * dias * markupYCotiz, true,
+                                        (float)peticion.PrecioPromocional, true,
                                         ref error, ref idReserva);
                                 }
                                 Tracker.WriteTrace(operationNumber, string.Format("Reserva de Unidad guardada con ID: {0}", idReserva));
@@ -356,7 +358,7 @@ namespace Ineltur.WebService
 
                             Tracker.WriteTrace(operationNumber, "Reservas de Unidad guardadas en BD");
 
-                            decimal porDia = Decimal.Round((decimal)((disponible.MONTOPROMEDIOPORDIA ?? 0.0f) * markupYCotiz), 2);
+                            decimal porDia = Decimal.Round((decimal)((disponible.MONTOPROMEDIOPORDIA.GetValueOrDefault() * markup) * (cotizMonedaAloj / cotizMonedaUsuario)), 2);
 
                             var detalleUnidad = new DetalleReserva()
                             {
@@ -370,7 +372,7 @@ namespace Ineltur.WebService
                             };
 
                             detalles.Add(detalleUnidad);
-                            total += detalleUnidad.Subtotal;
+                            //total += detalleUnidad.Subtotal;
 
                             Tracker.WriteTrace(operationNumber, "Detalle de Unidad actualizado: " + detalleUnidad.ToStringWithProperties());
                         }

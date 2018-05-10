@@ -405,6 +405,7 @@ namespace CheckArgentina.Managers
                 petition.Observaciones = reservationModel.Observations;
                 petition.Desayuno = reservationModel.Vacancies.FirstOrDefault().Breakfast;
                 petition.TarifaReembolsable = reservationModel.Vacancies.FirstOrDefault().Tarifa;
+                petition.Nacionalidad = SessionData.Reservation.Nationality;
                 if (reservationModel.Vacancies[0].VacancyCheckin.AddDays(-reservationModel.DiasCancelacionCargo) < DateTime.Now.Date)
                 {
                     petition.IncurreGastos = true;

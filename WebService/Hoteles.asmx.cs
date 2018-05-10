@@ -183,7 +183,7 @@ namespace Ineltur.WebService
 
                 if (dc2 == null) dc2 = NuevoDataContext();
 
-                var idMoneda = dc2.Tarifas_Alojamientos.Where(t => t.IDALOJ == idAloj && t.IDNACIONALIDAD == idNacionalidad && t.FECHA_DESDE <= DateTime.Now && t.FECHA_HASTA == null).Select(t => t.IDMONEDA).SingleOrDefault();
+                var idMoneda = dc2.Tarifas_Alojamientos.Where(t => t.IDALOJ == idAloj && t.IDNACIONALIDAD == idNacionalidad && t.FECHA_DESDE <= DateTime.Now && t.FECHA_HASTA >= DateTime.Now).Select(t => t.IDMONEDA).SingleOrDefault();
 
                 float cotizAlojamiento = dc2.Monedas.Where(m => m.IdMoneda == idMoneda).Select(m => m.Cotizacion).SingleOrDefault();
 

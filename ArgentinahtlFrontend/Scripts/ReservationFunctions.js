@@ -517,6 +517,7 @@ function noRoomsFound() {
 
 function empezarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
     debugger;
+    $("[id$=_reservarBtn]").prop("disabled", true);
     var roomsElements = $("[id^=vacancy_" + vacancyNumber + "_Room_]");
     var checkinDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckin").val().substr(6)));
     var checkoutDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckout").val().substr(6)));
@@ -525,6 +526,7 @@ function empezarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
     var desayuno = desayuno;
     var tarifa = tarifa;
     var tienePromocion = false;
+    var nationality = $("#nationalityFilter").val();
     if (result) {
         tienePromocionNxM = true;
         tienePromocion = true;
@@ -564,6 +566,7 @@ function empezarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
         "DestinationId": $("#destinationIdSearch").val(),
         "Vacancies": vacancies,
         "TienePromocion": tienePromocion,
+        "Nationality": nationality
     }
     $.ajax({
         url: "../Payment/Confirmation",
