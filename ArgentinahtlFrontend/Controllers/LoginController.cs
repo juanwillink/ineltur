@@ -169,8 +169,9 @@ namespace CheckArgentina.Controllers
             if (SessionData.UserCredential.Username == null)
             {
                 return View("Home");
-            }
-            searchLodgingRequestModel.DestinationType = string.IsNullOrEmpty(searchLodgingRequestModel.DestinationId) ? "NoEspecificado" : "Ciudad";
+            }          
+
+            //searchLodgingRequestModel.DestinationType = string.IsNullOrEmpty(searchLodgingRequestModel.DestinationId) ? "NoEspecificado" : "Ciudad";
             if (searchLodgingRequestModel.Rooms != null)
             {
                 foreach (var room in searchLodgingRequestModel.Rooms)
