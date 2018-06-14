@@ -603,7 +603,7 @@ namespace Ineltur.WebService
                             petition.FechaInicio, petition.FechaFin, ConvertirOrdenamiento(petition.Orden),
                             ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad,
                             petition.NombreAlojamiento, null, null, usuario.IdUsuario)
-                                .Where(a => a.montoTotalPorUnidad > 0).ToArray();
+                                .ToArray();
                                 
 
 
@@ -672,7 +672,7 @@ namespace Ineltur.WebService
                                
                             }).ToArray();
 
-                            alojamientosDisponibles = alojamientosDisponibles.Where(a => a.Tarifa1 != 0).OrderBy(a => a.Tarifa1).GroupBy(a => a.IdAlojamiento).Select(a => a.First()).ToArray();
+                            alojamientosDisponibles = alojamientosDisponibles.OrderBy(a => a.Tarifa1).GroupBy(a => a.IdAlojamiento).Select(a => a.First()).ToArray();
 
                             foreach (var alojamientoDisponible in alojamientosDisponibles)
                             {
@@ -822,7 +822,12 @@ namespace Ineltur.WebService
                     break;
             }
             float?[] arrayWithoutZeros = minimizedArray.Where(c => c != 0).ToArray();
-            float? montoMenor = arrayWithoutZeros.Min();
+            float? montoMenor = 0;
+            if (arrayWithoutZeros.Length != 0)
+            {
+                montoMenor = arrayWithoutZeros.Min();
+            }
+            
 
             //float?[] array = { monto1, monto2, monto3, monto4, monto5, monto6 };
             //float? montoMenor = 0;
