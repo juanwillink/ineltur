@@ -673,6 +673,7 @@ namespace Ineltur.WebService
                             }).ToArray();
 
                             alojamientosDisponibles = alojamientosDisponibles.OrderBy(a => a.Tarifa1).GroupBy(a => a.IdAlojamiento).Select(a => a.First()).ToArray();
+                            alojamientosDisponibles = alojamientosDisponibles.OrderBy(a => a.Alojamiento.Nombre).ToArray();
 
                             foreach (var alojamientoDisponible in alojamientosDisponibles)
                             {
