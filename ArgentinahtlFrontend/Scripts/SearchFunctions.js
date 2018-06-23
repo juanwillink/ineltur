@@ -153,8 +153,9 @@ function buildLodgingsView(data, userkey) {
             debugger;
             if (lodging["LodgingPrice"].toString() == "0") {
                 body = body +
-                    "<h3>Consultar Precio</h3>" +
+                    "<h3>Consultar Tarifa</h3>" +
                     "<button class='btn btn-success' style='margin: 5px;' onclick='openEmailReservationModal(" + stringifiedLodging + ");'>Consultar Via Mail</button>" +
+                    "<button class='btn btn-default' style='margin: 5px' onclick='openTelephoneModal();'>Reserva Telefonica</button>" +
                     "</div>" +
                     "</div>" +
                     "</div>" +
@@ -178,6 +179,7 @@ function buildLodgingsView(data, userkey) {
                         '<button class="btn btn-info" style="margin: 5px;" onclick="openDetailsModal(' + "'" + lodging["LodgingId"] + "'" + ')">Mas Informacion</button>' +
                         '<button class="btn btn-main" style="margin: 5px;" onclick="verTarifasHotel(' + "'" + lodging["LodgingId"] + "'," + "'" + lodging["LodgingName"] + "'" + ')">Ver Tarifas</button>' +
                         "<button class='btn btn-success' style='margin: 5px;' onclick='openReservationModal(" + stringifiedLodging + ");'>Reservar</button>" +
+                        "<button class='btn btn-default' style='margin: 5px' onclick='alert(" + "'" + "Llame al 0810 333 2705" + "'" + ")';'>Reserva Telefonica</button>" +
                         "</div>" +
                         //"<div class='row'>" +
                         //    "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno + 
@@ -199,7 +201,7 @@ function buildLodgingsView(data, userkey) {
                             '<button class="btn btn-info" style="margin: 5px;" onclick="openDetailsModal(' + "'" + lodging["LodgingId"] + "'" + ')">Mas Informacion</button>' +
                             '<button class="btn btn-main" style="margin: 5px;" onclick="verTarifasHotel(' + "'" + lodging["LodgingId"] + "'," + "'" + lodging["LodgingName"] + "'" + ')">Ver Tarifas</button>' +
                             "<button class='btn btn-success' style='margin: 5px;' onclick='openEmailReservationModal(" + stringifiedLodging + ");'>Reserva Via Mail</button>" +
-                            "<button class='btn btn-default' style='margin: 5px' onclick='openPhoneReservationModalSimple();'>Reserva Telefonica</button>" +
+                            "<button class='btn btn-default' style='margin: 5px' onclick='alert(" + "'" + "Llame al 0810 333 2705" + "'" + ")';'>Reserva Telefonica</button>" +
                             "</div>" +
                             //"<div class='row'>" +
                             //    "Tarifa Reembolsable: " + tarifaReembolsable + " - Desayuno: " + desayuno +

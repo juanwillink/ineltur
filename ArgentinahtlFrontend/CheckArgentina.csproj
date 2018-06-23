@@ -2131,6 +2131,7 @@
     <Content Include="Views\Modals\EmailReservationModal.cshtml" />
     <None Include="Service References\NationalService\Hoteles.wsdl" />
     <Content Include="Views\Modals\LodgingPromotionsModal.cshtml" />
+    <Content Include="Views\Modals\TelephoneReservationModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

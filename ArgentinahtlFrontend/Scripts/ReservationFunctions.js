@@ -31,6 +31,9 @@ function openEmailReservationModal(lodging) {
     $("#EmailReservationModal").modal("show");
 }
 
+function openTelephoneModal() {
+    $("#TelephoneReservationModal").modal("show")
+}
 function openLodgingPromotionsModal(lodging) {
     $("#LodgingPromotionsModalTitle").text("Promociones para el hotel " + lodging["LodgingName"]);
     completePromotions(lodging);
