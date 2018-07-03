@@ -80,7 +80,7 @@ namespace CheckArgentina.Managers
                 {
                     foreach (var destination in petitionResults.Destinos)
                     {
-                        if ((DestinationType)destination.TipoDestino == DestinationType.City || destination.NombreDestino.Contains("Stand By"))
+                        if (!destination.NombreDestino.Contains("Stand By"))
                         {
                             destinations.Add(new DestinationModel()
                             {
@@ -93,20 +93,25 @@ namespace CheckArgentina.Managers
                 }
 
                 List<DestinationModel> orderedList = destinations.OrderBy(o => o.DestinationName).ToList();
+                
+                List<DestinationModel> newList = new List<DestinationModel>();
                 for (int i = 0; i < orderedList.Count; i++)
                 {
-                    if (orderedList[i].DestinationId == "44a61c51-e583-46a5-b7b7-596441953248" || 
-                        orderedList[i].DestinationId == "b82161ef-a9d7-43b1-bd5a-53f80ac8d3df" || 
+                    if (orderedList[i].DestinationId == "4023c2d8-eb8c-464e-954d-be64d06cd06f" ||
+                        orderedList[i].DestinationId == "44a61c51-e583-46a5-b7b7-596441953248" ||
+                        orderedList[i].DestinationId == "b82161ef-a9d7-43b1-bd5a-53f80ac8d3df" ||
                         orderedList[i].DestinationId == "8a5e4469-8df7-456b-a0e3-3f091eb5fa3d" ||
                         orderedList[i].DestinationId == "166ba3db-ef47-4ac6-960b-df7884bfbbff" ||
-                        orderedList[i].DestinationId == "4023c2d8-eb8c-464e-954d-be64d06cd06f" ||
-                        orderedList[i].DestinationId == "b6543d09-8a7a-479c-9c52-7b579277ef6a")
+                        orderedList[i].DestinationId == "b6543d09-8a7a-479c-9c52-7b579277ef6a") 
                     {
-                        DestinationModel item = orderedList[i];
+                        newList.Add(orderedList[i]);
                         orderedList.RemoveAt(i);
-                        orderedList.Insert(0, item);
+                        i--;
                     }
                 }
+                newList.OrderBy(o => o.DestinationName).ToList();
+                orderedList.InsertRange(0, newList);
+                orderedList = orderedList.OrderByDescending(o => o.DestinationType).ToList();
                 results.Destinations = orderedList;
                 return results;
             }

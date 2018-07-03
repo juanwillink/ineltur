@@ -249,7 +249,20 @@ namespace CheckArgentina.Managers
             if (!string.IsNullOrEmpty(searchLodgingRequestModel.DestinationId))
                 petition.IdDestino = Guid.Parse(searchLodgingRequestModel.DestinationId);
 
-            petition.TipoDestino = (TipoDestino)Enum.Parse(typeof(TipoDestino), searchLodgingRequestModel.DestinationType);
+            //petition.TipoDestino = (TipoDestino)Enum.Parse(typeof(TipoDestino), searchLodgingRequestModel.DestinationType);
+
+            using (var dc = new TurismoDataContext())
+            {
+                var ciudad = dc.Ciudads.Where(c => c.IDCIUDAD.ToString() == searchLodgingRequestModel.DestinationId).ToArray();
+                if (ciudad.Length != 0)
+                {
+                    petition.TipoDestino = (TipoDestino)Enum.Parse(typeof(TipoDestino), "Ciudad");
+                }
+                else
+                {
+                    petition.TipoDestino = (TipoDestino)Enum.Parse(typeof(TipoDestino), "Provincia");
+                }
+            }
 
             petition.FechaInicio = searchLodgingRequestModel.Checkin;
             petition.FechaFin = searchLodgingRequestModel.Checkout;

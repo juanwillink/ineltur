@@ -483,7 +483,8 @@ namespace Ineltur.WebService
                             Total = respuesta.Total,
                             Detalles = detalles.ToArray(),
                             CantidadPasajeros = peticion.Unidades.Select(u => u.Pasajeros.Count()).ToArray(),
-                            Pasajeros = peticion.Unidades.Select(u => u.Pasajeros).ToArray()
+                            Pasajeros = peticion.Unidades.Select(u => u.Pasajeros).ToArray(),
+                            Desayuno = peticion.Desayuno
                         };
 
                         

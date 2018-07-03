@@ -527,6 +527,11 @@ namespace Ineltur.WebService
                     Guid? ciudad = null;
                     Guid? provincia = null;
 
+                    if (petition.IdDestino.ToString() == "00000000-0000-0000-0000-000000000000")
+                    {
+                        petition.IdDestino = dc.Alojamientos.Where(a => a.Nombre == petition.NombreAlojamiento).Select(a => a.IdCiudad).Single();
+                    }
+
                     switch (petition.TipoDestino)
                     {
                         case TipoDestino.Ciudad:
@@ -535,6 +540,9 @@ namespace Ineltur.WebService
 
                         case TipoDestino.Provincia:
                             provincia = petition.IdDestino;
+                            break;
+                        case TipoDestino.NoEspecificado:
+                            ciudad = petition.IdDestino;
                             break;
                     }
                     if (petition.FechaInicio == DateTime.MinValue)
@@ -595,7 +603,7 @@ namespace Ineltur.WebService
                             petition.FechaInicio, petition.FechaFin, ConvertirOrdenamiento(petition.Orden),
                             ciudad, provincia, ConvertirTipoAlojamiento(petition.TipoAlojamiento), petition.Nacionalidad,
                             petition.NombreAlojamiento, null, null, usuario.IdUsuario)
-                                .Where(a => a.montoTotalPorUnidad > 0).ToArray();
+                                .ToArray();
                                 
 
 
@@ -626,12 +634,22 @@ namespace Ineltur.WebService
 
                             var cotizMonedaUsuario = ObtenerCotizacion(dc, usuario.IdMoneda); //Agregado por AM
 
-                            var nombreCiudad = dc.Ciudades.Where(c => c.IdCiudad == ciudad).SingleOrDefault();
-                            var nombreProvincia = dc.Provincias.Where(p => p.IdProvincia == nombreCiudad.IdProvincia).SingleOrDefault();
+                            Ciudad nombreCiudad = new Ciudad();
+                            Provincia nombreProvincia = new Provincia();
+
+                            if (petition.TipoDestino == TipoDestino.Ciudad)
+                            {
+                                nombreCiudad = dc.Ciudades.Where(c => c.IdCiudad == ciudad).SingleOrDefault();
+                                nombreProvincia = dc.Provincias.Where(p => p.IdProvincia == nombreCiudad.IdProvincia).SingleOrDefault();
+                            }
+                            else
+                            {
+                                nombreCiudad.Nombre = "";
+                                nombreProvincia = dc.Provincias.Where(p => p.IdProvincia == petition.IdDestino).SingleOrDefault();
+                            }
 
                             var alojamientosDisponibles = hoteles.Select(a => new InfoAlojamientoDisponibleCompleta()
                             {
-
 
                                 Destino = new InfoDestino()
                                 {
@@ -649,12 +667,13 @@ namespace Ineltur.WebService
                                 Cupo1 = a.cupoDisponible,
 
                                 
-
-                                Tarifa1 = Decimal.Round((decimal)((a.montoPromedioPorDia.GetValueOrDefault() * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
+                                
+                                Tarifa1 = Decimal.Round((decimal)((ElegirTarifaMasBarata(a, petition.Nacionalidad) * markup) * (ObtenerCotizacionTarifaAlojamiento(dc, a.idAloj.GetValueOrDefault(), petition.Nacionalidad) / cotizMonedaUsuario)), 2),
                                
                             }).ToArray();
 
-                            alojamientosDisponibles = alojamientosDisponibles.GroupBy(a => a.IdAlojamiento).Select(a => a.First()).ToArray();
+                            alojamientosDisponibles = alojamientosDisponibles.OrderBy(a => a.Tarifa1).GroupBy(a => a.IdAlojamiento).Select(a => a.First()).ToArray();
+                            alojamientosDisponibles = alojamientosDisponibles.OrderBy(a => a.Alojamiento.Nombre).ToArray();
 
                             foreach (var alojamientoDisponible in alojamientosDisponibles)
                             {
@@ -776,32 +795,65 @@ namespace Ineltur.WebService
             info.Moneda = ConvertirMoneda(idMonedaUsuario);
         }
 
-        private static float? ElegirTarifaMasBarata(float? monto1, float? monto2, float? monto3, float? monto4, float? monto5, float? monto6)
+        private static float? ElegirTarifaMasBarata(getTarifasTodasDeUnidadPedidaResult a, string nacionalidad)
         {
-            float?[] array = { monto1, monto2, monto3, monto4, monto5, monto6 };
-            float? montoMenor = 0;
-            for (int i = 0; i < 4; i++)
+
+            List<float?> minimizedArray = new List<float?>();
+            switch (nacionalidad)
             {
-                if (array[i] != null)
-                {
-                    if (array[i + 1] != null)
-                    {
-                        if (array[i] < array[i + 1])
-                        {
-
-                            if (array[i] < montoMenor || montoMenor == 0)
-                            {
-                                montoMenor = array[i];
-                            }
-
-                        }
-                    }
-                    else
-                    {
-                        montoMenor = array[i];
-                    }
-                }
+                case "arg":
+                    minimizedArray.Add(a.montoPromedioPorDia);
+                    minimizedArray.Add(a.montoPromedioPorDiaMRCDTNR);
+                    minimizedArray.Add(a.montoPromedioPorDiaMRSDTNR);
+                    minimizedArray.Add(a.montoPromedioPorDiaMRSDTR);
+                    break;
+                case "ext":
+                    minimizedArray.Add(a.montoPromedioPorDiaMECDTNR);
+                    minimizedArray.Add(a.montoPromedioPorDiaMECDTR);
+                    minimizedArray.Add(a.montoPromedioPorDiaMESDTNR);
+                    minimizedArray.Add(a.montoPromedioPorDiaMESDTR);
+                    break;
+                case "mer":
+                    minimizedArray.Add(a.montoPromedioPorDiaMMCDTNR);
+                    minimizedArray.Add(a.montoPromedioPorDiaMMCDTR);
+                    minimizedArray.Add(a.montoPromedioPorDiaMMSDTNR);
+                    minimizedArray.Add(a.montoPromedioPorDiaMMSDTR);
+                    break;
+                default:
+                    break;
             }
+            float?[] arrayWithoutZeros = minimizedArray.Where(c => c != 0).ToArray();
+            float? montoMenor = 0;
+            if (arrayWithoutZeros.Length != 0)
+            {
+                montoMenor = arrayWithoutZeros.Min();
+            }
+            
+
+            //float?[] array = { monto1, monto2, monto3, monto4, monto5, monto6 };
+            //float? montoMenor = 0;
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    if (array[i] != null)
+            //    {
+            //        if (array[i + 1] != null)
+            //        {
+            //            if (array[i] < array[i + 1])
+            //            {
+
+            //                if (array[i] < montoMenor || montoMenor == 0)
+            //                {
+            //                    montoMenor = array[i];
+            //                }
+
+            //            }
+            //        }
+            //        else
+            //        {
+            //            montoMenor = array[i];
+            //        }
+            //    }
+            //}
             return montoMenor;
         }
 
