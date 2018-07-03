@@ -24,7 +24,7 @@ namespace CheckArgentina.Controllers
             return View(lodging);
         }
 
-        public bool CompleteReservation()
+        public bool CompleteReservation(ref string idTransaccion)
         {
             try
             {
@@ -46,13 +46,17 @@ namespace CheckArgentina.Controllers
                 {
                     reservation = manager.Reserve(SessionData.Reservation, SessionData.UserCredential);
                 }
+
+				idTransaccion = reservation.ReservationId;
+
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
 
         }
-    }
+
+	}
 }

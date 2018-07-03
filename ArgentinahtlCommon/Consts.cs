@@ -34,6 +34,12 @@
 
 	}
 
+	public class RespuestaSolicitudCapturaNPS
+	{
+		public const string Exitosa = "0";
+
+	}
+
 	public enum EstadoNPS
 	{
 		AprobadaAutorizada = 1,

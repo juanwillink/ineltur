@@ -857,7 +857,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -950,6 +950,8 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_SecureHashField;
         
+        private VaultReference2pStruct psp_VaultReferenceField;
+        
         private AmountAdditionalDetailsRequestStruct psp_AmountAdditionalDetailsField;
         
         private MerchantAdditionalDetailsStruct psp_MerchantAdditionalDetailsField;
@@ -963,8 +965,6 @@ namespace ArgentinahtlBLL.NPS {
         private OrderDetailsStruct psp_OrderDetailsField;
         
         private AirlineDetailsStruct psp_AirlineDetailsField;
-        
-        private VaultReference2pStruct psp_VaultReferenceField;
         
         /// <comentarios/>
         public string psp_Version {
@@ -1440,6 +1440,17 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public VaultReference2pStruct psp_VaultReference {
+            get {
+                return this.psp_VaultReferenceField;
+            }
+            set {
+                this.psp_VaultReferenceField = value;
+                this.RaisePropertyChanged("psp_VaultReference");
+            }
+        }
+        
+        /// <comentarios/>
         public AmountAdditionalDetailsRequestStruct psp_AmountAdditionalDetails {
             get {
                 return this.psp_AmountAdditionalDetailsField;
@@ -1516,17 +1527,6 @@ namespace ArgentinahtlBLL.NPS {
             }
         }
         
-        /// <comentarios/>
-        public VaultReference2pStruct psp_VaultReference {
-            get {
-                return this.psp_VaultReferenceField;
-            }
-            set {
-                this.psp_VaultReferenceField = value;
-                this.RaisePropertyChanged("psp_VaultReference");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -1538,49 +1538,49 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.SoapTypeAttribute(Namespace="https://implementacion.nps.com.ar/ws")]
-    public partial class AmountAdditionalDetailsRequestStruct : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class VaultReference2pStruct : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string tipField;
+        private string paymentMethodTokenField;
         
-        private string discountField;
+        private string paymentMethodIdField;
         
-        private TaxesRequestStruct[] taxesField;
+        private string customerIdField;
         
         /// <comentarios/>
-        public string Tip {
+        public string PaymentMethodToken {
             get {
-                return this.tipField;
+                return this.paymentMethodTokenField;
             }
             set {
-                this.tipField = value;
-                this.RaisePropertyChanged("Tip");
+                this.paymentMethodTokenField = value;
+                this.RaisePropertyChanged("PaymentMethodToken");
             }
         }
         
         /// <comentarios/>
-        public string Discount {
+        public string PaymentMethodId {
             get {
-                return this.discountField;
+                return this.paymentMethodIdField;
             }
             set {
-                this.discountField = value;
-                this.RaisePropertyChanged("Discount");
+                this.paymentMethodIdField = value;
+                this.RaisePropertyChanged("PaymentMethodId");
             }
         }
         
         /// <comentarios/>
-        public TaxesRequestStruct[] Taxes {
+        public string CustomerId {
             get {
-                return this.taxesField;
+                return this.customerIdField;
             }
             set {
-                this.taxesField = value;
-                this.RaisePropertyChanged("Taxes");
+                this.customerIdField = value;
+                this.RaisePropertyChanged("CustomerId");
             }
         }
         
@@ -1595,77 +1595,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="https://implementacion.nps.com.ar/ws")]
-    public partial class TaxesRequestStruct : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string typeIdField;
-        
-        private string amountField;
-        
-        private string rateField;
-        
-        private string baseAmountField;
-        
-        /// <comentarios/>
-        public string TypeId {
-            get {
-                return this.typeIdField;
-            }
-            set {
-                this.typeIdField = value;
-                this.RaisePropertyChanged("TypeId");
-            }
-        }
-        
-        /// <comentarios/>
-        public string Amount {
-            get {
-                return this.amountField;
-            }
-            set {
-                this.amountField = value;
-                this.RaisePropertyChanged("Amount");
-            }
-        }
-        
-        /// <comentarios/>
-        public string Rate {
-            get {
-                return this.rateField;
-            }
-            set {
-                this.rateField = value;
-                this.RaisePropertyChanged("Rate");
-            }
-        }
-        
-        /// <comentarios/>
-        public string BaseAmount {
-            get {
-                return this.baseAmountField;
-            }
-            set {
-                this.baseAmountField = value;
-                this.RaisePropertyChanged("BaseAmount");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1774,7 +1704,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1896,7 +1826,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2174,7 +2104,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2231,7 +2161,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2287,6 +2217,8 @@ namespace ArgentinahtlBLL.NPS {
         private OrderDetailsStruct psp_OrderDetailsField;
         
         private AirlineDetailsStruct psp_AirlineDetailsField;
+        
+        private VaultReference2pStruct psp_VaultReferenceField;
         
         /// <comentarios/>
         public string psp_Version {
@@ -2563,6 +2495,17 @@ namespace ArgentinahtlBLL.NPS {
             }
         }
         
+        /// <comentarios/>
+        public VaultReference2pStruct psp_VaultReference {
+            get {
+                return this.psp_VaultReferenceField;
+            }
+            set {
+                this.psp_VaultReferenceField = value;
+                this.RaisePropertyChanged("psp_VaultReference");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -2574,7 +2517,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2657,12 +2600,14 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.SoapTypeAttribute(Namespace="https://implementacion.nps.com.ar/ws")]
     public partial class SellerDetailsStruct : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string externalReferenceIdField;
         
         private string iDNumberField;
         
@@ -2676,11 +2621,28 @@ namespace ArgentinahtlBLL.NPS {
         
         private AddressStruct addressField;
         
+        private string emailAddressField;
+        
+        private string phoneNumber1Field;
+        
+        private string phoneNumber2Field;
+        
         private string mCCField;
         
         private string channelCodeField;
         
         private string geoCodeField;
+        
+        /// <comentarios/>
+        public string ExternalReferenceId {
+            get {
+                return this.externalReferenceIdField;
+            }
+            set {
+                this.externalReferenceIdField = value;
+                this.RaisePropertyChanged("ExternalReferenceId");
+            }
+        }
         
         /// <comentarios/>
         public string IDNumber {
@@ -2749,6 +2711,39 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public string EmailAddress {
+            get {
+                return this.emailAddressField;
+            }
+            set {
+                this.emailAddressField = value;
+                this.RaisePropertyChanged("EmailAddress");
+            }
+        }
+        
+        /// <comentarios/>
+        public string PhoneNumber1 {
+            get {
+                return this.phoneNumber1Field;
+            }
+            set {
+                this.phoneNumber1Field = value;
+                this.RaisePropertyChanged("PhoneNumber1");
+            }
+        }
+        
+        /// <comentarios/>
+        public string PhoneNumber2 {
+            get {
+                return this.phoneNumber2Field;
+            }
+            set {
+                this.phoneNumber2Field = value;
+                this.RaisePropertyChanged("PhoneNumber2");
+            }
+        }
+        
+        /// <comentarios/>
         public string MCC {
             get {
                 return this.mCCField;
@@ -2792,7 +2787,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2901,7 +2896,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3062,7 +3057,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3158,7 +3153,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3306,7 +3301,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3454,7 +3449,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3485,7 +3480,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3594,7 +3589,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3664,7 +3659,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3690,6 +3685,8 @@ namespace ArgentinahtlBLL.NPS {
         private string baseFareField;
         
         private string baseFareCurrencyField;
+        
+        private string stopoverCodeField;
         
         /// <comentarios/>
         public string DepartureAirport {
@@ -3801,6 +3798,17 @@ namespace ArgentinahtlBLL.NPS {
             }
         }
         
+        /// <comentarios/>
+        public string StopoverCode {
+            get {
+                return this.stopoverCodeField;
+            }
+            set {
+                this.stopoverCodeField = value;
+                this.RaisePropertyChanged("StopoverCode");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -3812,7 +3820,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3973,7 +3981,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4082,7 +4090,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4191,7 +4199,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4274,7 +4282,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4357,7 +4365,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4479,7 +4487,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4575,7 +4583,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5347,7 +5355,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5404,7 +5412,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5513,7 +5521,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5648,7 +5656,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5770,7 +5778,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5866,7 +5874,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5988,7 +5996,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6136,7 +6144,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6232,7 +6240,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6354,7 +6362,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6450,7 +6458,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7222,7 +7230,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7344,7 +7352,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7440,7 +7448,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7640,7 +7648,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7775,7 +7783,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7858,7 +7866,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8058,7 +8066,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8245,7 +8253,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8328,7 +8336,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8398,7 +8406,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8598,7 +8606,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8681,7 +8689,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8881,7 +8889,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9042,7 +9050,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9151,7 +9159,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9286,7 +9294,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9369,7 +9377,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9478,7 +9486,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9522,7 +9530,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9657,7 +9665,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9766,7 +9774,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9849,7 +9857,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9958,7 +9966,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10080,7 +10088,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10189,7 +10197,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10298,7 +10306,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10407,7 +10415,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10490,7 +10498,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10664,7 +10672,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10773,7 +10781,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10947,7 +10955,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11017,7 +11025,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11191,7 +11199,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11287,7 +11295,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11344,7 +11352,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11505,7 +11513,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11666,7 +11674,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11983,7 +11991,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -12170,7 +12178,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -12500,7 +12508,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -12661,7 +12669,134 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.SoapTypeAttribute(Namespace="https://implementacion.nps.com.ar/ws")]
+    public partial class AmountAdditionalDetailsRequestStruct : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string tipField;
+        
+        private string discountField;
+        
+        private TaxesRequestStruct[] taxesField;
+        
+        /// <comentarios/>
+        public string Tip {
+            get {
+                return this.tipField;
+            }
+            set {
+                this.tipField = value;
+                this.RaisePropertyChanged("Tip");
+            }
+        }
+        
+        /// <comentarios/>
+        public string Discount {
+            get {
+                return this.discountField;
+            }
+            set {
+                this.discountField = value;
+                this.RaisePropertyChanged("Discount");
+            }
+        }
+        
+        /// <comentarios/>
+        public TaxesRequestStruct[] Taxes {
+            get {
+                return this.taxesField;
+            }
+            set {
+                this.taxesField = value;
+                this.RaisePropertyChanged("Taxes");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.SoapTypeAttribute(Namespace="https://implementacion.nps.com.ar/ws")]
+    public partial class TaxesRequestStruct : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string typeIdField;
+        
+        private string amountField;
+        
+        private string rateField;
+        
+        private string baseAmountField;
+        
+        /// <comentarios/>
+        public string TypeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("TypeId");
+            }
+        }
+        
+        /// <comentarios/>
+        public string Amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                this.amountField = value;
+                this.RaisePropertyChanged("Amount");
+            }
+        }
+        
+        /// <comentarios/>
+        public string Rate {
+            get {
+                return this.rateField;
+            }
+            set {
+                this.rateField = value;
+                this.RaisePropertyChanged("Rate");
+            }
+        }
+        
+        /// <comentarios/>
+        public string BaseAmount {
+            get {
+                return this.baseAmountField;
+            }
+            set {
+                this.baseAmountField = value;
+                this.RaisePropertyChanged("BaseAmount");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -12991,7 +13126,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -13425,7 +13560,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -13820,7 +13955,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -14319,7 +14454,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -14506,7 +14641,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -14537,6 +14672,8 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_CountryField;
         
+        private string psp_UseMultipleProductsField;
+        
         private string psp_ProductField;
         
         private string psp_CustomerMailField;
@@ -14550,8 +14687,6 @@ namespace ArgentinahtlBLL.NPS {
         private string psp_PromotionCodeField;
         
         private string psp_PresetCardIINField;
-        
-        private string psp_UseMultipleProductsField;
         
         private RespuestaStruct_SplitAuthorize_3p_Transactions[] psp_TransactionsField;
         
@@ -14688,6 +14823,17 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public string psp_UseMultipleProducts {
+            get {
+                return this.psp_UseMultipleProductsField;
+            }
+            set {
+                this.psp_UseMultipleProductsField = value;
+                this.RaisePropertyChanged("psp_UseMultipleProducts");
+            }
+        }
+        
+        /// <comentarios/>
         public string psp_Product {
             get {
                 return this.psp_ProductField;
@@ -14765,17 +14911,6 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
-        public string psp_UseMultipleProducts {
-            get {
-                return this.psp_UseMultipleProductsField;
-            }
-            set {
-                this.psp_UseMultipleProductsField = value;
-                this.RaisePropertyChanged("psp_UseMultipleProducts");
-            }
-        }
-        
-        /// <comentarios/>
         public RespuestaStruct_SplitAuthorize_3p_Transactions[] psp_Transactions {
             get {
                 return this.psp_TransactionsField;
@@ -14797,7 +14932,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -14958,7 +15093,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -15535,7 +15670,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -15566,7 +15701,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -15896,7 +16031,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -16512,7 +16647,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -16699,7 +16834,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -16990,7 +17125,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -17164,7 +17299,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -17741,7 +17876,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -18084,7 +18219,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -18713,7 +18848,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -18861,18 +18996,26 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.SoapTypeAttribute(Namespace="https://implementacion.nps.com.ar/ws")]
     public partial class RespuestaStruct_SplitPayOnLine_2p_Transactions : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private string psp_ResponseCodField;
+        
+        private string psp_ResponseMsgField;
+        
+        private string psp_ResponseExtendedField;
+        
         private string psp_TransactionIdField;
         
         private string psp_MerchantIdField;
         
         private string psp_MerchTxRefField;
+        
+        private string psp_MerchOrderIdField;
         
         private string psp_MerchAdditionalRefField;
         
@@ -18881,6 +19024,12 @@ namespace ArgentinahtlBLL.NPS {
         private string psp_NumPaymentsField;
         
         private string psp_PaymentAmountField;
+        
+        private string psp_RecurrentField;
+        
+        private string psp_CurrencyField;
+        
+        private string psp_CountryField;
         
         private string psp_ProductField;
         
@@ -18896,6 +19045,12 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_SequenceNumberField;
         
+        private string psp_CustomerMailField;
+        
+        private string psp_CustomerIdField;
+        
+        private string psp_MerchantMailField;
+        
         private string psp_ClTrnIdField;
         
         private string psp_ClExternalMerchantField;
@@ -18906,9 +19061,9 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_ClResponseMsgField;
         
-        private string psp_PlanField;
+        private string psp_PosDateTimeField;
         
-        private string psp_FirstPaymentDeferralField;
+        private string psp_PlanField;
         
         private string psp_PromotionCodeField;
         
@@ -18921,6 +19076,39 @@ namespace ArgentinahtlBLL.NPS {
         private FraudScreeningResultStruct psp_FraudScreeningResultField;
         
         private VerificationServicesResultStruct psp_VerificationServicesResultField;
+        
+        /// <comentarios/>
+        public string psp_ResponseCod {
+            get {
+                return this.psp_ResponseCodField;
+            }
+            set {
+                this.psp_ResponseCodField = value;
+                this.RaisePropertyChanged("psp_ResponseCod");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_ResponseMsg {
+            get {
+                return this.psp_ResponseMsgField;
+            }
+            set {
+                this.psp_ResponseMsgField = value;
+                this.RaisePropertyChanged("psp_ResponseMsg");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_ResponseExtended {
+            get {
+                return this.psp_ResponseExtendedField;
+            }
+            set {
+                this.psp_ResponseExtendedField = value;
+                this.RaisePropertyChanged("psp_ResponseExtended");
+            }
+        }
         
         /// <comentarios/>
         public string psp_TransactionId {
@@ -18952,6 +19140,17 @@ namespace ArgentinahtlBLL.NPS {
             set {
                 this.psp_MerchTxRefField = value;
                 this.RaisePropertyChanged("psp_MerchTxRef");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_MerchOrderId {
+            get {
+                return this.psp_MerchOrderIdField;
+            }
+            set {
+                this.psp_MerchOrderIdField = value;
+                this.RaisePropertyChanged("psp_MerchOrderId");
             }
         }
         
@@ -18996,6 +19195,39 @@ namespace ArgentinahtlBLL.NPS {
             set {
                 this.psp_PaymentAmountField = value;
                 this.RaisePropertyChanged("psp_PaymentAmount");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_Recurrent {
+            get {
+                return this.psp_RecurrentField;
+            }
+            set {
+                this.psp_RecurrentField = value;
+                this.RaisePropertyChanged("psp_Recurrent");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_Currency {
+            get {
+                return this.psp_CurrencyField;
+            }
+            set {
+                this.psp_CurrencyField = value;
+                this.RaisePropertyChanged("psp_Currency");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_Country {
+            get {
+                return this.psp_CountryField;
+            }
+            set {
+                this.psp_CountryField = value;
+                this.RaisePropertyChanged("psp_Country");
             }
         }
         
@@ -19077,6 +19309,39 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public string psp_CustomerMail {
+            get {
+                return this.psp_CustomerMailField;
+            }
+            set {
+                this.psp_CustomerMailField = value;
+                this.RaisePropertyChanged("psp_CustomerMail");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_CustomerId {
+            get {
+                return this.psp_CustomerIdField;
+            }
+            set {
+                this.psp_CustomerIdField = value;
+                this.RaisePropertyChanged("psp_CustomerId");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_MerchantMail {
+            get {
+                return this.psp_MerchantMailField;
+            }
+            set {
+                this.psp_MerchantMailField = value;
+                this.RaisePropertyChanged("psp_MerchantMail");
+            }
+        }
+        
+        /// <comentarios/>
         public string psp_ClTrnId {
             get {
                 return this.psp_ClTrnIdField;
@@ -19132,6 +19397,17 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public string psp_PosDateTime {
+            get {
+                return this.psp_PosDateTimeField;
+            }
+            set {
+                this.psp_PosDateTimeField = value;
+                this.RaisePropertyChanged("psp_PosDateTime");
+            }
+        }
+        
+        /// <comentarios/>
         public string psp_Plan {
             get {
                 return this.psp_PlanField;
@@ -19139,17 +19415,6 @@ namespace ArgentinahtlBLL.NPS {
             set {
                 this.psp_PlanField = value;
                 this.RaisePropertyChanged("psp_Plan");
-            }
-        }
-        
-        /// <comentarios/>
-        public string psp_FirstPaymentDeferral {
-            get {
-                return this.psp_FirstPaymentDeferralField;
-            }
-            set {
-                this.psp_FirstPaymentDeferralField = value;
-                this.RaisePropertyChanged("psp_FirstPaymentDeferral");
             }
         }
         
@@ -19230,7 +19495,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -19243,6 +19508,10 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_MerchAdditionalRefField;
         
+        private string psp_AmountField;
+        
+        private string psp_NumPaymentsField;
+        
         private string psp_ProductField;
         
         private string psp_CardNumberField;
@@ -19253,27 +19522,21 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_CardHolderNameField;
         
-        private string psp_AmountField;
-        
-        private string psp_NumPaymentsField;
+        private string psp_SoftDescriptorField;
         
         private string psp_PlanField;
-        
-        private string psp_FirstPaymentDeferralField;
         
         private string psp_PromotionCodeField;
         
         private string psp_PresetCardIINField;
         
-        private string psp_SoftDescriptorField;
+        private VaultReference2pStruct psp_VaultReferenceField;
         
         private AmountAdditionalDetailsRequestStruct psp_AmountAdditionalDetailsField;
         
         private MerchantAdditionalDetailsStruct psp_MerchantAdditionalDetailsField;
         
         private BillingDetailsStruct psp_BillingDetailsField;
-        
-        private VaultReference2pStruct psp_VaultReferenceField;
         
         /// <comentarios/>
         public string psp_MerchantId {
@@ -19305,6 +19568,28 @@ namespace ArgentinahtlBLL.NPS {
             set {
                 this.psp_MerchAdditionalRefField = value;
                 this.RaisePropertyChanged("psp_MerchAdditionalRef");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_Amount {
+            get {
+                return this.psp_AmountField;
+            }
+            set {
+                this.psp_AmountField = value;
+                this.RaisePropertyChanged("psp_Amount");
+            }
+        }
+        
+        /// <comentarios/>
+        public string psp_NumPayments {
+            get {
+                return this.psp_NumPaymentsField;
+            }
+            set {
+                this.psp_NumPaymentsField = value;
+                this.RaisePropertyChanged("psp_NumPayments");
             }
         }
         
@@ -19364,24 +19649,13 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
-        public string psp_Amount {
+        public string psp_SoftDescriptor {
             get {
-                return this.psp_AmountField;
+                return this.psp_SoftDescriptorField;
             }
             set {
-                this.psp_AmountField = value;
-                this.RaisePropertyChanged("psp_Amount");
-            }
-        }
-        
-        /// <comentarios/>
-        public string psp_NumPayments {
-            get {
-                return this.psp_NumPaymentsField;
-            }
-            set {
-                this.psp_NumPaymentsField = value;
-                this.RaisePropertyChanged("psp_NumPayments");
+                this.psp_SoftDescriptorField = value;
+                this.RaisePropertyChanged("psp_SoftDescriptor");
             }
         }
         
@@ -19393,17 +19667,6 @@ namespace ArgentinahtlBLL.NPS {
             set {
                 this.psp_PlanField = value;
                 this.RaisePropertyChanged("psp_Plan");
-            }
-        }
-        
-        /// <comentarios/>
-        public string psp_FirstPaymentDeferral {
-            get {
-                return this.psp_FirstPaymentDeferralField;
-            }
-            set {
-                this.psp_FirstPaymentDeferralField = value;
-                this.RaisePropertyChanged("psp_FirstPaymentDeferral");
             }
         }
         
@@ -19430,13 +19693,13 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
-        public string psp_SoftDescriptor {
+        public VaultReference2pStruct psp_VaultReference {
             get {
-                return this.psp_SoftDescriptorField;
+                return this.psp_VaultReferenceField;
             }
             set {
-                this.psp_SoftDescriptorField = value;
-                this.RaisePropertyChanged("psp_SoftDescriptor");
+                this.psp_VaultReferenceField = value;
+                this.RaisePropertyChanged("psp_VaultReference");
             }
         }
         
@@ -19473,17 +19736,6 @@ namespace ArgentinahtlBLL.NPS {
             }
         }
         
-        /// <comentarios/>
-        public VaultReference2pStruct psp_VaultReference {
-            get {
-                return this.psp_VaultReferenceField;
-            }
-            set {
-                this.psp_VaultReferenceField = value;
-                this.RaisePropertyChanged("psp_VaultReference");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -19495,64 +19747,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="https://implementacion.nps.com.ar/ws")]
-    public partial class VaultReference2pStruct : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string paymentMethodTokenField;
-        
-        private string paymentMethodIdField;
-        
-        private string customerIdField;
-        
-        /// <comentarios/>
-        public string PaymentMethodToken {
-            get {
-                return this.paymentMethodTokenField;
-            }
-            set {
-                this.paymentMethodTokenField = value;
-                this.RaisePropertyChanged("PaymentMethodToken");
-            }
-        }
-        
-        /// <comentarios/>
-        public string PaymentMethodId {
-            get {
-                return this.paymentMethodIdField;
-            }
-            set {
-                this.paymentMethodIdField = value;
-                this.RaisePropertyChanged("PaymentMethodId");
-            }
-        }
-        
-        /// <comentarios/>
-        public string CustomerId {
-            get {
-                return this.customerIdField;
-            }
-            set {
-                this.customerIdField = value;
-                this.RaisePropertyChanged("CustomerId");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -19604,6 +19799,8 @@ namespace ArgentinahtlBLL.NPS {
         private string psp_3dSecure_SecuredField;
         
         private string psp_SecureHashField;
+        
+        private VaultReference2pStruct psp_VaultReferenceField;
         
         private MerchantAdditionalDetailsStruct psp_MerchantAdditionalDetailsField;
         
@@ -19873,6 +20070,17 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public VaultReference2pStruct psp_VaultReference {
+            get {
+                return this.psp_VaultReferenceField;
+            }
+            set {
+                this.psp_VaultReferenceField = value;
+                this.RaisePropertyChanged("psp_VaultReference");
+            }
+        }
+        
+        /// <comentarios/>
         public MerchantAdditionalDetailsStruct psp_MerchantAdditionalDetails {
             get {
                 return this.psp_MerchantAdditionalDetailsField;
@@ -19960,7 +20168,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -20108,7 +20316,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -20145,13 +20353,13 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_SoftDescriptorField;
         
+        private VaultReference2pStruct psp_VaultReferenceField;
+        
         private AmountAdditionalDetailsRequestStruct psp_AmountAdditionalDetailsField;
         
         private MerchantAdditionalDetailsStruct psp_MerchantAdditionalDetailsField;
         
         private BillingDetailsStruct psp_BillingDetailsField;
-        
-        private VaultReference2pStruct psp_VaultReferenceField;
         
         /// <comentarios/>
         public string psp_MerchantId {
@@ -20319,6 +20527,17 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public VaultReference2pStruct psp_VaultReference {
+            get {
+                return this.psp_VaultReferenceField;
+            }
+            set {
+                this.psp_VaultReferenceField = value;
+                this.RaisePropertyChanged("psp_VaultReference");
+            }
+        }
+        
+        /// <comentarios/>
         public AmountAdditionalDetailsRequestStruct psp_AmountAdditionalDetails {
             get {
                 return this.psp_AmountAdditionalDetailsField;
@@ -20351,17 +20570,6 @@ namespace ArgentinahtlBLL.NPS {
             }
         }
         
-        /// <comentarios/>
-        public VaultReference2pStruct psp_VaultReference {
-            get {
-                return this.psp_VaultReferenceField;
-            }
-            set {
-                this.psp_VaultReferenceField = value;
-                this.RaisePropertyChanged("psp_VaultReference");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -20373,7 +20581,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -20426,7 +20634,7 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_SecureHashField;
         
-        private VaultReference3pStruct psp_VaultReferenceField;
+        private VaultReference2pStruct psp_VaultReferenceField;
         
         private MerchantAdditionalDetailsStruct psp_MerchantAdditionalDetailsField;
         
@@ -20696,7 +20904,7 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
-        public VaultReference3pStruct psp_VaultReference {
+        public VaultReference2pStruct psp_VaultReference {
             get {
                 return this.psp_VaultReferenceField;
             }
@@ -20794,103 +21002,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="https://implementacion.nps.com.ar/ws")]
-    public partial class RespuestaStruct_BankPayment_2p_BillingDetails : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string invoiceField;
-        
-        private string invoiceDateField;
-        
-        private string invoiceAmountField;
-        
-        private string invoiceCurrencyField;
-        
-        private PersonStruct personField;
-        
-        private AddressStruct addressField;
-        
-        /// <comentarios/>
-        public string Invoice {
-            get {
-                return this.invoiceField;
-            }
-            set {
-                this.invoiceField = value;
-                this.RaisePropertyChanged("Invoice");
-            }
-        }
-        
-        /// <comentarios/>
-        public string InvoiceDate {
-            get {
-                return this.invoiceDateField;
-            }
-            set {
-                this.invoiceDateField = value;
-                this.RaisePropertyChanged("InvoiceDate");
-            }
-        }
-        
-        /// <comentarios/>
-        public string InvoiceAmount {
-            get {
-                return this.invoiceAmountField;
-            }
-            set {
-                this.invoiceAmountField = value;
-                this.RaisePropertyChanged("InvoiceAmount");
-            }
-        }
-        
-        /// <comentarios/>
-        public string InvoiceCurrency {
-            get {
-                return this.invoiceCurrencyField;
-            }
-            set {
-                this.invoiceCurrencyField = value;
-                this.RaisePropertyChanged("InvoiceCurrency");
-            }
-        }
-        
-        /// <comentarios/>
-        public PersonStruct Person {
-            get {
-                return this.personField;
-            }
-            set {
-                this.personField = value;
-                this.RaisePropertyChanged("Person");
-            }
-        }
-        
-        /// <comentarios/>
-        public AddressStruct Address {
-            get {
-                return this.addressField;
-            }
-            set {
-                this.addressField = value;
-                this.RaisePropertyChanged("Address");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -20954,8 +21066,6 @@ namespace ArgentinahtlBLL.NPS {
         private string psp_CreatedAtField;
         
         private AmountAdditionalDetailsResponseStruct psp_AmountAdditionalDetailsField;
-        
-        private RespuestaStruct_BankPayment_2p_BillingDetails psp_BillingDetailsField;
         
         /// <comentarios/>
         public string psp_ResponseCod {
@@ -21276,17 +21386,6 @@ namespace ArgentinahtlBLL.NPS {
             }
         }
         
-        /// <comentarios/>
-        public RespuestaStruct_BankPayment_2p_BillingDetails psp_BillingDetails {
-            get {
-                return this.psp_BillingDetailsField;
-            }
-            set {
-                this.psp_BillingDetailsField = value;
-                this.RaisePropertyChanged("psp_BillingDetails");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -21298,7 +21397,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -21758,7 +21857,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -21825,8 +21924,6 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_PosDateTimeField;
         
-        private string psp_CreatedAtField;
-        
         private string psp_PlanField;
         
         private string psp_PromotionCodeField;
@@ -21838,6 +21935,8 @@ namespace ArgentinahtlBLL.NPS {
         private string psp_AmexArg_AVS_ResultField;
         
         private string psp_MasterArg_AVS_ResultField;
+        
+        private string psp_CreatedAtField;
         
         private AmountAdditionalDetailsResponseStruct psp_AmountAdditionalDetailsField;
         
@@ -22176,17 +22275,6 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
-        public string psp_CreatedAt {
-            get {
-                return this.psp_CreatedAtField;
-            }
-            set {
-                this.psp_CreatedAtField = value;
-                this.RaisePropertyChanged("psp_CreatedAt");
-            }
-        }
-        
-        /// <comentarios/>
         public string psp_Plan {
             get {
                 return this.psp_PlanField;
@@ -22253,6 +22341,17 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public string psp_CreatedAt {
+            get {
+                return this.psp_CreatedAtField;
+            }
+            set {
+                this.psp_CreatedAtField = value;
+                this.RaisePropertyChanged("psp_CreatedAt");
+            }
+        }
+        
+        /// <comentarios/>
         public AmountAdditionalDetailsResponseStruct psp_AmountAdditionalDetails {
             get {
                 return this.psp_AmountAdditionalDetailsField;
@@ -22296,7 +22395,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -22387,6 +22486,8 @@ namespace ArgentinahtlBLL.NPS {
         
         private string psp_SecureHashField;
         
+        private VaultReference2pStruct psp_VaultReferenceField;
+        
         private AmountAdditionalDetailsRequestStruct psp_AmountAdditionalDetailsField;
         
         private MerchantAdditionalDetailsStruct psp_MerchantAdditionalDetailsField;
@@ -22400,8 +22501,6 @@ namespace ArgentinahtlBLL.NPS {
         private OrderDetailsStruct psp_OrderDetailsField;
         
         private AirlineDetailsStruct psp_AirlineDetailsField;
-        
-        private VaultReference2pStruct psp_VaultReferenceField;
         
         /// <comentarios/>
         public string psp_Version {
@@ -22866,6 +22965,17 @@ namespace ArgentinahtlBLL.NPS {
         }
         
         /// <comentarios/>
+        public VaultReference2pStruct psp_VaultReference {
+            get {
+                return this.psp_VaultReferenceField;
+            }
+            set {
+                this.psp_VaultReferenceField = value;
+                this.RaisePropertyChanged("psp_VaultReference");
+            }
+        }
+        
+        /// <comentarios/>
         public AmountAdditionalDetailsRequestStruct psp_AmountAdditionalDetails {
             get {
                 return this.psp_AmountAdditionalDetailsField;
@@ -22942,17 +23052,6 @@ namespace ArgentinahtlBLL.NPS {
             }
         }
         
-        /// <comentarios/>
-        public VaultReference2pStruct psp_VaultReference {
-            get {
-                return this.psp_VaultReferenceField;
-            }
-            set {
-                this.psp_VaultReferenceField = value;
-                this.RaisePropertyChanged("psp_VaultReference");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -22964,7 +23063,7 @@ namespace ArgentinahtlBLL.NPS {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]

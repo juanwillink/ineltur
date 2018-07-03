@@ -51,8 +51,12 @@
   <ItemGroup>
     <Compile Include="Consts.cs" />
     <Compile Include="DTO\NPS\PagoNPSDTO.cs" />
+    <Compile Include="DTO\NPS\RequerimientoAuthorize3pDTO.cs" />
+    <Compile Include="DTO\NPS\RequerimientoCapture3pDTO.cs" />
     <Compile Include="DTO\NPS\RequerimientoPayOnline3pDTO.cs" />
     <Compile Include="DTO\NPS\RequerimientoSimpleQueryTxDTO.cs" />
+    <Compile Include="DTO\NPS\RespuestaAuthorize3pDTO.cs" />
+    <Compile Include="DTO\NPS\RespuestaCaptureDTO.cs" />
     <Compile Include="DTO\NPS\RespuestaPayOnline3pDTO.cs" />
     <Compile Include="DTO\NPS\RespuestaSimpleQueryTxDTO.cs" />
     <Compile Include="DTO\NPS\TransactionNpsDTO.cs" />

@@ -89,7 +89,7 @@ namespace CheckArgentina.Models
         [DataType(DataType.Text)]
         public string ReservationCode { get; set; }
 
-        [Required(ErrorMessage = "Debe indicar la forma de pago.")]
+		[Required(ErrorMessage = "Debe indicar la forma de pago.")]
         [Display(Name = "Forma de pago")]
         [DataType(DataType.Text)]
         public string PaymentMethodId { get; set; }
@@ -102,7 +102,8 @@ namespace CheckArgentina.Models
 
         public int DiasCancelacionCargo { get; set; }
         public bool TienePromocion { get; set; }
-    }
+		public string IdTransaccionNPS { get; set; }
+	}
 
     public class ReservationListModel
     {

@@ -26,9 +26,14 @@ namespace ArgentinahtlBLL.NPS
             if (siteUrl.StartsWith("https"))
                 basicHttpSecurityMode = BasicHttpSecurityMode.Transport;
 
-            Uri serviceUri = new Uri(siteUrl);
+			System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;
 
-            EndpointAddress endpointAddress = new EndpointAddress(serviceUri);
+			Uri serviceUri = new Uri(siteUrl);
+
+			AddressHeader addressHeader1 = AddressHeader.CreateAddressHeader("SOAPAction", "https://implementacion.nps.com.ar/ws.php/Authorize_3p", 1);
+			AddressHeader[] addressHeaders1 = new AddressHeader[1] {addressHeader1};
+
+			EndpointAddress endpointAddress = new EndpointAddress(serviceUri, addressHeaders1);
 
             //Create the binding here
             Binding binding = new CustomBinding(BindingFactory.CreateInstance(basicHttpSecurityMode));
@@ -36,7 +41,7 @@ namespace ArgentinahtlBLL.NPS
             PaymentServicePlatformPortTypeClient client = new PaymentServicePlatformPortTypeClient(binding, endpointAddress);
 
             client.Endpoint.Behaviors.Add(new FaultFormatingBehavior());
-
+			
             return client;
         }
 
@@ -63,7 +68,7 @@ namespace ArgentinahtlBLL.NPS
             binding.ReaderQuotas.MaxBytesPerRead = int.MaxValue;
             binding.ReaderQuotas.MaxDepth = int.MaxValue;
             binding.ReaderQuotas.MaxNameTableCharCount = int.MaxValue;
-
+			
             //binding.BypassProxyOnLocal
             return binding;
         }
@@ -213,7 +218,77 @@ namespace ArgentinahtlBLL.NPS
 
         }
 
-        private static string CodificarHash(string hash)
+		internal static string ObtenerHashAuthorize3p(RequerimientoAuthorize3pDTO dto)
+		{
+			string hash = string.Empty;
+
+			try
+			{
+				hash =
+						dto.TresDSecureAction +
+						(dto.Amount == 0 ? null : Math.Truncate(dto.Amount * 100).ToString()) +
+						dto.Country +
+						dto.Currency +
+						//dto.CustomerId +
+						dto.CustomerMail +
+						//(dto.FirstPaymentDeferralDate.Year != 1 ? dto.FirstPaymentDeferralDate.ToString("yyyy-MM-dd") : null) +
+						dto.FrmBackButtonURL +
+						dto.FrmLanguage +
+						dto.MerchOrderId +
+						dto.MerchTxRef +
+						dto.MerchantId +
+						dto.MerchantMail +
+						dto.NumPayments.ToString() +
+						//(dto.PaymentAmount == 0 ? null : Math.Truncate(dto.PaymentAmount * 100).ToString()) +
+						(string.IsNullOrEmpty(dto.Plan) ? null : dto.Plan) +
+						dto.PosDateTime.ToString("yyyy-MM-dd HH:mm:ss") +
+						dto.Product +
+						dto.PromotionCode +
+						dto.PurchaseDescription +
+						dto.ReturnURL +
+						dto.TxSource +
+						dto.Version +
+						dto.SecretKey;
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+
+			return CodificarHash(hash);
+
+		}
+
+		internal static string ObtenerHashCapture(RequerimientoCapture3pDTO dto)
+		{
+			string hash = string.Empty;
+
+			try
+			{
+				hash = dto.AmountToCapture +
+						dto.MerchTxRef +
+						dto.MerchantId +
+						dto.PosDateTime.ToString("yyyy-MM-dd HH:mm:ss") +
+						dto.TransactionId_Orig +
+						dto.TxSource +
+						dto.Version +
+						dto.SecretKey;
+
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+
+			return CodificarHash(hash);
+
+		}
+
+		
+
+		
+
+		private static string CodificarHash(string hash)
         {
             string computedHash = string.Empty;
 
@@ -266,7 +341,39 @@ namespace ArgentinahtlBLL.NPS
             return dto;
         }
 
-        internal RespuestaSimpleQueryTxDTO ObtenerRespuestaSimpleQueryTxDTO(RespuestaStruct_SimpleQueryTx originalResponse)
+		internal RespuestaAuthorize3pDTO ObtenerRespuestaAuthorize3pDTO(RespuestaStruct_Authorize_3p originalResponse)
+		{
+			RespuestaAuthorize3pDTO dto = new RespuestaAuthorize3pDTO();
+
+			if (originalResponse != null)
+			{
+				dto.ResponseCod = Convert.ToInt32(originalResponse.psp_ResponseCod);
+				dto.ResponseMsg = originalResponse.psp_ResponseMsg;
+				dto.ResponseExtended = originalResponse.psp_ResponseExtended;
+				dto.TransactionId = Convert.ToInt64(originalResponse.psp_TransactionId);
+				dto.Session3p = originalResponse.psp_Session3p;
+				dto.FrontPSP_URL = originalResponse.psp_FrontPSP_URL;
+				dto.MerchantId = originalResponse.psp_MerchantId;
+				dto.MerchTxRef = originalResponse.psp_MerchTxRef;
+				dto.MerchOrderId = originalResponse.psp_MerchOrderId;
+				dto.CustomerMail = originalResponse.psp_CustomerMail;
+				dto.MerchantMail = originalResponse.psp_MerchantMail;
+				dto.Plan = originalResponse.psp_Plan;
+				//dto.FirstPaymentDeferralDate = originalResponse.psp_FirstPaymentDeferral;
+				dto.PosDateTime = Convert.ToDateTime(originalResponse.psp_PosDateTime);
+
+				if (dto.ResponseCod != Convert.ToInt16(RespuestaSolicitudAutorizacionNPS.Exitosa))
+				{
+					dto.ErrorMessage = dto.ResponseMsg;
+					if (dto.ResponseExtended != null)
+						dto.ErrorMessage += " Detalle: " + dto.ResponseExtended;
+				}
+			}
+
+			return dto;
+		}
+
+		internal RespuestaSimpleQueryTxDTO ObtenerRespuestaSimpleQueryTxDTO(RespuestaStruct_SimpleQueryTx originalResponse)
         {
             RespuestaSimpleQueryTxDTO dto = new RespuestaSimpleQueryTxDTO();
 
@@ -291,7 +398,27 @@ namespace ArgentinahtlBLL.NPS
 
             return dto;
         }
-    }
+
+		internal RespuestaCaptureDTO ObtenerRespuestaCaptureDTO(RespuestaStruct_Capture originalResponse)
+		{
+			RespuestaCaptureDTO dto = new RespuestaCaptureDTO();
+
+			if (originalResponse != null)
+			{
+				dto.ResponseCod = Convert.ToInt32(originalResponse.psp_ResponseCod);
+				dto.ResponseMsg = originalResponse.psp_ResponseMsg;
+				dto.ResponseExtended = originalResponse.psp_ResponseExtended;
+				dto.MerchantId = originalResponse.psp_MerchantId;
+				dto.PosDateTime = Convert.ToDateTime(originalResponse.psp_PosDateTime);
+				dto.TransactionId = Convert.ToInt64(originalResponse.psp_TransactionId);
+				dto.TransactionIdOrigin = Convert.ToInt64(originalResponse.psp_TransactionId_Orig);
+				dto.MerchTxRef = originalResponse.psp_MerchTxRef;
+
+			}
+
+			return dto;
+		}
+	}
 
     public static class Extensions
     {

@@ -425,7 +425,12 @@ namespace Ineltur.WebService
                         Tracker.WriteTrace(operationNumber, "Confirmando la Transacción...");
                         dc.ConfirmarTransaccion(idTransaccion, idUsuario, estadoReserva, out error);
                     }
-                    dc.SubmitChanges();
+					else if (peticion.IdFormaPago == Guid.Parse("2E9D9D2B-C497-4110-BE0D-2BEBCAF4984B"))
+					{
+						Tracker.WriteTrace(operationNumber, "Confirmando la Transacción...");
+						dc.ConfirmarTransaccion(idTransaccion, idUsuario, estadoReserva, out error);
+					}
+					dc.SubmitChanges();
 
                     if (error != 0)
                     {
@@ -484,7 +489,7 @@ namespace Ineltur.WebService
                         
                         
                         //Tracker.WriteTrace(operationNumber, "Preparando datos para enviar mails: " + model.ToStringWithProperties());
-
+						/*
                         if (estadoReserva == (int)EstadoReserva.ReservaEfectiva)
                         {
                             Tracker.WriteTrace(operationNumber, "Enviando mail a agencia...");
@@ -572,6 +577,7 @@ namespace Ineltur.WebService
                             Tracker.WriteTrace(operationNumber, "Fin ReservarAlojamiento: " + respuestaError.ToStringWithProperties(), traceType: Tracker.TraceType.Fatal);
                             return respuestaError;
                         }
+						*/
                     }
 
                     Tracker.WriteTrace(operationNumber, "Fin ReservarAlojamiento: Éxito");

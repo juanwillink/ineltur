@@ -20,10 +20,10 @@ namespace ArgentinahtlBLL
 			//dtoLog = new CommunicationMsgLogDTO();
 		}
 
-		public RespuestaPayOnline3pDTO ObtenerDatosPostTC(string idPagoNPS, string codigoReserva, float importe, int cantCuotas, string codigoMoneda, string codigoTarjeta, bool verifiedByVisa, float verifiedByVisaMonto, string documentoPasajero, string mailPasajero)
+		public RespuestaAuthorize3pDTO ObtenerDatosPostTC(string idPagoNPS, string codigoReserva, float importe, int cantCuotas, string codigoMoneda, string codigoTarjeta, bool verifiedByVisa, float verifiedByVisaMonto, string documentoPasajero, string mailPasajero)
 		{
 
-			RequerimientoPayOnline3pDTO dtoRequest = new RequerimientoPayOnline3pDTO();
+			RequerimientoAuthorize3pDTO dtoRequest = new RequerimientoAuthorize3pDTO();
 			//datos generales------
 			string urlNps = NPSConfiguracion.Url;
 			dtoRequest.Version = NPSConfiguracion.Version;
@@ -58,7 +58,7 @@ namespace ArgentinahtlBLL
 			//dtoLog.NombreServicio = "NPS-PayOnline3p";
 			//dtoLog.IdRequest = pago.IdRequest != null ? pago.IdRequest.ToString() : null;
 
-			var rpta = new ServiciosNPS(urlNps).PayOnLine_3p(dtoRequest);
+			var rpta = new ServiciosNPS(urlNps).Authorize_3p(dtoRequest);
 
 			//dtoLog.MensajeRespuesta = rpta;
 			//dtoLog.FechaRespuesta = DateTime.Now;
@@ -118,6 +118,7 @@ namespace ArgentinahtlBLL
 							pagoNPS.MotivoEstado = dtoResponse.Transaction.ResponseMsg;
 							pagoNPS.MotivoEstado += dtoResponse.Transaction.ResponseExtended != null ? string.Format(" {0}", dtoResponse.Transaction.ResponseExtended) : "";
 							pagoNPS.IdTransaccionNPS = dtoResponse.Transaction.TransactionId;
+							//pagoNPS.IdTransaccion = !string.IsNullOrEmpty(idTransaccion) ? new Guid(idTransaccion) : (Guid?)null;
 							pagoNPS.ResponseCod = dtoResponse.ResponseCod;
 							pagoNPS.ResponseMsg = dtoResponse.ResponseMsg;
 							pagoNPS.ResponseExtended = dtoResponse.ResponseExtended;
@@ -138,6 +139,85 @@ namespace ArgentinahtlBLL
 
 						Context.SubmitChanges();
 						//tx.Commit();
+					//}
+				}
+			}
+			else
+			{
+				respuesta = dtoResponse.ErrorMessage;
+			}
+
+			return respuesta;
+
+		}
+
+		public string CapturarTrx(string idPagoNPS, string idTransaccionNPS, string idTransaccion, float importe)
+		{
+			string respuesta = string.Empty;
+
+			RequerimientoCapture3pDTO dtoRequest = new RequerimientoCapture3pDTO();
+
+			//datos generales------
+			string urlNps = NPSConfiguracion.Url;
+			dtoRequest.Version = NPSConfiguracion.Version;
+			dtoRequest.TxSource = NPSConfiguracion.TxSource;
+			dtoRequest.MerchantId = NPSConfiguracion.MerchantID;
+			dtoRequest.SecretKey = NPSConfiguracion.NPSSecretKey;
+			dtoRequest.TransactionId_Orig = idTransaccionNPS;
+			dtoRequest.AmountToCapture = (importe == 0 ? null : Math.Truncate(importe * 100).ToString());
+			dtoRequest.MerchTxRef = $"{idPagoNPS}-1"; //idPago es el merchTxRef;
+			dtoRequest.PosDateTime = DateTime.Now;
+
+			//dtoLog.IdTransaccion = idTransaccion;
+			//dtoLog.FechaSolicitud = DateTime.Now;
+			//dtoLog.MensajeSolicitud = dtoRequest;
+			//dtoLog.NombreServicio = "NPS-SimpleQueryTx";
+			//dtoLog.IdRequest = idRequest;
+
+			RespuestaCaptureDTO dtoResponse = new ServiciosNPS(urlNps).Capture3p(dtoRequest);
+
+			//dtoLog.MensajeRespuesta = dtoResponse;
+			//dtoLog.FechaRespuesta = DateTime.Now;
+
+			//log.RegistrarLog(dtoLog);
+
+			if (dtoResponse.ErrorMessage == null)
+			{
+				using (var Context = new WebServiceDataContext())
+				{
+					//log.RegistrarLog(idPago, dtoResponse.Transaction);
+					//using (var tx = new WebServiceDataContext().Connection.BeginTransaction())
+					//{
+					PAGO_NPS pagoNPS = Context.PAGO_NPS.First(c => c.IdPagoNPS == int.Parse(idPagoNPS));
+					//si la operación de consulta fue exitosa y encontró una transacción
+					if (dtoResponse.ResponseCod.ToString() == RespuestaSolicitudCapturaNPS.Exitosa)
+					{
+						//pagoNPS.IdPago = idPago;
+						pagoNPS.IdEstadoNPS = ObtenerIdEstadoNPS(dtoResponse.ResponseCod);
+						pagoNPS.MotivoEstado = dtoResponse.ResponseMsg;
+						pagoNPS.MotivoEstado += dtoResponse.ResponseExtended != null ? string.Format(" {0}", dtoResponse.ResponseExtended) : "";
+						pagoNPS.IdTransaccionNPS = dtoResponse.TransactionId;
+						pagoNPS.IdTransaccion = !string.IsNullOrEmpty(idTransaccion) ? new Guid(idTransaccion) : (Guid?)null;
+						pagoNPS.ResponseCod = dtoResponse.ResponseCod;
+						pagoNPS.ResponseMsg = dtoResponse.ResponseMsg;
+						pagoNPS.ResponseExtended = dtoResponse.ResponseExtended;
+
+						//hay que ver si el estado de la transacción no se cambia en otra parte
+						//pagoNPS.Transaccion.EstadoPago = ObtenerIdEstadoTransaccion(pagoNPS.IdEstadoNPS);
+
+						if (pagoNPS.IdEstadoNPS != (int)EstadoNPS.AprobadaAutorizada
+							&& pagoNPS.IdEstadoNPS != (int)EstadoNPS.PendienteEnComprador_CashPayment)
+							respuesta = pagoNPS.MotivoEstado;
+					}
+					else
+					{
+						//falta definir en qué estado quedará si no se encuentra ninguna trx con SimpleQueryTx
+						//actualmente queda en estado Iniciada
+						respuesta = dtoResponse.ResponseMsg + " - " + dtoResponse.ResponseExtended;
+					}
+
+					Context.SubmitChanges();
+					//tx.Commit();
 					//}
 				}
 			}
@@ -185,7 +265,7 @@ namespace ArgentinahtlBLL
 		//			Tracker.WriteTrace(string.Format("Error: {0}", rpta));
 		//			//dtolog.MensajeRespuesta += string.Format("Pago: {0}, Rpta NPS: {1} ", p.IdPago, rpta);
 		//		}
-				
+
 		//	}
 
 		//	#region Log

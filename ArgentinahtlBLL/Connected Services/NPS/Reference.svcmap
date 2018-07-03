@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7827a545-32a2-44c6-b0e9-b1c6012e3d46" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="49432bcc-d0a1-4b9c-a05b-77ab8537795d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="https://implementacion.nps.com.ar/ws.php?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ws.wsdl" MetadataType="Wsdl" ID="f659186b-b1f0-464a-9300-3598f811b577" SourceId="1" SourceUrl="https://implementacion.nps.com.ar/ws.php?wsdl" />
+    <MetadataFile FileName="ws.wsdl" MetadataType="Wsdl" ID="0c3a947f-739b-4de0-883b-2eab0b4294d6" SourceId="1" SourceUrl="https://implementacion.nps.com.ar/ws.php?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

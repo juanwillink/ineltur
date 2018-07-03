@@ -252,8 +252,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Xipton.Razor">
-      <HintPath>..\..\..\Users\virgi\Desktop\Checkargentinanuevo\CheckArgentina\bin\Xipton.Razor.dll</HintPath>
+    <Reference Include="Xipton.Razor, Version=2.5.0.0, Culture=neutral, PublicKeyToken=563e02c711ac8b7e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Ineltur\Plataforma Hoteles v1.0.0\ArgentinahtlFrontend\bin\Xipton.Razor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -337,6 +338,7 @@
     <Compile Include="Managers\ServiceManager.cs" />
     <Compile Include="Models\Credential.cs" />
     <Compile Include="Models\EmailReservationModel.cs" />
+    <Compile Include="Models\ErrorModel.cs" />
     <Compile Include="Models\LodgingModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PaymentModels.cs" />

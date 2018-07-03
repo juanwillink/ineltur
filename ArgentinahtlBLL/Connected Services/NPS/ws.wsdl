@@ -4,6 +4,13 @@
     <xsd:schema targetNamespace="https://implementacion.nps.com.ar/ws">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
       <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="VaultReference2pStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="PaymentMethodToken" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PaymentMethodId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CustomerId" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
       <xsd:complexType name="TaxesRequestStruct">
         <xsd:all>
           <xsd:element minOccurs="1" maxOccurs="1" name="TypeId" type="xsd:string" />
@@ -39,12 +46,16 @@
       </xsd:complexType>
       <xsd:complexType name="SellerDetailsStruct">
         <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="ExternalReferenceId" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="IDNumber" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="IDType" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Invoice" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="PurchaseDescription" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PhoneNumber1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PhoneNumber2" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="MCC" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="ChannelCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="GeoCode" type="xsd:string" />
@@ -147,6 +158,7 @@
           <xsd:element minOccurs="1" maxOccurs="1" name="FareClassCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="BaseFare" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="BaseFareCurrency" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="StopoverCode" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="ArrayOf_LegStruct">
@@ -203,16 +215,9 @@
       <xsd:complexType name="AirlineDetailsStruct">
         <xsd:all>
           <xsd:element minOccurs="0" maxOccurs="1" name="PNR" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="Legs" type="tns:ArrayOf_LegStruct" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="Passengers" type="tns:ArrayOf_PassengerStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Legs" type="tns:ArrayOf_LegStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Passengers" type="tns:ArrayOf_PassengerStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="Ticket" type="tns:AirlineTicketStruct" />
-        </xsd:all>
-      </xsd:complexType>
-      <xsd:complexType name="VaultReference2pStruct">
-        <xsd:all>
-          <xsd:element minOccurs="0" maxOccurs="1" name="PaymentMethodToken" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="PaymentMethodId" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="CustomerId" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RequerimientoStruct_PayOnLine_2p">
@@ -260,6 +265,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_PostalCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BranchEntity" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
@@ -267,7 +273,6 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="TaxesResponseStruct">
@@ -404,6 +409,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_PostalCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MasterArg_AVS_BranchEntity" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
@@ -411,7 +417,6 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_Authorize_2p">
@@ -446,13 +451,13 @@
           <xsd:element name="psp_ClResponseCod" type="xsd:string" />
           <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
           <xsd:element name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element name="psp_CreatedAt" type="xsd:string" />
           <xsd:element name="psp_Plan" type="xsd:string" />
           <xsd:element name="psp_PromotionCode" type="xsd:string" />
           <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
           <xsd:element name="psp_VisaArg_DA_Result" type="xsd:string" />
           <xsd:element name="psp_AmexArg_AVS_Result" type="xsd:string" />
           <xsd:element name="psp_MasterArg_AVS_Result" type="xsd:string" />
+          <xsd:element name="psp_CreatedAt" type="xsd:string" />
           <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
           <xsd:element name="psp_FraudScreeningResult" type="tns:FraudScreeningResultStruct" />
           <xsd:element name="psp_VerificationServicesResult" type="tns:VerificationServicesResultStruct" />
@@ -496,16 +501,6 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="RespuestaStruct_BankPayment_2p_BillingDetails">
-        <xsd:all>
-          <xsd:element minOccurs="0" maxOccurs="1" name="Invoice" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceDate" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceAmount" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="InvoiceCurrency" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="Person" type="tns:PersonStruct" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStruct" />
-        </xsd:all>
-      </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_BankPayment_2p">
         <xsd:all>
           <xsd:element name="psp_ResponseCod" type="xsd:string" />
@@ -537,12 +532,6 @@
           <xsd:element name="psp_PosDateTime" type="xsd:string" />
           <xsd:element name="psp_CreatedAt" type="xsd:string" />
           <xsd:element name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsResponseStruct" />
-          <xsd:element name="psp_BillingDetails" type="tns:RespuestaStruct_BankPayment_2p_BillingDetails" />
-        </xsd:all>
-      </xsd:complexType>
-      <xsd:complexType name="VaultReference3pStruct">
-        <xsd:all>
-          <xsd:element minOccurs="0" maxOccurs="1" name="CustomerId" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RequerimientoStruct_SplitPayOnLine_2p_Transactions">
@@ -551,8 +540,8 @@
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_Product" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
@@ -562,10 +551,10 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="ArrayOf_RequerimientoStruct_SplitPayOnLine_2p_Transactions">
@@ -587,8 +576,8 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_Recurrent" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_UseMultipleProducts" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
@@ -600,7 +589,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_ECI" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_Secured" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference3pStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
@@ -612,13 +601,20 @@
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_SplitPayOnLine_2p_Transactions">
         <xsd:all>
+          <xsd:element name="psp_ResponseCod" type="xsd:string" />
+          <xsd:element name="psp_ResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_ResponseExtended" type="xsd:string" />
           <xsd:element name="psp_TransactionId" type="xsd:string" />
           <xsd:element name="psp_MerchantId" type="xsd:string" />
           <xsd:element name="psp_MerchTxRef" type="xsd:string" />
+          <xsd:element name="psp_MerchOrderId" type="xsd:string" />
           <xsd:element name="psp_MerchAdditionalRef" type="xsd:string" />
           <xsd:element name="psp_Amount" type="xsd:string" />
           <xsd:element name="psp_NumPayments" type="xsd:string" />
           <xsd:element name="psp_PaymentAmount" type="xsd:string" />
+          <xsd:element name="psp_Recurrent" type="xsd:string" />
+          <xsd:element name="psp_Currency" type="xsd:string" />
+          <xsd:element name="psp_Country" type="xsd:string" />
           <xsd:element name="psp_Product" type="xsd:string" />
           <xsd:element name="psp_CardNumber" type="xsd:string" />
           <xsd:element name="psp_CardExpDate" type="xsd:string" />
@@ -626,13 +622,16 @@
           <xsd:element name="psp_BatchNro" type="xsd:string" />
           <xsd:element name="psp_TicketNumber" type="xsd:string" />
           <xsd:element name="psp_SequenceNumber" type="xsd:string" />
+          <xsd:element name="psp_CustomerMail" type="xsd:string" />
+          <xsd:element name="psp_CustomerId" type="xsd:string" />
+          <xsd:element name="psp_MerchantMail" type="xsd:string" />
           <xsd:element name="psp_ClTrnId" type="xsd:string" />
           <xsd:element name="psp_ClExternalMerchant" type="xsd:string" />
           <xsd:element name="psp_ClExternalTerminal" type="xsd:string" />
           <xsd:element name="psp_ClResponseCod" type="xsd:string" />
           <xsd:element name="psp_ClResponseMsg" type="xsd:string" />
+          <xsd:element name="psp_PosDateTime" type="xsd:string" />
           <xsd:element name="psp_Plan" type="xsd:string" />
-          <xsd:element name="psp_FirstPaymentDeferral" type="xsd:string" />
           <xsd:element name="psp_PromotionCode" type="xsd:string" />
           <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
           <xsd:element name="psp_CreatedAt" type="xsd:string" />
@@ -667,22 +666,21 @@
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchTxRef" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchAdditionalRef" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Product" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_Amount" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_NumPayments" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_Product" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_Plan" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_FirstPaymentDeferral" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_PromotionCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_PresetCardIIN" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SoftDescriptor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AmountAdditionalDetails" type="tns:AmountAdditionalDetailsRequestStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="ArrayOf_RequerimientoStruct_SplitAuthorize_2p_Transactions">
@@ -704,8 +702,8 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_Recurrent" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_UseMultipleProducts" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_Product" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
-          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardNumber" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardExpDate" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardSecurityCode" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CardHolderName" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_PurchaseDescription" type="xsd:string" />
@@ -717,6 +715,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_ECI" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_3dSecure_Secured" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_MerchantAdditionalDetails" type="tns:MerchantAdditionalDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerAdditionalDetails" type="tns:CustomerAdditionalDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_BillingDetails" type="tns:BillingDetailsStruct" />
@@ -738,6 +737,11 @@
           <xsd:element name="psp_PosDateTime" type="xsd:string" />
           <xsd:element name="psp_UseMultipleProducts" type="xsd:string" />
           <xsd:element name="psp_Transactions" type="tns:ArrayOf_RespuestaStruct_SplitPayOnLine_2p_Transactions" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="VaultReference3pStruct">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="CustomerId" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RequerimientoStruct_PayOnLine_3p">
@@ -1124,6 +1128,7 @@
           <xsd:element name="psp_Amount" type="xsd:string" />
           <xsd:element name="psp_Currency" type="xsd:string" />
           <xsd:element name="psp_Country" type="xsd:string" />
+          <xsd:element name="psp_UseMultipleProducts" type="xsd:string" />
           <xsd:element name="psp_Product" type="xsd:string" />
           <xsd:element name="psp_CustomerMail" type="xsd:string" />
           <xsd:element name="psp_CustomerId" type="xsd:string" />
@@ -1131,7 +1136,6 @@
           <xsd:element name="psp_PosDateTime" type="xsd:string" />
           <xsd:element name="psp_PromotionCode" type="xsd:string" />
           <xsd:element name="psp_PresetCardIIN" type="xsd:string" />
-          <xsd:element name="psp_UseMultipleProducts" type="xsd:string" />
           <xsd:element name="psp_Transactions" type="tns:ArrayOf_RespuestaStruct_SplitAuthorize_3p_Transactions" />
         </xsd:all>
       </xsd:complexType>
@@ -1540,7 +1544,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_SetAsCustomerDefault" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="PaymentMethodOutputDetailsStruct">
@@ -1576,7 +1580,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_SetAsCustomerDefault" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_CreatePaymentMethodFromPayment">
@@ -1596,7 +1600,7 @@
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PaymentMethodId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_RetrievePaymentMethod">
@@ -1626,7 +1630,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_Person" type="tns:PersonStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_Address" type="tns:AddressStruct" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_UpdatePaymentMethod">
@@ -1646,7 +1650,7 @@
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PaymentMethodId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_DeletePaymentMethod">
@@ -1672,7 +1676,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_Address" type="tns:AddressStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_PaymentMethod" type="tns:PaymentMethodInputDetailsStruct" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="PaymentMethodsOutputDetailsStruct">
@@ -1719,7 +1723,7 @@
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_RetrieveCustomer">
@@ -1744,7 +1748,7 @@
         <xsd:all>
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_Version" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_EmailAddress" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AlternativeEmailAddress" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AccountID" type="xsd:string" />
@@ -1754,7 +1758,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_DefaultPaymentMethodId" type="xsd:string" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_PaymentMethod" type="tns:PaymentMethodInputDetailsStruct" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_UpdateCustomer">
@@ -1781,7 +1785,7 @@
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_MerchantId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_CustomerId" type="xsd:string" />
           <xsd:element minOccurs="1" maxOccurs="1" name="psp_PosDateTime" type="xsd:string" />
-          <xsd:element minOccurs="0" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="psp_SecureHash" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_DeleteCustomer">
@@ -2088,6 +2092,7 @@
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_ShippingDetails" type="tns:ShippingDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_OrderDetails" type="tns:OrderDetailsStruct" />
           <xsd:element minOccurs="0" maxOccurs="1" name="psp_AirlineDetails" type="tns:AirlineDetailsStruct" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="psp_VaultReference" type="tns:VaultReference2pStruct" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="RespuestaStruct_FraudScreening">

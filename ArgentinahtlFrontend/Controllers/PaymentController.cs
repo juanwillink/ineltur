@@ -210,7 +210,7 @@ namespace CheckArgentina.Controllers
 
         public ActionResult PaymentError()
         {
-            return View();
+            return View(SessionData.Reservation);
         }
 
         public ActionResult InternalPaymentSimulator()
@@ -255,10 +255,11 @@ namespace CheckArgentina.Controllers
 					if (response.ResponseCod == (int)EstadoNPS.AprobadaAutorizada)
 					{
 						SessionData.Reservation.PaymentMethodId = reservation.PaymentMethodId;
+						SessionData.Reservation.IdTransaccionNPS = dto.IdTransaccionNPS.Value.ToString();
 						return View(new NPSRedirectionModel { FrontPSP_URL = response.FrontPSP_URL });
 					}
 					else
-						return Redirect(Request.UrlReferrer.AbsoluteUri);
+						return View("PaymentError", new ErrorModel{mensaje = dto.ResponseMsg });
 				}
 			}
 			catch (Exception)
@@ -275,19 +276,36 @@ namespace CheckArgentina.Controllers
         public ActionResult ProcessResultPaymentNPS(NPSPaymentModel model)
         {
             var npsBLL = new NpsBLL();
+			string idTransaccion = string.Empty;
+			float importe;
 
-            if(new ServiceController().CompleteReservation())
-            {
-				var response = npsBLL.ActualizarEstadoPago(model.psp_MerchTxRef);
+			var rpta = npsBLL.ActualizarEstadoPago(model.psp_MerchTxRef);
 
-                if (string.IsNullOrEmpty(response))
-                    return RedirectToAction("PaymentSuccess");
-                else
-                    return RedirectToAction("PaymentError");
-            }
-            else
-                return RedirectToAction("PaymentError");
-        }
+			if (string.IsNullOrEmpty(rpta))
+			{
+
+				using (var dc = new TurismoDataContext())
+				{
+					var moneda = dc.MonedaDBs.SingleOrDefault(m => m.DESCRIPCION == MapCurrencyFromNPS(SessionData.Reservation.LodgingCurrencyCode));
+					importe = (float)SessionData.Reservation.TotalAmount * moneda.COTIZACION;
+				}
+
+				if (new ServiceController().CompleteReservation(ref idTransaccion))
+				{
+					var response = npsBLL.CapturarTrx(model.psp_MerchTxRef, SessionData.Reservation.IdTransaccionNPS, idTransaccion, importe);
+
+					if (string.IsNullOrEmpty(response))
+						return RedirectToAction("PaymentSuccess");
+					else
+						return View("PaymentError", new ErrorModel { mensaje = response });
+				}
+				else
+					return View("PaymentError", new ErrorModel { mensaje = "La reserva no pudo completarse" });
+			}
+			else
+				return View("PaymentError", new ErrorModel { mensaje = "La reserva no pudo completarse. Operación no autorizada" });
+
+		}
 
 		
 		//public JsonResult ObtenerDatosPostTC(long idPago)
@@ -382,7 +400,9 @@ namespace CheckArgentina.Controllers
         public ActionResult ProcessPaymentCtaCte()
         {
             SessionData.Reservation.PaymentMethodId = "7d5192ca-fe10-455e-b051-d1023a07ba75";
-            if (new ServiceController().CompleteReservation())
+			string idTransaccion = string.Empty;
+
+			if (new ServiceController().CompleteReservation(ref idTransaccion))
                 return RedirectToAction("PaymentSuccess");
             else
                 return RedirectToAction("PaymentError");
@@ -392,7 +412,9 @@ namespace CheckArgentina.Controllers
         public ActionResult ProcessPaymentDeposito()
         {
             SessionData.Reservation.PaymentMethodId = "b8b3354a-4cd1-47dc-8267-707fd80d3072";
-            if (new ServiceController().CompleteReservation())
+			string idTransaccion = string.Empty;
+
+			if (new ServiceController().CompleteReservation(ref idTransaccion))
                 return RedirectToAction("PaymentSuccess");
             else
                 return RedirectToAction("PaymentError");
