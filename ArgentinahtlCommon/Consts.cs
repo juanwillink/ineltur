@@ -2,7 +2,8 @@
 {
     public class Consts
     {
-		public static string urlRaizSitio= "http://localhost:52233/";
+		//public static string urlRaizSitio= "http://localhost:52233/";
+		public static string urlRaizSitio = "http://test.argentinahtl.com:8040/"; 
 
 	}
 

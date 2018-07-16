@@ -150,7 +150,7 @@ function buildLodgingsView(data, userkey) {
                 "<p>" + lodging["LodgingDescription"] + "</p>" +
                 "</div>" +
                 "<div class='col-md-3 text-center'>";
-            debugger;
+            //debugger;
             if (lodging["LodgingPrice"].toString() == "0") {
                 body = body +
                     "<h3>Consultar Tarifa</h3>" +

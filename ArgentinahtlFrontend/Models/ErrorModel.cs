@@ -7,6 +7,6 @@ namespace CheckArgentina.Models
 {
 	public class ErrorModel
 	{
-		public string mensaje { get; set; }
+		public string Mensaje { get; set; }
 	}
 }

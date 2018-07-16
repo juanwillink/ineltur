@@ -81,9 +81,11 @@ namespace Ineltur.Datos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=Argentinahtl;Integrated Security=False;User I" +
-            "D=sa")]
-        public string ArgentinahtlConnectionString {
+		//[global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=Argentinahtl;Integrated Security=False;User I" +
+		//    "D=sa")]
+		[global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=Turismo-ProduccionV3;Integrated Security=False;User I" +
+			"D=itiers;Password=1nELTUR13;")]
+		public string ArgentinahtlConnectionString {
             get {
                 return ((string)(this["ArgentinahtlConnectionString"]));
             }

@@ -259,12 +259,12 @@ namespace CheckArgentina.Controllers
 						return View(new NPSRedirectionModel { FrontPSP_URL = response.FrontPSP_URL });
 					}
 					else
-						return View("PaymentError", new ErrorModel{mensaje = dto.ResponseMsg });
+						return View("PaymentError", new ErrorModel{Mensaje = dto.ResponseMsg });
 				}
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
-				return RedirectToAction("PaymentError");
+				return RedirectToAction("PaymentError", new ErrorModel { Mensaje = e.Message });
 			}
         }
 
@@ -279,31 +279,39 @@ namespace CheckArgentina.Controllers
 			string idTransaccion = string.Empty;
 			float importe;
 
-			var rpta = npsBLL.ActualizarEstadoPago(model.psp_MerchTxRef);
+			try{
 
-			if (string.IsNullOrEmpty(rpta))
-			{
+				var rpta = npsBLL.ActualizarEstadoPago(model.psp_MerchTxRef);
 
-				using (var dc = new TurismoDataContext())
+				if (string.IsNullOrEmpty(rpta))
 				{
-					var moneda = dc.MonedaDBs.SingleOrDefault(m => m.DESCRIPCION == MapCurrencyFromNPS(SessionData.Reservation.LodgingCurrencyCode));
-					importe = (float)SessionData.Reservation.TotalAmount * moneda.COTIZACION;
-				}
 
-				if (new ServiceController().CompleteReservation(ref idTransaccion))
-				{
-					var response = npsBLL.CapturarTrx(model.psp_MerchTxRef, SessionData.Reservation.IdTransaccionNPS, idTransaccion, importe);
+					using (var dc = new TurismoDataContext())
+					{
+						var moneda = dc.MonedaDBs.SingleOrDefault(m => m.DESCRIPCION == MapCurrencyFromNPS(SessionData.Reservation.LodgingCurrencyCode));
+						importe = (float)SessionData.Reservation.TotalAmount * moneda.COTIZACION;
+					}
 
-					if (string.IsNullOrEmpty(response))
-						return RedirectToAction("PaymentSuccess");
+					if (new ServiceController().CompleteReservation(ref idTransaccion))
+					{
+						var response = npsBLL.CapturarTrx(model.psp_MerchTxRef, SessionData.Reservation.IdTransaccionNPS, idTransaccion, importe);
+
+						if (string.IsNullOrEmpty(response))
+							return RedirectToAction("PaymentSuccess");
+						else
+							return View("PaymentError", new ErrorModel { Mensaje = response });
+					}
 					else
-						return View("PaymentError", new ErrorModel { mensaje = response });
+						return View("PaymentError", new ErrorModel { Mensaje = "La reserva no pudo completarse" });
 				}
 				else
-					return View("PaymentError", new ErrorModel { mensaje = "La reserva no pudo completarse" });
+					return View("PaymentError", new ErrorModel { Mensaje = "La reserva no pudo completarse. Operación no autorizada" });
+
 			}
-			else
-				return View("PaymentError", new ErrorModel { mensaje = "La reserva no pudo completarse. Operación no autorizada" });
+			catch (Exception e)
+			{
+				return RedirectToAction("PaymentError", new ErrorModel { Mensaje = e.Message });
+			}
 
 		}
 

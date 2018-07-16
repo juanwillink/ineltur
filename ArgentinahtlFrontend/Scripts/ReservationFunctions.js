@@ -1,5 +1,5 @@
 ﻿function openReservationModal(lodging) {
-    debugger;
+    //debugger;
     $("#AvailableRoomsDiv").empty();
     $("#ReservationModalLabel").text("Buscar disponibilidad en " + lodging["LodgingName"]);
     $("#hotelName2").val(lodging["LodgingName"]);
@@ -15,7 +15,7 @@
 }
 
 function openReservationModalSimple(lodging) {
-    debugger;
+    //debugger;
     $("#AvailableRoomsDiv").empty();
     $("#ReservationModalLabel").text("Buscar disponibilidad en " + lodging["LodgingName"]);
     $("#hotelName2").val(lodging["LodgingName"]);
@@ -25,7 +25,7 @@ function openReservationModalSimple(lodging) {
 }
 
 function openEmailReservationModal(lodging) {
-    debugger;
+    //debugger;
     $("#EmailReservationModalLabel").text("Reservar Via Email en " + lodging["LodgingName"]);
     $("#hotelNameMail").val(lodging["LodgingName"]);
     $("#EmailReservationModal").modal("show");
@@ -46,7 +46,7 @@ function completePromotions(lodging) {
     for (var key in lodging.Vacancies) {
         var vacancy = lodging.Vacancies[key];
         body = body + "<h3>" + vacancy["VacancyName"] + "</h3>";
-        debugger;
+        //debugger;
         if (vacancy.Promociones.length > 0) {
             for (var key2 in vacancy.Promociones) {
                 var promotion = vacancy.Promociones[key2];
@@ -285,7 +285,7 @@ function buildAvailableRooms(vacancies) {
         var checkoutDate = new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
         var oneDay = 24 * 60 * 60 * 1000;
         var diffDays = Math.round(Math.abs((checkoutDate.getTime() - checkinDate.getTime()) / (oneDay)));
-        debugger;
+        //debugger;
         for (var key2 in vacancy.Promociones) {
             var promotion = vacancy.Promociones[key2];
             switch (promotion["IDTIPOPUBLICACIONPROMO"]) {
@@ -402,7 +402,7 @@ function checkHotelAvailability() {
 }
 
 function checkHotelAvailabilityForReservation(lodgingName, destinationId, vacancycheckinDate, vacancycheckoutDate) {
-    debugger;
+    //debugger;
     var from1 = vacancycheckinDate.split("/");
     var from1Year = from1[2].split(" ");
     var from2 = vacancycheckoutDate.split("/");
@@ -503,7 +503,7 @@ function fillHiddenFields(lodging) {
     $("#hotelCurrency").val(lodging["LodgingCurrency"]);
     $("#hotelCurrencyCode").val(lodging["LodgingCurrencyCode"]);
     $("#hotelPrice").val(lodging["LodgingPrice"]);
-    debugger;
+    //debugger;
     $("#destinationId").val(lodging["DestinationId"]);
     $("#hotelSupplierId").val(lodging["LodgingSupplierId"]);
 }
@@ -519,7 +519,7 @@ function noRoomsFound() {
 }
 
 function empezarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
-    debugger;
+    //debugger;
     $("[id$=_reservarBtn]").prop("disabled", true);
     var roomsElements = $("[id^=vacancy_" + vacancyNumber + "_Room_]");
     var checkinDate = new Date(parseInt($("#vacancy_" + vacancyNumber + "_VacancyCheckin").val().substr(6)));
@@ -559,7 +559,7 @@ function empezarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
         "Tarifa": tarifa,
     };
     var vacancies = [vacancy];
-    debugger;
+    //debugger;
     var values = {
         "LodgingId": $("#hotelId").val(),
         "LodgingName": $("#hotelName2").val(),
@@ -721,7 +721,7 @@ function agregarReservaHabitacion(vacancyNumber, desayuno, tarifa, precio) {
         "DestinationId": $("#reserved_lodging_destinationId").val(),
         "Vacancies": vacancies,
     }
-    debugger;
+    //debugger;
     $.ajax({
         url: "../Payment/Confirmation",
         dataType: "json",
