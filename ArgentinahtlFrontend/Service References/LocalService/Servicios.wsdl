@@ -124,6 +124,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="NombreFormaDePago" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="NombrePasajero" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="TipoTransaccion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreEstadoPagoNPS" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Unidades" type="tns:ArrayOfInfoUnidadReservada" />
         </s:sequence>
       </s:complexType>

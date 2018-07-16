@@ -242,7 +242,7 @@ namespace CheckArgentina.Managers
                                     
 
                                     Available = true,
-                                    ConfirmedVacancyPrice = v.MontoPorUnidad,
+                                    ConfirmedVacancyPrice = v.MontoPorUnidadRaCdTr,
 
                                     Rooms = new List<RoomModel>{
                                         new RoomModel{
@@ -563,7 +563,7 @@ namespace CheckArgentina.Managers
                                 VacancyCheckout = searchLodgingRequestModel.Checkout,
                                 VacancyDates = group.Select(vg => vg.Fecha).ToList(),
                                 Available = true,
-                                ConfirmedVacancyPrice = v.MontoPorUnidad,
+                                ConfirmedVacancyPrice = v.MontoPorUnidadRaCdTr,
 
                                 Rooms = new List<RoomModel>{
                                 new RoomModel{

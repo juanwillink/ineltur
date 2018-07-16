@@ -2,10 +2,8 @@
 using CheckArgentina.LocalService;
 using System;
 using System.Linq;
-
 using System.Collections.Generic;
 using System.IO;
-
 using CheckArgentina.Commons;
 
 namespace CheckArgentina.Managers
@@ -79,7 +77,8 @@ namespace CheckArgentina.Managers
                             NombreAlojamiento = reserva.NombreAlojamiento,
                             NombreFormaDePago = reserva.NombreFormaDePago,
                             NombrePasajero = reserva.NombrePasajero,
-                            TipoTransaccion = reserva.TipoTransaccion
+                            TipoTransaccion = reserva.TipoTransaccion,
+                            NombreEstadoPagoNPS = reserva.NombreEstadoPagoNPS,
                         };
 
                         var vacancies = new List<VacancyModel>();
