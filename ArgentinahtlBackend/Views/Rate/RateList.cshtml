@@ -194,6 +194,102 @@
 <a id="new_rate" class="link_options link-button" href="#" >Nueva tarifa</a>
 <a id="cierres" class="link_options link-button" href="#" >Cupos</a>
 <a id="tarifas" class="link_options link-button" href="#">Tarifas</a>
+<a href="#" onclick="zeroHotel()">Poner en 0</a>
+
+<script>
+    function zeroHotel() {
+        //debugger;
+        var message = 'Error al guardar la tarifa.';
+        var messageType = 'error';
+        var guidDefaultValue = "00000000-0000-0000-0000-000000000000";
+        
+        var startDate = new Date();
+
+        var endDate = new Date(new Date().setFullYear(new Date().getFullYear() + 1));
+
+        var dateOfRegistration = startDate;
+
+        var cupoMax = 9999;
+        var montoRACDTR = 0;
+        //if ($('#Id').val() != guidDefaultValue) 
+        //{
+        //    cupoMax = $('#CupoMaximo').val();
+        //    montoRACDTR = $('#MontoRACDTR').val();
+        //}
+        //else 
+        //{
+        //    cupoMax = $('#UnidadAlojamiento_RoomCupo').val();
+        //    montoRACDTR = $('#UnidadAlojamiento_RoomCost').val();
+        //}
+
+        var MontoEXTCDTR = 0;
+        var MontoMERCDTR = 0;
+        var MontoRASDTR = 0;
+        var MontoEXTSDTR = 0;
+        var MontoMERSDTR = 0;
+        var MontoRACDTNR = 0;
+        var MontoEXTCDTNR = 0;
+        var MontoMERCDTNR = 0;
+        var MontoRASDTNR = 0;
+        var MontoEXTSDTNR = 0;
+        var MontoMERSDTNR = 0;
+
+        $.ajax({
+            type: "POST",
+            url: '@(Url.Action("CreateOrUpdateRates", "Rate"))',
+            data: {
+                Id: $('#Id').val(),
+                RoomId: $('#rooms').val(),
+                CupoMaximo: 9999,
+                StartDate: startDate.toDateString(),
+                EndDate: endDate.toDateString(),
+                FechaAlta: dateOfRegistration.toDateString(),
+                MontoRACDTR: montoRACDTR,
+                MontoEXTCDTR: MontoEXTCDTR,
+                MontoMERCDTR: MontoMERCDTR,
+                MontoRASDTR: MontoRASDTR,
+                MontoEXTSDTR: MontoEXTSDTR,
+                MontoMERSDTR: MontoMERSDTR,
+                MontoRACDTNR: MontoRACDTNR,
+                MontoEXTCDTNR: MontoEXTCDTNR,
+                MontoMERCDTNR: MontoMERCDTNR,
+                MontoRASDTNR: MontoRASDTNR,
+                MontoEXTSDTNR: MontoEXTSDTNR,
+                MontoMERSDTNR: MontoMERSDTNR,
+                Lun: true,
+                Mar: true,
+                Mie: true,
+                Jue: true,
+                Vie: true,
+                Sab: true,
+                Dom: true
+            },
+            dataType: "json",
+            traditional: true,
+            success: function (data) {
+                if (data.success) {
+                    message = 'Tarifas guardadas con éxito';
+                    messageType = 'success';
+                    $.colorbox.close();
+                    refreshRateList();
+                }
+
+                //$.colorbox.close();
+                showNotification(message, messageType);
+            },
+            error: function (data) {
+                //$.colorbox.close();
+                showNotification(message, messageType);
+                refreshRateList();
+            }
+        });
+
+
+        //refreshRateList();
+
+        return false;
+    }
+</script>
 
 
 

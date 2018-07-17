@@ -27,6 +27,7 @@ namespace Ineltur.WebService
         public string NombreFormaDePago { get; set; }
         public string NombrePasajero { get; set; }
         public int TipoTransaccion { get; set; }
+        public string NombreEstadoPagoNPS { get; set; }
         public InfoUnidadReservada[] Unidades { get; set; }
     }
 }

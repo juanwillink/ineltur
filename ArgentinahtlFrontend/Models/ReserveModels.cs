@@ -178,6 +178,7 @@ namespace CheckArgentina.Models
         public string NombreFormaDePago { get; set; }
         public string NombrePasajero { get; set; }
         public int TipoTransaccion { get; set; }
+        public string NombreEstadoPagoNPS { get; set; }
         public VacancyListModel Unidades { get; set; }
     }
 }
