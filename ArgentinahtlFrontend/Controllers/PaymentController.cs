@@ -294,12 +294,17 @@ namespace CheckArgentina.Controllers
 
 					if (new ServiceController().CompleteReservation(ref idTransaccion))
 					{
-						var response = npsBLL.CapturarTrx(model.psp_MerchTxRef, SessionData.Reservation.IdTransaccionNPS, idTransaccion, importe);
+						if (!string.IsNullOrEmpty(idTransaccion))
+						{
+							var response = npsBLL.CapturarTrx(model.psp_MerchTxRef, SessionData.Reservation.IdTransaccionNPS, idTransaccion, importe);
 
-						if (string.IsNullOrEmpty(response))
-							return RedirectToAction("PaymentSuccess");
+							if (string.IsNullOrEmpty(response))
+								return RedirectToAction("PaymentSuccess");
+							else
+								return View("PaymentError", new ErrorModel { Mensaje = response });
+						}
 						else
-							return View("PaymentError", new ErrorModel { Mensaje = response });
+							return View("PaymentError", new ErrorModel { Mensaje = "La reserva no pudo completarse" });
 					}
 					else
 						return View("PaymentError", new ErrorModel { Mensaje = "La reserva no pudo completarse" });

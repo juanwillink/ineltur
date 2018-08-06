@@ -1991,6 +1991,7 @@
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Models\Turismo.dbml" />
     <None Include="Models\Turismo.dbml.layout" />
+    <Content Include="NLog.config" />
     <None Include="Properties\PublishProfiles\Anibal.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Juan.pubxml" />
