@@ -15,14 +15,14 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                Estado de la reserva: @if (Model.NombreEstadoPagoNPS != "Aprobada")
+                Estado de la reserva: @*@if (Model.NombreEstadoPagoNPS != "Aprobada")
 	            {
 		            <b>Cancelada</b>
                 }
-                else
-                {
+                else*@
+                
                     @Model.EstadoReserva;
-                }
+                
             </div>
             <div class="col-lg-4">
                 Forma de Pago: @Model.NombreFormaDePago

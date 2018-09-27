@@ -487,10 +487,10 @@ namespace Ineltur.WebService
                             Desayuno = peticion.Desayuno
                         };
 
-                        
-                        
+
+
                         //Tracker.WriteTrace(operationNumber, "Preparando datos para enviar mails: " + model.ToStringWithProperties());
-						/*
+                        
                         if (estadoReserva == (int)EstadoReserva.ReservaEfectiva)
                         {
                             Tracker.WriteTrace(operationNumber, "Enviando mail a agencia...");
@@ -578,7 +578,7 @@ namespace Ineltur.WebService
                             Tracker.WriteTrace(operationNumber, "Fin ReservarAlojamiento: " + respuestaError.ToStringWithProperties(), traceType: Tracker.TraceType.Fatal);
                             return respuestaError;
                         }
-						*/
+						
                     }
 
                     Tracker.WriteTrace(operationNumber, "Fin ReservarAlojamiento: Éxito");

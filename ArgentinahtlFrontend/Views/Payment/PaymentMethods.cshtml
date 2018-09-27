@@ -23,7 +23,7 @@
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"><a href="#ctaCte" aria-controls="ctaCte" role="tab" data-toggle="tab">Cuenta Corriente</a></li>
 				<li role="presentation"><a href="#deposito" aria-controls="deposito" role="tab" data-toggle="tab">Depósito</a></li>
-				<li role="presentation"><a href="#nps" aria-controls="nps" role="tab" data-toggle="tab">Tarjeta</a></li>
+				@*<li role="presentation"><a href="#nps" aria-controls="nps" role="tab" data-toggle="tab">Tarjeta</a></li>*@
 			</ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="ctaCte">
@@ -48,7 +48,7 @@
                         Html.EndForm();
                     }
                 </div>
-				<div role="tabpanel" class="tab-pane fade" id="nps">
+				@*<div role="tabpanel" class="tab-pane fade" id="nps">
                     @using (Html.BeginForm("ProcessPaymentNPS", "Payment", FormMethod.Post, new { id = "nps_payment_form" }))
                     {
                         Html.RenderPartial("PaymentNPS", Model);
@@ -59,7 +59,7 @@
 
                         Html.EndForm();
                     }
-                </div>
+                </div>*@
             </div>
         </div>
     </div>
