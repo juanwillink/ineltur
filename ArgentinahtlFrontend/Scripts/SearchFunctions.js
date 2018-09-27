@@ -156,6 +156,7 @@ function buildLodgingsView(data, userkey) {
                     "<h3>Consultar Tarifa</h3>" +
                     "<button class='btn btn-success' style='margin: 5px;' onclick='openEmailReservationModal(" + stringifiedLodging + ");'>Consultar Via Mail</button>" +
                     "<button class='btn btn-default' style='margin: 5px' onclick='openTelephoneModal();'>Reserva Telefonica</button>" +
+                    '<button class="btn btn-info" style="margin: 5px;" onclick="openDetailsModal(' + "'" + lodging["LodgingId"] + "'" + ')">Mas Informacion</button>' +
                     "</div>" +
                     "</div>" +
                     "</div>" +
