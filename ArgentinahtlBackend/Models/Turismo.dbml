@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Turismo-ProduccionV3" Class="TurismoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=test.argentinahtl.com;Initial Catalog=Turismo-ProduccionV3;Persist Security Info=True;User ID=itiers" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TurismoProduccionServerConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=test.argentinahtl.com;Initial Catalog=Turismo-ProduccionV3;Persist Security Info=True;User ID=itiers" SettingsObjectName="ArgentinahtlBackend.Properties.Settings" SettingsPropertyName="Turismo_ProduccionV3ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.USUARIOS" Member="Usuarios">
     <Type Name="Usuario">
       <Column Name="IDUSUARIO" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -35,6 +35,7 @@
       <Column Name="MARKUPACONSUMIDORFINAL" Type="System.Single" DbType="Real" CanBeNull="true" />
       <Column Name="IDMONEDA" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="IDCLIENTE" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IDHOTEL" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Association Name="Usuario_Alojamiento" Member="Alojamientos" ThisKey="IDUSUARIO" OtherKey="IDUSUARIO" Type="Alojamiento" />
       <Association Name="Usuario_Transaccion" Member="Transaccions" ThisKey="IDUSUARIO" OtherKey="IDUSUARIO" Type="Transaccion" />
       <Association Name="Usuario_UsuarioWeb" Member="UsuarioWebs" ThisKey="IDUSUARIO" OtherKey="IDUSUARIO" Type="UsuarioWeb" Cardinality="One" />

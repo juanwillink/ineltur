@@ -283,13 +283,13 @@ namespace Ineltur.WebService
                                 IdUnidad = urs.idUnidad_Aloj
                             }).ToArray();
 
-                            var pagoNPS = dc.PAGO_NPS.Where(p => p.IdTransaccion == reserva.IdTransaccion).SingleOrDefault();
+                            //var pagoNPS = dc.PAGO_NPS.Where(p => p.IdTransaccion == reserva.IdTransaccion).SingleOrDefault();
 
-							if (pagoNPS != null)
-							{
-								var estadoPagoNPS = dc.ESTADO_PAGO_NPS.Where(e => e.IdEstadoNPS == pagoNPS.IdEstadoNPS).SingleOrDefault();
-								reserva.NombreEstadoPagoNPS = estadoPagoNPS.Descripcion;
-							}
+                            //if (pagoNPS != null)
+                            //{
+                            //    var estadoPagoNPS = dc.ESTADO_PAGO_NPS.Where(e => e.IdEstadoNPS == pagoNPS.IdEstadoNPS).SingleOrDefault();
+                            //    reserva.NombreEstadoPagoNPS = estadoPagoNPS.Descripcion;
+                            //}
 
                         }
                         var respuesta = new RespuestaBuscarMisReservas()
@@ -340,13 +340,13 @@ namespace Ineltur.WebService
                                 IdUnidad = urs.idUnidad_Aloj
                             }).ToArray();
 
-                            var pagoNPS = dc.PAGO_NPS.FirstOrDefault(p => p.IdTransaccion == reserva.IdTransaccion);
+                            //var pagoNPS = dc.PAGO_NPS.FirstOrDefault(p => p.IdTransaccion == reserva.IdTransaccion);
 
-							if (pagoNPS != null)
-							{
-								var estadoPagoNPS = dc.ESTADO_PAGO_NPS.Where(e => e.IdEstadoNPS == pagoNPS.IdEstadoNPS).SingleOrDefault();
-								reserva.NombreEstadoPagoNPS = estadoPagoNPS.Descripcion;
-							}
+                            //if (pagoNPS != null)
+                            //{
+                            //    var estadoPagoNPS = dc.ESTADO_PAGO_NPS.Where(e => e.IdEstadoNPS == pagoNPS.IdEstadoNPS).SingleOrDefault();
+                            //    reserva.NombreEstadoPagoNPS = estadoPagoNPS.Descripcion;
+                            //}
                         }
                         var respuesta = new RespuestaBuscarMisReservas()
                         {
@@ -397,13 +397,13 @@ namespace Ineltur.WebService
                                 IdUnidad = urs.idUnidad_Aloj
                             }).ToArray();
 
-							var pagoNPS = dc.PAGO_NPS.Where(p => p.IdTransaccion == reserva.IdTransaccion).SingleOrDefault();
+                            //var pagoNPS = dc.PAGO_NPS.Where(p => p.IdTransaccion == reserva.IdTransaccion).SingleOrDefault();
 
-							if (pagoNPS != null)
-							{
-								var estadoPagoNPS = dc.ESTADO_PAGO_NPS.Where(e => e.IdEstadoNPS == pagoNPS.IdEstadoNPS).SingleOrDefault();
-								reserva.NombreEstadoPagoNPS = estadoPagoNPS.Descripcion;
-							}
+                            //if (pagoNPS != null)
+                            //{
+                            //    var estadoPagoNPS = dc.ESTADO_PAGO_NPS.Where(e => e.IdEstadoNPS == pagoNPS.IdEstadoNPS).SingleOrDefault();
+                            //    reserva.NombreEstadoPagoNPS = estadoPagoNPS.Descripcion;
+                            //}
                         }
                         var respuesta = new RespuestaBuscarMisReservas()
                         {

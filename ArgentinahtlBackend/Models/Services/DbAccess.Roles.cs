@@ -127,6 +127,17 @@ namespace ArgentinahtlMVC.Models.Services
             }
         }
 
+        public static LodgingModel GetLodgingFromUser(Guid? userId)
+        {
+            using (var dc = new TurismoDataContext())
+            {
+                var user = dc.Usuarios.Single(a => a.IDUSUARIO == userId);
+                var lodging = dc.Alojamientos.Single(a => a.IDALOJ == user.IDHOTEL);
+
+                return MapLodging(lodging);
+            }
+        }
+
         public static List<LodgingModel> GetLodgings()
         {
             using (var dc = new TurismoDataContext())

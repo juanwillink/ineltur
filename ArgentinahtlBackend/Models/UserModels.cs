@@ -17,7 +17,8 @@ namespace ArgentinahtlMVC.Models
         Operator = 1,
         AdministratorClient = 10,
         Administrator = 100,
-        Superadmin = 255
+        Superadmin = 255,
+        Hotel = 50
     }
 
     public class ChangePasswordModel

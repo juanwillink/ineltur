@@ -108,7 +108,7 @@ namespace ArgentinahtlBackend.Models
     #endregion
 		
 		public TurismoDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TurismoProduccionServerConnectionString"].ConnectionString, mappingSource)
+				base(global::ArgentinahtlBackend.Properties.Settings.Default.Turismo_ProduccionV3ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -452,6 +452,8 @@ namespace ArgentinahtlBackend.Models
 		
 		private System.Nullable<System.Guid> _IDCLIENTE;
 		
+		private System.Nullable<System.Guid> _IDHOTEL;
+		
 		private EntitySet<Alojamiento> _Alojamientos;
 		
 		private EntitySet<Transaccion> _Transaccions;
@@ -540,6 +542,8 @@ namespace ArgentinahtlBackend.Models
     partial void OnIDMONEDAChanged();
     partial void OnIDCLIENTEChanging(System.Nullable<System.Guid> value);
     partial void OnIDCLIENTEChanged();
+    partial void OnIDHOTELChanging(System.Nullable<System.Guid> value);
+    partial void OnIDHOTELChanged();
     #endregion
 		
 		public Usuario()
@@ -1236,6 +1240,26 @@ namespace ArgentinahtlBackend.Models
 					this._IDCLIENTE = value;
 					this.SendPropertyChanged("IDCLIENTE");
 					this.OnIDCLIENTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDHOTEL", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDHOTEL
+		{
+			get
+			{
+				return this._IDHOTEL;
+			}
+			set
+			{
+				if ((this._IDHOTEL != value))
+				{
+					this.OnIDHOTELChanging(value);
+					this.SendPropertyChanging();
+					this._IDHOTEL = value;
+					this.SendPropertyChanged("IDHOTEL");
+					this.OnIDHOTELChanged();
 				}
 			}
 		}

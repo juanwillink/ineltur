@@ -24,7 +24,6 @@ namespace ArgentinahtlMVC.Controllers
             return View();
         }
 
-
         [UserProfile(UserProfile.Administrator)]
         public ActionResult Rates()
         {
@@ -34,7 +33,16 @@ namespace ArgentinahtlMVC.Controllers
             });
         }
 
-        [UserProfile(UserProfile.Administrator)]
+        [UserProfile(UserProfile.Hotel)]
+        public ActionResult RatesHotel()
+        { 
+            return View(new RateListModel()
+            { 
+                Lodging = DbAccess.GetLodgingFromUser(SessionData.UserId)
+            });
+        }
+
+        [UserProfile(UserProfile.Hotel)]
         public ActionResult RateList(Guid? lodgingId, Guid? roomId, string fechaDesde, string fechaHasta)
         {
 
@@ -50,7 +58,7 @@ namespace ArgentinahtlMVC.Controllers
             });
         }
 
-        [UserProfile(UserProfile.Administrator)]
+        [UserProfile(UserProfile.Hotel)]
         public ActionResult CreateRate(Guid roomId)
         {
             return PartialView("CreateEditRate", new RateModel
@@ -77,7 +85,7 @@ namespace ArgentinahtlMVC.Controllers
         }
 
         [HttpPost]
-        [UserProfile(UserProfile.Administrator)]
+        [UserProfile(UserProfile.Hotel)]
         public ActionResult CreateOrUpdateRates(RateModel model)
         {
             if (ModelState.IsValid)
@@ -90,7 +98,7 @@ namespace ArgentinahtlMVC.Controllers
         }
 
         [HttpGet]
-        [UserProfile(UserProfile.Administrator)]
+        [UserProfile(UserProfile.Hotel)]
         public ActionResult EditRate(Guid rateId)
         {
             var model = DbAccess.GetRate(rateId);
@@ -100,7 +108,7 @@ namespace ArgentinahtlMVC.Controllers
         }
 
         [HttpPost]
-        [UserProfile(UserProfile.Administrator)]
+        [UserProfile(UserProfile.Hotel)]
         public ActionResult EditRate(RateModel model)
         {
             if (ModelState.IsValid)
@@ -112,15 +120,12 @@ namespace ArgentinahtlMVC.Controllers
             return Json(new { success = false }, JsonRequestBehavior.DenyGet); ;
         }
 
-        [UserProfile(UserProfile.Administrator)]
+        [UserProfile(UserProfile.Hotel)]
         public ActionResult Cierres(Guid? lodgingId, Guid? roomId, string fechaDesde, string fechaHasta)
         {
-            //Guid l = new Guid("d4867abb-f568-4abe-a11b-85932390c520");
-            //Guid r = new Guid("291d436d-9c50-46e0-98bd-2095595c41b0");
+            
             Guid l = lodgingId.HasValue ? (Guid)lodgingId : Guid.Empty;
             Guid r = roomId.HasValue ? (Guid)roomId : Guid.Empty; 
-            //DateTime fd = new DateTime(2017,1,1);
-            //DateTime fh = new DateTime(2017, 12, 31);
 
             IFormatProvider culture = new CultureInfo("en-US", true);
             DateTime fd = DateTime.ParseExact(fechaDesde.Replace("{", "").Replace("}", ""), "dd/MM/yyyy", culture);
@@ -131,9 +136,7 @@ namespace ArgentinahtlMVC.Controllers
 
             RateListModel m = new RateListModel()
             {
-                //Rates = DbAccess.GetRates(lodgingId.GetValueOrDefault(), roomId.GetValueOrDefault(), fdesde, fhasta),
                 Rates = DbAccess.GetRates(l,r,fd,fh),
-                //Lodging = DbAccess.GetLodging(lodgingId.GetValueOrDefault())
             };
 
             m.TablaCupos = Utils.GenerarTablaHTML(m.Rates, fd, "Cupos");
@@ -143,7 +146,7 @@ namespace ArgentinahtlMVC.Controllers
         }
 
         [HttpPost]
-        [UserProfile(UserProfile.Administrator)]
+        [UserProfile(UserProfile.Hotel)]
         public ActionResult realizarCierre()
         {
             Guid idcu;

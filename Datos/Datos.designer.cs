@@ -22,7 +22,7 @@ namespace Ineltur.Datos.Entidades
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Argentinahtl")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Turismo-ProduccionV3")]
 	public partial class WebServiceDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -123,7 +123,7 @@ namespace Ineltur.Datos.Entidades
     #endregion
 		
 		public WebServiceDataContext() : 
-				base(global::Ineltur.Datos.Properties.Settings.Default.ArgentinahtlConnectionString, mappingSource)
+				base(global::Ineltur.Datos.Properties.Settings.Default.Turismo_ProduccionV3ConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -538,27 +538,6 @@ namespace Ineltur.Datos.Entidades
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTransaccionesPorIdUsuario")]
-		public ISingleResult<getTransaccionesPorIdUsuarioResult> getTransaccionesPorIdUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDUSUARIO", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDUSUARIO)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDUSUARIO);
-			return ((ISingleResult<getTransaccionesPorIdUsuarioResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTransaccionesPorIdUsuarioCodigoReserva")]
-		public ISingleResult<getTransaccionesPorIdUsuarioCodigoReservaResult> getTransaccionesPorIdUsuarioCodigoReserva([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDUSUARIO", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDUSUARIO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGORESERVA", DbType="Int")] System.Nullable<int> cODIGORESERVA)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDUSUARIO, cODIGORESERVA);
-			return ((ISingleResult<getTransaccionesPorIdUsuarioCodigoReservaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTransaccionesNuevasPorIdUsuario")]
-		public ISingleResult<getTransaccionesNuevasPorIdUsuarioResult> getTransaccionesNuevasPorIdUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDUSUARIO", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDUSUARIO)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDUSUARIO);
-			return ((ISingleResult<getTransaccionesNuevasPorIdUsuarioResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getReservas_UnidadesTransaccionesPorIdTransaccion")]
 		public ISingleResult<getReservas_UnidadesTransaccionesPorIdTransaccionResult> getReservas_UnidadesTransaccionesPorIdTransaccion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idTransaccion)
 		{
@@ -728,6 +707,27 @@ namespace Ineltur.Datos.Entidades
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> idUsuario)
 		{
 			return this.CreateMethodCallQuery<getTarifasTodasDeUnidadPedidaResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cantUnidadesSimples, cantUnidadesDobles, cantUnidadesTriples, cantUnidadesOtros, cantUnidades5Personas, cantUnidades6Personas, fechaInicio, fechaFin, orden, idCiudad, idProvincia, idTipoAloj, nacionalidad, nombreAloj, desayuno, tarifaReembolsable, idUsuario);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTransaccionesPorIdUsuarioCodigoReserva")]
+		public ISingleResult<getTransaccionesPorIdUsuarioCodigoReservaResult> getTransaccionesPorIdUsuarioCodigoReserva([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDUSUARIO", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDUSUARIO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGORESERVA", DbType="Int")] System.Nullable<int> cODIGORESERVA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDUSUARIO, cODIGORESERVA);
+			return ((ISingleResult<getTransaccionesPorIdUsuarioCodigoReservaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTransaccionesPorIdUsuario")]
+		public ISingleResult<getTransaccionesPorIdUsuarioResult> getTransaccionesPorIdUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDUSUARIO", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDUSUARIO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDUSUARIO);
+			return ((ISingleResult<getTransaccionesPorIdUsuarioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTransaccionesNuevasPorIdUsuario")]
+		public ISingleResult<getTransaccionesNuevasPorIdUsuarioResult> getTransaccionesNuevasPorIdUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDUSUARIO", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDUSUARIO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDUSUARIO);
+			return ((ISingleResult<getTransaccionesNuevasPorIdUsuarioResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -12015,1326 +12015,6 @@ namespace Ineltur.Datos.Entidades
 		}
 	}
 	
-	public partial class getTransaccionesPorIdUsuarioResult
-	{
-		
-		private System.Guid _IDTRANSACCION;
-		
-		private System.Nullable<System.Guid> _IDFORMAPAGO;
-		
-		private System.Nullable<System.Guid> _IDUSUARIO;
-		
-		private string _DESCRIPCION;
-		
-		private System.Nullable<float> _MONTOTOTALCONDESC;
-		
-		private int _CODIGO_RESERVA;
-		
-		private int _ESTADORESERVA;
-		
-		private System.Nullable<int> _CODIGO_CONFIRMACION;
-		
-		private System.Nullable<float> _MONTOTOTALSINDESC;
-		
-		private System.Nullable<float> _COTIZACION;
-		
-		private System.Guid _IDMONEDA;
-		
-		private System.Nullable<int> _IDPU;
-		
-		private System.Nullable<int> _CANTCUOTAS;
-		
-		private System.Nullable<int> _ESTADOPAGO;
-		
-		private System.Guid _IDSITIOORIGEN;
-		
-		private System.Nullable<System.Guid> _IDALOJ;
-		
-		private int _TIPOTRANSACCION;
-		
-		private string _nombreFormaPago;
-		
-		private System.Guid _IDTIPOFORMAPAGO;
-		
-		private System.DateTime _FECHA_ALTA;
-		
-		private System.Nullable<System.DateTime> _fechaUltimoCheckIn;
-		
-		private System.Nullable<System.DateTime> _FECHA_VENCIMIENTO;
-		
-		private string _nombreAlojamiento;
-		
-		private string _pasajero;
-		
-		public getTransaccionesPorIdUsuarioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDTRANSACCION
-		{
-			get
-			{
-				return this._IDTRANSACCION;
-			}
-			set
-			{
-				if ((this._IDTRANSACCION != value))
-				{
-					this._IDTRANSACCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFORMAPAGO", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDFORMAPAGO
-		{
-			get
-			{
-				return this._IDFORMAPAGO;
-			}
-			set
-			{
-				if ((this._IDFORMAPAGO != value))
-				{
-					this._IDFORMAPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDUSUARIO
-		{
-			get
-			{
-				return this._IDUSUARIO;
-			}
-			set
-			{
-				if ((this._IDUSUARIO != value))
-				{
-					this._IDUSUARIO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
-		public string DESCRIPCION
-		{
-			get
-			{
-				return this._DESCRIPCION;
-			}
-			set
-			{
-				if ((this._DESCRIPCION != value))
-				{
-					this._DESCRIPCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALCONDESC", DbType="Real")]
-		public System.Nullable<float> MONTOTOTALCONDESC
-		{
-			get
-			{
-				return this._MONTOTOTALCONDESC;
-			}
-			set
-			{
-				if ((this._MONTOTOTALCONDESC != value))
-				{
-					this._MONTOTOTALCONDESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_RESERVA", DbType="Int NOT NULL")]
-		public int CODIGO_RESERVA
-		{
-			get
-			{
-				return this._CODIGO_RESERVA;
-			}
-			set
-			{
-				if ((this._CODIGO_RESERVA != value))
-				{
-					this._CODIGO_RESERVA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADORESERVA", DbType="Int NOT NULL")]
-		public int ESTADORESERVA
-		{
-			get
-			{
-				return this._ESTADORESERVA;
-			}
-			set
-			{
-				if ((this._ESTADORESERVA != value))
-				{
-					this._ESTADORESERVA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_CONFIRMACION", DbType="Int")]
-		public System.Nullable<int> CODIGO_CONFIRMACION
-		{
-			get
-			{
-				return this._CODIGO_CONFIRMACION;
-			}
-			set
-			{
-				if ((this._CODIGO_CONFIRMACION != value))
-				{
-					this._CODIGO_CONFIRMACION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALSINDESC", DbType="Real")]
-		public System.Nullable<float> MONTOTOTALSINDESC
-		{
-			get
-			{
-				return this._MONTOTOTALSINDESC;
-			}
-			set
-			{
-				if ((this._MONTOTOTALSINDESC != value))
-				{
-					this._MONTOTOTALSINDESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACION", DbType="Real")]
-		public System.Nullable<float> COTIZACION
-		{
-			get
-			{
-				return this._COTIZACION;
-			}
-			set
-			{
-				if ((this._COTIZACION != value))
-				{
-					this._COTIZACION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDMONEDA
-		{
-			get
-			{
-				return this._IDMONEDA;
-			}
-			set
-			{
-				if ((this._IDMONEDA != value))
-				{
-					this._IDMONEDA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPU", DbType="Int")]
-		public System.Nullable<int> IDPU
-		{
-			get
-			{
-				return this._IDPU;
-			}
-			set
-			{
-				if ((this._IDPU != value))
-				{
-					this._IDPU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANTCUOTAS", DbType="Int")]
-		public System.Nullable<int> CANTCUOTAS
-		{
-			get
-			{
-				return this._CANTCUOTAS;
-			}
-			set
-			{
-				if ((this._CANTCUOTAS != value))
-				{
-					this._CANTCUOTAS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADOPAGO", DbType="Int")]
-		public System.Nullable<int> ESTADOPAGO
-		{
-			get
-			{
-				return this._ESTADOPAGO;
-			}
-			set
-			{
-				if ((this._ESTADOPAGO != value))
-				{
-					this._ESTADOPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDSITIOORIGEN", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDSITIOORIGEN
-		{
-			get
-			{
-				return this._IDSITIOORIGEN;
-			}
-			set
-			{
-				if ((this._IDSITIOORIGEN != value))
-				{
-					this._IDSITIOORIGEN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDALOJ
-		{
-			get
-			{
-				return this._IDALOJ;
-			}
-			set
-			{
-				if ((this._IDALOJ != value))
-				{
-					this._IDALOJ = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOTRANSACCION", DbType="Int NOT NULL")]
-		public int TIPOTRANSACCION
-		{
-			get
-			{
-				return this._TIPOTRANSACCION;
-			}
-			set
-			{
-				if ((this._TIPOTRANSACCION != value))
-				{
-					this._TIPOTRANSACCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreFormaPago", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nombreFormaPago
-		{
-			get
-			{
-				return this._nombreFormaPago;
-			}
-			set
-			{
-				if ((this._nombreFormaPago != value))
-				{
-					this._nombreFormaPago = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOFORMAPAGO", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDTIPOFORMAPAGO
-		{
-			get
-			{
-				return this._IDTIPOFORMAPAGO;
-			}
-			set
-			{
-				if ((this._IDTIPOFORMAPAGO != value))
-				{
-					this._IDTIPOFORMAPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
-		public System.DateTime FECHA_ALTA
-		{
-			get
-			{
-				return this._FECHA_ALTA;
-			}
-			set
-			{
-				if ((this._FECHA_ALTA != value))
-				{
-					this._FECHA_ALTA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaUltimoCheckIn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fechaUltimoCheckIn
-		{
-			get
-			{
-				return this._fechaUltimoCheckIn;
-			}
-			set
-			{
-				if ((this._fechaUltimoCheckIn != value))
-				{
-					this._fechaUltimoCheckIn = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_VENCIMIENTO", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FECHA_VENCIMIENTO
-		{
-			get
-			{
-				return this._FECHA_VENCIMIENTO;
-			}
-			set
-			{
-				if ((this._FECHA_VENCIMIENTO != value))
-				{
-					this._FECHA_VENCIMIENTO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreAlojamiento", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nombreAlojamiento
-		{
-			get
-			{
-				return this._nombreAlojamiento;
-			}
-			set
-			{
-				if ((this._nombreAlojamiento != value))
-				{
-					this._nombreAlojamiento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pasajero", DbType="VarChar(102) NOT NULL", CanBeNull=false)]
-		public string pasajero
-		{
-			get
-			{
-				return this._pasajero;
-			}
-			set
-			{
-				if ((this._pasajero != value))
-				{
-					this._pasajero = value;
-				}
-			}
-		}
-	}
-	
-	public partial class getTransaccionesPorIdUsuarioCodigoReservaResult
-	{
-		
-		private System.Guid _IDTRANSACCION;
-		
-		private System.Nullable<System.Guid> _IDFORMAPAGO;
-		
-		private System.Nullable<System.Guid> _IDUSUARIO;
-		
-		private string _DESCRIPCION;
-		
-		private System.Nullable<float> _MONTOTOTALCONDESC;
-		
-		private int _CODIGO_RESERVA;
-		
-		private int _ESTADORESERVA;
-		
-		private System.Nullable<int> _CODIGO_CONFIRMACION;
-		
-		private System.Nullable<float> _MONTOTOTALSINDESC;
-		
-		private System.Nullable<float> _COTIZACION;
-		
-		private System.Guid _IDMONEDA;
-		
-		private System.Nullable<int> _IDPU;
-		
-		private System.Nullable<int> _CANTCUOTAS;
-		
-		private System.Nullable<int> _ESTADOPAGO;
-		
-		private System.Guid _IDSITIOORIGEN;
-		
-		private System.Nullable<System.Guid> _IDALOJ;
-		
-		private int _TIPOTRANSACCION;
-		
-		private string _nombreFormaPago;
-		
-		private System.Guid _IDTIPOFORMAPAGO;
-		
-		private System.DateTime _FECHA_ALTA;
-		
-		private System.Nullable<System.DateTime> _fechaUltimoCheckIn;
-		
-		private System.Nullable<System.DateTime> _FECHA_VENCIMIENTO;
-		
-		private string _nombreAlojamiento;
-		
-		private string _pasajero;
-		
-		public getTransaccionesPorIdUsuarioCodigoReservaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDTRANSACCION
-		{
-			get
-			{
-				return this._IDTRANSACCION;
-			}
-			set
-			{
-				if ((this._IDTRANSACCION != value))
-				{
-					this._IDTRANSACCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFORMAPAGO", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDFORMAPAGO
-		{
-			get
-			{
-				return this._IDFORMAPAGO;
-			}
-			set
-			{
-				if ((this._IDFORMAPAGO != value))
-				{
-					this._IDFORMAPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDUSUARIO
-		{
-			get
-			{
-				return this._IDUSUARIO;
-			}
-			set
-			{
-				if ((this._IDUSUARIO != value))
-				{
-					this._IDUSUARIO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
-		public string DESCRIPCION
-		{
-			get
-			{
-				return this._DESCRIPCION;
-			}
-			set
-			{
-				if ((this._DESCRIPCION != value))
-				{
-					this._DESCRIPCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALCONDESC", DbType="Real")]
-		public System.Nullable<float> MONTOTOTALCONDESC
-		{
-			get
-			{
-				return this._MONTOTOTALCONDESC;
-			}
-			set
-			{
-				if ((this._MONTOTOTALCONDESC != value))
-				{
-					this._MONTOTOTALCONDESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_RESERVA", DbType="Int NOT NULL")]
-		public int CODIGO_RESERVA
-		{
-			get
-			{
-				return this._CODIGO_RESERVA;
-			}
-			set
-			{
-				if ((this._CODIGO_RESERVA != value))
-				{
-					this._CODIGO_RESERVA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADORESERVA", DbType="Int NOT NULL")]
-		public int ESTADORESERVA
-		{
-			get
-			{
-				return this._ESTADORESERVA;
-			}
-			set
-			{
-				if ((this._ESTADORESERVA != value))
-				{
-					this._ESTADORESERVA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_CONFIRMACION", DbType="Int")]
-		public System.Nullable<int> CODIGO_CONFIRMACION
-		{
-			get
-			{
-				return this._CODIGO_CONFIRMACION;
-			}
-			set
-			{
-				if ((this._CODIGO_CONFIRMACION != value))
-				{
-					this._CODIGO_CONFIRMACION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALSINDESC", DbType="Real")]
-		public System.Nullable<float> MONTOTOTALSINDESC
-		{
-			get
-			{
-				return this._MONTOTOTALSINDESC;
-			}
-			set
-			{
-				if ((this._MONTOTOTALSINDESC != value))
-				{
-					this._MONTOTOTALSINDESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACION", DbType="Real")]
-		public System.Nullable<float> COTIZACION
-		{
-			get
-			{
-				return this._COTIZACION;
-			}
-			set
-			{
-				if ((this._COTIZACION != value))
-				{
-					this._COTIZACION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDMONEDA
-		{
-			get
-			{
-				return this._IDMONEDA;
-			}
-			set
-			{
-				if ((this._IDMONEDA != value))
-				{
-					this._IDMONEDA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPU", DbType="Int")]
-		public System.Nullable<int> IDPU
-		{
-			get
-			{
-				return this._IDPU;
-			}
-			set
-			{
-				if ((this._IDPU != value))
-				{
-					this._IDPU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANTCUOTAS", DbType="Int")]
-		public System.Nullable<int> CANTCUOTAS
-		{
-			get
-			{
-				return this._CANTCUOTAS;
-			}
-			set
-			{
-				if ((this._CANTCUOTAS != value))
-				{
-					this._CANTCUOTAS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADOPAGO", DbType="Int")]
-		public System.Nullable<int> ESTADOPAGO
-		{
-			get
-			{
-				return this._ESTADOPAGO;
-			}
-			set
-			{
-				if ((this._ESTADOPAGO != value))
-				{
-					this._ESTADOPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDSITIOORIGEN", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDSITIOORIGEN
-		{
-			get
-			{
-				return this._IDSITIOORIGEN;
-			}
-			set
-			{
-				if ((this._IDSITIOORIGEN != value))
-				{
-					this._IDSITIOORIGEN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDALOJ
-		{
-			get
-			{
-				return this._IDALOJ;
-			}
-			set
-			{
-				if ((this._IDALOJ != value))
-				{
-					this._IDALOJ = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOTRANSACCION", DbType="Int NOT NULL")]
-		public int TIPOTRANSACCION
-		{
-			get
-			{
-				return this._TIPOTRANSACCION;
-			}
-			set
-			{
-				if ((this._TIPOTRANSACCION != value))
-				{
-					this._TIPOTRANSACCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreFormaPago", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nombreFormaPago
-		{
-			get
-			{
-				return this._nombreFormaPago;
-			}
-			set
-			{
-				if ((this._nombreFormaPago != value))
-				{
-					this._nombreFormaPago = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOFORMAPAGO", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDTIPOFORMAPAGO
-		{
-			get
-			{
-				return this._IDTIPOFORMAPAGO;
-			}
-			set
-			{
-				if ((this._IDTIPOFORMAPAGO != value))
-				{
-					this._IDTIPOFORMAPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
-		public System.DateTime FECHA_ALTA
-		{
-			get
-			{
-				return this._FECHA_ALTA;
-			}
-			set
-			{
-				if ((this._FECHA_ALTA != value))
-				{
-					this._FECHA_ALTA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaUltimoCheckIn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fechaUltimoCheckIn
-		{
-			get
-			{
-				return this._fechaUltimoCheckIn;
-			}
-			set
-			{
-				if ((this._fechaUltimoCheckIn != value))
-				{
-					this._fechaUltimoCheckIn = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_VENCIMIENTO", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FECHA_VENCIMIENTO
-		{
-			get
-			{
-				return this._FECHA_VENCIMIENTO;
-			}
-			set
-			{
-				if ((this._FECHA_VENCIMIENTO != value))
-				{
-					this._FECHA_VENCIMIENTO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreAlojamiento", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nombreAlojamiento
-		{
-			get
-			{
-				return this._nombreAlojamiento;
-			}
-			set
-			{
-				if ((this._nombreAlojamiento != value))
-				{
-					this._nombreAlojamiento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pasajero", DbType="VarChar(102) NOT NULL", CanBeNull=false)]
-		public string pasajero
-		{
-			get
-			{
-				return this._pasajero;
-			}
-			set
-			{
-				if ((this._pasajero != value))
-				{
-					this._pasajero = value;
-				}
-			}
-		}
-	}
-	
-	public partial class getTransaccionesNuevasPorIdUsuarioResult
-	{
-		
-		private System.Guid _IDTRANSACCION;
-		
-		private System.Nullable<System.Guid> _IDFORMAPAGO;
-		
-		private System.Nullable<System.Guid> _IDUSUARIO;
-		
-		private string _DESCRIPCION;
-		
-		private System.Nullable<float> _MONTOTOTALCONDESC;
-		
-		private int _CODIGO_RESERVA;
-		
-		private int _ESTADORESERVA;
-		
-		private System.Nullable<int> _CODIGO_CONFIRMACION;
-		
-		private System.Nullable<float> _MONTOTOTALSINDESC;
-		
-		private System.Nullable<float> _COTIZACION;
-		
-		private System.Guid _IDMONEDA;
-		
-		private System.Nullable<int> _IDPU;
-		
-		private System.Nullable<int> _CANTCUOTAS;
-		
-		private System.Nullable<int> _ESTADOPAGO;
-		
-		private System.Guid _IDSITIOORIGEN;
-		
-		private System.Nullable<System.Guid> _IDALOJ;
-		
-		private int _TIPOTRANSACCION;
-		
-		private string _nombreFormaPago;
-		
-		private System.Guid _IDTIPOFORMAPAGO;
-		
-		private System.DateTime _FECHA_ALTA;
-		
-		private System.Nullable<System.DateTime> _fechaUltimoCheckIn;
-		
-		private System.Nullable<System.DateTime> _FECHA_VENCIMIENTO;
-		
-		private string _nombreAlojamiento;
-		
-		private string _pasajero;
-		
-		public getTransaccionesNuevasPorIdUsuarioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDTRANSACCION
-		{
-			get
-			{
-				return this._IDTRANSACCION;
-			}
-			set
-			{
-				if ((this._IDTRANSACCION != value))
-				{
-					this._IDTRANSACCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFORMAPAGO", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDFORMAPAGO
-		{
-			get
-			{
-				return this._IDFORMAPAGO;
-			}
-			set
-			{
-				if ((this._IDFORMAPAGO != value))
-				{
-					this._IDFORMAPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDUSUARIO
-		{
-			get
-			{
-				return this._IDUSUARIO;
-			}
-			set
-			{
-				if ((this._IDUSUARIO != value))
-				{
-					this._IDUSUARIO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
-		public string DESCRIPCION
-		{
-			get
-			{
-				return this._DESCRIPCION;
-			}
-			set
-			{
-				if ((this._DESCRIPCION != value))
-				{
-					this._DESCRIPCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALCONDESC", DbType="Real")]
-		public System.Nullable<float> MONTOTOTALCONDESC
-		{
-			get
-			{
-				return this._MONTOTOTALCONDESC;
-			}
-			set
-			{
-				if ((this._MONTOTOTALCONDESC != value))
-				{
-					this._MONTOTOTALCONDESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_RESERVA", DbType="Int NOT NULL")]
-		public int CODIGO_RESERVA
-		{
-			get
-			{
-				return this._CODIGO_RESERVA;
-			}
-			set
-			{
-				if ((this._CODIGO_RESERVA != value))
-				{
-					this._CODIGO_RESERVA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADORESERVA", DbType="Int NOT NULL")]
-		public int ESTADORESERVA
-		{
-			get
-			{
-				return this._ESTADORESERVA;
-			}
-			set
-			{
-				if ((this._ESTADORESERVA != value))
-				{
-					this._ESTADORESERVA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_CONFIRMACION", DbType="Int")]
-		public System.Nullable<int> CODIGO_CONFIRMACION
-		{
-			get
-			{
-				return this._CODIGO_CONFIRMACION;
-			}
-			set
-			{
-				if ((this._CODIGO_CONFIRMACION != value))
-				{
-					this._CODIGO_CONFIRMACION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALSINDESC", DbType="Real")]
-		public System.Nullable<float> MONTOTOTALSINDESC
-		{
-			get
-			{
-				return this._MONTOTOTALSINDESC;
-			}
-			set
-			{
-				if ((this._MONTOTOTALSINDESC != value))
-				{
-					this._MONTOTOTALSINDESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACION", DbType="Real")]
-		public System.Nullable<float> COTIZACION
-		{
-			get
-			{
-				return this._COTIZACION;
-			}
-			set
-			{
-				if ((this._COTIZACION != value))
-				{
-					this._COTIZACION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDMONEDA
-		{
-			get
-			{
-				return this._IDMONEDA;
-			}
-			set
-			{
-				if ((this._IDMONEDA != value))
-				{
-					this._IDMONEDA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPU", DbType="Int")]
-		public System.Nullable<int> IDPU
-		{
-			get
-			{
-				return this._IDPU;
-			}
-			set
-			{
-				if ((this._IDPU != value))
-				{
-					this._IDPU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANTCUOTAS", DbType="Int")]
-		public System.Nullable<int> CANTCUOTAS
-		{
-			get
-			{
-				return this._CANTCUOTAS;
-			}
-			set
-			{
-				if ((this._CANTCUOTAS != value))
-				{
-					this._CANTCUOTAS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADOPAGO", DbType="Int")]
-		public System.Nullable<int> ESTADOPAGO
-		{
-			get
-			{
-				return this._ESTADOPAGO;
-			}
-			set
-			{
-				if ((this._ESTADOPAGO != value))
-				{
-					this._ESTADOPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDSITIOORIGEN", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDSITIOORIGEN
-		{
-			get
-			{
-				return this._IDSITIOORIGEN;
-			}
-			set
-			{
-				if ((this._IDSITIOORIGEN != value))
-				{
-					this._IDSITIOORIGEN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDALOJ
-		{
-			get
-			{
-				return this._IDALOJ;
-			}
-			set
-			{
-				if ((this._IDALOJ != value))
-				{
-					this._IDALOJ = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOTRANSACCION", DbType="Int NOT NULL")]
-		public int TIPOTRANSACCION
-		{
-			get
-			{
-				return this._TIPOTRANSACCION;
-			}
-			set
-			{
-				if ((this._TIPOTRANSACCION != value))
-				{
-					this._TIPOTRANSACCION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreFormaPago", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nombreFormaPago
-		{
-			get
-			{
-				return this._nombreFormaPago;
-			}
-			set
-			{
-				if ((this._nombreFormaPago != value))
-				{
-					this._nombreFormaPago = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOFORMAPAGO", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid IDTIPOFORMAPAGO
-		{
-			get
-			{
-				return this._IDTIPOFORMAPAGO;
-			}
-			set
-			{
-				if ((this._IDTIPOFORMAPAGO != value))
-				{
-					this._IDTIPOFORMAPAGO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
-		public System.DateTime FECHA_ALTA
-		{
-			get
-			{
-				return this._FECHA_ALTA;
-			}
-			set
-			{
-				if ((this._FECHA_ALTA != value))
-				{
-					this._FECHA_ALTA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaUltimoCheckIn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fechaUltimoCheckIn
-		{
-			get
-			{
-				return this._fechaUltimoCheckIn;
-			}
-			set
-			{
-				if ((this._fechaUltimoCheckIn != value))
-				{
-					this._fechaUltimoCheckIn = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_VENCIMIENTO", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FECHA_VENCIMIENTO
-		{
-			get
-			{
-				return this._FECHA_VENCIMIENTO;
-			}
-			set
-			{
-				if ((this._FECHA_VENCIMIENTO != value))
-				{
-					this._FECHA_VENCIMIENTO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreAlojamiento", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nombreAlojamiento
-		{
-			get
-			{
-				return this._nombreAlojamiento;
-			}
-			set
-			{
-				if ((this._nombreAlojamiento != value))
-				{
-					this._nombreAlojamiento = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pasajero", DbType="VarChar(102) NOT NULL", CanBeNull=false)]
-		public string pasajero
-		{
-			get
-			{
-				return this._pasajero;
-			}
-			set
-			{
-				if ((this._pasajero != value))
-				{
-					this._pasajero = value;
-				}
-			}
-		}
-	}
-	
 	public partial class getReservas_UnidadesTransaccionesPorIdTransaccionResult
 	{
 		
@@ -19716,6 +18396,1326 @@ namespace Ineltur.Datos.Entidades
 				if ((this._montoPromedioPorDiaMMSDTNR != value))
 				{
 					this._montoPromedioPorDiaMMSDTNR = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getTransaccionesPorIdUsuarioCodigoReservaResult
+	{
+		
+		private System.Guid _IDTRANSACCION;
+		
+		private System.Nullable<System.Guid> _IDFORMAPAGO;
+		
+		private System.Nullable<System.Guid> _IDUSUARIO;
+		
+		private string _DESCRIPCION;
+		
+		private System.Nullable<float> _MONTOTOTALCONDESC;
+		
+		private int _CODIGO_RESERVA;
+		
+		private int _ESTADORESERVA;
+		
+		private System.Nullable<int> _CODIGO_CONFIRMACION;
+		
+		private System.Nullable<float> _MONTOTOTALSINDESC;
+		
+		private System.Nullable<float> _COTIZACION;
+		
+		private System.Guid _IDMONEDA;
+		
+		private System.Nullable<int> _IDPU;
+		
+		private System.Nullable<int> _CANTCUOTAS;
+		
+		private System.Nullable<int> _ESTADOPAGO;
+		
+		private System.Guid _IDSITIOORIGEN;
+		
+		private System.Nullable<System.Guid> _IDALOJ;
+		
+		private int _TIPOTRANSACCION;
+		
+		private string _nombreFormaPago;
+		
+		private System.Guid _IDTIPOFORMAPAGO;
+		
+		private System.DateTime _FECHA_ALTA;
+		
+		private System.Nullable<System.DateTime> _fechaUltimoCheckIn;
+		
+		private System.Nullable<System.DateTime> _FECHA_VENCIMIENTO;
+		
+		private string _nombreAlojamiento;
+		
+		private string _pasajero;
+		
+		public getTransaccionesPorIdUsuarioCodigoReservaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDTRANSACCION
+		{
+			get
+			{
+				return this._IDTRANSACCION;
+			}
+			set
+			{
+				if ((this._IDTRANSACCION != value))
+				{
+					this._IDTRANSACCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFORMAPAGO", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDFORMAPAGO
+		{
+			get
+			{
+				return this._IDFORMAPAGO;
+			}
+			set
+			{
+				if ((this._IDFORMAPAGO != value))
+				{
+					this._IDFORMAPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDUSUARIO
+		{
+			get
+			{
+				return this._IDUSUARIO;
+			}
+			set
+			{
+				if ((this._IDUSUARIO != value))
+				{
+					this._IDUSUARIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this._DESCRIPCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALCONDESC", DbType="Real")]
+		public System.Nullable<float> MONTOTOTALCONDESC
+		{
+			get
+			{
+				return this._MONTOTOTALCONDESC;
+			}
+			set
+			{
+				if ((this._MONTOTOTALCONDESC != value))
+				{
+					this._MONTOTOTALCONDESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_RESERVA", DbType="Int NOT NULL")]
+		public int CODIGO_RESERVA
+		{
+			get
+			{
+				return this._CODIGO_RESERVA;
+			}
+			set
+			{
+				if ((this._CODIGO_RESERVA != value))
+				{
+					this._CODIGO_RESERVA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADORESERVA", DbType="Int NOT NULL")]
+		public int ESTADORESERVA
+		{
+			get
+			{
+				return this._ESTADORESERVA;
+			}
+			set
+			{
+				if ((this._ESTADORESERVA != value))
+				{
+					this._ESTADORESERVA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_CONFIRMACION", DbType="Int")]
+		public System.Nullable<int> CODIGO_CONFIRMACION
+		{
+			get
+			{
+				return this._CODIGO_CONFIRMACION;
+			}
+			set
+			{
+				if ((this._CODIGO_CONFIRMACION != value))
+				{
+					this._CODIGO_CONFIRMACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALSINDESC", DbType="Real")]
+		public System.Nullable<float> MONTOTOTALSINDESC
+		{
+			get
+			{
+				return this._MONTOTOTALSINDESC;
+			}
+			set
+			{
+				if ((this._MONTOTOTALSINDESC != value))
+				{
+					this._MONTOTOTALSINDESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACION", DbType="Real")]
+		public System.Nullable<float> COTIZACION
+		{
+			get
+			{
+				return this._COTIZACION;
+			}
+			set
+			{
+				if ((this._COTIZACION != value))
+				{
+					this._COTIZACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDMONEDA
+		{
+			get
+			{
+				return this._IDMONEDA;
+			}
+			set
+			{
+				if ((this._IDMONEDA != value))
+				{
+					this._IDMONEDA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPU", DbType="Int")]
+		public System.Nullable<int> IDPU
+		{
+			get
+			{
+				return this._IDPU;
+			}
+			set
+			{
+				if ((this._IDPU != value))
+				{
+					this._IDPU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANTCUOTAS", DbType="Int")]
+		public System.Nullable<int> CANTCUOTAS
+		{
+			get
+			{
+				return this._CANTCUOTAS;
+			}
+			set
+			{
+				if ((this._CANTCUOTAS != value))
+				{
+					this._CANTCUOTAS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADOPAGO", DbType="Int")]
+		public System.Nullable<int> ESTADOPAGO
+		{
+			get
+			{
+				return this._ESTADOPAGO;
+			}
+			set
+			{
+				if ((this._ESTADOPAGO != value))
+				{
+					this._ESTADOPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDSITIOORIGEN", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDSITIOORIGEN
+		{
+			get
+			{
+				return this._IDSITIOORIGEN;
+			}
+			set
+			{
+				if ((this._IDSITIOORIGEN != value))
+				{
+					this._IDSITIOORIGEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDALOJ
+		{
+			get
+			{
+				return this._IDALOJ;
+			}
+			set
+			{
+				if ((this._IDALOJ != value))
+				{
+					this._IDALOJ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOTRANSACCION", DbType="Int NOT NULL")]
+		public int TIPOTRANSACCION
+		{
+			get
+			{
+				return this._TIPOTRANSACCION;
+			}
+			set
+			{
+				if ((this._TIPOTRANSACCION != value))
+				{
+					this._TIPOTRANSACCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreFormaPago", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombreFormaPago
+		{
+			get
+			{
+				return this._nombreFormaPago;
+			}
+			set
+			{
+				if ((this._nombreFormaPago != value))
+				{
+					this._nombreFormaPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOFORMAPAGO", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDTIPOFORMAPAGO
+		{
+			get
+			{
+				return this._IDTIPOFORMAPAGO;
+			}
+			set
+			{
+				if ((this._IDTIPOFORMAPAGO != value))
+				{
+					this._IDTIPOFORMAPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+		public System.DateTime FECHA_ALTA
+		{
+			get
+			{
+				return this._FECHA_ALTA;
+			}
+			set
+			{
+				if ((this._FECHA_ALTA != value))
+				{
+					this._FECHA_ALTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaUltimoCheckIn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fechaUltimoCheckIn
+		{
+			get
+			{
+				return this._fechaUltimoCheckIn;
+			}
+			set
+			{
+				if ((this._fechaUltimoCheckIn != value))
+				{
+					this._fechaUltimoCheckIn = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_VENCIMIENTO", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHA_VENCIMIENTO
+		{
+			get
+			{
+				return this._FECHA_VENCIMIENTO;
+			}
+			set
+			{
+				if ((this._FECHA_VENCIMIENTO != value))
+				{
+					this._FECHA_VENCIMIENTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreAlojamiento", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombreAlojamiento
+		{
+			get
+			{
+				return this._nombreAlojamiento;
+			}
+			set
+			{
+				if ((this._nombreAlojamiento != value))
+				{
+					this._nombreAlojamiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pasajero", DbType="VarChar(102) NOT NULL", CanBeNull=false)]
+		public string pasajero
+		{
+			get
+			{
+				return this._pasajero;
+			}
+			set
+			{
+				if ((this._pasajero != value))
+				{
+					this._pasajero = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getTransaccionesPorIdUsuarioResult
+	{
+		
+		private System.Guid _IDTRANSACCION;
+		
+		private System.Nullable<System.Guid> _IDFORMAPAGO;
+		
+		private System.Nullable<System.Guid> _IDUSUARIO;
+		
+		private string _DESCRIPCION;
+		
+		private System.Nullable<float> _MONTOTOTALCONDESC;
+		
+		private int _CODIGO_RESERVA;
+		
+		private int _ESTADORESERVA;
+		
+		private System.Nullable<int> _CODIGO_CONFIRMACION;
+		
+		private System.Nullable<float> _MONTOTOTALSINDESC;
+		
+		private System.Nullable<float> _COTIZACION;
+		
+		private System.Guid _IDMONEDA;
+		
+		private System.Nullable<int> _IDPU;
+		
+		private System.Nullable<int> _CANTCUOTAS;
+		
+		private System.Nullable<int> _ESTADOPAGO;
+		
+		private System.Guid _IDSITIOORIGEN;
+		
+		private System.Nullable<System.Guid> _IDALOJ;
+		
+		private int _TIPOTRANSACCION;
+		
+		private string _nombreFormaPago;
+		
+		private System.Guid _IDTIPOFORMAPAGO;
+		
+		private System.DateTime _FECHA_ALTA;
+		
+		private System.Nullable<System.DateTime> _fechaUltimoCheckIn;
+		
+		private System.Nullable<System.DateTime> _FECHA_VENCIMIENTO;
+		
+		private string _nombreAlojamiento;
+		
+		private string _pasajero;
+		
+		public getTransaccionesPorIdUsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDTRANSACCION
+		{
+			get
+			{
+				return this._IDTRANSACCION;
+			}
+			set
+			{
+				if ((this._IDTRANSACCION != value))
+				{
+					this._IDTRANSACCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFORMAPAGO", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDFORMAPAGO
+		{
+			get
+			{
+				return this._IDFORMAPAGO;
+			}
+			set
+			{
+				if ((this._IDFORMAPAGO != value))
+				{
+					this._IDFORMAPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDUSUARIO
+		{
+			get
+			{
+				return this._IDUSUARIO;
+			}
+			set
+			{
+				if ((this._IDUSUARIO != value))
+				{
+					this._IDUSUARIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this._DESCRIPCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALCONDESC", DbType="Real")]
+		public System.Nullable<float> MONTOTOTALCONDESC
+		{
+			get
+			{
+				return this._MONTOTOTALCONDESC;
+			}
+			set
+			{
+				if ((this._MONTOTOTALCONDESC != value))
+				{
+					this._MONTOTOTALCONDESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_RESERVA", DbType="Int NOT NULL")]
+		public int CODIGO_RESERVA
+		{
+			get
+			{
+				return this._CODIGO_RESERVA;
+			}
+			set
+			{
+				if ((this._CODIGO_RESERVA != value))
+				{
+					this._CODIGO_RESERVA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADORESERVA", DbType="Int NOT NULL")]
+		public int ESTADORESERVA
+		{
+			get
+			{
+				return this._ESTADORESERVA;
+			}
+			set
+			{
+				if ((this._ESTADORESERVA != value))
+				{
+					this._ESTADORESERVA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_CONFIRMACION", DbType="Int")]
+		public System.Nullable<int> CODIGO_CONFIRMACION
+		{
+			get
+			{
+				return this._CODIGO_CONFIRMACION;
+			}
+			set
+			{
+				if ((this._CODIGO_CONFIRMACION != value))
+				{
+					this._CODIGO_CONFIRMACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALSINDESC", DbType="Real")]
+		public System.Nullable<float> MONTOTOTALSINDESC
+		{
+			get
+			{
+				return this._MONTOTOTALSINDESC;
+			}
+			set
+			{
+				if ((this._MONTOTOTALSINDESC != value))
+				{
+					this._MONTOTOTALSINDESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACION", DbType="Real")]
+		public System.Nullable<float> COTIZACION
+		{
+			get
+			{
+				return this._COTIZACION;
+			}
+			set
+			{
+				if ((this._COTIZACION != value))
+				{
+					this._COTIZACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDMONEDA
+		{
+			get
+			{
+				return this._IDMONEDA;
+			}
+			set
+			{
+				if ((this._IDMONEDA != value))
+				{
+					this._IDMONEDA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPU", DbType="Int")]
+		public System.Nullable<int> IDPU
+		{
+			get
+			{
+				return this._IDPU;
+			}
+			set
+			{
+				if ((this._IDPU != value))
+				{
+					this._IDPU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANTCUOTAS", DbType="Int")]
+		public System.Nullable<int> CANTCUOTAS
+		{
+			get
+			{
+				return this._CANTCUOTAS;
+			}
+			set
+			{
+				if ((this._CANTCUOTAS != value))
+				{
+					this._CANTCUOTAS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADOPAGO", DbType="Int")]
+		public System.Nullable<int> ESTADOPAGO
+		{
+			get
+			{
+				return this._ESTADOPAGO;
+			}
+			set
+			{
+				if ((this._ESTADOPAGO != value))
+				{
+					this._ESTADOPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDSITIOORIGEN", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDSITIOORIGEN
+		{
+			get
+			{
+				return this._IDSITIOORIGEN;
+			}
+			set
+			{
+				if ((this._IDSITIOORIGEN != value))
+				{
+					this._IDSITIOORIGEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDALOJ
+		{
+			get
+			{
+				return this._IDALOJ;
+			}
+			set
+			{
+				if ((this._IDALOJ != value))
+				{
+					this._IDALOJ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOTRANSACCION", DbType="Int NOT NULL")]
+		public int TIPOTRANSACCION
+		{
+			get
+			{
+				return this._TIPOTRANSACCION;
+			}
+			set
+			{
+				if ((this._TIPOTRANSACCION != value))
+				{
+					this._TIPOTRANSACCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreFormaPago", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombreFormaPago
+		{
+			get
+			{
+				return this._nombreFormaPago;
+			}
+			set
+			{
+				if ((this._nombreFormaPago != value))
+				{
+					this._nombreFormaPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOFORMAPAGO", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDTIPOFORMAPAGO
+		{
+			get
+			{
+				return this._IDTIPOFORMAPAGO;
+			}
+			set
+			{
+				if ((this._IDTIPOFORMAPAGO != value))
+				{
+					this._IDTIPOFORMAPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+		public System.DateTime FECHA_ALTA
+		{
+			get
+			{
+				return this._FECHA_ALTA;
+			}
+			set
+			{
+				if ((this._FECHA_ALTA != value))
+				{
+					this._FECHA_ALTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaUltimoCheckIn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fechaUltimoCheckIn
+		{
+			get
+			{
+				return this._fechaUltimoCheckIn;
+			}
+			set
+			{
+				if ((this._fechaUltimoCheckIn != value))
+				{
+					this._fechaUltimoCheckIn = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_VENCIMIENTO", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHA_VENCIMIENTO
+		{
+			get
+			{
+				return this._FECHA_VENCIMIENTO;
+			}
+			set
+			{
+				if ((this._FECHA_VENCIMIENTO != value))
+				{
+					this._FECHA_VENCIMIENTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreAlojamiento", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombreAlojamiento
+		{
+			get
+			{
+				return this._nombreAlojamiento;
+			}
+			set
+			{
+				if ((this._nombreAlojamiento != value))
+				{
+					this._nombreAlojamiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pasajero", DbType="VarChar(102) NOT NULL", CanBeNull=false)]
+		public string pasajero
+		{
+			get
+			{
+				return this._pasajero;
+			}
+			set
+			{
+				if ((this._pasajero != value))
+				{
+					this._pasajero = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getTransaccionesNuevasPorIdUsuarioResult
+	{
+		
+		private System.Guid _IDTRANSACCION;
+		
+		private System.Nullable<System.Guid> _IDFORMAPAGO;
+		
+		private System.Nullable<System.Guid> _IDUSUARIO;
+		
+		private string _DESCRIPCION;
+		
+		private System.Nullable<float> _MONTOTOTALCONDESC;
+		
+		private int _CODIGO_RESERVA;
+		
+		private int _ESTADORESERVA;
+		
+		private System.Nullable<int> _CODIGO_CONFIRMACION;
+		
+		private System.Nullable<float> _MONTOTOTALSINDESC;
+		
+		private System.Nullable<float> _COTIZACION;
+		
+		private System.Guid _IDMONEDA;
+		
+		private System.Nullable<int> _IDPU;
+		
+		private System.Nullable<int> _CANTCUOTAS;
+		
+		private System.Nullable<int> _ESTADOPAGO;
+		
+		private System.Guid _IDSITIOORIGEN;
+		
+		private System.Nullable<System.Guid> _IDALOJ;
+		
+		private int _TIPOTRANSACCION;
+		
+		private string _nombreFormaPago;
+		
+		private System.Guid _IDTIPOFORMAPAGO;
+		
+		private System.DateTime _FECHA_ALTA;
+		
+		private System.Nullable<System.DateTime> _fechaUltimoCheckIn;
+		
+		private System.Nullable<System.DateTime> _FECHA_VENCIMIENTO;
+		
+		private string _nombreAlojamiento;
+		
+		private string _pasajero;
+		
+		public getTransaccionesNuevasPorIdUsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTRANSACCION", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDTRANSACCION
+		{
+			get
+			{
+				return this._IDTRANSACCION;
+			}
+			set
+			{
+				if ((this._IDTRANSACCION != value))
+				{
+					this._IDTRANSACCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDFORMAPAGO", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDFORMAPAGO
+		{
+			get
+			{
+				return this._IDFORMAPAGO;
+			}
+			set
+			{
+				if ((this._IDFORMAPAGO != value))
+				{
+					this._IDFORMAPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDUSUARIO", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDUSUARIO
+		{
+			get
+			{
+				return this._IDUSUARIO;
+			}
+			set
+			{
+				if ((this._IDUSUARIO != value))
+				{
+					this._IDUSUARIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPCION", DbType="VarChar(4000)")]
+		public string DESCRIPCION
+		{
+			get
+			{
+				return this._DESCRIPCION;
+			}
+			set
+			{
+				if ((this._DESCRIPCION != value))
+				{
+					this._DESCRIPCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALCONDESC", DbType="Real")]
+		public System.Nullable<float> MONTOTOTALCONDESC
+		{
+			get
+			{
+				return this._MONTOTOTALCONDESC;
+			}
+			set
+			{
+				if ((this._MONTOTOTALCONDESC != value))
+				{
+					this._MONTOTOTALCONDESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_RESERVA", DbType="Int NOT NULL")]
+		public int CODIGO_RESERVA
+		{
+			get
+			{
+				return this._CODIGO_RESERVA;
+			}
+			set
+			{
+				if ((this._CODIGO_RESERVA != value))
+				{
+					this._CODIGO_RESERVA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADORESERVA", DbType="Int NOT NULL")]
+		public int ESTADORESERVA
+		{
+			get
+			{
+				return this._ESTADORESERVA;
+			}
+			set
+			{
+				if ((this._ESTADORESERVA != value))
+				{
+					this._ESTADORESERVA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGO_CONFIRMACION", DbType="Int")]
+		public System.Nullable<int> CODIGO_CONFIRMACION
+		{
+			get
+			{
+				return this._CODIGO_CONFIRMACION;
+			}
+			set
+			{
+				if ((this._CODIGO_CONFIRMACION != value))
+				{
+					this._CODIGO_CONFIRMACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONTOTOTALSINDESC", DbType="Real")]
+		public System.Nullable<float> MONTOTOTALSINDESC
+		{
+			get
+			{
+				return this._MONTOTOTALSINDESC;
+			}
+			set
+			{
+				if ((this._MONTOTOTALSINDESC != value))
+				{
+					this._MONTOTOTALSINDESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COTIZACION", DbType="Real")]
+		public System.Nullable<float> COTIZACION
+		{
+			get
+			{
+				return this._COTIZACION;
+			}
+			set
+			{
+				if ((this._COTIZACION != value))
+				{
+					this._COTIZACION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMONEDA", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDMONEDA
+		{
+			get
+			{
+				return this._IDMONEDA;
+			}
+			set
+			{
+				if ((this._IDMONEDA != value))
+				{
+					this._IDMONEDA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPU", DbType="Int")]
+		public System.Nullable<int> IDPU
+		{
+			get
+			{
+				return this._IDPU;
+			}
+			set
+			{
+				if ((this._IDPU != value))
+				{
+					this._IDPU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANTCUOTAS", DbType="Int")]
+		public System.Nullable<int> CANTCUOTAS
+		{
+			get
+			{
+				return this._CANTCUOTAS;
+			}
+			set
+			{
+				if ((this._CANTCUOTAS != value))
+				{
+					this._CANTCUOTAS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADOPAGO", DbType="Int")]
+		public System.Nullable<int> ESTADOPAGO
+		{
+			get
+			{
+				return this._ESTADOPAGO;
+			}
+			set
+			{
+				if ((this._ESTADOPAGO != value))
+				{
+					this._ESTADOPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDSITIOORIGEN", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDSITIOORIGEN
+		{
+			get
+			{
+				return this._IDSITIOORIGEN;
+			}
+			set
+			{
+				if ((this._IDSITIOORIGEN != value))
+				{
+					this._IDSITIOORIGEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDALOJ", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDALOJ
+		{
+			get
+			{
+				return this._IDALOJ;
+			}
+			set
+			{
+				if ((this._IDALOJ != value))
+				{
+					this._IDALOJ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TIPOTRANSACCION", DbType="Int NOT NULL")]
+		public int TIPOTRANSACCION
+		{
+			get
+			{
+				return this._TIPOTRANSACCION;
+			}
+			set
+			{
+				if ((this._TIPOTRANSACCION != value))
+				{
+					this._TIPOTRANSACCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreFormaPago", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombreFormaPago
+		{
+			get
+			{
+				return this._nombreFormaPago;
+			}
+			set
+			{
+				if ((this._nombreFormaPago != value))
+				{
+					this._nombreFormaPago = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTIPOFORMAPAGO", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid IDTIPOFORMAPAGO
+		{
+			get
+			{
+				return this._IDTIPOFORMAPAGO;
+			}
+			set
+			{
+				if ((this._IDTIPOFORMAPAGO != value))
+				{
+					this._IDTIPOFORMAPAGO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALTA", DbType="DateTime NOT NULL")]
+		public System.DateTime FECHA_ALTA
+		{
+			get
+			{
+				return this._FECHA_ALTA;
+			}
+			set
+			{
+				if ((this._FECHA_ALTA != value))
+				{
+					this._FECHA_ALTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaUltimoCheckIn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fechaUltimoCheckIn
+		{
+			get
+			{
+				return this._fechaUltimoCheckIn;
+			}
+			set
+			{
+				if ((this._fechaUltimoCheckIn != value))
+				{
+					this._fechaUltimoCheckIn = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_VENCIMIENTO", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHA_VENCIMIENTO
+		{
+			get
+			{
+				return this._FECHA_VENCIMIENTO;
+			}
+			set
+			{
+				if ((this._FECHA_VENCIMIENTO != value))
+				{
+					this._FECHA_VENCIMIENTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreAlojamiento", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombreAlojamiento
+		{
+			get
+			{
+				return this._nombreAlojamiento;
+			}
+			set
+			{
+				if ((this._nombreAlojamiento != value))
+				{
+					this._nombreAlojamiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pasajero", DbType="VarChar(102) NOT NULL", CanBeNull=false)]
+		public string pasajero
+		{
+			get
+			{
+				return this._pasajero;
+			}
+			set
+			{
+				if ((this._pasajero != value))
+				{
+					this._pasajero = value;
 				}
 			}
 		}

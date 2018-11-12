@@ -1,4 +1,4 @@
-﻿@model ArgentinahtlMVC.Models.SeasonsModel
+﻿@model ArgentinahtlMVC.Models.RateListModel
 @{
     ViewBag.Title = "Listado de Tarifas";
     Html.EnableUnobtrusiveJavaScript();
@@ -29,71 +29,14 @@
             $('#fechaHasta').datepicker('option', { minDate: addTimeToDate(1, 'd', $(this).datepicker('getDate'), false) });
         });
 
-        $('#provinces').change(function () {
-            loadCities();
-        });
-
-        $('#cities').change(function () {
-            loadLodgings();
-        });
-
-        $('#lodgings').change(function () {
-            loadRooms();
-        });
-
         $('#rooms').change(function () {
-            loadRateList('{' + $('#lodgings > option:selected').attr('value') + '}',
+            loadRateList('{' + '@Model.Lodging.LodgingId.ToString()' + '}',
                          '{' + $('#rooms > option:selected').attr('value') + '}',
                          '{' + $("#fechaDesde").val() + '}',
                          '{' + $("#fechaHasta").val() + '}');
 
         });
-
-        //        $('#lodgingId').change(function () {
-        //            loadSeasonList('{' + $('#lodgingId').val() + '}');
-        //        });
-
-        //        $('#roomId').change(function () {
-        //            loadRateList('{' + $('#lodgings > option:selected').attr('value') + '}',
-        //                         '{' + $('#roomId').val() + '}',
-        //                         '{' + $('#fechaDesde').attr('value') + '}',
-        //                         '{' + $('#fechaHasta').attr('value') + '}');
-        //        });
-
-        $('#provinces').change();
-
-        $('.byDestination *').enable();
     });
-
-    function loadCities() {
-        $.getJSON('@Url.Content("~/Lodging/GetCities/{")' + $('#provinces > option:selected').attr('value') + '}', function (data) {
-            var items = "<option value=\"\"></option>";
-            $.each(data, function (i, state) {
-                items += "<option value=\"" + state.DestinationId + "\">" + state.DestinationName + "</option>";
-            });
-            $('#cities').html(items);
-        });
-    }
-
-    function loadLodgings() {
-        $.getJSON('@Url.Content("~/Lodging/GetLodgings/{")' + $('#cities > option:selected').attr('value') + '}', function (data) {
-            var items = "<option value=\"\"></option>";
-            $.each(data, function (i, state) {
-                items += "<option value=\"" + state.LodgingId + "\">" + state.FirstName + state.LastName + "</option>";
-            });
-            $('#lodgings').html(items);
-        });
-    }
-
-    function loadRooms() {
-        $.getJSON('@Url.Content("~/Rate/GetRooms/{")' + $('#lodgings > option:selected').attr('value') + '}', function (data) {
-            var items = "<option value=\"\"></option>";
-            $.each(data, function (i, state) {
-                items += "<option value=\"" + state.RoomId + "\">" + state.RoomName + "</option>";
-            });
-            $('#rooms').html(items);
-       });
-    }
 
     function loadRateList(lodgingId, roomId, fechaDesde, fechaHasta) {
         if (lodgingId != null && lodgingId != '' && lodgingId != '{}') {
@@ -110,11 +53,11 @@
                     $('#rate_list').html(data);
                     $('#transaction_list').fadeTo('slow', '1');
                     $("#new_rate").prop("href", '@Url.Content("~/Rate/CreateRate/{")' + $('#rooms > option:selected').attr('value') + '}');
-                    $("#cierres").prop("href", '@Url.Content("~/Rate/Cierres/?lodgingId=")' + $('#lodgings > option:selected').attr('value') + '&' +
+                    $("#cierres").prop("href", '@Url.Content("~/Rate/Cierres/?lodgingId=")' + '@Model.Lodging.LodgingId.ToString()' + '&' +
                                                                             'roomId=' + $('#rooms > option:selected').attr('value') + '&' +
                                                                             'fechaDesde=' + $("#fechaDesde").val() + '&' +
                                                                             'fechaHasta=' + $("#fechaHasta").val() );
-                    $("#tarifas").prop("href", '@Url.Content("~/Rate/Tarifas/?lodgingId=")' + $('#lodgings > option:selected').attr('value') + '&' +
+                    $("#tarifas").prop("href", '@Url.Content("~/Rate/Tarifas/?lodgingId=")' + '@Model.Lodging.LodgingId.ToString()' + '&' +
                                                                             'roomId=' + $('#rooms > option:selected').attr('value') + '&' +
                                                                             'fechaDesde=' + $("#fechaDesde").val() + '&' +
                                                                             'fechaHasta=' + $("#fechaHasta").val());
@@ -131,7 +74,7 @@
     }
 
     function refreshRateList() {
-        loadRateList('{' + $('#lodgings > option:selected').attr('value') + '}',
+        loadRateList('{' + '@Model.Lodging.LodgingId.ToString()' + '}',
                          '{' + $('#rooms > option:selected').attr('value') + '}',
                          '{' + $("#fechaDesde").val() + '}',
                          '{' + $("#fechaHasta").val() + '}');
@@ -148,18 +91,11 @@
             @Html.Label("Hasta"): @Html.TextBox("fechaHasta")
             <br />
 
-                @Html.Label("Provincia") @Html.DropDownList("provinces", Model.Provinces.Select(d => new SelectListItem { Text = d.DestinationName, Value = d.DestinationId.ToString()}))
+            @Html.Label("Habitación") @Html.DropDownList("rooms", Model.Lodging.Rooms.Select(d => new SelectListItem { Text = d.RoomName, Value = d.RoomId.ToString() }))
 
-                @Html.Label("Ciudad") @Html.DropDownList("cities", new List<SelectListItem>())
+            <br />
 
-                @Html.Label("Alojamiento") @Html.DropDownList("lodgings", new List<SelectListItem>())
 
-                @Html.Label("Habitación") @Html.DropDownList("rooms", new List<SelectListItem>())
-
-            
-             <br />
-
-            
         </div>
     </div>
 </div>
@@ -170,5 +106,5 @@
 <br /><br />
 
 <div id="rate_list" style="float:left;clear:both;">
-@Html.Partial("RateList", new RateListModel())
+    @Html.Partial("RateList", new RateListModel())
 </div>
