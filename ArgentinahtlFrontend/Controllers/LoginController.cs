@@ -66,10 +66,12 @@ namespace CheckArgentina.Controllers
         {
             using (var smtp = ObtenerClienteSmtp())
             {
-                FluentEmail.Email
+                try
+                {
+                    FluentEmail.Email
                     .From(EmailPasajero)
                     .Subject(string.Format("Reserva en {0} via mail", LodgingName))
-                    .To("juanwillink@gmail.com")
+                    .To("soporte@argentinahtl.com")
                     .Body("Datos de la Reserva: <br>" +
                     "Hotel:" + LodgingName + "<br>" +
                     "Pasajero:" + NombrePasajero + "<br>" +
@@ -80,6 +82,12 @@ namespace CheckArgentina.Controllers
                     "Observaciones:" + Observaciones)
                     .UsingClient(smtp)
                     .Send();
+                }
+                catch (Exception ex)
+                {
+                    return View("Error");
+                }
+                
             }
             return View("Home");
         }
@@ -91,7 +99,7 @@ namespace CheckArgentina.Controllers
                 FluentEmail.Email
                 .From(Config.LeerSetting("MailAccountFrom"))
                 .Subject(string.Format("Alta de usuario {0}", model.BuissnessName))
-                .To("reservas@ineltur.com")
+                .To("soporte@argentinahtl.com")
                 .Body("Datos del Alta: <br>" +
                     "Nombre de la Empresa: " + model.BuissnessName + "<br>" +
                     "Razon Social: " + model.RazonSocial + "<br>" +

@@ -31,10 +31,6 @@
     {
         @Html.ActionLink("Gestión de Tarifas", "Rates", "Rate")<br />
     }
-    @if (SessionData.UserProfile >= UserProfile.Administrator)
-    {
-        @Html.ActionLink("Gestión de Tarifas", "Rates", "Rate")<br />
-    }
     @if (SessionData.UserProfile == UserProfile.Hotel)
     {
         @Html.ActionLink("Gestion de Tarifas", "RatesHotel", "Rate")<br />

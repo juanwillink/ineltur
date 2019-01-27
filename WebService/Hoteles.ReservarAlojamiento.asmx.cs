@@ -500,7 +500,7 @@ namespace Ineltur.WebService
                                 .Subject(idioma == "es" ? string.Format("Reserva en {0}", alojamiento.Nombre) : string.Format("Reserve at {0}", alojamiento.Nombre))
                                 .To(usuario.Email.Split(new char[] {';', ','}, StringSplitOptions.RemoveEmptyEntries)
                                     .Select(a => new MailAddress(a)).ToList())
-                                .UsingTemplateFromFile(String.Format("~/PlantillasMails/Reserva.{0}.cshtml", idioma), model)
+                                //.UsingTemplateFromFile(String.Format("~/PlantillasMails/Reserva.{0}.cshtml", idioma), model)
                                 .UsingClient(smtp)
                                 .Send();
 
@@ -514,7 +514,7 @@ namespace Ineltur.WebService
                                         new MailAddress(Config.LeerSetting("MailReservas")), 
                                         new MailAddress(Config.LeerSetting("MailReservas2"))
                                     })
-                                .UsingTemplateFromFile(String.Format("~/PlantillasMails/Reserva.{0}.cshtml", idioma), model)
+                                //.UsingTemplateFromFile(String.Format("~/PlantillasMails/Reserva.{0}.cshtml", idioma), model)
                                 .UsingClient(smtp)
                                 .Send();
 
@@ -525,7 +525,7 @@ namespace Ineltur.WebService
                                 .Subject(idioma == "es" ? string.Format("Reserva en {0}", alojamiento.Nombre) : string.Format("Reserve at {0}", alojamiento.Nombre))
                                 .To(transaccion.Alojamiento.Email.Split(new char[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries)
                                     .Select(a => new MailAddress(a)).ToList())
-                                .UsingTemplateFromFile(String.Format("~/PlantillasMails/ReservaParaAlojamiento.{0}.cshtml", idioma), model)
+                                //.UsingTemplateFromFile(String.Format("~/PlantillasMails/ReservaParaAlojamiento.{0}.cshtml", idioma), model)
                                 .UsingClient(smtp)
                                 .Send();
                         }

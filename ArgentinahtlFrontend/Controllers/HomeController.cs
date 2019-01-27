@@ -58,7 +58,7 @@ namespace CheckArgentina.Controllers
                 FluentEmail.Email
                 .From(email)
                 .Subject("Subscripcion a Newsletter")
-                .To("mjjara@ineltur.com")
+                .To("soporte@argentinahtl.com")
                 .Body("Se ha solicitado una subscripcion al newsletter con el siguiente correo " + email)
                 .UsingClient(smtp)
                 .Send();

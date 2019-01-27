@@ -147,7 +147,7 @@
             @Html.Label("Desde"): @Html.TextBox("fechaDesde")
             @Html.Label("Hasta"): @Html.TextBox("fechaHasta")
             <br />
-
+            f
                 @Html.Label("Provincia") @Html.DropDownList("provinces", Model.Provinces.Select(d => new SelectListItem { Text = d.DestinationName, Value = d.DestinationId.ToString()}))
 
                 @Html.Label("Ciudad") @Html.DropDownList("cities", new List<SelectListItem>())

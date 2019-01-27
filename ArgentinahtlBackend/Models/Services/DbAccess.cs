@@ -431,7 +431,8 @@ namespace ArgentinahtlMVC.Models.Services
                 Password = user.CLAVE,
                 Profile = (user.UsuarioWebs != null ? (UserProfile)user.UsuarioWebs.PERFIL : UserProfile.Operator),
                 Enabled = user.ACTIVO,
-                Email = user.EMAIL
+                Email = user.EMAIL,
+                HotelId = user.IDHOTEL
             };
         }
 

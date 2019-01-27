@@ -76,6 +76,8 @@ namespace ArgentinahtlMVC.Models
         [Display(Name = "Email address")]
         public string Email { get; set; }
 
+        public Guid? HotelId { get; set; }
+
         [Required]
         [Display(Name = "User profile")]
         public UserProfile Profile { get; set; }

@@ -400,7 +400,7 @@ namespace CheckArgentina.Managers
                                         MAXIMONOCHES = p.MaximoNoches,
                                         NOMBRE = p.NombrePromocion,
                                         SLOGAN = p.Slogan
-                                    }).ToArray(),
+                                    }).Where(p => p.FECHAFIN >= DateTime.Now.Date).ToArray(),
                                     Rooms = new List<RoomModel>{
                                         new RoomModel{
                                             RoomId = v.IdUnidad.ToString(),

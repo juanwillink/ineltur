@@ -149,7 +149,7 @@
                                                         int j = 0;
                                                         foreach (var pasajero in Model.Vacancies[i].Rooms[0].Travelers)
                                                         {
-                                                            <li>@pasajero.TravelerFirstName @pasajero.TravelerLastName <button class="btn btn-warning btn-xs" style="margin:2px;">Modificar</button> <button class="btn btn-danger btn-xs" onclick="eliminarPasajero('@pasajero.TravelerFirstName', '@pasajero.TravelerLastName')">X</button></li>
+                                                            <li>@pasajero.TravelerFirstName @pasajero.TravelerLastName <button class="btn btn-danger btn-xs" onclick="eliminarPasajero('@pasajero.TravelerFirstName', '@pasajero.TravelerLastName')">X</button></li>
                                                             <input type="hidden" id="@string.Format("vacancy_{0}_travelerName_{1}", i, j)" value="@pasajero.TravelerFirstName" />
                                                             <input type="hidden" id="@string.Format("vacancy_{0}_travelerLastName_{1}", i, j)" value="@pasajero.TravelerLastName"/>
                                                             j++;
